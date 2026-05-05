@@ -267,4 +267,4 @@ const logout = () => {
   if (UI.confirmar('Deseja sair do sistema?')) {
     Auth.logout();
   }
-}; 
+};
