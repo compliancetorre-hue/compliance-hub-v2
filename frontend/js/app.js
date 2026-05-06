@@ -1,5 +1,5 @@
 // ===== CONSTANTES GLOBAIS =====
-const SUPABASE_URL  = 'https://qhtkuarlsjlnfkzfmxwa.supabase.co';
+const SUPABASE_URL  = '%%SUPABASE_URL%%';
 const EDGE_URL = SUPABASE_URL + '/functions/v1/api';
 
 document.addEventListener('DOMContentLoaded',function(){
@@ -2881,16 +2881,13 @@ function checkSession() {
 // Pegue em: https://app.supabase.com → Settings → API
 
 // ✅ URL do projeto (correta)
-// const SUPABASE_URL  = 'https://qhtkuarlsjlnfkzfmxwa.supabase.co';  // ← JÁ DEFINIDA NO INÍCIO
+  // ← JÁ DEFINIDA NO INÍCIO
 
 // ⚠️  COLE AQUI sua anon key (começa com eyJ...)
 // Pegue em: supabase.com → seu projeto → Settings → API → "anon public"
 // Chave anon não é mais usada diretamente — todo acesso vai pelo Edge Function
-// Anon key — usada como fallback se Edge Function não responder
-const _a1='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9';
-const _a2='.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFodGt1YXJsc2psbmZremZteHdhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzU2MDkwMTQsImV4cCI6MjA5MTE4NTAxNH0';
-const _a3='.5rw_iN9_-IYyNlqaOAXdy5wpmrOcvVO-QAUEQBgl3eA';
-const SUPABASE_ANON = _a1+_a2+_a3;
+// Anon key — injetada pelo CI/CD via GitHub Secrets
+const SUPABASE_ANON = '%%SUPABASE_ANON_KEY%%';
 
 // Ativo quando a anon key parece uma JWT válida (começa com eyJ)
 // Também verifica se há uma chave salva no localStorage
