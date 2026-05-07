@@ -4868,7 +4868,7 @@ async function carregarBranding() {
             return;
           }
         }
-      } catch(e) { console.warn('Erro ao carregar branding do Supabase:', e.message); }
+      } catch(e) { try { const r2=await fetch(`${SUPABASE_URL}/rest/v1/branding?limit=1`,{headers:{'apikey':getActiveKey(),'Authorization':'Bearer '+getActiveKey()}}); if(r2.ok){const d2=await r2.json();if(d2&&d2.length>0){const c2=d2[0];BRANDING={nome:c2.nome||'Compliance',subtitulo:c2.subtitulo||'Sistema de Gestão',corPrimaria:c2.cor_primaria||'#0f2d4a',logoUrl:c2.logo_url||''};localStorage.setItem(BRANDING_KEY,JSON.stringify(BRANDING));aplicarBranding();return;}} } catch(e2){} console.warn('Erro ao carregar branding do Supabase:', e.message); }
     }
     
     // Fallback: localStorage
