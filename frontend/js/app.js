@@ -4850,7 +4850,7 @@ async function carregarBranding() {
     // Tentar carregar do Supabase primeiro
     if(USE_SUPABASE && SUPABASE_URL) {
       try {
-        const r = await fetch(`${EDGE_URL}/data/branding?limit=1`, { 
+        const r = await fetch(`${SUPABASE_URL}/rest/v1/branding?limit=1`, { 
           headers: _efH() 
         });
         if(r.ok) {
