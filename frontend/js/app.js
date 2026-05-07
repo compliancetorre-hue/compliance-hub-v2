@@ -5,7 +5,7 @@ const EDGE_URL = SUPABASE_URL + '/functions/v1/api';
 document.addEventListener('DOMContentLoaded',function(){
   const c=document.getElementById('content');if(!c)return;
   const p=document.createElement('div');
-  p.className='page';p.id='page-due-diligence';
+  p.className='page';p.id='page-due-diligence';h
   p.innerHTML=ddHTML();
   c.appendChild(p);
 });
@@ -2898,7 +2898,7 @@ function getAppToken() { return sessionStorage.getItem('ch_app_token') || ''; }
 function setAppToken(t) { sessionStorage.setItem('ch_app_token', t); }
 
 // Mantido por compatibilidade (não expõe chave ao cliente)
-function getActiveKey() { return ''; }
+function getActiveKey() { return localStorage.getItem('sb_anon_key_override') || SUPABASE_ANON || ''; }
 function getSbHeaders(extra) { return Object.assign({'Content-Type':'application/json','x-app-token':getAppToken()}, extra||{}); }
 const SB_HEADERS = new Proxy({}, { get(_, prop) { return getSbHeaders()[prop]; } });
 
