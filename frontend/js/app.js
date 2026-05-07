@@ -5,7 +5,7 @@ const EDGE_URL = SUPABASE_URL + '/functions/v1/api';
 document.addEventListener('DOMContentLoaded',function(){
   const c=document.getElementById('content');if(!c)return;
   const p=document.createElement('div');
-  p.className='page';p.id='page-due-diligence';h
+  p.className='page';p.id='page-due-diligence'
   p.innerHTML=ddHTML();
   c.appendChild(p);
 });
@@ -2732,7 +2732,7 @@ function enterApp(user) {
   });
   // Mostrar grade admin só se for admin
   const adminGrid = document.getElementById('nav-admin-grid');
-  if(adminGrid) adminGrid.style.display = (user.email === ADMIN_EMAIL) ? 'grid' : 'none';
+  if(adminGrid) adminGrid.style.display = (user.email === ADMIN_EMAIL || user.perfil === 'Admin') ? 'grid' : 'none';
 
   // Carregar dados do Supabase após login (token já disponível)
   if(USE_SUPABASE) {
@@ -5509,12 +5509,12 @@ function permGetUser(email) {
 
 function canAccess(modulo) {
   if(!currentUser) return false;
-  if(currentUser.email === 'admin@torre.com.br') return true;
+  if(currentUser.email === 'admin@torre.com.br' || currentUser.perfil === 'Admin') return true;
   return permGetUser(currentUser.email).includes(modulo);
 }
 
 function isAdmin() {
-  return currentUser && currentUser.email === ADMIN_EMAIL;
+  return currentUser && (currentUser.email === ADMIN_EMAIL || currentUser.perfil === 'Admin');
 }
 
 // ── Atualizar nav com base nas permissões
