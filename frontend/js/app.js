@@ -178,7 +178,7 @@ let currentPage = 'dashboard';
 
 function _gotoImpl(page, el) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.getElementById('page-' + page).classList.add('active');
+  document.getElementById('page-'+page)?.classList.add('active');
   document.querySelectorAll('#sidebar nav a').forEach(a => a.classList.remove('active'));
   const link = document.querySelector(`[data-page="${page}"]`);
   if(link) link.classList.add('active');
