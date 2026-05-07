@@ -2905,7 +2905,7 @@ const SB_HEADERS = new Proxy({}, { get(_, prop) { return getSbHeaders()[prop]; }
 const USE_SUPABASE = SUPABASE_URL.includes('supabase.co');
 
 function _efH() {
-  return { 'Content-Type': 'application/json', 'x-app-token': getAppToken() };
+  const k=getActiveKey(); return { 'Content-Type': 'application/json', 'x-app-token': getAppToken(), ...(k?{'apikey':k,'Authorization':'Bearer '+k}:{}) };
 }
 
 // ── API helpers — todas as chamadas passam pelo Edge Function
