@@ -2111,11 +2111,11 @@ function parseImportDate(val) {
 
   // Formato com hora: DD/MM/YYYY HH:MM ou D/M/YYYY H:MM (padrão BR do Google Forms)
   // Ex: "25/11/2025 13:28", "28/11/2025 12:04", "1/3/2026 9:15"
-  const mHora = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})\s+\d{1,2}:\d{2}/);
+  const mHora = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})\s+\d{1,2}:\d{2}/);
   if(mHora) {
     const p1 = parseInt(mHora[1]);
     const p2 = parseInt(mHora[2]);
-    const ano = mHora[3];
+    const ano = mHora[3].length===2 ? '20'+mHora[3] : mHora[3];
     // Se p1 > 12: é DD/MM/YYYY (dia primeiro, padrão BR)
     // Se p2 > 12: é MM/DD/YYYY (mês primeiro, padrão US) - impossível ter dia > 12 no mês
     // Padrão: assumir DD/MM/YYYY (formato BR, usado no Brasil)
