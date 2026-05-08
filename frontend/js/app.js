@@ -2660,7 +2660,7 @@ function _loadSession() {
 }
 function _clearSession() { sessionStorage.removeItem(SESSION_KEY); }
 
-window.doLogin = function() {
+window.doLogin = async function() {
   const emailEl = document.getElementById('login-email');
   const passEl  = document.getElementById('login-pass');
   const errorEl = document.getElementById('login-error');
