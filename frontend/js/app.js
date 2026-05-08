@@ -1976,6 +1976,19 @@ function processImportFile(file) {
   }
 }
 
+function normalizeSheetHeaders(rows) {
+  // Normaliza cabeçalhos no formato "A (Id)", "B (Hora de início)" -> "Id", "Hora de início"
+  return rows.map(row => {
+    const normalized = {};
+    for (const key of Object.keys(row)) {
+      const m = key.match(/^[A-Z]{1,2}\s*\((.+)\)$/);
+      const newKey = m ? m[1].trim() : key;
+      normalized[newKey] = row[key];
+    }
+    return normalized;
+  });
+}
+
 function parseXLSXImport(buffer) {
   // Use SheetJS (bundled via CDN)
   if(typeof XLSX === 'undefined') {
@@ -1985,7 +1998,9 @@ function parseXLSXImport(buffer) {
   const wb = XLSX.read(buffer, {type:'array', cellDates:true});
   const ws = wb.Sheets[wb.SheetNames[0]];
   const rawRows = XLSX.utils.sheet_to_json(ws, {defval:'', raw:false});
-  buildImportPreview(rawRows);
+  // Normaliza cabeçalhos no formato "A (Id)", "B (Hora de início)" etc.
+  const normalizedRows = normalizeSheetHeaders(rawRows);
+  buildImportPreview(normalizedRows);
 }
 
 function parseCSVImport(text) {
