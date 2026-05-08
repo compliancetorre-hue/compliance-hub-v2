@@ -18,7 +18,7 @@ function ddHTML(){return `
     </div>
     <div>
       <div class="dd-hero-t">Due Diligence — KYC &amp; Mídias Negativas</div>
-      <div class="dd-hero-s">Pessoa Física (CPF) · Pessoa Jurídica (CNPJ) · Busca booleana · Verificação automática · Juntas Comerciais</div>
+      <div class="dd-hero-s">Pessoa Física (CPF) · Pessoa Jurídica (CNPJ) · Bhusca booleana · Verificação automática · Juntas Comerciais</div>
     </div>
   </div>
   <div class="dd-apills">
@@ -3029,7 +3029,7 @@ async function loadFromSupabase() {
         } catch(e) { console.warn('load-all falhou, usando REST direto:', e.message); }
       }
       // Fallback: REST direto com anon key
-      const [f,r,c,p,dn,fb,ag1,ag2] = await Promise.all([
+      const [f,r,c,p,dn,fb,ag1,ag2,st] = await Promise.all([
         fetch(`${SUPABASE_URL}/rest/v1/filiais?order=id&limit=10000`, {headers:{'apikey':SUPABASE_ANON,'Authorization':'Bearer '+SUPABASE_ANON}}).then(x=>x.json()),
         fetch(`${SUPABASE_URL}/rest/v1/riscos?order=id&limit=10000`, {headers:{'apikey':SUPABASE_ANON,'Authorization':'Bearer '+SUPABASE_ANON}}).then(x=>x.json()),
         fetch(`${SUPABASE_URL}/rest/v1/controles?order=id&limit=10000`, {headers:{'apikey':SUPABASE_ANON,'Authorization':'Bearer '+SUPABASE_ANON}}).then(x=>x.json()),
@@ -3038,8 +3038,9 @@ async function loadFromSupabase() {
         fetch(`${SUPABASE_URL}/rest/v1/fbboards?id=eq.main`, {headers:{'apikey':SUPABASE_ANON,'Authorization':'Bearer '+SUPABASE_ANON}}).then(x=>x.json()),
         fetch(`${SUPABASE_URL}/rest/v1/agenda?order=data&limit=10000`, {headers:{'apikey':SUPABASE_ANON,'Authorization':'Bearer '+SUPABASE_ANON}}).then(x=>x.json()),
         fetch(`${SUPABASE_URL}/rest/v1/rm_planos?order=id&limit=10000`, {headers:{'apikey':SUPABASE_ANON,'Authorization':'Bearer '+SUPABASE_ANON}}).then(x=>x.json()),
+        fetch(`${SUPABASE_URL}/rest/v1/settings?select=*`, {headers:{'apikey':SUPABASE_ANON,'Authorization':'Bearer '+SUPABASE_ANON}}).then(x=>x.json()),
       ]);
-      return { filiais:f||[], riscos:r||[], controles:c||[], planos:p||[], denRows:dn||[], fbRows:fb||[], rmPlanos:ag2||[], agenda:ag1||[], settings:[] };
+      return { filiais:f||[], riscos:r||[], controles:c||[], planos:p||[], denRows:dn||[], fbRows:fb||[], rmPlanos:ag2||[], agenda:ag1||[], settings:st||[] };
     })();
     const { filiais, riscos, controles, planos, denRows, fbRows } = allData;
     // Restore extra data from load-all
