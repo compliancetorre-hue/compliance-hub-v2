@@ -2660,29 +2660,34 @@ function _loadSession() {
 }
 function _clearSession() { sessionStorage.removeItem(SESSION_KEY); }
 
-function doLogin() {
+window.doLogin = function() {
   const emailEl = document.getElementById('login-email');
   const passEl  = document.getElementById('login-pass');
   const errorEl = document.getElementById('login-error');
   const btnEl   = document.getElementById('login-btn');
   const btnText = document.getElementById('login-btn-text');
-
   const email = (emailEl.value || '').trim().toLowerCase();
   const senha = passEl.value || '';
-
   errorEl.innerHTML = '';
   emailEl.classList.remove('error');
   passEl.classList.remove('error');
-
-  if(!email) { emailEl.classList.add('error'); errorEl.innerHTML = '⚠️ Informe seu e-mail.'; emailEl.focus(); return; }
-  if(!senha) { passEl.classList.add('error'); errorEl.innerHTML = '⚠️ Informe sua senha.'; passEl.focus(); return; }
-
+  if(!email) {
+    emailEl.classList.add('error');
+    errorEl.innerHTML = '⚠️ Informe seu e-mail.';
+    emailEl.focus();
+    return;
+  }
+  if(!senha) {
+    passEl.classList.add('error');
+    errorEl.innerHTML = '⚠️ Informe sua senha.';
+    passEl.focus();
+    return;
+  }
   btnEl.disabled = true;
   btnText.innerHTML = '<div class="login-spinner"></div> Verificando...';
 
   doLoginAsync(email, senha, emailEl, passEl, errorEl, btnEl, btnText);
-}
-
+};
 async function doLoginAsync(email, senha, emailEl, passEl, errorEl, btnEl, btnText) {
   try {
     const inputHash = await _hashSenha(email, senha);
