@@ -274,105 +274,78 @@ function populateFilialSelects() {
 // DASHBOARD DRILLDOWN
 // ══════════════════════════════════════════
 function openDashDrill(type) {
-  const panel = document.getElementById('dash-drilldown');
-  const thead = document.getElementById('dash-dd-thead').querySelector('tr');
-  const tbody = document.getElementById('dash-dd-tbody');
-  const icon_el = document.getElementById('dash-dd-icon');
+  const panel  = document.getElementById('dash-drilldown');
+  const thead  = document.getElementById('dash-dd-thead').querySelector('tr');
+  const tbody  = document.getElementById('dash-dd-tbody');
+  const icon_el  = document.getElementById('dash-dd-icon');
   const title_el = document.getElementById('dash-dd-title');
   const count_el = document.getElementById('dash-dd-count');
-  const header = document.getElementById('dash-dd-header');
+  const header   = document.getElementById('dash-dd-header');
 
   let rows = '', icon = '', title = '', color = 'var(--primary)', count = 0;
 
   if(type === 'controles') {
-    icon = '🛡️'; title = 'Controles Internos'; color = 'var(--accent)';
-    const items = (DB.controles||[]).slice().sort((a,b) => {
-      const ord = {'Vencido':0,'Em Andamento':1,'Pendente':2,'Não Iniciado':3,'Concluído':4};
-      return (ord[a.status]??5) - (ord[b.status]??5);
-    });
-    count = items.length;
-    const statusCor = {'Concluído':'#10b981','Em Andamento':'#3b82f6','Pendente':'#f59e0b','Vencido':'#ef4444','Não Iniciado':'#94a3b8'};
-    thead.innerHTML = '<th>Controle</th><th>Tipo</th><th>Filial / Setor</th><th>Responsável</th><th>Prazo</th><th>Progresso</th><th>Status</th>';
-    rows = items.length ? items.map(c => {
-      const sc = statusCor[c.status]||'#94a3b8';
-      return `<tr>
-        <td style="font-weight:700;font-size:.84rem">${c.nome}</td>
-        <td style="font-size:.78rem">${c.tipo||'—'}</td>
-        <td style="font-size:.78rem">${c.filial||'—'}<br><small style="color:var(--text-muted)">${c.setor||''}</small></td>
-        <td style="font-size:.78rem">${c.resp||'—'}</td>
-        <td style="font-size:.78rem">${prazoChip(c.prazo)}</td>
-        <td style="min-width:80px">${progBar(c.prog||0)}</td>
-        <td><span style="background:${sc};color:#fff;padding:2px 10px;border-radius:20px;font-size:.74rem;font-weight:700">${c.status}</span></td>
-      </tr>`;
-    }).join('') : '<tr><td colspan="7" class="empty"><div class="ico">✅</div>Nenhum controle cadastrado.</td></tr>';
-
-  } else if(type === 'riscos') {
-    icon = '⚠️'; title = 'Riscos Altos e Críticos'; color = 'var(--warn)';
-    const items = (DB.riscos||[])
-      .filter(r => ['Alto','Crítico'].includes(nivelRisco(r.prob, r.impacto)))
-      .sort((a,b) => (b.prob*b.impacto) - (a.prob*a.impacto));
-    count = items.length;
+    // Controles Monitorados → mostra todos os riscos cadastrados
+    icon = '🛡️'; title = 'Riscos Monitorados'; color = 'var(--accent)';
     const nvCor = {'Crítico':'#ef4444','Alto':'#f59e0b','Médio':'#3b82f6','Baixo':'#10b981'};
+    const items = (DB.riscos||[]).slice().sort((a,b) => (b.prob*b.impacto)-(a.prob*a.impacto));
+    count = items.length;
     thead.innerHTML = '<th>Risco</th><th>Unidade</th><th>Categoria</th><th>Dono / Setor</th><th>P</th><th>I</th><th>Nível</th><th>Controle</th>';
     rows = items.length ? items.map(r => {
       const nv = nivelRisco(r.prob, r.impacto);
       return `<tr>
-        <td style="font-weight:700;font-size:.84rem;max-width:200px">${r.desc}</td>
-        <td style="font-size:.78rem">${r.unidade||'—'}</td>
+        <td style="font-weight:700;font-size:.84rem;max-width:220px">${r.desc||'—'}</td>
+        <td style="font-size:.78rem">${r.unidade||r.filial||'—'}</td>
         <td style="font-size:.78rem">${r.cat||'—'}</td>
         <td style="font-size:.78rem">${r.setor||'—'}</td>
         <td style="text-align:center;font-weight:700">${r.prob}</td>
         <td style="text-align:center;font-weight:700">${r.impacto}</td>
-        <td><span style="background:${nvCor[nv]};color:#fff;padding:2px 10px;border-radius:20px;font-size:.74rem;font-weight:700">${r.prob*r.impacto} ${nv}</span></td>
-        <td style="font-size:.78rem;max-width:160px">${r.controle||'—'}</td>
+        <td><span style="background:${nvCor[nv]}22;color:${nvCor[nv]};padding:2px 8px;border-radius:10px;font-size:.73rem;font-weight:700">${nv}</span></td>
+        <td style="font-size:.75rem;max-width:180px">${r.controle||'—'}</td>
       </tr>`;
-    }).join('') : '<tr><td colspan="8" class="empty"><div class="ico">✅</div>Nenhum risco alto ou crítico.</td></tr>';
+    }).join('') : '<tr><td colspan="8" style="text-align:center;color:var(--text-muted)">Nenhum risco cadastrado.</td></tr>';
+
+  } else if(type === 'riscos') {
+    // Planos de Ação → mostra todos os rmPlanos do mapeamento de risco
+    icon = '📋'; title = 'Planos de Ação'; color = 'var(--warn)';
+    const items = (DB.rmPlanos||[]).slice().sort((a,b) => (a.prazo||'').localeCompare(b.prazo||''));
+    count = items.length;
+    const stCor = {'Não Iniciado':'#94a3b8','Em Andamento':'#3b82f6','Concluído':'#00c49a','Vencido':'#ef4444'};
+    thead.innerHTML = '<th>Plano de Ação</th><th>Responsável</th><th>Prazo</th><th>Status</th><th>Progresso</th>';
+    rows = items.length ? items.map(p => {
+      const st = p.status||'Não Iniciado';
+      return `<tr>
+        <td style="font-weight:700;font-size:.84rem;max-width:240px">${p.titulo||'—'}</td>
+        <td style="font-size:.78rem">${p.resp||'—'}</td>
+        <td>${prazoChip(p.prazo)}</td>
+        <td><span style="background:${stCor[st]||'#94a3b8'}22;color:${stCor[st]||'#94a3b8'};padding:2px 8px;border-radius:10px;font-size:.73rem;font-weight:700">${st}</span></td>
+        <td style="min-width:80px">${progBar(p.prog||0)}</td>
+      </tr>`;
+    }).join('') : '<tr><td colspan="5" style="text-align:center;color:var(--text-muted)">Nenhum plano cadastrado.</td></tr>';
 
   } else if(type === 'acoes') {
-    icon = '🚨'; title = 'Ações e Planos Vencidos'; color = 'var(--danger)';
-    // Combine DB.planos (controles) + DB.rmPlanos (mapeamento)
-    const planosVenc = (DB.planos||[]).filter(p => p.status === 'Vencido').map(p => ({...p, _tipo:'Controle Interno'}));
-    const rmVenc = (DB.rmPlanos||[]).filter(p => p.status === 'Vencido').map(p => {
-      const risco = (DB.riscos||[]).find(r=>r.id===p.riscoId);
-      return {...p, origem: risco ? risco.desc.slice(0,40)+'…' : 'Mapeamento', _tipo:'Mapeamento de Risco'};
-    });
-    const items = [...planosVenc, ...rmVenc].sort((a,b) => (a.prazo||'').localeCompare(b.prazo||''));
+    // Ações Vencidas → rmPlanos com prazo já vencido (data < hoje)
+    icon = '🚨'; title = 'Ações e Planos Vencidos'; color = '#ef4444';
+    const _hoje = new Date(); _hoje.setHours(0,0,0,0);
+    const items = (DB.rmPlanos||[])
+      .filter(p => p.prazo && new Date(p.prazo) < _hoje)
+      .sort((a,b) => (a.prazo||'').localeCompare(b.prazo||''));
     count = items.length;
-    thead.innerHTML = '<th>Ação / Plano</th><th>Tipo</th><th>Origem / Filial</th><th>Responsável</th><th>Prazo</th><th>Progresso</th>';
-    rows = items.length ? items.map(p => `<tr>
-      <td style="font-weight:700;font-size:.84rem;max-width:200px">${p.titulo||p.nome||'—'}</td>
-      <td><span style="background:#fee2e2;color:#991b1b;padding:2px 8px;border-radius:10px;font-size:.73rem;font-weight:700">${p._tipo}</span></td>
-      <td style="font-size:.78rem">${p.origem||p.filial||'—'}</td>
-      <td style="font-size:.78rem">${p.resp||'—'}</td>
-      <td>${prazoChip(p.prazo)}</td>
-      <td style="min-width:80px">${progBar(p.prog||0,'red')}</td>
-    </tr>`).join('') : '<tr><td colspan="6" class="empty"><div class="ico">✅</div>Nenhuma ação vencida.</td></tr>';
-
-  } else if(type === 'denuncias') {
-    icon = '📢'; title = 'Denúncias em Aberto'; color = 'var(--info)';
-    const items = (DB.denuncias||[])
-      .filter(d => ['Aberta','Em Análise'].includes(d.status))
-      .sort((a,b) => (b.data||'').localeCompare(a.data||''));
-    count = items.length;
-    const pgCor = {'Leve':'#10b981','Médio':'#f59e0b','Grave':'#ef4444','Gravíssima':'#8b5cf6'};
-    thead.innerHTML = '<th>Protocolo</th><th>Tipo</th><th>Filial / Setor</th><th>Recebida em</th><th>Perigo</th><th>Status</th><th>SLA</th>';
-    rows = items.length ? items.map(d => {
-      const dias = d.data ? Math.floor((new Date()-new Date(d.data))/86400000) : 0;
-      const pct = Math.min(Math.round(dias/90*100),100);
-      const slaCor = pct>=100?'#ef4444':pct>=70?'#f59e0b':'#10b981';
-      return `<tr style="cursor:pointer" onclick="goto('canal-denuncia',document.querySelector('[data-page=canal-denuncia]'));closeDashDrill()">
-        <td><strong style="font-family:'DM Mono',monospace;font-size:.78rem">${d.proto}</strong></td>
-        <td style="font-size:.78rem">${d.cat}</td>
-        <td style="font-size:.78rem">${d.filial}<br><small style="color:var(--text-muted)">${d.setor||''}</small></td>
-        <td style="font-size:.78rem">${formatDate(d.data)}</td>
-        <td><span style="background:${pgCor[d.perigo]||'#94a3b8'};color:#fff;padding:2px 8px;border-radius:10px;font-size:.73rem;font-weight:700">${d.perigo||'—'}</span></td>
-        <td style="font-size:.78rem">${d.status}</td>
-        <td style="font-size:.78rem;color:${slaCor};font-weight:700">${dias}d / 90d</td>
+    thead.innerHTML = '<th>Plano / Ação</th><th>Responsável</th><th>Prazo</th><th>Status</th><th>Progresso</th>';
+    rows = items.length ? items.map(p => {
+      const st = p.status||'Não Iniciado';
+      const stCor = {'Não Iniciado':'#94a3b8','Em Andamento':'#3b82f6','Concluído':'#00c49a','Vencido':'#ef4444'};
+      return `<tr>
+        <td style="font-weight:700;font-size:.84rem;max-width:240px">${p.titulo||'—'}</td>
+        <td style="font-size:.78rem">${p.resp||'—'}</td>
+        <td>${prazoChip(p.prazo)}</td>
+        <td><span style="background:${stCor[st]||'#94a3b8'}22;color:${stCor[st]||'#94a3b8'};padding:2px 8px;border-radius:10px;font-size:.73rem;font-weight:700">${st}</span></td>
+        <td style="min-width:80px">${progBar(p.prog||0)}</td>
       </tr>`;
-    }).join('') : '<tr><td colspan="7" class="empty"><div class="ico">✅</div>Nenhuma denúncia aberta.</td></tr>';
+    }).join('') : '<tr><td colspan="5" style="text-align:center;color:var(--text-muted)">Nenhuma ação vencida.</td></tr>';
   }
 
-  icon_el.textContent = icon;
+  icon_el.textContent  = icon;
   title_el.textContent = title;
   count_el.textContent = '· ' + count + ' item' + (count!==1?'s':'');
   header.style.borderBottomColor = color;
@@ -380,88 +353,83 @@ function openDashDrill(type) {
   panel.style.display = '';
   panel.scrollIntoView({behavior:'smooth', block:'nearest'});
 }
-
 function closeDashDrill() {
   const panel = document.getElementById('dash-drilldown');
   if(panel) panel.style.display = 'none';
 }
 
 function renderDashboard() {
-  // KPIs
-  // ── KPIs corrigidos
+  // ── KPIs
   document.getElementById('dash-total-controles').textContent = (DB.riscos||[]).length;
-  // Planos de Ação: todos os planos do mapeamento de risco
   const totalPlanos = (DB.rmPlanos||[]).length;
   document.getElementById('dash-riscos-altos').textContent = totalPlanos;
-  // Ações vencidas: rmPlanos com prazo já vencido (data < hoje)
   const _hoje = new Date(); _hoje.setHours(0,0,0,0);
   const acVenc = (DB.rmPlanos||[]).filter(p => p.prazo && new Date(p.prazo) < _hoje).length;
   document.getElementById('dash-acoes-venc').textContent = acVenc;
-  // Denúncias em aberto: Abertas + Em Análise (mesmo critério do Relatório KPI)
-  const dnAbertas   = (DB.denuncias||[]).filter(d => d.status === 'Aberta').length;
-  const dnAnalise   = (DB.denuncias||[]).filter(d => d.status === 'Em Análise').length;
-  const dnEmAberto  = dnAbertas + dnAnalise;
-  document.getElementById('dash-denuncias').textContent = dnEmAberto;
+  const dnAbertas = (DB.denuncias||[]).filter(d => d.status === 'Aberta').length;
+  const dnAnalise = (DB.denuncias||[]).filter(d => d.status === 'Em Análise').length;
+  document.getElementById('dash-denuncias').textContent = dnAbertas + dnAnalise;
   const subEl = document.getElementById('dash-denuncias-sub');
   if(subEl) subEl.textContent = dnAbertas + ' abertas · ' + dnAnalise + ' em análise';
 
-  // Chart riscos
+  // ── Chart: Riscos por Nível
   const lvls = ['Crítico','Alto','Médio','Baixo'];
-  const colors = ['#8b5cf6','#ef4444','#f59e0b','#00c49a'];
-  const rCounts = lvls.map(l => DB.riscos.filter(r => nivelRisco(r.prob, r.impacto) === l).length);
+  const lvlColors = ['#8b5cf6','#ef4444','#f59e0b','#10b981'];
+  const rCounts = lvls.map(l => (DB.riscos||[]).filter(r => nivelRisco(r.prob,r.impacto)===l).length);
   const rMax = Math.max(...rCounts, 1);
   document.getElementById('chart-riscos').innerHTML = lvls.map((l,i) =>
-    `<div class="bar-row"><div class="bar-label">${l}</div><div class="bar-track"><div class="bar-fill" style="width:${rCounts[i]/rMax*100}%;background:${colors[i]}"></div></div><div class="bar-val">${rCounts[i]}</div></div>`
+    `<div class="bar-row"><div class="bar-label">${l}</div><div class="bar-track"><div class="bar-fill" style="width:${rCounts[i]/rMax*100}%;background:${lvlColors[i]}"></div></div><div class="bar-val">${rCounts[i]}</div></div>`
   ).join('');
 
-  // Chart controles
-  const cStatuses = ['Concluído','Em Andamento','Pendente','Vencido','Não Iniciado'];
-  const cColors = ['#00c49a','#3b82f6','#f59e0b','#ef4444','#94a3b8'];
-  const cCounts = cStatuses.map(s => DB.controles.filter(c => c.status === s).length);
+  // ── Chart: Status dos Planos de Ação (rmPlanos)
+  const cStatuses = ['Não Iniciado','Em Andamento','Concluído','Vencido'];
+  const cColors = ['#94a3b8','#3b82f6','#00c49a','#ef4444'];
+  const cCounts = cStatuses.map(s => (DB.rmPlanos||[]).filter(p => p.status===s).length);
   const cMax = Math.max(...cCounts, 1);
   document.getElementById('chart-controles').innerHTML = cStatuses.map((s,i) =>
     `<div class="bar-row"><div class="bar-label">${s}</div><div class="bar-track"><div class="bar-fill" style="width:${cCounts[i]/cMax*100}%;background:${cColors[i]}"></div></div><div class="bar-val">${cCounts[i]}</div></div>`
   ).join('');
 
-  // Chart planos
+  // ── Chart: Planos de Ação por Status (rmPlanos)
   const pStatuses = ['Não Iniciado','Em Andamento','Concluído','Vencido'];
   const pColors = ['#94a3b8','#3b82f6','#00c49a','#ef4444'];
-  const pCounts = pStatuses.map(s => DB.planos.filter(p => p.status === s).length);
+  const pCounts = pStatuses.map(s => (DB.rmPlanos||[]).filter(p => p.status===s).length);
   const pMax = Math.max(...pCounts, 1);
   document.getElementById('chart-planos').innerHTML = pStatuses.map((s,i) =>
     `<div class="bar-row"><div class="bar-label">${s}</div><div class="bar-track"><div class="bar-fill" style="width:${pCounts[i]/pMax*100}%;background:${pColors[i]}"></div></div><div class="bar-val">${pCounts[i]}</div></div>`
   ).join('');
 
-  // Chart denuncias - by perigo level
-  const pLvls = ['Leve','Médio','Grave','Gravíssima'];
-  const pColors2 = ['#10b981','#f59e0b','#ef4444','#8b5cf6'];
-  const pCounts2 = pLvls.map(l => DB.denuncias.filter(d => d.perigo === l).length);
+  // ── Chart: Denúncias por Nível de Perigo
+  const pLvls = ['Leve','Médio','Grave','Gravissima'];
+  const pColors2 = ['#10b981','#f59e0b','#ef4444','#7c3aed'];
+  const pCounts2 = pLvls.map(l => (DB.denuncias||[]).filter(d => d.perigo===l).length);
   const pMax2 = Math.max(...pCounts2, 1);
   document.getElementById('chart-denuncias').innerHTML = pLvls.map((l,i) =>
     `<div class="bar-row"><div class="bar-label">${l}</div><div class="bar-track"><div class="bar-fill" style="width:${pCounts2[i]/pMax2*100}%;background:${pColors2[i]}"></div></div><div class="bar-val">${pCounts2[i]}</div></div>`
   ).join('');
 
-  // Controles urgentes
-  const ctrlUrg = DB.controles.filter(c => {
-    const diff = diasAte(c.prazo);
-    return diff !== null && diff <= 10;
-  }).sort((a,b) => diasAte(a.prazo) - diasAte(b.prazo)).slice(0,5);
+  // ── Tabela: Riscos Críticos e Altos (substitui "Controles com Prazo Vencendo")
+  const nvCor = {'Crítico':'#ef4444','Alto':'#f59e0b','Médio':'#3b82f6','Baixo':'#10b981'};
+  const riscosCrit = (DB.riscos||[])
+    .filter(r => ['Crítico','Alto'].includes(nivelRisco(r.prob,r.impacto)))
+    .sort((a,b) => (b.prob*b.impacto)-(a.prob*a.impacto)).slice(0,5);
   const tbCtrl = document.getElementById('dash-controles-urgentes');
-  if(ctrlUrg.length === 0) {
+  if(riscosCrit.length === 0) {
     document.getElementById('dash-empty-ctrl').classList.remove('hidden');
     tbCtrl.innerHTML = '';
   } else {
     document.getElementById('dash-empty-ctrl').classList.add('hidden');
-    tbCtrl.innerHTML = ctrlUrg.map(c =>
-      `<tr><td><strong>${c.nome}</strong></td><td>${c.filial}<br><small style="color:var(--text-muted)">${c.setor}</small></td><td>${prazoChip(c.prazo)}</td><td>${statusBadge(c.status)}</td></tr>`
-    ).join('');
+    tbCtrl.innerHTML = riscosCrit.map(r => {
+      const nv = nivelRisco(r.prob,r.impacto);
+      return `<tr><td><strong>${r.desc||'—'}</strong></td><td>${r.unidade||r.filial||'—'}</td><td><span style="background:${nvCor[nv]}22;color:${nvCor[nv]};padding:2px 8px;border-radius:10px;font-size:.73rem;font-weight:700">${nv}</span></td><td style="font-size:.75rem">${r.cat||'—'}</td></tr>`;
+    }).join('');
   }
 
-  // Ações urgentes
-  const acUrg = DB.planos.filter(p => {
+  // ── Tabela: Planos de Ação com Prazo Próximo (substitui "Ações com Prazo Próximo")
+  const acUrg = (DB.rmPlanos||[]).filter(p => {
     const diff = diasAte(p.prazo);
-    return diff !== null && diff <= 10;
-  }).sort((a,b) => diasAte(a.prazo) - diasAte(b.prazo)).slice(0,5);
+    return diff !== null && diff <= 30;
+  }).sort((a,b) => diasAte(a.prazo)-diasAte(b.prazo)).slice(0,5);
   const tbAc = document.getElementById('dash-acoes-urgentes');
   if(acUrg.length === 0) {
     document.getElementById('dash-empty-acao').classList.remove('hidden');
@@ -473,10 +441,6 @@ function renderDashboard() {
     ).join('');
   }
 }
-
-// ══════════════════════════════════════════
-// FILIAIS
-// ══════════════════════════════════════════
 function renderFiliais() {
   const q = document.getElementById('filtro-filial').value.toLowerCase();
   const grid = document.getElementById('filiais-grid');
