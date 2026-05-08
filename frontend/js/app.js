@@ -209,9 +209,22 @@ document.querySelectorAll('.modal-overlay').forEach(m => {
 // DATE & BADGE HELPERS
 // ══════════════════════════════════════════
 function formatDate(d) {
-  if(!d) return '—';
-  const [y,m,dd] = d.split('-');
-  return `${dd}/${m}/${y}`;
+  if (!d) return '—';
+
+  const mGF = d.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})(?:\s+(.+))?/);
+
+  if (!mGF) return d;
+
+  const day = mGF[1].padStart(2, '0');
+  const month = mGF[2].padStart(2, '0');
+
+  const year = mGF[3].length === 2
+    ? '20' + mGF[3]
+    : mGF[3];
+
+  const time = mGF[4] || '';
+
+  return `${day}/${month}/${year}${time ? ' ' + time : ''}`;
 }
 function diasAte(d) {
   if(!d) return null;
