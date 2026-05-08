@@ -2660,35 +2660,52 @@ function _loadSession() {
 }
 function _clearSession() { sessionStorage.removeItem(SESSION_KEY); }
 
-window.doLogin = function() {
+function doLogin() {
   const emailEl = document.getElementById('login-email');
   const passEl  = document.getElementById('login-pass');
   const errorEl = document.getElementById('login-error');
   const btnEl   = document.getElementById('login-btn');
   const btnText = document.getElementById('login-btn-text');
+
   const email = (emailEl.value || '').trim().toLowerCase();
   const senha = passEl.value || '';
+
   errorEl.innerHTML = '';
   emailEl.classList.remove('error');
   passEl.classList.remove('error');
-  if(!email) {
-    emailEl.classList.add('error');
-    errorEl.innerHTML = '⚠️ Informe seu e-mail.';
-    emailEl.focus();
-    return;
-  }
-  if(!senha) {
-    passEl.classList.add('error');
-    errorEl.innerHTML = '⚠️ Informe sua senha.';
-    passEl.focus();
-    return;
-  }
+
+  if(!email) { emailEl.classList.add('error'); errorEl.innerHTML = '⚠️ Informe seu e-mail.'; emailEl.focus(); return; }
+  if(!senha) { passEl.classList.add('error'); errorEl.innerHTML = '⚠️ Informe sua senha.'; passEl.focus(); return; }
 
   btnEl.disabled = true;
   btnText.innerHTML = '<div class="login-spinner"></div> Verificando...';
-  
+
   doLoginAsync(email, senha, emailEl, passEl, errorEl, btnEl, btnText);
-};
+}
+
+async function doLoginAsync(email, senha, emailEl, passEl, errorEl, btnEl, btnText) {
+  try {
+    const inputHash = await _hashSenha(email, senha);
+
+    // Verificar localmente — se não achar, recarregar usuários extras e tentar de novo
+    let user = USUARIOS.find(u => u.email === email && u.hash === inputHash);
+    if(!user) {
+      await usersLoad(); // recarrega extras do localStorage/Supabase
+      user = USUARIOS.find(u => u.email === email && u.hash === inputHash);
+    }
+
+    if(!user) {
+      btnEl.disabled = false;
+      btnText.textContent = 'Entrar no Sistema';
+      emailEl.classList.add('error');
+      passEl.classList.add('error');
+      errorEl.innerHTML = '❌ E-mail ou senha incorretos.';
+      passEl.value = '';
+      passEl.focus();
+      const box = document.querySelector('.login-box');
+      if(box) { box.style.animation='none'; box.offsetHeight; box.style.animation='shake .4s ease'; }
+      return;
+    }
 
 async function doLoginAsync(email, senha, emailEl, passEl, errorEl, btnEl, btnText) {
   try {
