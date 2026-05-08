@@ -389,13 +389,13 @@ function closeDashDrill() {
 function renderDashboard() {
   // KPIs
   // ── KPIs corrigidos
-  document.getElementById('dash-total-controles').textContent = DB.controles.length;
-  // Riscos: Alto + Crítico em todos os riscos (DB.riscos inclui PDV, Inventário, TI etc)
-  const riscoAltos = (DB.riscos||[]).filter(r => ['Alto','Crítico'].includes(nivelRisco(r.prob, r.impacto))).length;
-  document.getElementById('dash-riscos-altos').textContent = riscoAltos;
-  // Ações vencidas: DB.planos (controles internos) + DB.rmPlanos (mapeamento de risco)
-  const acVenc = (DB.planos||[]).filter(p => p.status === 'Vencido').length
-               + (DB.rmPlanos||[]).filter(p => p.status === 'Vencido').length;
+  document.getElementById('dash-total-controles').textContent = (DB.riscos||[]).length;
+  // Planos de Ação: todos os planos do mapeamento de risco
+  const totalPlanos = (DB.rmPlanos||[]).length;
+  document.getElementById('dash-riscos-altos').textContent = totalPlanos;
+  // Ações vencidas: rmPlanos com prazo já vencido (data < hoje)
+  const _hoje = new Date(); _hoje.setHours(0,0,0,0);
+  const acVenc = (DB.rmPlanos||[]).filter(p => p.prazo && new Date(p.prazo) < _hoje).length;
   document.getElementById('dash-acoes-venc').textContent = acVenc;
   // Denúncias em aberto: Abertas + Em Análise (mesmo critério do Relatório KPI)
   const dnAbertas   = (DB.denuncias||[]).filter(d => d.status === 'Aberta').length;
