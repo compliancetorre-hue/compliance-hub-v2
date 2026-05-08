@@ -2718,30 +2718,6 @@ async function doLoginAsync(email, senha, emailEl, passEl, errorEl, btnEl, btnTe
       return;
     }
 
-async function doLoginAsync(email, senha, emailEl, passEl, errorEl, btnEl, btnText) {
-  try {
-    const inputHash = await _hashSenha(email, senha);
-
-    // Verificar localmente — se não achar, recarregar usuários extras e tentar de novo
-    let user = USUARIOS.find(u => u.email === email && u.hash === inputHash);
-    if(!user) {
-      await usersLoad(); // recarrega extras do localStorage/Supabase
-      user = USUARIOS.find(u => u.email === email && u.hash === inputHash);
-    }
-
-    if(!user) {
-      btnEl.disabled = false;
-      btnText.textContent = 'Entrar no Sistema';
-      emailEl.classList.add('error');
-      passEl.classList.add('error');
-      errorEl.innerHTML = '❌ E-mail ou senha incorretos.';
-      passEl.value = '';
-      passEl.focus();
-      const box = document.querySelector('.login-box');
-      if(box) { box.style.animation='none'; box.offsetHeight; box.style.animation='shake .4s ease'; }
-      return;
-    }
-
     // Login OK — salvar sessão
     currentUser = user;
     _saveSession(user);
