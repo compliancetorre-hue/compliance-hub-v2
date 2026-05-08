@@ -1997,7 +1997,7 @@ function parseXLSXImport(buffer) {
   }
   const wb = XLSX.read(buffer, {type:'array', cellDates:true});
   const ws = wb.Sheets[wb.SheetNames[0]];
-  const rawRows = XLSX.utils.sheet_to_json(ws, {defval:'', raw:false});
+  const rawRows = XLSX.utils.sheet_to_json(ws, {defval:'', raw:true, cellDates:true});
   // Normaliza cabeçalhos no formato "A (Id)", "B (Hora de início)" etc.
   const normalizedRows = normalizeSheetHeaders(rawRows);
   buildImportPreview(normalizedRows);
@@ -2101,7 +2101,7 @@ function parseImportDate(val) {
   const s = String(val).trim();
 
   // Excel serial number (e.g. 45000)
-  if(/^\d{5}$/.test(s)) {
+  if(/^\d{5}(\.\d+)?$/.test(s)) {
     const d = new Date((parseInt(s)-25569)*86400*1000);
     return isNaN(d.getTime()) ? '' : d.toISOString().split('T')[0];
   }
