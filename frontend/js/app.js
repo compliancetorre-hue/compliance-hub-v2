@@ -2109,27 +2109,45 @@ function parseImportDate(val) {
   // ISO YYYY-MM-DD (with or without time)
   if(/^\d{4}-\d{2}-\d{2}/.test(s)) return s.substring(0,10);
 
-  // Google Forms: M/D/YYYY H:MM or MM/DD/YYYY HH:MM  e.g. "4/16/2026 10:14"
-  const mGF = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})\s+\d{1,2}:\d{2}/);
-  if(mGF) {
-    return `${mGF[3]}-${mGF[1].padStart(2,'0')}-${mGF[2].padStart(2,'0')}`;
+  // Formato com hora: DD/MM/YYYY HH:MM ou D/M/YYYY H:MM (padrão BR do Google Forms)
+  // Ex: "25/11/2025 13:28", "28/11/2025 12:04", "1/3/2026 9:15"
+  const mHora = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})\s+\d{1,2}:\d{2}/);
+  if(mHora) {
+    const p1 = parseInt(mHora[1]);
+    const p2 = parseInt(mHora[2]);
+    const ano = mHora[3];
+    // Se p1 > 12: é DD/MM/YYYY (dia primeiro, padrão BR)
+    // Se p2 > 12: é MM/DD/YYYY (mês primeiro, padrão US) - impossível ter dia > 12 no mês
+    // Padrão: assumir DD/MM/YYYY (formato BR, usado no Brasil)
+    if(p1 > 12) {
+      // Claramente DD/MM/YYYY
+      return `${ano}-${mHora[2].padStart(2,'0')}-${mHora[1].padStart(2,'0')}`;
+    }
+    if(p2 > 12) {
+      // Claramente MM/DD/YYYY (dia no segundo campo > 12)
+      return `${ano}-${mHora[1].padStart(2,'0')}-${mHora[2].padStart(2,'0')}`;
+    }
+    // Ambos <= 12: assumir DD/MM/YYYY (padrão BR)
+    return `${ano}-${mHora[2].padStart(2,'0')}-${mHora[1].padStart(2,'0')}`;
   }
 
-  // DD/MM/YYYY or MM/DD/YYYY without time
+  // Sem hora: DD/MM/YYYY ou D/M/YYYY
   const m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})$/);
   if(m) {
     const y = m[3].length===2 ? '20'+m[3] : m[3];
     const p1 = parseInt(m[1]);
-    // If first part > 12 it must be DD/MM/YYYY
+    const p2 = parseInt(m[2]);
     if(p1 > 12) return `${y}-${m[2].padStart(2,'0')}-${m[1].padStart(2,'0')}`;
-    // Otherwise MM/DD/YYYY (Google Forms default US format)
-    return `${y}-${m[1].padStart(2,'0')}-${m[2].padStart(2,'0')}`;
+    if(p2 > 12) return `${y}-${m[1].padStart(2,'0')}-${m[2].padStart(2,'0')}`;
+    // Ambos <= 12: assumir DD/MM/YYYY (padrão BR)
+    return `${y}-${m[2].padStart(2,'0')}-${m[1].padStart(2,'0')}`;
   }
 
   return '';
 }
 
 function buildImportPreview(rawRows) {
+  const existingProtos = new Set(DB.denuncias.map(d=>d.proto));
   const existingIds = new Set(DB.denuncias.map(d=>d.id));
   const parsed = [];
 
@@ -2161,7 +2179,7 @@ function buildImportPreview(rawRows) {
     const acao = findCol(row, ['ação inicial','acao inicial','ação_inicial','acao_inicial']) || '';
     const obs = findCol(row, ['conclusão','conclusao','conclus']) || '';
 
-    const isDuplicate = existingIds.has(id);
+    const isDuplicate = existingProtos.has(proto);
 
     parsed.push({
       id, proto, isDuplicate,
