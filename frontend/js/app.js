@@ -208,11 +208,11 @@ document.querySelectorAll('.modal-overlay').forEach(m => {
 // ══════════════════════════════════════════
 // DATE & BADGE HELPERS
 // ══════════════════════════════════════════
-function formatDate(d) {
-  if (!d) return '—';
-  const [date] = d.split(' ');
-  return date;
-}
+function formatDate(d) { 
+  if(!d) return '—'; 
+  const [y,m,dd] = d.split('-'); 
+  return ${dd}/${m}/${y};
+  }
 function diasAte(d) {
   if(!d) return null;
   const diff = Math.ceil((new Date(d) - new Date()) / 86400000);
