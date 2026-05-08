@@ -328,7 +328,7 @@ function openDashDrill(type) {
     icon = '🚨'; title = 'Ações e Planos Vencidos'; color = '#ef4444';
     const _hoje = new Date(); _hoje.setHours(0,0,0,0);
     const items = (DB.rmPlanos||[])
-      .filter(p => p.prazo && new Date(p.prazo) < _hoje)
+      .filter(p => p.prazo && new Date(p.prazo) < _hoje && p.status !== 'Concluído')
       .sort((a,b) => (a.prazo||'').localeCompare(b.prazo||''));
     count = items.length;
     thead.innerHTML = '<th>Plano / Ação</th><th>Responsável</th><th>Prazo</th><th>Status</th><th>Progresso</th>';
@@ -364,7 +364,7 @@ function renderDashboard() {
   const totalPlanos = (DB.rmPlanos||[]).length;
   document.getElementById('dash-riscos-altos').textContent = totalPlanos;
   const _hoje = new Date(); _hoje.setHours(0,0,0,0);
-  const acVenc = (DB.rmPlanos||[]).filter(p => p.prazo && new Date(p.prazo) < _hoje).length;
+  const acVenc = (DB.rmPlanos||[]).filter(p => p.prazo && new Date(p.prazo) < _hoje && p.status !== 'Concluído').length;
   document.getElementById('dash-acoes-venc').textContent = acVenc;
   const dnAbertas = (DB.denuncias||[]).filter(d => d.status === 'Aberta').length;
   const dnAnalise = (DB.denuncias||[]).filter(d => d.status === 'Em Análise').length;
@@ -428,7 +428,7 @@ function renderDashboard() {
   // ── Tabela: Planos de Ação com Prazo Próximo (substitui "Ações com Prazo Próximo")
   const acUrg = (DB.rmPlanos||[]).filter(p => {
     const diff = diasAte(p.prazo);
-    return diff !== null && diff <= 30;
+    return diff !== null && diff <= 30 && p.status !== 'Concluído';
   }).sort((a,b) => diasAte(a.prazo)-diasAte(b.prazo)).slice(0,5);
   const tbAc = document.getElementById('dash-acoes-urgentes');
   if(acUrg.length === 0) {
