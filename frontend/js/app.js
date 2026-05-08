@@ -2171,30 +2171,21 @@ function buildImportPreview(rawRows) {
       return '';
     })();
 const dataStr = parseImportDate(dateRaw);
-
 const year = dataStr
   ? parseInt(dataStr.substring(0,4))
   : new Date().getFullYear();
-
 const proto = `DN-${year}-${String(id).padStart(3,'0')}`;
-
 const tipo = normalizeTipo(findCol(row, ['tipo de denúncia','tipo de denuncia','tipo']));
 const relato = findCol(row, ['descrição do fato','descricao do fato','descrição','fato','relato']) || '';
-
 const acao = findCol(row, ['ação inicial','acao inicial','ação_inicial','acao_inicial']) || '';
 const obs = findCol(row, ['conclusão','conclusao','conclus']) || '';
-
 const isDuplicate = existingProtos.has(proto);
-
 parsed.push({
   id, proto, isDuplicate,
   cat: tipo,
   filial: (findCol(row, ['filial']) || '').trim(),
   setor: (findCol(row, ['setor']) || '').trim(),
-
-  // usa a data da planilha
   data: dataStr || '',
-
   anon: inferAnon(row),
   perigo: inferPerigo(row),
   status: inferStatus(row),
