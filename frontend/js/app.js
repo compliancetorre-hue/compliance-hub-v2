@@ -208,11 +208,11 @@ document.querySelectorAll('.modal-overlay').forEach(m => {
 // ══════════════════════════════════════════
 // DATE & BADGE HELPERS
 // ══════════════════════════════════════════
-function formatDate(d) { 
-  if(!d) return '—'; 
-  const [y,m,dd] = d.split('-'); 
-  return ${dd}/${m}/${y};
-  }
+function formatDate(d) {
+  if(!d) return '—';
+  const [y,m,dd] = d.split('-');
+  return `${dd}/${m}/${y}`;
+}
 function diasAte(d) {
   if(!d) return null;
   const diff = Math.ceil((new Date(d) - new Date()) / 86400000);
@@ -2196,7 +2196,6 @@ function buildImportPreview(rawRows) {
       obs: obs,
     });
   }
-
 
   importParsedRows = parsed;
 
@@ -6318,6 +6317,3 @@ async function aiAnalisarRiscos() {
   checkSession();
   init();
 })();
-
-
-
