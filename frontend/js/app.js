@@ -1903,7 +1903,7 @@ function handleFileDrop(event) {
   const files = event.dataTransfer.files;
   if(files && files[0]) processImportFile(files[0]);
 }
-document.addEventListener('drop', (event) => {(event) {
+document.addEventListener('drop', (event) => {
   const files = event.target.files;
   if (files && files[0]) processImportFile(files[0]);
 });
