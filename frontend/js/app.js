@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded',function(){
   const c=document.getElementById('content');if(!c)return;
   const p=document.createElement('div');
   p.className='page';p.id='page-due-diligence'
-  p.innerHTML=ddHTML(); const p2=document.createElement('div');p2.className='page';p2.id='page-due-diligence2';p2.innerHTML=dd2HTML();c.appendChild(p2);
+  p.innerHTML=ddHTML();
   c.appendChild(p);
 });
 
@@ -171,7 +171,7 @@ const PAGE_TITLES = {
   importar:'Importar Planilha de Denúncias',
   dashboard:'Dashboard', filiais:'Filiais e Setores', 'mapa-risco':'Mapeamento de Risco',
   controles:'Controles Internos', 'planos-acao':'Planos de Ação',
-  'canal-denuncia':'Canal de Denúncia', flowboard:'Flow Board', 'due-diligence2':'Due Diligence 2 — Consulta Completa',
+  'canal-denuncia':'Canal de Denúncia', flowboard:'Flow Board',
   'due-diligence':'Due Diligence — KYC & Mídias Negativas'
 };
 let currentPage = 'dashboard';
@@ -192,7 +192,7 @@ function _gotoImpl(page, el) {
   if(page === 'controles') renderControles();
   if(page === 'planos-acao') renderPlanos();
   if(page === 'canal-denuncia') renderDenuncias();
-  if(page === 'flowboard') renderFlowboard(); if(page === 'due-diligence2') renderDD2();
+  if(page === 'flowboard') renderFlowboard();
   closeMobile();
 }
 
@@ -5444,7 +5444,7 @@ const MODULOS = [
   { id:'relatorios',     label:'Relatórios',          icon:'📈', grupo:'Análise',      restrito:true  },
   { id:'importar',       label:'Importar Planilha',   icon:'📥', grupo:'Análise',      restrito:false },
   { id:'flowboard',      label:'Flow Board',          icon:'🗂️', grupo:'Fluxo Visual', restrito:false },
-  { id:'due-diligence',  label:'Due Diligence',       icon:'🔍', grupo:'Pesquisa',     restrito:false },  { id:'due-diligence2', label:'Due Diligence 2',    icon:'🔍', grupo:'Pesquisa',    restrito:false },
+  { id:'due-diligence',  label:'Due Diligence',       icon:'🔍', grupo:'Pesquisa',     restrito:false },
 ];
 
 // Permissões padrão por perfil (sem personalização)
