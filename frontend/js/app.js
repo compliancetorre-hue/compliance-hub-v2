@@ -2739,7 +2739,7 @@ function enterApp(user) {
   const adminBtns = ['nav-permissoes','nav-usuarios','nav-audit','nav-branding'];
   adminBtns.forEach(id => {
     const el = document.getElementById(id);
-    if(el) el.style.display = (user.email === ADMIN_EMAIL) ? 'flex' : 'none';
+    if(el) el.style.display = (user.email === ADMIN_EMAIL || user.perfil === 'Admin') ? 'flex' : 'none';
   });
   // Mostrar grade admin só se for admin
   const adminGrid = document.getElementById('nav-admin-grid');
