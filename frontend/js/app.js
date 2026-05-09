@@ -1903,11 +1903,10 @@ function handleFileDrop(event) {
   const files = event.dataTransfer.files;
   if(files && files[0]) processImportFile(files[0]);
 }
-
-(event) {
+document.addEventListener('drop', (event) => {(event) {
   const files = event.target.files;
-  if(files && files[0]) processImportFile(files[0]);
-}
+  if (files && files[0]) processImportFile(files[0]);
+});
 
 function clearFileImport() {
   importParsedRows = [];
