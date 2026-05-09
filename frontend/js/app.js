@@ -1958,7 +1958,7 @@ function parseXLSXImport(buffer) {
     alert('Carregando biblioteca XLSX... Tente novamente em instante.');
     return;
   }
-  const wb = XLSX.read(buffer, {type:'array', cellDates:true}, codepage: 65001);
+  const wb = XLSX.read(buffer, {type:'array', cellDates:true, codepage: 65001});
   const ws = wb.Sheets[wb.SheetNames[0]];
   const rawRows = XLSX.utils.sheet_to_json(ws, {defval:'', raw:true, cellDates:true});
   // Normaliza cabeçalhos no formato "A (Id)", "B (Hora de início)" etc.
