@@ -6594,7 +6594,7 @@ async function dd2Iniciar(){
   if(scCad&&tipo==='cnpj'){
     dd2SetStep('cadastral','active');
     tasks.push(
-      fetch('https://brasilapi.com.br/api/cnpj/v1/'+doc'.then(r=>r.ok?r.json():null).then(d=>{
+      fetch('https://brasilapi.com.br/api/cnpj/v1/'+doc).then(r=>r.ok?r.json():null).then(d=>{
         dd2CadastralData=d;dd2SetStep('cadastral','done');dd2SetProgress(20);
         dd2RenderCadastral(d);dd2RenderFiscal(d);
       }).catch(()=>{dd2SetStep('cadastral','error');})
