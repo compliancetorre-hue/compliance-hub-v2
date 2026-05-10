@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Due Diligence 2 - Compliance Hub</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --primary: #0f2d4a;
+  --primary-light: #163d62;
+  --accent: #00c49a;
+  --warn: #f59e0b;
+  --danger: #ef4444;
+  --info: #3b82f6;
+  --success: #22c55e;
+  --bg: #f0f4f8;
+  --card: #ffffff;
+  --text: #0f2d4a;
+  --text-muted: #64748b;
+  --border: #e2e8f0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
+.header { background: var(--primary); color: #fff; padding: 12px 24px; display: flex; align-items: center; gap: 16px; }
+.header h1 { font-size: 1.2rem; font-weight: 600; }
+.btn-back { background: rgba(255,255,255,.15); border: none; color: #fff; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: .85rem; font-family: inherit; }
+.btn-back:hover { background: rgba(255,255,255,.25); }
+.container { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+.search-form { background: var(--primary); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
+.form-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.form-group { flex: 1; min-width: 160px; }
+.form-group label { display: block; color: rgba(255,255,255,.8); font-size: .8rem; margin-bottom: 6px; font-weight: 500; }
+.form-group select, .form-group input { width: 100%; padding: 10px 12px; border-radius: 8px; border: none; font-family: inherit; font-size: .9rem; background: rgba(255,255,255,.12); color: #fff; outline: none; }
+.form-group select option { background: var(--primary); color: #fff; }
+.form-group input::placeholder { color: rgba(255,255,255,.5); }
+.scope-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 16px; }
+.scope-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.9); font-size: .85rem; cursor: pointer; }
+.scope-item input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
+.btn-search { background: var(--accent); border: none; color: var(--primary); padding: 12px 32px; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; width: 100%; font-family: inherit; }
+.btn-search:hover { opacity: .9; }
+.progress-bar { background: #fff; border-radius: 10px; padding: 16px 24px; margin-bottom: 16px; display: none; }
+.progress-steps { display: flex; justify-content: space-between; margin-top: 12px; }
+.step { font-size: .75rem; color: var(--text-muted); text-align: center; flex: 1; }
+.step.active { color: var(--accent); font-weight: 600; }
+.step.done { color: var(--success); }
+.progress-track { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; margin-bottom: 4px; }
+.progress-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width .4s ease; }
+.report { display: none; }
+.export-bar { background: #fff; border-radius: 10px; padding: 12px 20px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+.export-info { font-size: .85rem; color: var(--text-muted); }
+.export-btns { display: flex; gap: 8px; }
+.btn-exp { border: 1px solid var(--border); background: #fff; padding: 6px 14px; border-radius: 6px; font-size: .82rem; cursor: pointer; font-family: inherit; }
+.btn-exp:hover { background: var(--bg); }
+.score-section { background: #fff; border-radius: 10px; padding: 24px; margin-bottom: 16px; display: flex; align-items: center; gap: 32px; flex-wrap: wrap; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+.gauge-wrap { position: relative; width: 140px; height: 140px; flex-shrink: 0; }
+.gauge-circle { width: 140px; height: 140px; border-radius: 50%; border: 12px solid var(--border); position: relative; display: flex; align-items: center; justify-content: center; }
+.gauge-value { font-size: 2rem; font-weight: 700; }
+.gauge-label { font-size: .75rem; color: var(--text-muted); margin-top: 2px; }
+.pillars { display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.pillar { display: flex; align-items: center; gap: 8px; font-size: .9rem; padding: 8px 12px; border-radius: 8px; background: var(--bg); }
+.card { background: #fff; border-radius: 10px; padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+.card-title { font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.field-item label { font-size: .75rem; color: var(--text-muted); display: block; margin-bottom: 2px; }
+.field-item span { font-size: .9rem; font-weight: 500; }
+.data-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
+.data-table th { background: var(--bg); padding: 8px 12px; text-align: left; font-weight: 600; color: var(--text-muted); font-size: .78rem; border-bottom: 1px solid var(--border); }
+.data-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
+.data-table tr:hover td { background: #f9fafb; }
+.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: .75rem; font-weight: 600; }
+.badge-ok { background: #dcfce7; color: #15803d; }
+.badge-warn { background: #fef3c7; color: #b45309; }
+.badge-alert { background: #fee2e2; color: #b91c1c; }
+.badge-info { background: #dbeafe; color: #1d4ed8; }
+.badge-ceis { background: #fee2e2; color: #b91c1c; }
+.badge-cnep { background: #fce7f3; color: #be185d; }
+.badge-ativo { background: #dbeafe; color: #1d4ed8; }
+.badge-passivo { background: #fee2e2; color: #b91c1c; }
+.empty-state { text-align: center; padding: 32px; color: var(--text-muted); font-size: .9rem; }
+.timeline { padding: 0; }
+.tl-item { display: flex; gap: 16px; margin-bottom: 16px; }
+.tl-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
+.tl-dot-green { background: var(--success); }
+.tl-dot-red { background: var(--danger); }
+.tl-dot-blue { background: var(--info); }
+.tl-content { flex: 1; }
+.tl-date { font-size: .75rem; color: var(--text-muted); }
+.tl-text { font-size: .9rem; font-weight: 500; }
+.checklist { display: flex; flex-direction: column; gap: 8px; }
+.check-item { display: flex; align-items: center; gap: 12px; padding: 8px 12px; border-radius: 8px; background: var(--bg); font-size: .88rem; }
+.check-icon { font-size: 1.1rem; }
+.check-status { margin-left: auto; font-size: .8rem; font-weight: 600; }
+<body>
+<div class="header">
+  <button class="btn-back" onclick="history.back()">&#8592; Voltar</button>
+  <h1>&#x1F50D; Due Diligence 2 &mdash; Investigação Prévia</h1>
+</div>
+
+<div class="container">
+  <!-- FORMULÁRIO -->
+  <div class="search-form">
+    <div class="form-row">
+      <div class="form-group" style="max-width:140px">
+        <label>Tipo</label>
+        <select id="dd-tipo">
+          <option value="cnpj">&#x1F3E2; CNPJ</option>
+          <option value="cpf">&#x1F464; CPF</option>
+        </select>
+      </div>
+      <div class="form-group" style="flex:2">
+        <label>Documento</label>
+        <input type="text" id="dd-doc" placeholder="00.000.000/0001-00" maxlength="18" oninput="formatarDocDD(this)"/>
+      </div>
+      <div class="form-group" style="max-width:180px">
+        <label>Nível de Investigação</label>
+        <select id="dd-nivel">
+          <option value="basico">&#x1F7E2; Básico</option>
+          <option value="intermediario" selected>&#x1F7E1; Intermediário</option>
+          <option value="forense">&#x1F534; Forense</option>
+        </select>
+      </div>
+    </div>
+    <div class="scope-grid" style="margin-bottom:16px">
+      <label class="scope-item"><input type="checkbox" id="sc-cadastral" checked> &#x1F3DB;&#xFE0F; Dados Cadastrais</label>
+      <label class="scope-item"><input type="checkbox" id="sc-fiscal" checked> &#x1F4BC; Situação Fiscal</label>
+      <label class="scope-item"><input type="checkbox" id="sc-judicial" checked> &#x2696;&#xFE0F; Processos Judiciais</label>
+      <label class="scope-item"><input type="checkbox" id="sc-sancoes" checked> &#x1F6AB; Sanções CEIS/CNEP</label>
+      <label class="scope-item"><input type="checkbox" id="sc-pep" checked> &#x1F3DB;&#xFE0F; PEP</label>
+      <label class="scope-item"><input type="checkbox" id="sc-midia"> &#x1F4F0; Mídia Negativa</label>
+      <label class="scope-item"><input type="checkbox" id="sc-credito"> &#x1F4B3; Crédito SERASA</label>
+      <label class="scope-item"><input type="checkbox" id="sc-vinculos"> &#x1F517; Vínculos Societários</label>
+      <label class="scope-item"><input type="checkbox" id="sc-sanc-int"> &#x1F30D; Sanções Internacionais</label>
+    </div>
+    <button class="btn-search" onclick="iniciarDueDiligence()">&#x1F50D; Investigar</button>
+  </div>
+
+  <!-- BARRA DE PROGRESSO -->
+  <div class="progress-bar" id="dd-progress">
+    <div style="font-weight:600;margin-bottom:8px">Consultando fontes oficiais...</div>
+    <div class="progress-track"><div class="progress-fill" id="dd-progress-fill" style="width:0%"></div></div>
+    <div class="progress-steps" id="dd-steps">
+      <span class="step" id="step-cadastral">&#x1F3DB;&#xFE0F; Cadastral</span>
+      <span class="step" id="step-fiscal">&#x1F4BC; Fiscal</span>
+      <span class="step" id="step-judicial">&#x2696;&#xFE0F; Judicial</span>
+      <span class="step" id="step-sancoes">&#x1F6AB; Sanções</span>
+      <span class="step" id="step-pep">&#x1F3DB;&#xFE0F; PEP</span>
+      <span class="step" id="step-midia">&#x1F4F0; Mídia</span>
+      <span class="step" id="step-analise">&#x1F4CA; Análise</span>
+    </div>
+  </div>
+
+  <!-- RELATÓRIO -->
+  <div class="report" id="dd-report">
+    <!-- Barra de exportação -->
+    <div class="export-bar">
+      <div class="export-info" id="export-info"></div>
+      <div class="export-btns">
+        <button class="btn-exp" onclick="window.print()">&#x1F5A8;&#xFE0F; Imprimir</button>
+        <button class="btn-exp" onclick="window.print()">&#x1F4E5; Exportar PDF</button>
+      </div>
+    </div>
+
+    <!-- Score de Risco -->
+    <div class="score-section">
+      <div class="gauge-wrap">
+        <div class="gauge-circle" id="gauge-circle">
+          <div style="text-align:center">
+            <div class="gauge-value" id="gauge-value">0</div>
+            <div class="gauge-label" id="gauge-label">CALCULANDO</div>
+          </div>
+        </div>
+      </div>
+      <div class="pillars" id="risk-pillars"></div>
+    </div>
+
+    <!-- Dados Cadastrais -->
+    <div class="card" id="section-cadastral">
+      <div class="card-title">&#x1F3DB;&#xFE0F; Dados Cadastrais</div>
+      <div class="grid-3" id="cadastral-grid"></div>
+    </div>
+
+    <!-- QSA -->
+    <div class="card" id="section-qsa" style="display:none">
+      <div class="card-title">&#x1F465; Quadro Societário — QSA</div>
+      <div style="overflow-x:auto"><table class="data-table" id="qsa-table">
+        <thead><tr><th>Nome</th><th>Qualificação</th><th>% Capital</th><th>CPF/CNPJ</th><th>Risco</th></tr></thead>
+        <tbody id="qsa-body"></tbody>
+      </table></div>
+    </div>
+
+    <!-- Situação Fiscal -->
+    <div class="card" id="section-fiscal">
+      <div class="card-title">&#x1F4BC; Situação Fiscal</div>
+      <div style="overflow-x:auto"><table class="data-table">
+        <thead><tr><th>Verificação</th><th>Resultado</th><th>Fonte</th><th>Data</th><th>Status</th></tr></thead>
+        <tbody id="fiscal-body"></tbody>
+      </table></div>
+    </div>
+
+    <!-- Processos Judiciais -->
+    <div class="card" id="section-judicial">
+      <div class="card-title">&#x2696;&#xFE0F; Processos Judiciais — DataJud CNJ</div>
+      <div class="filter-bar">
+        <select id="f-tribunal" onchange="filtrarJudicial()"><option value="">Todos os tribunais</option></select>
+        <select id="f-grau" onchange="filtrarJudicial()"><option value="">Todos os graus</option><option>G1</option><option>G2</option><option>JE</option></select>
+        <select id="f-polo" onchange="filtrarJudicial()"><option value="">Todos os polos</option><option>Ativo</option><option>Passivo</option></select>
+        <input type="text" id="f-assunto" placeholder="Filtrar por assunto..." oninput="filtrarJudicial()" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:.82rem;font-family:inherit"/>
+      </div>
+      <div id="judicial-content"><div class="loading-spinner">&#x23F3; Consultando DataJud CNJ via backend...</div></div>
+    </div>
+
+    <!-- Sanções CEIS/CNEP -->
+    <div class="card" id="section-sancoes">
+      <div class="card-title">&#x1F6AB; Sanções CEIS + CNEP</div>
+      <div id="sancoes-content"><div class="loading-spinner">&#x23F3; Consultando Portal da Transparência...</div></div>
+    </div>
+
+    <!-- PEP -->
+    <div class="card" id="section-pep">
+      <div class="card-title">&#x1F3DB;&#xFE0F; PEP — Pessoa Politicamente Exposta</div>
+      <div id="pep-content"><div class="loading-spinner">&#x23F3; Consultando base PEP...</div></div>
+    </div>
+
+    <!-- Mídia Negativa -->
+    <div class="card" id="section-midia" style="display:none">
+      <div class="card-title">&#x1F4F0; Mídia Negativa</div>
+      <div id="midia-content"></div>
+    </div>
+
+    <!-- Linha do Tempo -->
+    <div class="card" id="section-timeline">
+      <div class="card-title">&#x1F4C5; Linha do Tempo</div>
+      <div class="timeline" id="timeline-content"></div>
+    </div>
+
+    <!-- Checklist -->
+    <div class="card">
+      <div class="card-title">&#x2705; Checklist de Qualidade</div>
+      <div class="checklist" id="checklist-content"></div>
+    </div>
+  </div>
+</div>
+.filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.filter-bar select { padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border); font-size: .82rem; font-family: inherit; background: #fff; cursor: pointer; }
+.links-ext { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.link-ext { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 8px; background: var(--bg); border: 1px solid var(--border); font-size: .8rem; text-decoration: none; color: var(--text); }
+.link-ext:hover { background: var(--border); }
+.loading-spinner { display: flex; align-items: center; justify-content: center; padding: 32px; color: var(--text-muted); gap: 12px; }
+@media(max-width:768px) {
+  .grid-3 { grid-template-columns: 1fr; }
+  .scope-grid { grid-template-columns: repeat(2,1fr); }
+  .form-row { flex-direction: column; }
+  .score-section { flex-direction: column; }
+}
+@media print {
+  .header .btn-back, .search-form, .export-btns, .filter-bar { display: none !important; }
+  .card { break-inside: avoid; box-shadow: none; border: 1px solid #e2e8f0; }
+}
+</style>
+</head>
