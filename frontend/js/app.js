@@ -3665,7 +3665,7 @@ async function ddCheckLink(statusEl, url, query, prefix, isNegative){
   const clean=query.replace(/site:\S+/g,'').replace(/"[^"]*"\s+AND\s+/g,'').replace(/AND|OR|NOT/g,'').replace(/[-"()]/g,'').replace(/\s+/g,' ').trim().substring(0,80);
   try{
     const ctrl=new AbortController();const tid=setTimeout(()=>ctrl.abort(),7000);
-    const r=await fetch(`https://api.duckduckgo.com/?q=${encodeURIComponent(clean)}&format=json&no_html=1&skip_disambig=1`,{signal:ctrl.signal});
+    const r=await fetch(`https://corsproxy.io/?url=${encodeURIComponent('https://api.duckduckgo.com/?q='+encodeURIComponent(clean)+'&format=json&no_html=1&skip_disambig=1')}`,{signal:ctrl.signal});
     clearTimeout(tid);if(!r.ok){throw new Error('err');}
     const d=await r.json();
     const has=!!(d.AbstractText?.length>15||d.RelatedTopics?.length>0||d.Results?.length>0||d.Answer?.length>0);
@@ -6511,7 +6511,7 @@ function dd2HTML(){return `
 // DUE DILIGENCE 2 — JAVASCRIPT
 // ═══════════════════════════════════════════════════════
 
-const DD2_API = 'http://localhost:5000/api';
+// DD2_API removido — chamadas migradas para APIs públicas diretas
 const DD2_DATAJUD_KEY = 'cDZHYzlZa0JadVREZDJCendQbXY6SkJlTzNjLV9TRENyQk1RdnFKZGRQdw==';
 const DD2_TRIBUNAIS = [
   {sigla:'TJSP',nome:'TJSP'},
@@ -6618,11 +6618,15 @@ async function dd2Iniciar(){
   if(scSan){
     dd2SetStep('sancoes','active');
     tasks.push(
-      fetch(DD2_API+'/dd/sancoes/'+doc,{headers}).then(r=>r.ok?r.json():null).then(d=>{
-        if(d){dd2SancoesData=d;}
-        dd2SetStep('sancoes','done');dd2SetProgress(65);
-        dd2RenderSancoes(dd2SancoesData);
-      }).catch(()=>{dd2SetStep('sancoes','error');dd2RenderSancoes({ceis:[],cnep:[]});})
+Promise.all([
+          fetch('https://api.portaldatransparencia.gov.br/api-de-dados/ceis?cnpjSancionado='+doc+'&pagina=1').then(r=>r.ok?r.json():[]).catch(()=>[]),
+                  fetch('https://api.portaldatransparencia.gov.br/api-de-dados/cnep?cnpjSancionado='+doc+'&pagina=1').then(r=>r.ok?r.json():[]).catch(()=>[])
+                        ]).then(([ceis,cnep])=>{
+                                dd2SancoesData={ceis:Array.isArray(ceis)?ceis:[],cnep:Array.isArray(cnep)?cnep:[]};
+                                        dd2SetStep('sancoes','done');dd2SetProgress(65);
+                                                dd2RenderSancoes(dd2SancoesData);
+                                                      }).catch(()=>{dd2SetStep('sancoes','error');dd2RenderSancoes({ceis:[],cnep:[]});})
+])
     );
   } else {
     dd2SetStep('sancoes','done');
@@ -6645,10 +6649,12 @@ async function dd2Iniciar(){
     dd2SetStep('midia','active');
     const nome=dd2CadastralData?.razao_social||dd2CadastralData?.nome||doc;
     tasks.push(
-      fetch(DD2_API+'/dd/midia?nome='+encodeURIComponent(nome)+'&cnpj='+doc,{headers}).then(r=>r.ok?r.json():null).then(d=>{
-        dd2MidiaData=d?.items||[];dd2SetStep('midia','done');dd2SetProgress(88);
-        dd2RenderMidia(dd2MidiaData);
-      }).catch(()=>{dd2SetStep('midia','error');dd2RenderMidia([]);})
+fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api.duckduckgo.com/?q='+encodeURIComponent(nome+' corrupção fraude escândalo')+'&format=json&no_html=1&skip_disambig=1')).then(r=>r.ok?r.json():null).then(d=>{
+          const items=(d?.RelatedTopics||[]).filter(t=>t.FirstURL&&t.Text).map(t=>({link:t.FirstURL,title :t.Text,source:{name:'DuckDuckGo'},pubDate:'',content_text:t.Text}));
+                  dd2MidiaData=items;dd2SetStep('midia','done');dd2SetProgress(88);
+                          dd2RenderMidia(dd2MidiaData);
+                                }).catch(()=>{dd2SetStep('midia','error');dd2RenderMidia([]);})
+})
     );
   } else { dd2SetStep('midia','done'); }
   await Promise.allSettled(tasks);
