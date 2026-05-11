@@ -6626,7 +6626,6 @@ Promise.all([
                                         dd2SetStep('sancoes','done');dd2SetProgress(65);
                                                 dd2RenderSancoes(dd2SancoesData);
                                                       }).catch(()=>{dd2SetStep('sancoes','error');dd2RenderSancoes({ceis:[],cnep:[]});})
-]) 
     );
   } else {
     dd2SetStep('sancoes','done');
