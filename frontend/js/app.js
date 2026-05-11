@@ -6802,7 +6802,7 @@ function dd2RenderScore(){
   const pillarsEl=document.getElementById('dd2-pillars');
   let score=0;
   const d=dd2CadastralData;
-  const sit=d?.situacao_cadastral||d?.situacao||d?.status||'';
+  const sit=String(d?.descricao_situacao_cadastral||d?.situacao_cadastral||d?.situacao||d?.status||'');
   if(sit&&!sit.toUpperCase().includes('ATIVA')&&!sit.toUpperCase().includes('REGULAR'))score+=30;
   const sanTotal=(dd2SancoesData?.ceis||[]).length+(dd2SancoesData?.cnep||[]).length;
   if(sanTotal>0)score=Math.min(100,score+40);
@@ -6852,7 +6852,7 @@ function dd2RenderTimeline(){
 function dd2RenderChecklist(){
   const el=document.getElementById('dd2-checklist-content');
   const d=dd2CadastralData;
-  const sit=d?.situacao_cadastral||d?.situacao||d?.status||'';
+  const sit=String(d?.descricao_situacao_cadastral||d?.situacao_cadastral||d?.situacao||d?.status||'');
   const sanTotal=(dd2SancoesData?.ceis||[]).length+(dd2SancoesData?.cnep||[]).length;
   const items=[
     {ok:!!d,label:'Dados cadastrais obtidos',icon:'&#127963;'},
