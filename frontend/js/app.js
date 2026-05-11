@@ -6654,7 +6654,6 @@ fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api.duckduckgo.co
                   dd2MidiaData=items;dd2SetStep('midia','done');dd2SetProgress(88);
                           dd2RenderMidia(dd2MidiaData);
                                 }).catch(()=>{dd2SetStep('midia','error');dd2RenderMidia([]);})
-})
     );
   } else { dd2SetStep('midia','done'); }
   await Promise.allSettled(tasks);
