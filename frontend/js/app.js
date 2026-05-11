@@ -6573,7 +6573,7 @@ function dd2SetProgress(pct){
   if(el)el.style.width=pct+'%';
 }
 
-async function dd2Iniciar(){
+async function dd2FetchCnpj(doc){let d=null;try{const r1=await fetch('https://brasilapi.com.br/api/cnpj/v1/'+doc,{signal:AbortSignal.timeout(10000)});if(r1.ok)d=await r1.json();}catch(e){}if(!d){try{const r2=await fetch('https://corsproxy.io/?url='+encodeURIComponent('https://www.receitaws.com.br/v1/cnpj/'+doc),{signal:AbortSignal.timeout(10000)});if(r2.ok){const w=await r2.json();if(w&&w.nome){d={razao_social:w.nome,nome_fantasia:w.fantasia,cnpj:w.cnpj,descricao_situacao_cadastral:w.situacao,situacao_cadastral:w.situacao,data_inicio_atividade:w.abertura,natureza_juridica:w.natureza_juridica,capital_social:w.capital_social,cnae_fiscal_descricao:(w.atividade_principal||[])[0]?.text||'',logradouro:w.logradouro,numero:w.numero,complemento:w.complemento,bairro:w.bairro,municipio:w.municipio,uf:w.uf,email:w.email,ddd_telefone_1:w.telefone,qsa:(w.qsa||[]).map(s=>({nome_socio:s.nome,qualificacao_socio:{descricao:s.qual||''}})),opcao_pelo_simples:!!(w.simples&&w.simples.optante),opcao_pelo_mei:!!(w.simei&&w.simei.optante)};}}}catch(e){}}if(!d){try{const r3=await fetch('https://publica.cnpj.ws/cnpj/'+doc,{signal:AbortSignal.timeout(10000)});if(r3.ok){const w=await r3.json();const e3=w.estabelecimento||{};if(w.razao_social){d={razao_social:w.razao_social,nome_fantasia:e3.nome_fantasia||'',cnpj:e3.cnpj||doc,descricao_situacao_cadastral:e3.situacao_cadastral||'',situacao_cadastral:e3.situacao_cadastral||'',data_inicio_atividade:e3.data_inicio_atividade||'',natureza_juridica:(w.natureza_juridica||{}).descricao||'',capital_social:w.capital_social,cnae_fiscal_descricao:(e3.atividade_principal||{}).descricao||'',logradouro:e3.logradouro,numero:e3.numero,complemento:e3.complemento,bairro:e3.bairro,municipio:(e3.cidade||{}).nome||'',uf:(e3.estado||{}).sigla||'',email:e3.email,ddd_telefone_1:e3.ddd1?('('+e3.ddd1+') '+e3.telefone1):'',qsa:(w.socios||[]).map(s=>({nome_socio:s.nome,qualificacao_socio:{descricao:(s.qualificacao||{}).descricao||''}})),opcao_pelo_simples:false,opcao_pelo_mei:false};}}}catch(e){}}return d;}async function dd2Iniciar(){
   const doc=document.getElementById('dd2-doc').value.replace(/\D/g,'');
   const tipo=document.getElementById('dd2-tipo').value;
   if(doc.length<11){alert('Informe um documento válido.');return;}
@@ -6594,7 +6594,7 @@ async function dd2Iniciar(){
   if(scCad&&tipo==='cnpj'){
     dd2SetStep('cadastral','active');
     tasks.push(
-      fetch('https://brasilapi.com.br/api/cnpj/v1/'+doc).then(r=>r.ok?r.json():null).then(d=>{
+      dd2FetchCnpj(doc).then(d=>{
         dd2CadastralData=d;dd2SetStep('cadastral','done');dd2SetProgress(20);
         dd2RenderCadastral(d);dd2RenderFiscal(d);
       }).catch(()=>{dd2SetStep('cadastral','error');})
@@ -6619,8 +6619,8 @@ async function dd2Iniciar(){
     dd2SetStep('sancoes','active');
     tasks.push(
 Promise.all([
-          fetch('https://api.portaldatransparencia.gov.br/api-de-dados/ceis?cnpjSancionado='+doc+'&pagina=1').then(r=>r.ok?r.json():[]).catch(()=>[]),
-                  fetch('https://api.portaldatransparencia.gov.br/api-de-dados/cnep?cnpjSancionado='+doc+'&pagina=1').then(r=>r.ok?r.json():[]).catch(()=>[])
+          fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api.portaldatransparencia.gov.br/api-de-dados/ceis?cnpjSancionado='+doc+'&pagina=1')).then(r=>r.ok?r.json():[]).catch(()=>[]),
+                  fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api.portaldatransparencia.gov.br/api-de-dados/cnep?cnpjSancionado='+doc+'&pagina=1')).then(r=>r.ok?r.json():[]).catch(()=>[])
                         ]).then(([ceis,cnep])=>{
                                 dd2SancoesData={ceis:Array.isArray(ceis)?ceis:[],cnep:Array.isArray(cnep)?cnep:[]};
                                         dd2SetStep('sancoes','done');dd2SetProgress(65);
@@ -6672,7 +6672,7 @@ fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api.duckduckgo.co
 async function dd2FetchJudicial(doc,headers){
   const results=[];
   const calls=DD2_TRIBUNAIS.map(t=>
-    fetch('https://api-publica.datajud.cnj.jus.br/api_publica_'+t.sigla.toLowerCase()+'/_search',{
+    fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api-publica.datajud.cnj.jus.br/api_publica_'+t.sigla.toLowerCase()+'/_search'),{
       method:'POST',
       headers:{'Content-Type':'application/json','Authorization':'APIKey '+DD2_DATAJUD_KEY},
       body:JSON.stringify({query:{bool:{should:[{match:{numeroProcesso:doc}},{match:{cpfCnpj:doc}}]}},size:50}),
@@ -6691,7 +6691,7 @@ async function dd2FetchJudicial(doc,headers){
 async function dd2FetchPep(nome,doc){
   if(!nome&&!doc)return[];
   const q=nome?encodeURIComponent(nome.split(' ').slice(0,3).join(' ')):doc;
-  const r=await fetch('https://api.portaldatransparencia.gov.br/api-de-dados/pep?nome='+q+'&pagina=1',{signal:AbortSignal.timeout(10000)});
+  const r=await fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api.portaldatransparencia.gov.br/api-de-dados/pep?nome='+q+'&pagina=1'),{signal:AbortSignal.timeout(10000)});
   if(!r.ok)return[];
   return await r.json();
 }
@@ -6700,7 +6700,7 @@ function dd2RenderCadastral(d){
   const el=document.getElementById('dd2-cadastral-content');
   if(!d){el.innerHTML='<p style="color:#ef4444">Não foi possível obter dados cadastrais.</p>';return;}
   const r=d;
-  const sit=r.situacao_cadastral||r.situacao||r.status||'—';
+  const sit=String(r.descricao_situacao_cadastral||r.situacao_cadastral||r.situacao||r.status||'—');
   const sitOk=(sit.toUpperCase().includes('ATIVA')||sit.toUpperCase().includes('REGULAR'));
   el.innerHTML=`<div class="dd2-grid-3">
     <div class="dd2-field-item"><label>CNPJ</label><span>${r.cnpj||'—'}</span></div>
@@ -6723,7 +6723,7 @@ function dd2RenderCadastral(d){
 function dd2RenderFiscal(d){
   const el=document.getElementById('dd2-fiscal-content');
   if(!d){el.innerHTML='<p style="color:#ef4444">Dados fiscais não disponíveis.</p>';return;}
-  const sit=d.situacao_cadastral||d.situacao||d.status||'—';
+  const sit=String(d.descricao_situacao_cadastral||d.situacao_cadastral||d.situacao||d.status||'—');
   const sitOk=(sit.toUpperCase().includes('ATIVA')||sit.toUpperCase().includes('REGULAR'));
   el.innerHTML=`<div style="overflow-x:auto"><table class="dd2-table"><thead><tr><th>Verificação</th><th>Resultado</th><th>Status</th></tr></thead><tbody>
     <tr><td>Situação na Receita Federal</td><td>${sit}</td><td><span class="dd2-badge ${sitOk?'ok':'danger'}">${sitOk?'Regular':'Irregular'}</span></td></tr>
