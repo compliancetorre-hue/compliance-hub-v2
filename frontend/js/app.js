@@ -811,7 +811,7 @@ function renderPlanos() {
       <td>${prazoChip(p.prazo)}</td>
       <td>${statusBadge(p.prio)}</td>
       <td>${statusBadge(p.status)}</td>
-      <td>${progBar(p.prog||0, pc)}</td>
+      <td>${p.andamento ? `<div style="font-size:.75rem;color:var(--text-muted);margin-bottom:4px;border-left:3px solid var(--accent);padding-left:6px;white-space:pre-wrap;max-width:180px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical">${p.andamento}</div>` : ''}${progBar(p.prog||0, pc)}</td>
       <td>
         <button class="btn btn-outline btn-sm" onclick="editPlano(${p.id})">✏️</button>
         <button class="btn btn-danger btn-sm" onclick="delPlano(${p.id})">🗑</button>
@@ -822,7 +822,7 @@ function renderPlanos() {
 
 function openModalPlano() {
   window._editPlanoId = null;
-  ['f-plano-titulo','f-plano-setor','f-plano-resp','f-plano-prazo','f-plano-desc'].forEach(id => document.getElementById(id).value = '');
+  ['f-plano-titulo','f-plano-setor','f-plano-resp','f-plano-prazo','f-plano-desc','f-plano-andamento'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('f-plano-prog').value = 0;
   openModal('modal-plano');
 }
@@ -841,6 +841,7 @@ function editPlano(id) {
   document.getElementById('f-plano-status').value = p.status;
   document.getElementById('f-plano-prog').value = p.prog||0;
   document.getElementById('f-plano-desc').value = p.desc||'';
+  document.getElementById('f-plano-andamento').value = p.andamento||'';
   openModal('modal-plano');
 }
 
@@ -856,6 +857,7 @@ function salvarPlano() {
     prio: document.getElementById('f-plano-prio').value,
     status: document.getElementById('f-plano-status').value,
     prog: +document.getElementById('f-plano-prog').value,
+    andamento: document.getElementById('f-plano-andamento').value,
     desc: document.getElementById('f-plano-desc').value
   };
   if(window._editPlanoId) {
@@ -3096,7 +3098,7 @@ async function loadFromSupabase() {
       DB.planos = planos.map(p => ({
         id:p.id, titulo:p.titulo, origem:p.origem||'', filial:p.filial, setor:p.setor,
         resp:p.resp||'', prazo:p.prazo||'', prio:p.prio, status:p.status,
-        prog:p.prog||0, desc:p.descricao||''
+        prog:p.prog||0, andamento:p.andamento||'', desc:p.descricao||''
       }));
     }
 
@@ -3236,7 +3238,7 @@ async function sbDeleteControle(id) {
 }
 async function sbSavePlano(p) {
   if(!USE_SUPABASE) return;
-  const row = { id:p.id, titulo:p.titulo, origem:p.origem||'', filial:p.filial, setor:p.setor, resp:p.resp||'', prazo:p.prazo||null, prio:p.prio, status:p.status, prog:p.prog||0, descricao:p.desc||'' };
+  const row = { id:p.id, titulo:p.titulo, origem:p.origem||'', filial:p.filial, setor:p.setor, resp:p.resp||'', prazo:p.prazo||null, prio:p.prio, status:p.status, prog:p.prog||0, andamento:p.andamento||'', descricao:p.desc||'' };
   try { await sbUpsert('planos', row); auditLog('update','planos',`Plano "${p.titulo}" salvo`,{titulo:p.titulo,status:p.status}); }
   catch(e) { console.warn('sbSavePlano:', e.message); }
 }
