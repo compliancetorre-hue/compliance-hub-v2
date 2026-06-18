@@ -3,16 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Compliance Hub · Sistema de Gestão</title>
+  <title>Compliance Hub Â· Sistema de GestÃ£o</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-<!-- ════════════════════════════════
+<!-- ââââââââââââââââââââââââââââââââ
      TELA DE LOGIN
-════════════════════════════════ -->
+ââââââââââââââââââââââââââââââââ -->
 <div id="login-screen">h
   <div class="login-bg">
     <div class="login-bg-circle"></div>
@@ -43,7 +43,7 @@
     </div>
     <div class="login-field">
       <label>Senha</label>
-      <input type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password"
+      <input type="password" id="login-pass" placeholder="â¢â¢â¢â¢â¢â¢â¢â¢" autocomplete="current-password"
         onkeydown="if(event.key==='Enter')doLogin()"/>
     </div>
 
@@ -59,7 +59,7 @@
 
     <div class="login-badge">
       <div class="login-badge-dot"></div>
-      <span>Sistema protegido · Compliance Hub v1.0</span>
+      <span>Sistema protegido Â· Compliance Hub v1.0</span>
     </div>
   </div>
 </div>
@@ -79,99 +79,99 @@
     </div>
     <div>
       <div class="brand">Compliance Hub</div>
-      <div class="sub">Gestão & Controle</div>
+      <div class="sub">GestÃ£o & Controle</div>
     </div>
   </div>
   <nav>
-    <div class="nav-label">Visão Geral</div>
+    <div class="nav-label">VisÃ£o Geral</div>
     <a onclick="goto('dashboard',this)" class="active" data-page="dashboard">
-      <span class="icon">📊</span> Dashboard
+      <span class="icon">ð</span> Dashboard
     </a>
     <a onclick="goto('agenda',this)" data-page="agenda">
-      <span class="icon">📅</span> Agenda
+      <span class="icon">ð</span> Agenda
     </a>
 
     <div class="nav-label">Estrutura</div>
     <a onclick="goto('filiais',this)" data-page="filiais">
-      <span class="icon">🏢</span> Filiais e Setores
+      <span class="icon">ð¢</span> Filiais e Setores
     </a>
 
     <div class="nav-label">Compliance</div>
     <a onclick="goto('mapa-risco',this)" data-page="mapa-risco">
-      <span class="icon">🗺️</span> Mapeamento de Risco
+      <span class="icon">ðºï¸</span> Mapeamento de Risco
     </a>
 
-    <div class="nav-label">Denúncias</div>
+    <div class="nav-label">DenÃºncias</div>
     <a onclick="goto('canal-denuncia',this)" data-page="canal-denuncia">
-      <span class="icon">📢</span> Canal de Denúncia
+      <span class="icon">ð¢</span> Canal de DenÃºncia
     </a>
 
-    <div class="nav-label">Análise</div>
+    <div class="nav-label">AnÃ¡lise</div>
     <a onclick="goto('relatorios',this)" data-page="relatorios">
-      <span class="icon">📑</span> Relatórios
+      <span class="icon">ð</span> RelatÃ³rios
     </a>
     <a onclick="goto('importar',this)" data-page="importar">
-      <span class="icon">⬆️</span> Importar Planilha
+      <span class="icon">â¬ï¸</span> Importar Planilha
     </a>
 
     <div class="nav-label">Fluxo Visual</div>
     <a onclick="goto('flowboard',this)" data-page="flowboard">
-      <span class="icon">🗂️</span> Flow Board
+      <span class="icon">ðï¸</span> Flow Board
     </a>
     <div class="nav-label">Pesquisa</div>
     <a onclick="goto('due-diligence',this)" data-page="due-diligence">
-      <span class="icon">🔍</span> Due Diligence
+      <span class="icon">ð</span> Due Diligence
     </a>
         <a onclick="goto('due-diligence2',this)" data-page="due-diligence2">
-                <span class="icon">🔎</span> Due Diligence 2
+                <span class="icon">ð</span> Due Diligence 2
         </a>
   </nav>
   <div style="padding:8px 12px 4px;border-top:1px solid rgba(255,255,255,.08);margin-top:4px">
-    <!-- Botões compactos em grade 3x2 -->
+    <!-- BotÃµes compactos em grade 3x2 -->
     <div id="nav-admin-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;margin-bottom:4px">
-      <button id="nav-permissoes" onclick="abrirGerenciarPermissoes()" title="Permissões de Acesso"
+      <button id="nav-permissoes" onclick="abrirGerenciarPermissoes()" title="PermissÃµes de Acesso"
         style="display:none;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:7px 4px;border-radius:7px;background:rgba(139,92,246,.15);border:1px solid rgba(139,92,246,.3);color:rgba(196,168,255,.9);font-size:.62rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;text-align:center;line-height:1.2"
         onmouseover="this.style.background='rgba(139,92,246,.3)'" onmouseout="this.style.background='rgba(139,92,246,.15)'">
-        <span style="font-size:.95rem">🔐</span>Permissões
+        <span style="font-size:.95rem">ð</span>PermissÃµes
       </button>
-      <button id="nav-usuarios" onclick="abrirGerenciarUsuarios()" title="Gerenciar Usuários"
+      <button id="nav-usuarios" onclick="abrirGerenciarUsuarios()" title="Gerenciar UsuÃ¡rios"
         style="display:none;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:7px 4px;border-radius:7px;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.28);color:rgba(110,231,183,.9);font-size:.62rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;text-align:center;line-height:1.2"
         onmouseover="this.style.background='rgba(16,185,129,.25)'" onmouseout="this.style.background='rgba(16,185,129,.12)'">
-        <span style="font-size:.95rem">👥</span>Usuários
+        <span style="font-size:.95rem">ð¥</span>UsuÃ¡rios
       </button>
       <button id="nav-audit" onclick="abrirLogs()" title="Logs de Auditoria"
         style="display:none;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:7px 4px;border-radius:7px;background:rgba(239,68,68,.12);border:1px solid rgba(239,68,68,.28);color:rgba(252,165,165,.9);font-size:.62rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;text-align:center;line-height:1.2"
         onmouseover="this.style.background='rgba(239,68,68,.22)'" onmouseout="this.style.background='rgba(239,68,68,.12)'">
-        <span style="font-size:.95rem">📋</span>Logs
+        <span style="font-size:.95rem">ð</span>Logs
       </button>
-      <button id="nav-branding" onclick="abrirPainelBranding()" title="Branding & Aparência"
+      <button id="nav-branding" onclick="abrirPainelBranding()" title="Branding & AparÃªncia"
         style="display:none;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:7px 4px;border-radius:7px;background:rgba(59,130,246,.12);border:1px solid rgba(59,130,246,.28);color:rgba(147,197,253,.9);font-size:.62rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;text-align:center;line-height:1.2"
         onmouseover="this.style.background='rgba(59,130,246,.25)'" onmouseout="this.style.background='rgba(59,130,246,.12)'">
-        <span style="font-size:.95rem">🎨</span>Branding
+        <span style="font-size:.95rem">ð¨</span>Branding
       </button>
     </div>
-    <!-- Linha inferior — visível para todos -->
+    <!-- Linha inferior â visÃ­vel para todos -->
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px">
       <button onclick="openAdminPanel()" title="Gerenciar Dados"
         style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:7px 4px;border-radius:7px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.65);font-size:.62rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;text-align:center;line-height:1.2"
         onmouseover="this.style.background='rgba(255,255,255,.14)'" onmouseout="this.style.background='rgba(255,255,255,.07)'">
-        <span style="font-size:.95rem">⚙️</span>Dados
+        <span style="font-size:.95rem">âï¸</span>Dados
       </button>
       <button id="nav-minha-senha" onclick="abrirAlterarMinhaSenha()" title="Alterar Minha Senha"
         style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:7px 4px;border-radius:7px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:.62rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;text-align:center;line-height:1.2"
         onmouseover="this.style.background='rgba(255,255,255,.12)'" onmouseout="this.style.background='rgba(255,255,255,.05)'">
-        <span style="font-size:.95rem">🔑</span>Senha
+        <span style="font-size:.95rem">ð</span>Senha
       </button>
       <button onclick="forceResetCache()" title="Recarregar Dados"
         style="display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:7px 4px;border-radius:7px;background:rgba(255,140,50,.12);border:1px solid rgba(255,140,50,.25);color:rgba(255,180,120,.85);font-size:.62rem;font-weight:600;cursor:pointer;font-family:inherit;transition:all .15s;text-align:center;line-height:1.2"
         onmouseover="this.style.background='rgba(255,140,50,.22)'" onmouseout="this.style.background='rgba(255,140,50,.12)'">
-        <span style="font-size:.95rem">🔄</span>Recarregar
+        <span style="font-size:.95rem">ð</span>Recarregar
       </button>
     </div>
   </div>
   <div class="version" style="display:flex;align-items:center;justify-content:space-between">
     <span>Compliance Hub v1.0</span>
-    <span id="save-indicator" style="font-size:.68rem;color:rgba(255,255,255,.4)">💾 Auto-salvo ativo</span>
+    <span id="save-indicator" style="font-size:.68rem;color:rgba(255,255,255,.4)">ð¾ Auto-salvo ativo</span>
   </div>
 </div>
 
@@ -181,17 +181,17 @@
   <!-- TOPBAR -->
   <div id="topbar">
     <div style="display:flex;align-items:center;gap:12px">
-      <button id="mobile-menu-btn" onclick="toggleMobile()">☰</button>
+      <button id="mobile-menu-btn" onclick="toggleMobile()">â°</button>
       <div class="page-title" id="topbar-title">Dashboard</div>
     </div>
     <div class="topbar-right">
       <div class="date-chip" id="date-chip"></div>
       <div class="user-chip">
         <div class="user-avatar" id="user-av">GC</div>
-        <span id="user-name">Gestão Compliance</span>
+        <span id="user-name">GestÃ£o Compliance</span>
       </div>
       <button class="btn-logout" onclick="doLogout()" title="Sair do sistema">
-        ⎋ Sair
+        â Sair
       </button>
     </div>
   </div>
@@ -199,26 +199,26 @@
   <!-- CONTENT -->
   <div id="content">
 
-    <!-- ══════════════════════════════════════════
+    <!-- ââââââââââââââââââââââââââââââââââââââââââ
          DASHBOARD
-    ══════════════════════════════════════════ -->
+    ââââââââââââââââââââââââââââââââââââââââââ -->
 
-    <!-- ══════════════════════════════════════════
+    <!-- ââââââââââââââââââââââââââââââââââââââââââ
          AGENDA
-    ══════════════════════════════════════════ -->
+    ââââââââââââââââââââââââââââââââââââââââââ -->
     <div class="page" id="page-agenda">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px">
         <div style="display:flex;align-items:center;gap:12px">
-          <button onclick="agendaNavMonth(-1)" class="btn btn-outline btn-sm" style="padding:6px 12px">‹</button>
+          <button onclick="agendaNavMonth(-1)" class="btn btn-outline btn-sm" style="padding:6px 12px">â¹</button>
           <h2 id="agenda-month-title" style="font-size:1.1rem;font-weight:800;color:var(--primary);min-width:180px;text-align:center"></h2>
-          <button onclick="agendaNavMonth(1)" class="btn btn-outline btn-sm" style="padding:6px 12px">›</button>
+          <button onclick="agendaNavMonth(1)" class="btn btn-outline btn-sm" style="padding:6px 12px">âº</button>
           <button onclick="agendaGoToday()" class="btn btn-outline btn-sm">Hoje</button>
         </div>
         <div style="display:flex;gap:8px">
-          <button onclick="agendaSetView('mes')" id="btn-view-mes" class="btn btn-outline btn-sm">📅 Mês</button>
-          <button onclick="agendaSetView('semana')" id="btn-view-semana" class="btn btn-outline btn-sm">📆 Semana</button>
-          <button onclick="agendaSetView('lista')" id="btn-view-lista" class="btn btn-outline btn-sm">📋 Lista</button>
-          <button onclick="agendaSyncNuvem()" class="btn btn-outline btn-sm" title="Enviar eventos para a nuvem">☁️ Sincronizar</button>
+          <button onclick="agendaSetView('mes')" id="btn-view-mes" class="btn btn-outline btn-sm">ð MÃªs</button>
+          <button onclick="agendaSetView('semana')" id="btn-view-semana" class="btn btn-outline btn-sm">ð Semana</button>
+          <button onclick="agendaSetView('lista')" id="btn-view-lista" class="btn btn-outline btn-sm">ð Lista</button>
+          <button onclick="agendaSyncNuvem()" class="btn btn-outline btn-sm" title="Enviar eventos para a nuvem">âï¸ Sincronizar</button>
           <button onclick="agendaNovoEvento()" class="btn btn-accent btn-sm">+ Evento</button>
         </div>
       </div>
@@ -231,8 +231,8 @@
       <!-- SELECTED DAY EVENTS -->
       <div id="agenda-day-panel" style="display:none;margin-top:14px" class="section">
         <div class="section-header">
-          <h2>📌 <span id="agenda-day-panel-title"></span></h2>
-          <button class="btn btn-outline btn-sm" onclick="document.getElementById('agenda-day-panel').style.display='none'">✕</button>
+          <h2>ð <span id="agenda-day-panel-title"></span></h2>
+          <button class="btn btn-outline btn-sm" onclick="document.getElementById('agenda-day-panel').style.display='none'">â</button>
         </div>
         <div class="section-body" id="agenda-day-panel-body"></div>
       </div>
@@ -242,31 +242,31 @@
 
       <div class="stat-grid">
         <div class="stat-card highlight kpi-card-clickable" onclick="openDashDrill('controles')" title="Ver todos os controles internos">
-          <div class="stat-icon" style="background:rgba(0,196,154,.2)">🛡️</div>
+          <div class="stat-icon" style="background:rgba(0,196,154,.2)">ð¡ï¸</div>
           <div>
             <div class="stat-num" id="dash-total-controles">0</div>
             <div class="stat-label">Controles Monitorados</div>
           </div>
         </div>
-        <div class="stat-card kpi-card-clickable" onclick="openDashDrill('riscos')" title="Ver riscos Altos e Críticos">
-          <div class="stat-icon amber">⚠️</div>
+        <div class="stat-card kpi-card-clickable" onclick="openDashDrill('riscos')" title="Ver riscos Altos e CrÃ­ticos">
+          <div class="stat-icon amber">â ï¸</div>
           <div>
             <div class="stat-num" id="dash-riscos-altos" style="color:var(--warn)">0</div>
-            <div class="stat-label">Planos de Ação</div>
+            <div class="stat-label">Planos de AÃ§Ã£o</div>
           </div>
         </div>
-        <div class="stat-card kpi-card-clickable" onclick="openDashDrill('acoes')" title="Ver ações e planos vencidos">
-          <div class="stat-icon red">🚨</div>
+        <div class="stat-card kpi-card-clickable" onclick="openDashDrill('acoes')" title="Ver aÃ§Ãµes e planos vencidos">
+          <div class="stat-icon red">ð¨</div>
           <div>
             <div class="stat-num" id="dash-acoes-venc" style="color:var(--danger)">0</div>
-            <div class="stat-label">Ações Vencidas</div>
+            <div class="stat-label">AÃ§Ãµes Vencidas</div>
           </div>
         </div>
-        <div class="stat-card kpi-card-clickable" onclick="openDashDrill('denuncias')" title="Ver denúncias Abertas e Em Análise">
-          <div class="stat-icon blue">📢</div>
+        <div class="stat-card kpi-card-clickable" onclick="openDashDrill('denuncias')" title="Ver denÃºncias Abertas e Em AnÃ¡lise">
+          <div class="stat-icon blue">ð¢</div>
           <div>
             <div class="stat-num" id="dash-denuncias" style="color:var(--info)">0</div>
-            <div class="stat-label">Denúncias em Aberto</div>
+            <div class="stat-label">DenÃºncias em Aberto</div>
             <div id="dash-denuncias-sub" style="font-size:.68rem;color:var(--text-muted);margin-top:1px"></div>
           </div>
         </div>
@@ -279,7 +279,7 @@
             <h2><span id="dash-dd-icon"></span> <span id="dash-dd-title"></span>
               <span id="dash-dd-count" style="font-size:.8rem;font-weight:500;color:var(--text-muted);margin-left:8px"></span>
             </h2>
-            <button class="btn btn-outline btn-sm" onclick="closeDashDrill()">✕ Fechar</button>
+            <button class="btn btn-outline btn-sm" onclick="closeDashDrill()">â Fechar</button>
           </div>
           <div class="section-body" style="padding:0">
             <div class="table-wrap"><table id="dash-dd-table">
@@ -292,19 +292,19 @@
 
       <div class="chart-grid">
         <div class="chart-box">
-          <h3>📈 Riscos por Nível</h3>
+          <h3>ð Riscos por NÃ­vel</h3>
           <div class="bar-chart" id="chart-riscos"></div>
         </div>
         <div class="chart-box">
-          <h3>📋 Status dos Planos de Ação</h3>
+          <h3>ð Status dos Planos de AÃ§Ã£o</h3>
           <div class="bar-chart" id="chart-controles"></div>
         </div>
         <div class="chart-box">
-          <h3>📋 Planos de Ação por Status</h3>
+          <h3>ð Planos de AÃ§Ã£o por Status</h3>
           <div class="bar-chart" id="chart-planos"></div>
         </div>
         <div class="chart-box">
-          <h3>📢 Denúncias por Nível de Perigo</h3>
+          <h3>ð¢ DenÃºncias por NÃ­vel de Perigo</h3>
           <div class="bar-chart" id="chart-denuncias"></div>
         </div>
       </div>
@@ -312,68 +312,68 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
         <div class="section" style="margin-bottom:0">
           <div class="section-header">
-            <h2>⚠️ Riscos Críticos e Altos</h2>
+            <h2>â ï¸ Riscos CrÃ­ticos e Altos</h2>
             <button class="btn btn-outline btn-sm" onclick="goto('controles', document.querySelector('[data-page=controles]'))">Ver todos</button>
           </div>
           <div class="section-body" style="padding:0">
             <table>
               <thead><tr>
-                <th>Risco</th><th>Unidade</th><th>Nível</th><th>Categoria</th>
+                <th>Risco</th><th>Unidade</th><th>NÃ­vel</th><th>Categoria</th>
               </tr></thead>
               <tbody id="dash-controles-urgentes"></tbody>
             </table>
-            <div class="empty hidden" id="dash-empty-ctrl"><div class="ico">✅</div>Nenhum risco crítico ou alto.</div>
+            <div class="empty hidden" id="dash-empty-ctrl"><div class="ico">â</div>Nenhum risco crÃ­tico ou alto.</div>
           </div>
         </div>
 
         <div class="section" style="margin-bottom:0">
           <div class="section-header">
-            <h2>📋 Ações com Prazo Próximo</h2>
+            <h2>ð AÃ§Ãµes com Prazo PrÃ³ximo</h2>
             <button class="btn btn-outline btn-sm" onclick="goto('planos-acao', document.querySelector('[data-page=planos-acao]'))">Ver todos</button>
           </div>
           <div class="section-body" style="padding:0">
             <table>
               <thead><tr>
-                <th>Ação</th><th>Responsável</th><th>Prazo</th><th>Status</th>
+                <th>AÃ§Ã£o</th><th>ResponsÃ¡vel</th><th>Prazo</th><th>Status</th>
               </tr></thead>
               <tbody id="dash-acoes-urgentes"></tbody>
             </table>
-            <div class="empty hidden" id="dash-empty-acao"><div class="ico">✅</div>Nenhuma ação urgente.</div>
+            <div class="empty hidden" id="dash-empty-acao"><div class="ico">â</div>Nenhuma aÃ§Ã£o urgente.</div>
           </div>
         </div>
       </div>
 
     </div><!-- /dashboard -->
 
-    <!-- ══════════════════════════════════════════
+    <!-- ââââââââââââââââââââââââââââââââââââââââââ
          FILIAIS E SETORES
-    ══════════════════════════════════════════ -->
+    ââââââââââââââââââââââââââââââââââââââââââ -->
     <div class="page" id="page-filiais">
       <div class="section">
         <div class="section-header">
-          <h2>🏢 Filiais e Setores</h2>
+          <h2>ð¢ Filiais e Setores</h2>
           <button class="btn btn-accent btn-sm" onclick="openModalFilial()">+ Nova Filial</button>
         </div>
         <div class="section-body">
           <div class="filter-bar">
-            <input type="text" id="filtro-filial" placeholder="🔍 Buscar filial ou setor..." oninput="renderFiliais()"/>
+            <input type="text" id="filtro-filial" placeholder="ð Buscar filial ou setor..." oninput="renderFiliais()"/>
           </div>
           <div id="filiais-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;"></div>
         </div>
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════════
+    <!-- ââââââââââââââââââââââââââââââââââââââââââ
          MAPEAMENTO DE RISCO
-    ══════════════════════════════════════════ -->
+    ââââââââââââââââââââââââââââââââââââââââââ -->
     <div class="page" id="page-mapa-risco">
       <!-- HEADER -->
       <div class="section-header" style="margin-bottom:14px">
-        <h2>🗺️ Mapeamento de Riscos</h2>
+        <h2>ðºï¸ Mapeamento de Riscos</h2>
         <div style="display:flex;gap:7px;flex-wrap:wrap">
-          <button class="btn-ai-gem" id="btn-ai-risco" onclick="aiAnalisarRiscos()">🤖 Avaliar com IA</button>
-          <button class="btn btn-outline btn-sm" onclick="rmToggleUnitsPanel()">⚙️ Unidades</button>
-          <button class="btn btn-outline btn-sm" onclick="rmToggleImport()">📎 Importar Word</button>
+          <button class="btn-ai-gem" id="btn-ai-risco" onclick="aiAnalisarRiscos()">ð¤ Avaliar com IA</button>
+          <button class="btn btn-outline btn-sm" onclick="rmToggleUnitsPanel()">âï¸ Unidades</button>
+          <button class="btn btn-outline btn-sm" onclick="rmToggleImport()">ð Importar Word</button>
           <button class="btn btn-accent btn-sm" onclick="rmNovoRisco()">+ Novo Risco</button>
         </div>
       </div>
@@ -382,8 +382,8 @@
       <!-- IMPORT WORD PANEL -->
       <div id="rm-import-wrap" style="display:none;margin-bottom:14px" class="section">
         <div class="section-header">
-          <h2>📎 Importar Word</h2>
-          <button class="btn btn-outline btn-sm" onclick="rmToggleImport()">✕ Fechar</button>
+          <h2>ð Importar Word</h2>
+          <button class="btn btn-outline btn-sm" onclick="rmToggleImport()">â Fechar</button>
         </div>
         <div class="section-body">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start">
@@ -395,7 +395,7 @@
                 ondragover="event.preventDefault();this.classList.add('drag')"
                 ondragleave="this.classList.remove('drag')"
                 ondrop="event.preventDefault();this.classList.remove('drag');rmSetFileAndPreview(event.dataTransfer.files[0])">
-                <div style="font-size:2rem;margin-bottom:6px">📄</div>
+                <div style="font-size:2rem;margin-bottom:6px">ð</div>
                 <div style="font-weight:700;color:var(--primary);margin-bottom:3px" id="rm-file-name">Arraste o arquivo .docx aqui</div>
                 <div style="font-size:.8rem;color:var(--text-muted)">ou clique para selecionar</div>
                 <input type="file" id="rm-file-inp" accept=".docx" style="display:none" onchange="rmSetFileAndPreview(this.files[0])"/>
@@ -407,16 +407,16 @@
               <select id="rm-import-unit-sel"
                 style="width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:var(--radius);font-size:.9rem;font-family:inherit;color:var(--text);background:var(--card);margin-bottom:12px;outline:none">
               </select>
-              <div style="font-size:.74rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);letter-spacing:.5px;margin-bottom:8px">Opções de importação</div>
+              <div style="font-size:.74rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);letter-spacing:.5px;margin-bottom:8px">OpÃ§Ãµes de importaÃ§Ã£o</div>
               <label style="display:flex;align-items:center;gap:8px;font-size:.84rem;margin-bottom:8px;cursor:pointer">
-                <input type="checkbox" id="rm-import-skip-dup" checked/> Ignorar duplicatas já cadastradas
+                <input type="checkbox" id="rm-import-skip-dup" checked/> Ignorar duplicatas jÃ¡ cadastradas
               </label>
               <label style="display:flex;align-items:center;gap:8px;font-size:.84rem;cursor:pointer">
                 <input type="checkbox" id="rm-import-clear-unit"/> Limpar riscos existentes desta unidade antes de importar
               </label>
               <button id="rm-import-btn" onclick="rmProcessWord()" disabled
                 class="btn btn-accent" style="width:100%;margin-top:14px;padding:11px;justify-content:center;opacity:.5">
-                📥 Importar para a Unidade
+                ð¥ Importar para a Unidade
               </button>
             </div>
           </div>
@@ -427,8 +427,8 @@
       <!-- GERENCIAR UNIDADES PANEL -->
       <div id="rm-units-wrap" style="display:none;margin-bottom:14px" class="section">
         <div class="section-header">
-          <h2>⚙️ Gerenciar Unidades</h2>
-          <button class="btn btn-outline btn-sm" onclick="document.getElementById('rm-units-wrap').style.display='none'">✕ Fechar</button>
+          <h2>âï¸ Gerenciar Unidades</h2>
+          <button class="btn btn-outline btn-sm" onclick="document.getElementById('rm-units-wrap').style.display='none'">â Fechar</button>
         </div>
         <div class="section-body">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
@@ -441,8 +441,8 @@
             <div>
               <div style="font-size:.74rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);letter-spacing:.5px;margin-bottom:10px">Nova unidade</div>
               <div class="form-grid" style="grid-template-columns:1fr 1fr">
-                <div class="field full"><label>Nome da Unidade *</label><input type="text" id="rm-new-unit-name" placeholder="Ex: Logística, Compras..."/></div>
-                <div class="field"><label>Ícone (emoji)</label><input type="text" id="rm-new-unit-icon" placeholder="📋" maxlength="2" style="font-size:1.3rem;text-align:center"/></div>
+                <div class="field full"><label>Nome da Unidade *</label><input type="text" id="rm-new-unit-name" placeholder="Ex: LogÃ­stica, Compras..."/></div>
+                <div class="field"><label>Ãcone (emoji)</label><input type="text" id="rm-new-unit-icon" placeholder="ð" maxlength="2" style="font-size:1.3rem;text-align:center"/></div>
                 <div class="field"><label>Cor</label>
                   <input type="color" id="rm-new-unit-cor" value="#3b82f6" style="width:100%;height:38px;border-radius:8px;border:1.5px solid var(--border);cursor:pointer"/>
                 </div>
@@ -460,25 +460,25 @@
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════════
+    <!-- ââââââââââââââââââââââââââââââââââââââââââ
          CONTROLES INTERNOS
-    ══════════════════════════════════════════ -->
+    ââââââââââââââââââââââââââââââââââââââââââ -->
     <div class="page" id="page-controles">
       <div class="section">
         <div class="section-header">
-          <h2>🔒 Controles Internos</h2>
+          <h2>ð Controles Internos</h2>
           <button class="btn btn-accent btn-sm" onclick="openModalControle()">+ Novo Controle</button>
         </div>
         <div class="section-body">
           <div class="filter-bar">
-            <input type="text" id="filtro-ctrl-txt" placeholder="🔍 Buscar controle..." oninput="renderControles()"/>
+            <input type="text" id="filtro-ctrl-txt" placeholder="ð Buscar controle..." oninput="renderControles()"/>
             <select id="filtro-ctrl-status" onchange="renderControles()">
               <option value="">Todos os status</option>
-              <option value="Concluído">Concluído</option>
+              <option value="ConcluÃ­do">ConcluÃ­do</option>
               <option value="Em Andamento">Em Andamento</option>
               <option value="Pendente">Pendente</option>
               <option value="Vencido">Vencido</option>
-              <option value="Não Iniciado">Não Iniciado</option>
+              <option value="NÃ£o Iniciado">NÃ£o Iniciado</option>
             </select>
             <select id="filtro-ctrl-filial" onchange="renderControles()">
               <option value="">Todas as filiais</option>
@@ -487,7 +487,7 @@
           <div class="table-wrap">
             <table>
               <thead><tr>
-                <th>Controle</th><th>Tipo</th><th>Filial / Setor</th><th>Responsável</th><th>Periodicidade</th><th>Prazo</th><th>Status</th><th>Progresso</th><th>Ações</th>
+                <th>Controle</th><th>Tipo</th><th>Filial / Setor</th><th>ResponsÃ¡vel</th><th>Periodicidade</th><th>Prazo</th><th>Status</th><th>Progresso</th><th>AÃ§Ãµes</th>
               </tr></thead>
               <tbody id="tb-controles"></tbody>
             </table>
@@ -496,37 +496,37 @@
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════════
-         PLANOS DE AÇÃO
-    ══════════════════════════════════════════ -->
+    <!-- ââââââââââââââââââââââââââââââââââââââââââ
+         PLANOS DE AÃÃO
+    ââââââââââââââââââââââââââââââââââââââââââ -->
     <div class="page" id="page-planos-acao">
       <div class="section">
         <div class="section-header">
-          <h2>📋 Planos de Ação</h2>
+          <h2>ð Planos de AÃ§Ã£o</h2>
           <button class="btn btn-accent btn-sm" onclick="openModalPlano()">+ Novo Plano</button>
         </div>
         <div class="section-body">
           <div class="pill-tabs" id="planos-tabs">
             <button class="pill-tab active" onclick="filterPlanos('',this)">Todos</button>
-            <button class="pill-tab" onclick="filterPlanos('Não Iniciado',this)">Não Iniciado</button>
+            <button class="pill-tab" onclick="filterPlanos('NÃ£o Iniciado',this)">NÃ£o Iniciado</button>
             <button class="pill-tab" onclick="filterPlanos('Em Andamento',this)">Em Andamento</button>
-            <button class="pill-tab" onclick="filterPlanos('Concluído',this)">Concluído</button>
+            <button class="pill-tab" onclick="filterPlanos('ConcluÃ­do',this)">ConcluÃ­do</button>
             <button class="pill-tab" onclick="filterPlanos('Vencido',this)">Vencido</button>
           </div>
           <div class="filter-bar">
-            <input type="text" id="filtro-plano-txt" placeholder="🔍 Buscar plano..." oninput="renderPlanos()"/>
+            <input type="text" id="filtro-plano-txt" placeholder="ð Buscar plano..." oninput="renderPlanos()"/>
             <select id="filtro-plano-filial" onchange="renderPlanos()">
               <option value="">Todas as filiais</option>
             </select>
             <select id="filtro-plano-prioridade" onchange="renderPlanos()">
               <option value="">Todas as prioridades</option>
-              <option>Crítica</option><option>Alta</option><option>Média</option><option>Baixa</option>
+              <option>CrÃ­tica</option><option>Alta</option><option>MÃ©dia</option><option>Baixa</option>
             </select>
           </div>
           <div class="table-wrap">
             <table>
               <thead><tr>
-                <th>Plano / Ação</th><th>Origem</th><th>Filial / Setor</th><th>Responsável</th><th>Prazo</th><th>Prioridade</th><th>Status</th><th>Progresso</th><th>Ações</th>
+                <th>Plano / AÃ§Ã£o</th><th>Origem</th><th>Filial / Setor</th><th>ResponsÃ¡vel</th><th>Prazo</th><th>Prioridade</th><th>Status</th><th>Progresso</th><th>AÃ§Ãµes</th>
               </tr></thead>
               <tbody id="tb-planos"></tbody>
             </table>
@@ -535,42 +535,42 @@
       </div>
     </div>
 
-    <!-- ══════════════════════════════════════════
-         CANAL DE DENÚNCIA
-    ══════════════════════════════════════════ -->
+    <!-- ââââââââââââââââââââââââââââââââââââââââââ
+         CANAL DE DENÃNCIA
+    ââââââââââââââââââââââââââââââââââââââââââ -->
     <div class="page" id="page-canal-denuncia">
 
       <div class="stat-grid" style="grid-template-columns:repeat(5,1fr)">
-        <div class="stat-card highlight kpi-card-clickable" onclick="openDnDrilldown('total','📢','Total de Denúncias')" title="Ver todas as denúncias">
-          <div class="stat-icon" style="background:rgba(0,196,154,.2)">📢</div>
+        <div class="stat-card highlight kpi-card-clickable" onclick="openDnDrilldown('total','ð¢','Total de DenÃºncias')" title="Ver todas as denÃºncias">
+          <div class="stat-icon" style="background:rgba(0,196,154,.2)">ð¢</div>
           <div>
             <div class="stat-num" id="dn-total">0</div>
-            <div class="stat-label">Total de Denúncias</div>
+            <div class="stat-label">Total de DenÃºncias</div>
           </div>
         </div>
-        <div class="stat-card kpi-card-clickable" onclick="openDnDrilldown('analise','🔍','Em Análise')" title="Ver denúncias em análise">
-          <div class="stat-icon amber">🔍</div>
+        <div class="stat-card kpi-card-clickable" onclick="openDnDrilldown('analise','ð','Em AnÃ¡lise')" title="Ver denÃºncias em anÃ¡lise">
+          <div class="stat-icon amber">ð</div>
           <div>
             <div class="stat-num" id="dn-analise" style="color:var(--warn)">0</div>
-            <div class="stat-label">Em Análise</div>
+            <div class="stat-label">Em AnÃ¡lise</div>
           </div>
         </div>
-        <div class="stat-card kpi-card-clickable" onclick="openDnDrilldown('encerrada','✅','Encerradas')" title="Ver denúncias encerradas">
-          <div class="stat-icon teal">✅</div>
+        <div class="stat-card kpi-card-clickable" onclick="openDnDrilldown('encerrada','â','Encerradas')" title="Ver denÃºncias encerradas">
+          <div class="stat-icon teal">â</div>
           <div>
             <div class="stat-num" id="dn-encerrada" style="color:var(--accent)">0</div>
             <div class="stat-label">Encerradas</div>
           </div>
         </div>
-        <div class="stat-card kpi-card-clickable" onclick="openDnDrilldown('graves','🚨','Graves / Gravíssimas')" title="Ver denúncias graves">
-          <div class="stat-icon red">🚨</div>
+        <div class="stat-card kpi-card-clickable" onclick="openDnDrilldown('graves','ð¨','Graves / GravÃ­ssimas')" title="Ver denÃºncias graves">
+          <div class="stat-icon red">ð¨</div>
           <div>
             <div class="stat-num" id="dn-urgente" style="color:var(--danger)">0</div>
-            <div class="stat-label">Graves / Gravíssimas</div>
+            <div class="stat-label">Graves / GravÃ­ssimas</div>
           </div>
         </div>
-        <div class="stat-card kpi-card-clickable" onclick="openDnDrilldown('sla','⏱️','SLA Vencido — mais de 90 dias')" title="Ver denúncias com SLA vencido">
-          <div class="stat-icon" style="background:#ede9fe">⏱️</div>
+        <div class="stat-card kpi-card-clickable" onclick="openDnDrilldown('sla','â±ï¸','SLA Vencido â mais de 90 dias')" title="Ver denÃºncias com SLA vencido">
+          <div class="stat-icon" style="background:#ede9fe">â±ï¸</div>
           <div>
             <div class="stat-num" id="dn-sla-venc" style="color:var(--purple)">0</div>
             <div class="stat-label">SLA Vencido (90d)</div>
@@ -582,11 +582,11 @@
       <div id="dn-drilldown" style="display:none;margin-bottom:18px;border:2px solid var(--accent);border-radius:12px;background:var(--card);overflow:hidden;animation:slideDown .2s ease">
         <div class="dd-header" id="dn-dd-header" style="display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:linear-gradient(135deg,var(--primary) 0%,var(--primary-light) 100%);border-bottom:3px solid var(--accent)">
           <div style="display:flex;align-items:center;gap:8px;font-size:.95rem;font-weight:700;color:#fff">
-            <span id="dn-dd-icon">📢</span>
-            <span id="dn-dd-title">Denúncias</span>
+            <span id="dn-dd-icon">ð¢</span>
+            <span id="dn-dd-title">DenÃºncias</span>
             <span id="dn-dd-count" style="font-size:.8rem;opacity:.7;margin-left:4px"></span>
           </div>
-          <button onclick="closeDnDrilldown()" style="background:rgba(255,255,255,.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.3)'" onmouseout="this.style.background='rgba(255,255,255,.15)'">✕</button>
+          <button onclick="closeDnDrilldown()" style="background:rgba(255,255,255,.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:.9rem;display:flex;align-items:center;justify-content:center;transition:background .15s" onmouseover="this.style.background='rgba(255,255,255,.3)'" onmouseout="this.style.background='rgba(255,255,255,.15)'">â</button>
         </div>
         <div style="max-height:420px;overflow-y:auto">
           <div class="table-wrap">
@@ -601,8 +601,8 @@
                 <th class="sortable" data-dncol="perigo" onclick="dnDdSort('perigo',this)">Perigo</th>
                 <th class="sortable" data-dncol="status" onclick="dnDdSort('status',this)">Status</th>
                 <th>SLA (90d)</th>
-                <th class="sortable" data-dncol="resp" onclick="dnDdSort('resp',this)">Responsável</th>
-                <th>Ações</th>
+                <th class="sortable" data-dncol="resp" onclick="dnDdSort('resp',this)">ResponsÃ¡vel</th>
+                <th>AÃ§Ãµes</th>
               </tr></thead>
               <tbody id="dn-dd-tbody"></tbody>
             </table>
@@ -612,39 +612,39 @@
 
       <div class="section">
         <div class="section-header">
-          <h2>📢 Canal de Denúncia</h2>
-          <button class="btn btn-accent btn-sm" onclick="openModalDenuncia()">+ Registrar Denúncia</button>
+          <h2>ð¢ Canal de DenÃºncia</h2>
+          <button class="btn btn-accent btn-sm" onclick="openModalDenuncia()">+ Registrar DenÃºncia</button>
         </div>
         <div class="section-body">
 
           <!-- ABAS -->
           <div class="dn-pill-tabs">
             <button class="dn-pill-tab active" data-dn-tab="recebidas" onclick="switchDnTab('recebidas',this)">
-              📥 Denúncias Recebidas <span class="tab-count" id="tab-count-recebidas">0</span>
+              ð¥ DenÃºncias Recebidas <span class="tab-count" id="tab-count-recebidas">0</span>
             </button>
             <button class="dn-pill-tab" data-dn-tab="analise" onclick="switchDnTab('analise',this)">
-              🔍 Em Análise <span class="tab-count" id="tab-count-analise">0</span>
+              ð Em AnÃ¡lise <span class="tab-count" id="tab-count-analise">0</span>
             </button>
             <button class="dn-pill-tab" data-dn-tab="encerradas" onclick="switchDnTab('encerradas',this)">
-              ✅ Encerradas / Arquivadas <span class="tab-count" id="tab-count-encerradas">0</span>
+              â Encerradas / Arquivadas <span class="tab-count" id="tab-count-encerradas">0</span>
             </button>
             <button class="dn-pill-tab" data-dn-tab="sla" onclick="switchDnTab('sla',this)">
-              ⏱️ Painel SLA <span class="tab-count" id="tab-count-sla">0</span>
+              â±ï¸ Painel SLA <span class="tab-count" id="tab-count-sla">0</span>
             </button>
           </div>
 
           <!-- FILTROS -->
           <div class="filter-bar">
-            <input type="text" id="filtro-dn-txt" placeholder="🔍 Buscar protocolo, tipo, filial..." oninput="renderDenuncias()"/>
+            <input type="text" id="filtro-dn-txt" placeholder="ð Buscar protocolo, tipo, filial..." oninput="renderDenuncias()"/>
             <select id="filtro-dn-categoria" onchange="renderDenuncias()">
               <option value="">Todas as categorias</option>
-              <option>Assédio moral</option><option>Fraude ou desvio de valores</option>
-              <option>Irregularidades trabalhistas</option><option>Conduta antiética</option>
-              <option>Corrupção</option><option>Segurança</option><option>Outros</option>
+              <option>AssÃ©dio moral</option><option>Fraude ou desvio de valores</option>
+              <option>Irregularidades trabalhistas</option><option>Conduta antiÃ©tica</option>
+              <option>CorrupÃ§Ã£o</option><option>SeguranÃ§a</option><option>Outros</option>
             </select>
             <select id="filtro-dn-perigo" onchange="renderDenuncias()">
-              <option value="">Todos os níveis de perigo</option>
-              <option>Leve</option><option>Médio</option><option>Grave</option><option>Gravíssima</option>
+              <option value="">Todos os nÃ­veis de perigo</option>
+              <option>Leve</option><option>MÃ©dio</option><option>Grave</option><option>GravÃ­ssima</option>
             </select>
             <select id="filtro-dn-filial2" onchange="renderDenuncias()">
               <option value="">Todas as filiais</option>
@@ -664,9 +664,9 @@
                   <th class="sortable" data-dnmain="perigo"  onclick="dnMainSort('perigo',this)">Perigo</th>
                   <th class="sortable" data-dnmain="status"  onclick="dnMainSort('status',this)">Status</th>
                   <th>SLA (90d)</th>
-                  <th class="sortable" data-dnmain="conclusao" onclick="dnMainSort('conclusao',this)">Conclusão</th>
-                  <th class="sortable" data-dnmain="resp"    onclick="dnMainSort('resp',this)">Responsável</th>
-                  <th>Ações</th>
+                  <th class="sortable" data-dnmain="conclusao" onclick="dnMainSort('conclusao',this)">ConclusÃ£o</th>
+                  <th class="sortable" data-dnmain="resp"    onclick="dnMainSort('resp',this)">ResponsÃ¡vel</th>
+                  <th>AÃ§Ãµes</th>
                 </tr></thead>
                 <tbody id="tb-denuncias"></tbody>
               </table>
@@ -676,7 +676,7 @@
           <!-- TAB: SLA -->
           <div id="dn-tab-sla" style="display:none">
             <div style="margin-bottom:16px;padding:14px 18px;background:#fffbeb;border:1px solid #fcd34d;border-radius:10px;font-size:.86rem;color:#92400e;display:flex;align-items:center;gap:10px">
-              ⏱️ <strong>SLA máximo: 90 dias corridos</strong> a partir da data de recebimento. Denúncias acima de 70% do prazo exigem atenção imediata.
+              â±ï¸ <strong>SLA mÃ¡ximo: 90 dias corridos</strong> a partir da data de recebimento. DenÃºncias acima de 70% do prazo exigem atenÃ§Ã£o imediata.
             </div>
             <div class="table-wrap">
               <table>
@@ -689,8 +689,8 @@
                   <th>SLA (90d)</th>
                   <th class="sortable" data-dnsla="perigo"  onclick="dnSlaSort('perigo',this)">Perigo</th>
                   <th class="sortable" data-dnsla="status"  onclick="dnSlaSort('status',this)">Status</th>
-                  <th class="sortable" data-dnsla="resp"    onclick="dnSlaSort('resp',this)">Responsável</th>
-                  <th>Ações</th>
+                  <th class="sortable" data-dnsla="resp"    onclick="dnSlaSort('resp',this)">ResponsÃ¡vel</th>
+                  <th>AÃ§Ãµes</th>
                 </tr></thead>
                 <tbody id="tb-denuncias-sla"></tbody>
               </table>
@@ -702,18 +702,18 @@
     </div>
 
 
-    <!-- ══════════════════════════════════════════
-         RELATÓRIOS — CANAL DE DENÚNCIA
-    ══════════════════════════════════════════ -->
+    <!-- ââââââââââââââââââââââââââââââââââââââââââ
+         RELATÃRIOS â CANAL DE DENÃNCIA
+    ââââââââââââââââââââââââââââââââââââââââââ -->
     <div class="page" id="page-relatorios">
 
-      <!-- FILTROS DE RELATÓRIO -->
+      <!-- FILTROS DE RELATÃRIO -->
       <div class="section" style="margin-bottom:18px">
         <div class="section-header">
-          <h2>📑 Relatórios — Canal de Denúncia</h2>
+          <h2>ð RelatÃ³rios â Canal de DenÃºncia</h2>
           <div style="display:flex;gap:8px;flex-wrap:wrap">
-            <button class="btn btn-accent btn-sm" onclick="exportRelatorio()">⬇️ Exportar CSV</button>
-            <button class="btn btn-outline btn-sm" onclick="printRelatorio()">🖨️ Imprimir</button>
+            <button class="btn btn-accent btn-sm" onclick="exportRelatorio()">â¬ï¸ Exportar CSV</button>
+            <button class="btn btn-outline btn-sm" onclick="printRelatorio()">ð¨ï¸ Imprimir</button>
           </div>
         </div>
         <div class="section-body">
@@ -726,46 +726,46 @@
             </select>
             <select id="rel-cat" onchange="renderRelatorios()">
               <option value="">Todas as Categorias</option>
-              <option>Assédio moral</option>
+              <option>AssÃ©dio moral</option>
               <option>Irregularidades trabalhistas</option>
-              <option>Conduta antiética</option>
+              <option>Conduta antiÃ©tica</option>
               <option>Fraude ou desvio de valores</option>
-              <option>Discriminação</option>
-              <option>Segurança</option>
+              <option>DiscriminaÃ§Ã£o</option>
+              <option>SeguranÃ§a</option>
               <option>Outros</option>
             </select>
             <select id="rel-perigo" onchange="renderRelatorios()">
-              <option value="">Todos os Níveis</option>
-              <option>Leve</option><option>Médio</option><option>Grave</option><option>Gravíssima</option>
+              <option value="">Todos os NÃ­veis</option>
+              <option>Leve</option><option>MÃ©dio</option><option>Grave</option><option>GravÃ­ssima</option>
             </select>
             <select id="rel-status" onchange="renderRelatorios()">
               <option value="">Todos os Status</option>
-              <option>Aberta</option><option>Em Análise</option><option>Encerrada</option>
+              <option>Aberta</option><option>Em AnÃ¡lise</option><option>Encerrada</option>
             </select>
             <select id="rel-periodo" onchange="renderRelatorios()">
-              <option value="">Todo período</option>
-              <option value="30">Últimos 30 dias</option>
-              <option value="60">Últimos 60 dias</option>
-              <option value="90">Últimos 90 dias</option>
-              <option value="180">Últimos 180 dias</option>
-              <option value="365">Último ano</option>
+              <option value="">Todo perÃ­odo</option>
+              <option value="30">Ãltimos 30 dias</option>
+              <option value="60">Ãltimos 60 dias</option>
+              <option value="90">Ãltimos 90 dias</option>
+              <option value="180">Ãltimos 180 dias</option>
+              <option value="365">Ãltimo ano</option>
             </select>
           </div>
         </div>
       </div>
 
-      <!-- KPIs RELATÓRIO -->
+      <!-- KPIs RELATÃRIO -->
       <div class="stat-grid" style="margin-bottom:18px" id="rel-kpis"></div>
 
       <!-- DRILLDOWN PANEL (aparece ao clicar nos KPIs) -->
       <div id="rel-drilldown">
         <div class="dd-header">
           <div class="dd-title">
-            <span id="dd-icon">📢</span>
-            <span id="dd-title-text">Denúncias</span>
+            <span id="dd-icon">ð¢</span>
+            <span id="dd-title-text">DenÃºncias</span>
             <span class="dd-count" id="dd-count"></span>
           </div>
-          <button class="dd-close" onclick="closeDrilldown()" title="Fechar">✕</button>
+          <button class="dd-close" onclick="closeDrilldown()" title="Fechar">â</button>
         </div>
         <div class="dd-body">
           <div class="table-wrap">
@@ -780,8 +780,8 @@
                 <th class="sortable" data-col="perigo" onclick="ddSort('perigo',this)">Perigo</th>
                 <th class="sortable" data-col="status" onclick="ddSort('status',this)">Status</th>
                 <th data-col="sla">SLA (90d)</th>
-                <th class="sortable" data-col="resp" onclick="ddSort('resp',this)">Responsável</th>
-                <th>Ações</th>
+                <th class="sortable" data-col="resp" onclick="ddSort('resp',this)">ResponsÃ¡vel</th>
+                <th>AÃ§Ãµes</th>
               </tr></thead>
               <tbody id="dd-tbody"></tbody>
             </table>
@@ -789,26 +789,26 @@
         </div>
       </div>
 
-      <!-- CHARTS RELATÓRIO -->
+      <!-- CHARTS RELATÃRIO -->
       <div class="chart-grid" style="margin-bottom:18px">
         <div class="chart-box">
-          <h3>🏢 Denúncias por Filial</h3>
+          <h3>ð¢ DenÃºncias por Filial</h3>
           <div class="bar-chart" id="rel-chart-filial"></div>
         </div>
         <div class="chart-box">
-          <h3>🗂️ Denúncias por Categoria</h3>
+          <h3>ðï¸ DenÃºncias por Categoria</h3>
           <div class="bar-chart" id="rel-chart-cat"></div>
         </div>
         <div class="chart-box">
-          <h3>🚦 Denúncias por Nível de Perigo</h3>
+          <h3>ð¦ DenÃºncias por NÃ­vel de Perigo</h3>
           <div class="bar-chart" id="rel-chart-perigo"></div>
         </div>
         <div class="chart-box">
-          <h3>📊 Denúncias por Status</h3>
+          <h3>ð DenÃºncias por Status</h3>
           <div class="bar-chart" id="rel-chart-status"></div>
         </div>
         <div class="chart-box" style="grid-column:1/-1">
-          <h3>⚖️ Conclusão das Denúncias</h3>
+          <h3>âï¸ ConclusÃ£o das DenÃºncias</h3>
           <div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start">
             <div style="flex:1;min-width:240px"><div class="bar-chart" id="rel-chart-conclusao"></div></div>
             <div id="rel-conclusao-kpis" style="display:flex;gap:10px;flex-wrap:wrap"></div>
@@ -818,13 +818,13 @@
 
       <!-- RANKING FILIAIS (tabela detalhada) -->
       <div class="section" style="margin-bottom:18px">
-        <div class="section-header"><h2>🏆 Ranking de Denúncias por Filial</h2></div>
+        <div class="section-header"><h2>ð Ranking de DenÃºncias por Filial</h2></div>
         <div class="section-body" style="padding:0">
           <div class="table-wrap">
             <table>
               <thead><tr>
-                <th>#</th><th>Filial</th><th>Total</th><th>Abertas</th><th>Em Análise</th><th>Encerradas</th>
-                <th>Leve</th><th>Médio</th><th>Grave</th><th>Gravíssima</th>
+                <th>#</th><th>Filial</th><th>Total</th><th>Abertas</th><th>Em AnÃ¡lise</th><th>Encerradas</th>
+                <th>Leve</th><th>MÃ©dio</th><th>Grave</th><th>GravÃ­ssima</th>
                 <th>SLA Vencido</th><th>% Resolvidas</th>
               </tr></thead>
               <tbody id="rel-tb-filial"></tbody>
@@ -835,13 +835,13 @@
 
       <!-- RANKING SETORES -->
       <div class="section" style="margin-bottom:18px">
-        <div class="section-header"><h2>📂 Ranking de Denúncias por Setor</h2></div>
+        <div class="section-header"><h2>ð Ranking de DenÃºncias por Setor</h2></div>
         <div class="section-body" style="padding:0">
           <div class="table-wrap">
             <table>
               <thead><tr>
                 <th>#</th><th>Setor</th><th>Filial</th><th>Total</th><th>Abertas</th>
-                <th>Grave+Gravíssima</th><th>% Resolvidas</th>
+                <th>Grave+GravÃ­ssima</th><th>% Resolvidas</th>
               </tr></thead>
               <tbody id="rel-tb-setor"></tbody>
             </table>
@@ -852,7 +852,7 @@
       <!-- LISTAGEM COMPLETA FILTRADA -->
       <div class="section">
         <div class="section-header">
-          <h2>📋 Listagem Completa Filtrada</h2>
+          <h2>ð Listagem Completa Filtrada</h2>
           <span id="rel-count-label" style="font-size:.82rem;color:var(--text-muted);font-weight:600"></span>
         </div>
         <div class="section-body" style="padding:0">
@@ -872,54 +872,55 @@
 
 
 
-    <!-- ══════════════════════════════════════════
+    <!-- ââââââââââââââââââââââââââââââââââââââââââ
          IMPORTAR PLANILHA
-    ══════════════════════════════════════════ -->
+    ââââââââââââââââââââââââââââââââââââââââââ -->
     <div class="page" id="page-importar">
 
-      <!-- INSTRUÇÕES -->
+      <!-- INSTRUÃÃES -->
       <div class="section" style="margin-bottom:18px">
         <div class="section-header">
-          <h2>⬆️ Importar Planilha de Denúncias</h2>
+          <h2>â¬ï¸ Importar Planilha de DenÃºncias</h2>
         </div>
         <div class="section-body">
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px">
             <div>
-              <div style="font-size:.92rem;font-weight:700;color:var(--primary);margin-bottom:10px">📋 Colunas esperadas na planilha:</div>
+              <div style="font-size:.92rem;font-weight:700;color:var(--primary);margin-bottom:10px">ð Colunas esperadas na planilha:</div>
               <div style="display:flex;flex-direction:column;gap:6px;font-size:.83rem">
                 <div style="display:grid;grid-template-columns:auto 1fr;gap:6px 12px">
-                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">Id</span><span style="color:var(--text-muted)">Número único da denúncia</span>
-                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">Hora de início</span><span style="color:var(--text-muted)">Data de recebimento (DD/MM/AAAA)</span>
+                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">Id</span><span style="color:var(--text-muted)">NÃºmero Ãºnico da denÃºncia</span>
+                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">Hora de inÃ­cio</span><span style="color:var(--text-muted)">Data de recebimento (DD/MM/AAAA)</span>
                   <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">Filial</span><span style="color:var(--text-muted)">Nome da filial (ex: 1. Central)</span>
                   <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">Setor</span><span style="color:var(--text-muted)">Setor denunciado</span>
-                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">Tipo de Denúncia</span><span style="color:var(--text-muted)">Categoria (ex: Assédio moral)</span>
-                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">Descrição do Fato</span><span style="color:var(--text-muted)">Relato completo</span>
-                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">Email</span><span style="color:var(--text-muted)">"anônima" ou e-mail identificado</span>
+                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">Tipo de DenÃºncia</span><span style="color:var(--text-muted)">Categoria (ex: AssÃ©dio moral)</span>
+                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">DescriÃ§Ã£o do Fato</span><span style="color:var(--text-muted)">Relato completo</span>
+                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">Email</span><span style="color:var(--text-muted)">"anÃ´nima" ou e-mail identificado</span>
                   <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">Nome (opcional)</span><span style="color:var(--text-muted)">Nome do denunciante (se houver)</span>
-                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">ação inicial</span><span style="color:var(--text-muted)">Ação tomada pela equipe</span>
-                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">conclusão</span><span style="color:var(--text-muted)">Texto de encerramento</span>
-                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">Nivel</span><span style="color:var(--text-muted)">LEVE, MÉDIO ou GRAVE</span>
+                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">Número de telefone (opcional)</span><span style="color:var(--text-muted)">Telefone do denunciante (se houver)</span>
+                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">aÃ§Ã£o inicial</span><span style="color:var(--text-muted)">AÃ§Ã£o tomada pela equipe</span>
+                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">conclusÃ£o</span><span style="color:var(--text-muted)">Texto de encerramento</span>
+                  <span style="font-family:monospace;background:#f0f4f8;padding:2px 8px;border-radius:4px;font-size:.78rem;font-weight:700">Nivel</span><span style="color:var(--text-muted)">LEVE, MÃDIO ou GRAVE</span>
                 </div>
               </div>
             </div>
             <div>
-              <div style="font-size:.92rem;font-weight:700;color:var(--primary);margin-bottom:10px">⚙️ Regras de importação:</div>
+              <div style="font-size:.92rem;font-weight:700;color:var(--primary);margin-bottom:10px">âï¸ Regras de importaÃ§Ã£o:</div>
               <div style="display:flex;flex-direction:column;gap:8px;font-size:.84rem;color:var(--text-muted)">
-                <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--accent);font-size:1rem;flex-shrink:0">✅</span><span>Denúncias com <strong>Id já existente</strong> no sistema serão ignoradas (sem duplicação)</span></div>
-                <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--accent);font-size:1rem;flex-shrink:0">✅</span><span>Linhas com Id = "area de test" ou vazias são automaticamente ignoradas</span></div>
-                <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--accent);font-size:1rem;flex-shrink:0">✅</span><span>Protocolo gerado automaticamente no padrão <strong>DN-AAAA-NNN</strong></span></div>
-                <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--accent);font-size:1rem;flex-shrink:0">✅</span><span>Status inferido automaticamente: sem ação = Aberta, com ação = Em Análise, com conclusão = Encerrada</span></div>
-                <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--accent);font-size:1rem;flex-shrink:0">✅</span><span>Relato importado <strong>completo</strong>, sem truncagem</span></div>
-                <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--warn);font-size:1rem;flex-shrink:0">⚠️</span><span>Formatos aceitos: <strong>.xlsx</strong> e <strong>.csv</strong></span></div>
+                <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--accent);font-size:1rem;flex-shrink:0">â</span><span>DenÃºncias com <strong>Id jÃ¡ existente</strong> no sistema serÃ£o ignoradas (sem duplicaÃ§Ã£o)</span></div>
+                <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--accent);font-size:1rem;flex-shrink:0">â</span><span>Linhas com Id = "area de test" ou vazias sÃ£o automaticamente ignoradas</span></div>
+                <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--accent);font-size:1rem;flex-shrink:0">â</span><span>Protocolo gerado automaticamente no padrÃ£o <strong>DN-AAAA-NNN</strong></span></div>
+                <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--accent);font-size:1rem;flex-shrink:0">â</span><span>Status inferido automaticamente: sem aÃ§Ã£o = Aberta, com aÃ§Ã£o = Em AnÃ¡lise, com conclusÃ£o = Encerrada</span></div>
+                <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--accent);font-size:1rem;flex-shrink:0">â</span><span>Relato importado <strong>completo</strong>, sem truncagem</span></div>
+                <div style="display:flex;gap:8px;align-items:flex-start"><span style="color:var(--warn);font-size:1rem;flex-shrink:0">â ï¸</span><span>Formatos aceitos: <strong>.xlsx</strong> e <strong>.csv</strong></span></div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ÁREA DE UPLOAD -->
+      <!-- ÃREA DE UPLOAD -->
       <div class="section" style="margin-bottom:18px">
-        <div class="section-header"><h2>📂 Selecionar Arquivo</h2></div>
+        <div class="section-header"><h2>ð Selecionar Arquivo</h2></div>
         <div class="section-body">
           <div id="drop-zone"
             style="border:2px dashed var(--border);border-radius:12px;padding:48px 24px;text-align:center;cursor:pointer;transition:all .2s;background:#f8fafc"
@@ -927,26 +928,26 @@
             ondragover="event.preventDefault();this.style.borderColor='var(--accent)';this.style.background='#f0fdf9'"
             ondragleave="this.style.borderColor='var(--border)';this.style.background='#f8fafc'"
             ondrop="event.preventDefault();this.style.borderColor='var(--border)';this.style.background='#f8fafc';handleFileDrop(event)">
-            <div style="font-size:2.5rem;margin-bottom:10px">📊</div>
+            <div style="font-size:2.5rem;margin-bottom:10px">ð</div>
             <div style="font-size:1rem;font-weight:700;color:var(--primary);margin-bottom:6px">Arraste a planilha aqui ou clique para selecionar</div>
-            <div style="font-size:.82rem;color:var(--text-muted)">Arquivos .xlsx ou .csv · Planilha no padrão Canal de Denúncias</div>
+            <div style="font-size:.82rem;color:var(--text-muted)">Arquivos .xlsx ou .csv Â· Planilha no padrÃ£o Canal de DenÃºncias</div>
           </div>
           <input type="file" id="file-input" accept=".xlsx,.csv,.xls" style="display:none" onchange="handleFileSelect(event)"/>
           <div id="file-selected-info" style="display:none;margin-top:14px;padding:12px 16px;background:#f0fdf9;border:1px solid var(--accent);border-radius:8px;display:flex;align-items:center;gap:12px">
-            <span style="font-size:1.4rem">📄</span>
+            <span style="font-size:1.4rem">ð</span>
             <div>
               <div id="file-name-label" style="font-weight:700;font-size:.9rem;color:var(--primary)"></div>
               <div id="file-size-label" style="font-size:.78rem;color:var(--text-muted)"></div>
             </div>
-            <button class="btn btn-danger btn-sm" style="margin-left:auto" onclick="clearFileImport()">✕ Remover</button>
+            <button class="btn btn-danger btn-sm" style="margin-left:auto" onclick="clearFileImport()">â Remover</button>
           </div>
         </div>
       </div>
 
-      <!-- PRÉVIA DOS DADOS -->
+      <!-- PRÃVIA DOS DADOS -->
       <div class="section" id="import-preview-section" style="display:none;margin-bottom:18px">
         <div class="section-header">
-          <h2>👁️ Prévia da Importação</h2>
+          <h2>ðï¸ PrÃ©via da ImportaÃ§Ã£o</h2>
           <div style="display:flex;gap:8px;align-items:center">
             <span id="import-preview-stats" style="font-size:.82rem;color:var(--text-muted);font-weight:600"></span>
           </div>
@@ -959,7 +960,7 @@
           <div class="table-wrap" style="max-height:360px;overflow-y:auto">
             <table>
               <thead><tr>
-                <th>Situação</th><th>Id</th><th>Protocolo</th><th>Data</th><th>Filial</th><th>Setor</th><th>Categoria</th><th>Perigo</th><th>Status</th><th>Relato (prévia)</th>
+                <th>SituaÃ§Ã£o</th><th>Id</th><th>Protocolo</th><th>Data</th><th>Filial</th><th>Setor</th><th>Categoria</th><th>Perigo</th><th>Status</th><th>Relato (prÃ©via)</th>
               </tr></thead>
               <tbody id="import-preview-tb"></tbody>
             </table>
@@ -967,12 +968,12 @@
         </div>
       </div>
 
-      <!-- BOTÃO CONFIRMAR -->
+      <!-- BOTÃO CONFIRMAR -->
       <div id="import-actions" style="display:none;margin-bottom:18px">
         <div style="display:flex;gap:12px;align-items:center;justify-content:flex-end">
           <button class="btn btn-outline" onclick="clearFileImport()">Cancelar</button>
           <button class="btn btn-accent" id="btn-confirm-import" onclick="confirmImport()" style="padding:10px 28px;font-size:.95rem">
-            ✅ Confirmar Importação
+            â Confirmar ImportaÃ§Ã£o
           </button>
         </div>
       </div>
@@ -984,16 +985,16 @@
 
   </div><!-- /content -->
 
-  <!-- ══════════════════════════════════════════
-       FLOWBOARD — fora do #content para ocupar tela toda
-  ══════════════════════════════════════════ -->
+  <!-- ââââââââââââââââââââââââââââââââââââââââââ
+       FLOWBOARD â fora do #content para ocupar tela toda
+  ââââââââââââââââââââââââââââââââââââââââââ -->
   <div class="page" id="page-flowboard" style="flex-direction:column;height:calc(100vh - 60px);overflow:hidden;">
     <div class="fb-topbar">
-      <div class="fb-board-title" id="fb-board-title">Planos de Ação</div>
+      <div class="fb-board-title" id="fb-board-title">Planos de AÃ§Ã£o</div>
       <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center">
-        <button class="fb-filter-btn active" onclick="fbSetView('planos-acao',this)">📋 Planos de Ação</button>
-        <button class="fb-filter-btn" onclick="fbSetView('denuncias',this)">📢 Denúncias</button>
-        <button class="fb-filter-btn" onclick="fbSetView('mapa-risco',this)">🗺️ Mapeamento de Risco</button>
+        <button class="fb-filter-btn active" onclick="fbSetView('planos-acao',this)">ð Planos de AÃ§Ã£o</button>
+        <button class="fb-filter-btn" onclick="fbSetView('denuncias',this)">ð¢ DenÃºncias</button>
+        <button class="fb-filter-btn" onclick="fbSetView('mapa-risco',this)">ðºï¸ Mapeamento de Risco</button>
       </div>
       <button class="btn btn-accent btn-sm" onclick="fbAddCard()">+ Card</button>
     </div>
@@ -1013,25 +1014,25 @@
 
 
 
-<!-- ═══════════════════════════
+<!-- âââââââââââââââââââââââââââ
      MODAIS
-═══════════════════════════ -->
+âââââââââââââââââââââââââââ -->
 
 <!-- MODAL: FILIAL -->
 <div class="modal-overlay" id="modal-filial">
   <div class="modal">
-    <h3>🏢 Nova Filial / Setor</h3>
+    <h3>ð¢ Nova Filial / Setor</h3>
     <div class="form-grid">
       <div class="field full"><label>Nome da Filial *</label><input type="text" id="f-filial-nome" placeholder="Ex: Filial Centro - SP"/></div>
       <div class="field"><label>CNPJ</label><input type="text" id="f-filial-cnpj" placeholder="00.000.000/0001-00"/></div>
-      <div class="field"><label>Cidade / UF</label><input type="text" id="f-filial-cidade" placeholder="São Paulo / SP"/></div>
-      <div class="field"><label>Responsável de Compliance</label><input type="text" id="f-filial-resp" placeholder="Nome do responsável"/></div>
+      <div class="field"><label>Cidade / UF</label><input type="text" id="f-filial-cidade" placeholder="SÃ£o Paulo / SP"/></div>
+      <div class="field"><label>ResponsÃ¡vel de Compliance</label><input type="text" id="f-filial-resp" placeholder="Nome do responsÃ¡vel"/></div>
       <div class="field"><label>Setor Principal</label><select id="f-filial-setor">
         <option>Administrativo</option><option>Financeiro</option><option>RH</option>
-        <option>TI</option><option>Jurídico</option><option>Operacional</option><option>Comercial</option>
+        <option>TI</option><option>JurÃ­dico</option><option>Operacional</option><option>Comercial</option>
       </select></div>
     </div>
-    <div class="field" style="margin-top:14px"><label>Setores (separados por vírgula)</label>
+    <div class="field" style="margin-top:14px"><label>Setores (separados por vÃ­rgula)</label>
       <textarea id="f-filial-setores" placeholder="RH, Financeiro, TI, Operacional..."></textarea>
     </div>
     <div class="modal-footer">
@@ -1044,26 +1045,26 @@
 <!-- MODAL: RISCO -->
 <div class="modal-overlay" id="modal-risco">
   <div class="modal">
-    <h3>🗺️ Registrar Risco</h3>
+    <h3>ðºï¸ Registrar Risco</h3>
     <input type="hidden" id="f-risco-id"/>
     <div class="form-grid">
-      <div class="field full"><label>Descrição do Risco *</label><input type="text" id="f-risco-desc" placeholder="Descreva o risco identificado"/></div>
+      <div class="field full"><label>DescriÃ§Ã£o do Risco *</label><input type="text" id="f-risco-desc" placeholder="Descreva o risco identificado"/></div>
       <div class="field"><label>Categoria</label><select id="f-risco-cat">
-        <option>Operacional</option><option>Financeiro</option><option>Legal / Regulatório</option>
-        <option>Reputacional</option><option>TI / Cibernético</option><option>RH</option><option>Ambiental</option>
+        <option>Operacional</option><option>Financeiro</option><option>Legal / RegulatÃ³rio</option>
+        <option>Reputacional</option><option>TI / CibernÃ©tico</option><option>RH</option><option>Ambiental</option>
       </select></div>
       <div class="field"><label>Filial</label><select id="f-risco-filial"></select></div>
       <div class="field"><label>Setor</label><input type="text" id="f-risco-setor" placeholder="Ex: Financeiro"/></div>
       <div class="field"><label>Probabilidade (1-5)</label><select id="f-risco-prob">
-        <option value="1">1 - Rara</option><option value="2">2 - Improvável</option>
-        <option value="3">3 - Possível</option><option value="4">4 - Provável</option><option value="5">5 - Quase certa</option>
+        <option value="1">1 - Rara</option><option value="2">2 - ImprovÃ¡vel</option>
+        <option value="3">3 - PossÃ­vel</option><option value="4">4 - ProvÃ¡vel</option><option value="5">5 - Quase certa</option>
       </select></div>
       <div class="field"><label>Impacto (1-5)</label><select id="f-risco-impacto">
         <option value="1">1 - Insignificante</option><option value="2">2 - Menor</option>
-        <option value="3">3 - Moderado</option><option value="4">4 - Maior</option><option value="5">5 - Catastrófico</option>
+        <option value="3">3 - Moderado</option><option value="4">4 - Maior</option><option value="5">5 - CatastrÃ³fico</option>
       </select></div>
       <div class="field full"><label>Controle Existente</label><input type="text" id="f-risco-controle" placeholder="Descreva o controle mitigador"/></div>
-      <div class="field full"><label>Observações</label><textarea id="f-risco-obs" placeholder="Contexto, histórico, ações futuras..."></textarea></div>
+      <div class="field full"><label>ObservaÃ§Ãµes</label><textarea id="f-risco-obs" placeholder="Contexto, histÃ³rico, aÃ§Ãµes futuras..."></textarea></div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeModal('modal-risco')">Cancelar</button>
@@ -1075,26 +1076,26 @@
 <!-- MODAL: CONTROLE -->
 <div class="modal-overlay" id="modal-controle">
   <div class="modal">
-    <h3>🔒 Novo Controle Interno</h3>
+    <h3>ð Novo Controle Interno</h3>
     <input type="hidden" id="f-ctrl-id"/>
     <div class="form-grid">
-      <div class="field full"><label>Nome do Controle *</label><input type="text" id="f-ctrl-nome" placeholder="Ex: Revisão de acessos privilegiados"/></div>
+      <div class="field full"><label>Nome do Controle *</label><input type="text" id="f-ctrl-nome" placeholder="Ex: RevisÃ£o de acessos privilegiados"/></div>
       <div class="field"><label>Tipo de Controle</label><select id="f-ctrl-tipo">
         <option>Preventivo</option><option>Detectivo</option><option>Corretivo</option><option>Diretivo</option>
       </select></div>
       <div class="field"><label>Filial</label><select id="f-ctrl-filial"></select></div>
       <div class="field"><label>Setor</label><input type="text" id="f-ctrl-setor" placeholder="Ex: TI"/></div>
-      <div class="field"><label>Responsável *</label><input type="text" id="f-ctrl-resp" placeholder="Nome do responsável"/></div>
+      <div class="field"><label>ResponsÃ¡vel *</label><input type="text" id="f-ctrl-resp" placeholder="Nome do responsÃ¡vel"/></div>
       <div class="field"><label>Periodicidade</label><select id="f-ctrl-period">
-        <option>Diário</option><option>Semanal</option><option>Quinzenal</option>
+        <option>DiÃ¡rio</option><option>Semanal</option><option>Quinzenal</option>
         <option>Mensal</option><option>Trimestral</option><option>Semestral</option><option>Anual</option>
       </select></div>
-      <div class="field"><label>Prazo de Execução *</label><input type="date" id="f-ctrl-prazo"/></div>
+      <div class="field"><label>Prazo de ExecuÃ§Ã£o *</label><input type="date" id="f-ctrl-prazo"/></div>
       <div class="field"><label>Status</label><select id="f-ctrl-status">
-        <option>Não Iniciado</option><option>Em Andamento</option><option>Concluído</option><option>Vencido</option><option>Pendente</option>
+        <option>NÃ£o Iniciado</option><option>Em Andamento</option><option>ConcluÃ­do</option><option>Vencido</option><option>Pendente</option>
       </select></div>
       <div class="field"><label>Progresso (%)</label><input type="number" id="f-ctrl-prog" min="0" max="100" value="0" placeholder="0-100"/></div>
-      <div class="field full"><label>Evidência / Descrição</label><textarea id="f-ctrl-desc" placeholder="Descreva o controle e como é evidenciado..."></textarea></div>
+      <div class="field full"><label>EvidÃªncia / DescriÃ§Ã£o</label><textarea id="f-ctrl-desc" placeholder="Descreva o controle e como Ã© evidenciado..."></textarea></div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeModal('modal-controle')">Cancelar</button>
@@ -1103,30 +1104,30 @@
   </div>
 </div>
 
-<!-- MODAL: PLANO DE AÇÃO -->
+<!-- MODAL: PLANO DE AÃÃO -->
 <div class="modal-overlay" id="modal-plano">
   <div class="modal">
-    <h3>📋 Novo Plano de Ação</h3>
+    <h3>ð Novo Plano de AÃ§Ã£o</h3>
     <input type="hidden" id="f-plano-id"/>
     <div class="form-grid">
-      <div class="field full"><label>Título do Plano / Ação *</label><input type="text" id="f-plano-titulo" placeholder="Ex: Implementar política de senhas"/></div>
+      <div class="field full"><label>TÃ­tulo do Plano / AÃ§Ã£o *</label><input type="text" id="f-plano-titulo" placeholder="Ex: Implementar polÃ­tica de senhas"/></div>
       <div class="field"><label>Origem</label><select id="f-plano-origem">
-        <option>Auditoria Interna</option><option>Auditoria Externa</option><option>Canal de Denúncia</option>
-        <option>Mapeamento de Risco</option><option>Regulatório</option><option>Iniciativa Interna</option>
+        <option>Auditoria Interna</option><option>Auditoria Externa</option><option>Canal de DenÃºncia</option>
+        <option>Mapeamento de Risco</option><option>RegulatÃ³rio</option><option>Iniciativa Interna</option>
       </select></div>
       <div class="field"><label>Filial</label><select id="f-plano-filial"></select></div>
       <div class="field"><label>Setor</label><input type="text" id="f-plano-setor" placeholder="Ex: RH"/></div>
-      <div class="field"><label>Responsável *</label><input type="text" id="f-plano-resp" placeholder="Nome do responsável"/></div>
+      <div class="field"><label>ResponsÃ¡vel *</label><input type="text" id="f-plano-resp" placeholder="Nome do responsÃ¡vel"/></div>
       <div class="field"><label>Prazo *</label><input type="date" id="f-plano-prazo"/></div>
       <div class="field"><label>Prioridade</label><select id="f-plano-prio">
-        <option>Crítica</option><option>Alta</option><option>Média</option><option>Baixa</option>
+        <option>CrÃ­tica</option><option>Alta</option><option>MÃ©dia</option><option>Baixa</option>
       </select></div>
       <div class="field"><label>Status</label><select id="f-plano-status">
-        <option>Não Iniciado</option><option>Em Andamento</option><option>Concluído</option><option>Vencido</option>
+        <option>NÃ£o Iniciado</option><option>Em Andamento</option><option>ConcluÃ­do</option><option>Vencido</option>
       </select></div>
-      <div class="field full"><label>✍️ Andamento do Plano</label><textarea id="f-plano-andamento" placeholder="Descreva como está o andamento do plano de ação, obstáculos, avanços recentes..." style="min-height:80px"></textarea></div>
+      <div class="field full"><label>âï¸ Andamento do Plano</label><textarea id="f-plano-andamento" placeholder="Descreva como estÃ¡ o andamento do plano de aÃ§Ã£o, obstÃ¡culos, avanÃ§os recentes..." style="min-height:80px"></textarea></div>
       <div class="field"><label>Progresso (%)</label><input type="number" id="f-plano-prog" min="0" max="100" value="0"/></div>
-      <div class="field full"><label>Descrição / Contexto</label><textarea id="f-plano-desc" placeholder="Detalhe as ações a serem executadas..."></textarea></div>
+      <div class="field full"><label>DescriÃ§Ã£o / Contexto</label><textarea id="f-plano-desc" placeholder="Detalhe as aÃ§Ãµes a serem executadas..."></textarea></div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeModal('modal-plano')">Cancelar</button>
@@ -1135,62 +1136,62 @@
   </div>
 </div>
 
-<!-- MODAL: DENÚNCIA -->
+<!-- MODAL: DENÃNCIA -->
 <div class="modal-overlay" id="modal-denuncia">
   <div class="modal" style="width:660px">
-    <h3>📢 Registrar Denúncia</h3>
+    <h3>ð¢ Registrar DenÃºncia</h3>
     <input type="hidden" id="f-dn-id"/>
     <div class="form-grid">
       <div class="field"><label>Data de Recebimento *</label><input type="date" id="f-dn-data"/></div>
       <div class="field"><label>Protocolo <span style="font-size:.72rem;color:var(--text-muted);font-weight:400">(deixe em branco para gerar automaticamente)</span></label><input type="text" id="f-dn-proto" placeholder="Ex: DN-2026-110" style="font-family:'DM Mono',monospace"/></div>
       <div class="field"><label>Tipo / Categoria *</label><select id="f-dn-cat">
-        <option>Assédio moral</option><option>Fraude ou desvio de valores</option>
-        <option>Irregularidades trabalhistas</option><option>Conduta antiética</option>
-        <option>Corrupção</option><option>Segurança</option><option>Outros</option>
+        <option>AssÃ©dio moral</option><option>Fraude ou desvio de valores</option>
+        <option>Irregularidades trabalhistas</option><option>Conduta antiÃ©tica</option>
+        <option>CorrupÃ§Ã£o</option><option>SeguranÃ§a</option><option>Outros</option>
       </select></div>
       <div class="field"><label>Filial *</label><select id="f-dn-filial"></select></div>
       <div class="field"><label>Setor</label><input type="text" id="f-dn-setor" placeholder="Ex: Frente de loja"/></div>
       <div class="field"><label>Anonimato</label><select id="f-dn-anon">
-        <option value="Anônima">Anônima</option><option value="Identificada">Identificada</option>
+        <option value="AnÃ´nima">AnÃ´nima</option><option value="Identificada">Identificada</option>
       </select></div>
 
       <!-- CAMPO DE PERIGO - destaque visual -->
       <div class="field full">
-        <label>🚦 Nível de Perigo *</label>
+        <label>ð¦ NÃ­vel de Perigo *</label>
         <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:4px" id="perigo-selector">
           <label style="cursor:pointer">
             <input type="radio" name="f-dn-perigo" value="Leve" style="display:none"/>
             <div class="perigo-btn" data-val="Leve" style="text-align:center;padding:10px 8px;border-radius:8px;border:2px solid #d1fae5;background:#f0fdf9;transition:all .15s;font-size:.84rem;font-weight:700;color:#065f46">
-              🟢 Leve
+              ð¢ Leve
             </div>
           </label>
           <label style="cursor:pointer">
-            <input type="radio" name="f-dn-perigo" value="Médio" style="display:none"/>
-            <div class="perigo-btn" data-val="Médio" style="text-align:center;padding:10px 8px;border-radius:8px;border:2px solid #fef3c7;background:#fffbeb;transition:all .15s;font-size:.84rem;font-weight:700;color:#92400e">
-              🟡 Médio
+            <input type="radio" name="f-dn-perigo" value="MÃ©dio" style="display:none"/>
+            <div class="perigo-btn" data-val="MÃ©dio" style="text-align:center;padding:10px 8px;border-radius:8px;border:2px solid #fef3c7;background:#fffbeb;transition:all .15s;font-size:.84rem;font-weight:700;color:#92400e">
+              ð¡ MÃ©dio
             </div>
           </label>
           <label style="cursor:pointer">
             <input type="radio" name="f-dn-perigo" value="Grave" style="display:none"/>
             <div class="perigo-btn" data-val="Grave" style="text-align:center;padding:10px 8px;border-radius:8px;border:2px solid #fee2e2;background:#fff1f1;transition:all .15s;font-size:.84rem;font-weight:700;color:#991b1b">
-              🔴 Grave
+              ð´ Grave
             </div>
           </label>
           <label style="cursor:pointer">
-            <input type="radio" name="f-dn-perigo" value="Gravíssima" style="display:none"/>
-            <div class="perigo-btn" data-val="Gravíssima" style="text-align:center;padding:10px 8px;border-radius:8px;border:2px solid #e9d5ff;background:#fdf4ff;transition:all .15s;font-size:.84rem;font-weight:700;color:#6b21a8">
-              ☣️ Gravíssima
+            <input type="radio" name="f-dn-perigo" value="GravÃ­ssima" style="display:none"/>
+            <div class="perigo-btn" data-val="GravÃ­ssima" style="text-align:center;padding:10px 8px;border-radius:8px;border:2px solid #e9d5ff;background:#fdf4ff;transition:all .15s;font-size:.84rem;font-weight:700;color:#6b21a8">
+              â£ï¸ GravÃ­ssima
             </div>
           </label>
         </div>
       </div>
 
-      <div class="field"><label>Responsável pela Apuração</label><input type="text" id="f-dn-resp" placeholder="Nome do investigador"/></div>
+      <div class="field"><label>ResponsÃ¡vel pela ApuraÃ§Ã£o</label><input type="text" id="f-dn-resp" placeholder="Nome do investigador"/></div>
       <div class="field"><label>Status</label><select id="f-dn-status">
-        <option>Aberta</option><option>Em Análise</option><option>Encerrada</option><option>Arquivada</option>
+        <option>Aberta</option><option>Em AnÃ¡lise</option><option>Encerrada</option><option>Arquivada</option>
       </select></div>
       <div class="field full"><label>Relato *</label><textarea id="f-dn-relato" style="min-height:100px" placeholder="Descreva detalhadamente o ocorrido..."></textarea></div>
-      <div class="field full"><label>Observações Internas / Conclusão</label><textarea id="f-dn-obs" placeholder="Notas da investigação, ações tomadas, conclusão..."></textarea></div>
+      <div class="field full"><label>ObservaÃ§Ãµes Internas / ConclusÃ£o</label><textarea id="f-dn-obs" placeholder="Notas da investigaÃ§Ã£o, aÃ§Ãµes tomadas, conclusÃ£o..."></textarea></div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeModal('modal-denuncia')">Cancelar</button>
@@ -1202,27 +1203,27 @@
 <!-- MODAL: FLOWBOARD CARD -->
 <div class="modal-overlay" id="fb-card-modal">
   <div class="modal" style="width:680px">
-    <h3 id="fb-modal-title">📌 Novo Card</h3>
+    <h3 id="fb-modal-title">ð Novo Card</h3>
     <input type="hidden" id="fb-edit-id"/>
     <input type="hidden" id="fb-edit-col"/>
     <div class="fb-modal-cols">
       <div>
-        <div class="field"><label>Título *</label><input type="text" id="fb-titulo" placeholder="Título do card"/></div>
-        <div class="field"><label>Descrição</label><textarea id="fb-desc" placeholder="Descreva o item..."></textarea></div>
-        <div class="field"><label>Checklist (uma tarefa por linha)</label><textarea id="fb-check" placeholder="Verificar documentação&#10;Validar aprovação&#10;Registrar evidência"></textarea></div>
+        <div class="field"><label>TÃ­tulo *</label><input type="text" id="fb-titulo" placeholder="TÃ­tulo do card"/></div>
+        <div class="field"><label>DescriÃ§Ã£o</label><textarea id="fb-desc" placeholder="Descreva o item..."></textarea></div>
+        <div class="field"><label>Checklist (uma tarefa por linha)</label><textarea id="fb-check" placeholder="Verificar documentaÃ§Ã£o&#10;Validar aprovaÃ§Ã£o&#10;Registrar evidÃªncia"></textarea></div>
       </div>
       <div>
-        <div class="field"><label>Responsável</label><input type="text" id="fb-resp" placeholder="Nome"/></div>
+        <div class="field"><label>ResponsÃ¡vel</label><input type="text" id="fb-resp" placeholder="Nome"/></div>
         <div class="field"><label>Prazo</label><input type="date" id="fb-prazo"/></div>
         <div class="field"><label>Prioridade</label><select id="fb-prio">
-          <option>Crítica</option><option>Alta</option><option>Média</option><option>Baixa</option>
+          <option>CrÃ­tica</option><option>Alta</option><option>MÃ©dia</option><option>Baixa</option>
         </select></div>
         <div class="field"><label>Coluna</label><select id="fb-col-sel"></select></div>
         <div class="field"><label>Tag / Setor</label><input type="text" id="fb-tag" placeholder="Ex: Financeiro"/></div>
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-danger btn-sm" id="fb-del-btn" onclick="fbDeleteCard()" style="margin-right:auto;display:none">🗑 Excluir</button>
+      <button class="btn btn-danger btn-sm" id="fb-del-btn" onclick="fbDeleteCard()" style="margin-right:auto;display:none">ð Excluir</button>
       <button class="btn btn-outline" onclick="closeModal('fb-card-modal')">Cancelar</button>
       <button class="btn btn-accent" onclick="fbSaveCard()">Salvar Card</button>
     </div>
@@ -1232,7 +1233,7 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-<!-- MODAL: DETALHE DENÚNCIA (relato completo) -->
+<!-- MODAL: DETALHE DENÃNCIA (relato completo) -->
 <div class="modal-overlay" id="modal-dn-detail">
   <div class="modal" style="width:720px;max-height:85vh">
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px">
@@ -1252,20 +1253,20 @@
       </div>
     </div>
     <div style="margin-bottom:14px">
-      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);letter-spacing:.5px;margin-bottom:6px">📝 Relato Completo</div>
+      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);letter-spacing:.5px;margin-bottom:6px">ð Relato Completo</div>
       <div id="dn-detail-relato" style="background:#f8fafc;border-radius:8px;padding:14px;font-size:.86rem;line-height:1.6;white-space:pre-wrap;max-height:240px;overflow-y:auto;border:1px solid var(--border)"></div>
     </div>
     <div id="dn-detail-acao-wrap" style="margin-bottom:14px;display:none">
-      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);letter-spacing:.5px;margin-bottom:6px">⚡ Ação Inicial</div>
+      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);letter-spacing:.5px;margin-bottom:6px">â¡ AÃ§Ã£o Inicial</div>
       <div id="dn-detail-acao" style="background:#fffbeb;border-radius:8px;padding:12px;font-size:.85rem;line-height:1.5;white-space:pre-wrap;border:1px solid #fcd34d"></div>
     </div>
     <div id="dn-detail-obs-wrap" style="margin-bottom:14px;display:none">
-      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);letter-spacing:.5px;margin-bottom:6px">✅ Conclusão</div>
+      <div style="font-size:.7rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);letter-spacing:.5px;margin-bottom:6px">â ConclusÃ£o</div>
       <div id="dn-detail-obs" style="background:#f0fdf9;border-radius:8px;padding:12px;font-size:.85rem;line-height:1.5;white-space:pre-wrap;border:1px solid #6ee7b7"></div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeModal('modal-dn-detail')">Fechar</button>
-      <button class="btn btn-accent btn-sm" id="dn-detail-edit-btn">✏️ Editar Denúncia</button>
+      <button class="btn btn-accent btn-sm" id="dn-detail-edit-btn">âï¸ Editar DenÃºncia</button>
     </div>
   </div>
 </div>
@@ -1273,68 +1274,68 @@
 <div class="modal-overlay" id="modal-admin">
   <div class="modal" style="width:560px">
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-      <div style="width:42px;height:42px;border-radius:10px;background:var(--primary);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0">⚙️</div>
+      <div style="width:42px;height:42px;border-radius:10px;background:var(--primary);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0">âï¸</div>
       <div>
         <h3 style="margin-bottom:2px">Gerenciar Dados do Sistema</h3>
-        <div style="font-size:.78rem;color:var(--text-muted)">Armazenamento local do navegador · Seus dados ficam salvos neste dispositivo</div>
+        <div style="font-size:.78rem;color:var(--text-muted)">Armazenamento local do navegador Â· Seus dados ficam salvos neste dispositivo</div>
       </div>
     </div>
 
     <!-- STATUS -->
     <div style="background:#f8fafc;border-radius:10px;border:1px solid var(--border);padding:16px;margin-bottom:20px">
-      <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);letter-spacing:.5px;margin-bottom:12px">📊 Status do Armazenamento</div>
+      <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;color:var(--text-muted);letter-spacing:.5px;margin-bottom:12px">ð Status do Armazenamento</div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:12px">
         <div style="text-align:center;background:#fff;border-radius:8px;padding:10px;border:1px solid var(--border)">
-          <div style="font-size:1.3rem;font-weight:700;color:var(--primary)" id="admin-denuncias-count">—</div>
-          <div style="font-size:.7rem;color:var(--text-muted)">Denúncias</div>
+          <div style="font-size:1.3rem;font-weight:700;color:var(--primary)" id="admin-denuncias-count">â</div>
+          <div style="font-size:.7rem;color:var(--text-muted)">DenÃºncias</div>
         </div>
         <div style="text-align:center;background:#fff;border-radius:8px;padding:10px;border:1px solid var(--border)">
-          <div style="font-size:1.3rem;font-weight:700;color:var(--primary)" id="admin-filiais-count">—</div>
+          <div style="font-size:1.3rem;font-weight:700;color:var(--primary)" id="admin-filiais-count">â</div>
           <div style="font-size:.7rem;color:var(--text-muted)">Filiais</div>
         </div>
         <div style="text-align:center;background:#fff;border-radius:8px;padding:10px;border:1px solid var(--border)">
-          <div style="font-size:1.3rem;font-weight:700;color:var(--primary)" id="admin-controles-count">—</div>
+          <div style="font-size:1.3rem;font-weight:700;color:var(--primary)" id="admin-controles-count">â</div>
           <div style="font-size:.7rem;color:var(--text-muted)">Controles</div>
         </div>
         <div style="text-align:center;background:#fff;border-radius:8px;padding:10px;border:1px solid var(--border)">
-          <div style="font-size:1.3rem;font-weight:700;color:var(--primary)" id="admin-planos-count">—</div>
+          <div style="font-size:1.3rem;font-weight:700;color:var(--primary)" id="admin-planos-count">â</div>
           <div style="font-size:.7rem;color:var(--text-muted)">Planos</div>
         </div>
         <div style="text-align:center;background:#fff;border-radius:8px;padding:10px;border:1px solid var(--border)">
-          <div style="font-size:1.3rem;font-weight:700;color:var(--primary)" id="admin-riscos-count">—</div>
+          <div style="font-size:1.3rem;font-weight:700;color:var(--primary)" id="admin-riscos-count">â</div>
           <div style="font-size:.7rem;color:var(--text-muted)">Riscos</div>
         </div>
         <div style="text-align:center;background:#fff;border-radius:8px;padding:10px;border:1px solid var(--border)">
-          <div style="font-size:1.3rem;font-weight:700;color:var(--accent)" id="admin-size">—</div>
+          <div style="font-size:1.3rem;font-weight:700;color:var(--accent)" id="admin-size">â</div>
           <div style="font-size:.7rem;color:var(--text-muted)">Tamanho</div>
         </div>
       </div>
       <div style="font-size:.78rem;color:var(--text-muted);display:flex;align-items:center;gap:6px;margin-bottom:6px">
-        🕐 Último save local: <strong id="admin-saved-at">—</strong>
+        ð Ãltimo save local: <strong id="admin-saved-at">â</strong>
       </div>
-      <div style="font-size:.78rem;font-weight:600" id="admin-sb-status">⏳ Verificando conexão...</div>
+      <div style="font-size:.78rem;font-weight:600" id="admin-sb-status">â³ Verificando conexÃ£o...</div>
     </div>
 
-    <!-- AÇÕES -->
+    <!-- AÃÃES -->
     <div style="display:flex;flex-direction:column;gap:10px">
 
       <button id="btn-admin-save" onclick="adminSaveNow()" class="btn btn-accent" style="justify-content:flex-start;gap:12px;padding:14px 18px">
-        <span style="font-size:1.2rem">💾</span>
+        <span style="font-size:1.2rem">ð¾</span>
         <div style="text-align:left">
           <div style="font-weight:700">Salvar Cache Local</div>
-          <div style="font-size:.75rem;opacity:.8">Salva no navegador atual (backup instantâneo)</div>
+          <div style="font-size:.75rem;opacity:.8">Salva no navegador atual (backup instantÃ¢neo)</div>
         </div>
       </button>
 
       <button onclick="adminPushToSupabase()" class="btn btn-accent" style="justify-content:flex-start;gap:12px;padding:14px 18px;margin-bottom:6px">
-        <span style="font-size:1.2rem">⬆️</span>
+        <span style="font-size:1.2rem">â¬ï¸</span>
         <div style="text-align:left">
           <div style="font-weight:700">Enviar Tudo para a Nuvem</div>
-          <div style="font-size:.75rem;opacity:.8">Sincroniza todos os dados locais → Supabase</div>
+          <div style="font-size:.75rem;opacity:.8">Sincroniza todos os dados locais â Supabase</div>
         </div>
       </button>
       <button onclick="adminSyncSupabase()" class="btn btn-primary" style="justify-content:flex-start;gap:12px;padding:14px 18px">
-        <span style="font-size:1.2rem">☁️</span>
+        <span style="font-size:1.2rem">âï¸</span>
         <div style="text-align:left">
           <div style="font-weight:700">Sincronizar com Nuvem</div>
           <div style="font-size:.75rem;opacity:.8">Busca dados atualizados do Supabase agora</div>
@@ -1342,7 +1343,7 @@
       </button>
 
       <button onclick="adminExportJSON()" class="btn btn-outline" style="justify-content:flex-start;gap:12px;padding:14px 18px">
-        <span style="font-size:1.2rem">📤</span>
+        <span style="font-size:1.2rem">ð¤</span>
         <div style="text-align:left">
           <div style="font-weight:700">Exportar Backup (.json)</div>
           <div style="font-size:.75rem;color:var(--text-muted)">Baixa todos os dados em arquivo para guardar ou transferir</div>
@@ -1351,7 +1352,7 @@
 
       <label style="cursor:pointer">
         <div class="btn btn-outline" style="justify-content:flex-start;gap:12px;padding:14px 18px;width:100%">
-          <span style="font-size:1.2rem">📥</span>
+          <span style="font-size:1.2rem">ð¥</span>
           <div style="text-align:left">
             <div style="font-weight:700">Importar Backup (.json)</div>
             <div style="font-size:.75rem;color:var(--text-muted)">Restaura dados de um arquivo de backup exportado anteriormente</div>
@@ -1362,16 +1363,16 @@
 
       <div style="border-top:1px solid var(--border);padding-top:10px;margin-top:4px">
         <button onclick="adminReset()" class="btn" style="background:#fef2f2;color:var(--danger);border:1px solid #fca5a5;justify-content:flex-start;gap:12px;padding:14px 18px;width:100%">
-          <span style="font-size:1.2rem">🗑️</span>
+          <span style="font-size:1.2rem">ðï¸</span>
           <div style="text-align:left">
             <div style="font-weight:700">Resetar para Dados Originais</div>
-            <div style="font-size:.75rem;color:#ef4444;opacity:.8">Apaga todas as edições e volta aos dados da planilha importada</div>
+            <div style="font-size:.75rem;color:#ef4444;opacity:.8">Apaga todas as ediÃ§Ãµes e volta aos dados da planilha importada</div>
           </div>
         </button>
       </div>
 
       <div style="background:#fffbeb;border:1px solid #fcd34d;border-radius:8px;padding:12px 14px;font-size:.8rem;color:#92400e;margin-top:2px">
-        ⚠️ <strong>Importante:</strong> Os dados são salvos <em>neste navegador</em> neste computador. Para usar em outro dispositivo, exporte o backup e importe no outro.
+        â ï¸ <strong>Importante:</strong> Os dados sÃ£o salvos <em>neste navegador</em> neste computador. Para usar em outro dispositivo, exporte o backup e importe no outro.
       </div>
     </div>
 
@@ -1385,18 +1386,18 @@
 <!-- MODAL: RISCO -->
 <div class="modal-overlay" id="modal-rm-risco">
   <div class="modal" style="width:600px">
-    <h3 id="rm-modal-title">🎯 Novo Risco</h3>
+    <h3 id="rm-modal-title">ð¯ Novo Risco</h3>
     <div class="form-grid">
-      <div class="field full"><label>Descrição do Risco *</label><textarea id="rm-f-desc" rows="2" placeholder="Descreva o risco..."></textarea></div>
+      <div class="field full"><label>DescriÃ§Ã£o do Risco *</label><textarea id="rm-f-desc" rows="2" placeholder="Descreva o risco..."></textarea></div>
       <div class="field"><label>Categoria</label><input type="text" id="rm-f-cat" placeholder="Ex: Fraude / Financeiro"/></div>
       <div class="field"><label>Unidade *</label>
         <select id="rm-f-unidade"></select>
       </div>
       <div class="field full"><label>Dono do Risco / Setor</label><input type="text" id="rm-f-setor" placeholder="Ex: Frente de Caixa / Compliance"/></div>
-      <div class="field"><label>Probabilidade</label><select id="rm-f-prob"><option value="5">5 — Baixo</option><option value="10" selected>10 — Médio</option><option value="15">15 — Alto</option></select></div>
-      <div class="field"><label>Impacto</label><select id="rm-f-impacto"><option value="5">5 — Baixo</option><option value="10" selected>10 — Médio</option><option value="15">15 — Alto</option></select></div>
+      <div class="field"><label>Probabilidade</label><select id="rm-f-prob"><option value="5">5 â Baixo</option><option value="10" selected>10 â MÃ©dio</option><option value="15">15 â Alto</option></select></div>
+      <div class="field"><label>Impacto</label><select id="rm-f-impacto"><option value="5">5 â Baixo</option><option value="10" selected>10 â MÃ©dio</option><option value="15">15 â Alto</option></select></div>
       <div class="field full"><label>Controle Existente</label><input type="text" id="rm-f-controle" placeholder="Descreva os controles mitigadores"/></div>
-      <div class="field full"><label>Observações</label><textarea id="rm-f-obs" rows="2" placeholder="Contexto adicional..."></textarea></div>
+      <div class="field full"><label>ObservaÃ§Ãµes</label><textarea id="rm-f-obs" rows="2" placeholder="Contexto adicional..."></textarea></div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeModal('modal-rm-risco')">Cancelar</button>
@@ -1407,16 +1408,16 @@
 <!-- MODAL: PLANO -->
 <div class="modal-overlay" id="modal-rm-plano">
   <div class="modal" style="width:540px">
-    <h3>📋 Plano de Ação</h3>
+    <h3>ð Plano de AÃ§Ã£o</h3>
     <div style="background:#f8fafc;border:1px solid var(--border);border-radius:8px;padding:9px 13px;margin-bottom:14px;font-size:.82rem;color:var(--text-muted)">
-      🎯 Risco: <strong id="rm-modal-plano-risco" style="color:var(--primary)"></strong>
+      ð¯ Risco: <strong id="rm-modal-plano-risco" style="color:var(--primary)"></strong>
     </div>
     <div class="form-grid">
-      <div class="field full"><label>Título da Ação *</label><input type="text" id="rm-f-plano-titulo" placeholder="Descreva a ação..."/></div>
-      <div class="field"><label>Responsável *</label><input type="text" id="rm-f-plano-resp" placeholder="Nome ou setor"/></div>
+      <div class="field full"><label>TÃ­tulo da AÃ§Ã£o *</label><input type="text" id="rm-f-plano-titulo" placeholder="Descreva a aÃ§Ã£o..."/></div>
+      <div class="field"><label>ResponsÃ¡vel *</label><input type="text" id="rm-f-plano-resp" placeholder="Nome ou setor"/></div>
       <div class="field"><label>Prazo</label><input type="date" id="rm-f-plano-prazo"/></div>
-      <div class="field"><label>Tipo</label><select id="rm-f-plano-tipo"><option>Preventiva</option><option>Detectiva</option><option>Corretiva</option><option>Contingência</option></select></div>
-      <div class="field"><label>Status</label><select id="rm-f-plano-status"><option>Não Iniciado</option><option>Em Andamento</option><option>Concluído</option><option>Vencido</option></select></div>
+      <div class="field"><label>Tipo</label><select id="rm-f-plano-tipo"><option>Preventiva</option><option>Detectiva</option><option>Corretiva</option><option>ContingÃªncia</option></select></div>
+      <div class="field"><label>Status</label><select id="rm-f-plano-status"><option>NÃ£o Iniciado</option><option>Em Andamento</option><option>ConcluÃ­do</option><option>Vencido</option></select></div>
       <div class="field full"><label>Progresso (%)</label>
         <input type="range" id="rm-f-plano-prog" min="0" max="100" value="0" style="width:100%" oninput="document.getElementById('rm-plano-prog-val').textContent=this.value+'%'"/>
         <span id="rm-plano-prog-val" style="font-size:.8rem;color:var(--text-muted)">0%</span>
@@ -1432,16 +1433,16 @@
 <!-- MODAL: AGENDA -->
 <div class="modal-overlay" id="modal-agenda">
   <div class="modal" style="width:580px">
-    <h3 id="ag-modal-title">📅 Novo Evento</h3>
+    <h3 id="ag-modal-title">ð Novo Evento</h3>
     <div class="form-grid" style="grid-template-columns:1fr 1fr">
       <div class="field full">
-        <label>Título *</label>
-        <input type="text" id="ag-f-titulo" placeholder="Ex: Reunião de Compliance, Auditoria PDV..."/>
+        <label>TÃ­tulo *</label>
+        <input type="text" id="ag-f-titulo" placeholder="Ex: ReuniÃ£o de Compliance, Auditoria PDV..."/>
       </div>
       <div class="field">
         <label>Tipo</label>
         <select id="ag-f-tipo">
-          <option>Reunião</option>
+          <option>ReuniÃ£o</option>
           <option>Compromisso</option>
           <option>Prazo</option>
           <option>Auditoria</option>
@@ -1455,20 +1456,20 @@
         <input type="date" id="ag-f-data"/>
       </div>
       <div class="field">
-        <label>Horário início</label>
+        <label>HorÃ¡rio inÃ­cio</label>
         <input type="time" id="ag-f-hora"/>
       </div>
       <div class="field">
-        <label>Horário fim</label>
+        <label>HorÃ¡rio fim</label>
         <input type="time" id="ag-f-hora-fim"/>
       </div>
       <div class="field">
         <label>Local / Link</label>
-        <input type="text" id="ag-f-local" placeholder="Sala, endereço ou link da reunião"/>
+        <input type="text" id="ag-f-local" placeholder="Sala, endereÃ§o ou link da reuniÃ£o"/>
       </div>
       <div class="field">
-        <label>Responsável / Participantes</label>
-        <input type="text" id="ag-f-resp" placeholder="Ex: Equipe Compliance, João Silva"/>
+        <label>ResponsÃ¡vel / Participantes</label>
+        <input type="text" id="ag-f-resp" placeholder="Ex: Equipe Compliance, JoÃ£o Silva"/>
       </div>
       <div class="field">
         <label>Lembrete</label>
@@ -1481,9 +1482,9 @@
         </select>
       </div>
       <div class="field">
-        <label>Recorrência</label>
+        <label>RecorrÃªncia</label>
         <select id="ag-f-recorrencia">
-          <option value="nenhuma">Sem recorrência</option>
+          <option value="nenhuma">Sem recorrÃªncia</option>
           <option value="semanal">Semanal</option>
           <option value="quinzenal">Quinzenal</option>
           <option value="mensal">Mensal</option>
@@ -1491,43 +1492,43 @@
         </select>
       </div>
       <div class="field full">
-        <label>Descrição / Observações</label>
+        <label>DescriÃ§Ã£o / ObservaÃ§Ãµes</label>
         <textarea id="ag-f-desc" rows="3" placeholder="Detalhes, pauta, contexto do evento..."></textarea>
       </div>
     </div>
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeModal('modal-agenda')">Cancelar</button>
-      <button class="btn btn-accent" onclick="agendaSalvarEvento()">💾 Salvar Evento</button>
+      <button class="btn btn-accent" onclick="agendaSalvarEvento()">ð¾ Salvar Evento</button>
     </div>
   </div>
 </div>
 
-<!-- MODAL: PERMISSÕES -->
+<!-- MODAL: PERMISSÃES -->
 <div class="modal-overlay" id="modal-permissoes">
   <div class="modal perm-modal">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px">
       <div>
-        <h3 style="margin:0">🔐 Gerenciamento de Permissões</h3>
+        <h3 style="margin:0">ð Gerenciamento de PermissÃµes</h3>
         <div style="font-size:.8rem;color:var(--text-muted);margin-top:4px">
-          Defina quais módulos cada usuário pode acessar. Apenas você (Admin) pode alterar estas configurações.
+          Defina quais mÃ³dulos cada usuÃ¡rio pode acessar. Apenas vocÃª (Admin) pode alterar estas configuraÃ§Ãµes.
         </div>
       </div>
-      <button onclick="closeModal('modal-permissoes')" style="background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--text-muted)">✕</button>
+      <button onclick="closeModal('modal-permissoes')" style="background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--text-muted)">â</button>
     </div>
 
     <!-- Admin info -->
     <div style="background:linear-gradient(135deg,#0f2d4a,#1e4976);border-radius:10px;padding:14px 16px;margin-bottom:20px;display:flex;align-items:center;gap:12px">
       <div style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:.85rem">AD</div>
       <div>
-        <div style="color:#fff;font-weight:700">Administrador — admin@torre.com.br</div>
-        <div style="color:rgba(255,255,255,.7);font-size:.78rem">Acesso total · Crie usuários em 👥 Gerenciar Usuários</div>
+        <div style="color:#fff;font-weight:700">Administrador â admin@torre.com.br</div>
+        <div style="color:rgba(255,255,255,.7);font-size:.78rem">Acesso total Â· Crie usuÃ¡rios em ð¥ Gerenciar UsuÃ¡rios</div>
       </div>
       <span class="perm-badge admin" style="margin-left:auto">ADMIN</span>
     </div>
 
-    <!-- Aviso módulos restritos -->
+    <!-- Aviso mÃ³dulos restritos -->
     <div style="background:#fdf4ff;border:1px solid #d8b4fe;border-radius:8px;padding:10px 14px;margin-bottom:16px;font-size:.8rem;color:#6b21a8">
-      🔒 <strong>Canal de Denúncia</strong> e <strong>Relatórios</strong> são módulos restritos — usuários precisam de permissão explícita para acessá-los.
+      ð <strong>Canal de DenÃºncia</strong> e <strong>RelatÃ³rios</strong> sÃ£o mÃ³dulos restritos â usuÃ¡rios precisam de permissÃ£o explÃ­cita para acessÃ¡-los.
     </div>
 
     <!-- Users list -->
@@ -1535,22 +1536,22 @@
 
     <div class="modal-footer" style="margin-top:20px">
       <button class="btn btn-outline" onclick="closeModal('modal-permissoes')">Fechar</button>
-      <button class="btn btn-accent" onclick="permSave();setSaveIndicator('✅ Permissões salvas na nuvem','var(--accent)')">💾 Salvar na Nuvem</button>
+      <button class="btn btn-accent" onclick="permSave();setSaveIndicator('â PermissÃµes salvas na nuvem','var(--accent)')">ð¾ Salvar na Nuvem</button>
     </div>
   </div>
 </div>
 
-<!-- MODAL: GERENCIAR USUÁRIOS -->
+<!-- MODAL: GERENCIAR USUÃRIOS -->
 <div class="modal-overlay" id="modal-usuarios">
   <div class="modal" style="width:700px;max-width:95vw">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
       <div>
-        <h3 style="margin:0">👥 Gerenciar Usuários</h3>
+        <h3 style="margin:0">ð¥ Gerenciar UsuÃ¡rios</h3>
         <div style="font-size:.78rem;color:var(--text-muted);margin-top:3px">Crie, edite e gerencie os acessos ao sistema</div>
       </div>
       <div style="display:flex;gap:8px;align-items:center">
-        <button onclick="abrirNovoUsuario()" class="btn btn-accent btn-sm">+ Novo Usuário</button>
-        <button onclick="closeModal('modal-usuarios')" style="background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--text-muted)">✕</button>
+        <button onclick="abrirNovoUsuario()" class="btn btn-accent btn-sm">+ Novo UsuÃ¡rio</button>
+        <button onclick="closeModal('modal-usuarios')" style="background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--text-muted)">â</button>
       </div>
     </div>
     <div id="users-list"></div>
@@ -1560,14 +1561,14 @@
   </div>
 </div>
 
-<!-- MODAL: NOVO USUÁRIO -->
+<!-- MODAL: NOVO USUÃRIO -->
 <div class="modal-overlay" id="modal-novo-usuario">
   <div class="modal" style="width:680px;max-width:95vw">
-    <h3 style="margin-bottom:18px">➕ Novo Usuário</h3>
+    <h3 style="margin-bottom:18px">â Novo UsuÃ¡rio</h3>
     <div class="form-grid" style="grid-template-columns:1fr 1fr">
       <div class="field">
         <label>Nome completo *</label>
-        <input type="text" id="nu-nome" placeholder="Ex: João Silva"/>
+        <input type="text" id="nu-nome" placeholder="Ex: JoÃ£o Silva"/>
       </div>
       <div class="field">
         <label>E-mail *</label>
@@ -1575,7 +1576,7 @@
       </div>
       <div class="field">
         <label>Senha *</label>
-        <input type="password" id="nu-senha" placeholder="Mínimo 6 caracteres" oninput="nuSenhaStrength(this.value)"/>
+        <input type="password" id="nu-senha" placeholder="MÃ­nimo 6 caracteres" oninput="nuSenhaStrength(this.value)"/>
         <div id="nu-strength" class="senha-strength"></div>
       </div>
       <div class="field">
@@ -1586,22 +1587,22 @@
         <label>Perfil de acesso</label>
         <div class="perfil-selector">
           <div class="perfil-opt selected" data-perfil="Compliance" onclick="nuSelecionarPerfil('Compliance','#00c49a')">
-            <div style="font-size:1.3rem;margin-bottom:4px">🛡️</div>Compliance
+            <div style="font-size:1.3rem;margin-bottom:4px">ð¡ï¸</div>Compliance
           </div>
           <div class="perfil-opt" data-perfil="Auditoria" onclick="nuSelecionarPerfil('Auditoria','#3b82f6')">
-            <div style="font-size:1.3rem;margin-bottom:4px">🔍</div>Auditoria
+            <div style="font-size:1.3rem;margin-bottom:4px">ð</div>Auditoria
           </div>
           <div class="perfil-opt" data-perfil="RH" onclick="nuSelecionarPerfil('RH','#f59e0b')">
-            <div style="font-size:1.3rem;margin-bottom:4px">👥</div>RH
+            <div style="font-size:1.3rem;margin-bottom:4px">ð¥</div>RH
           </div>
           <div class="perfil-opt" data-perfil="Diretoria" onclick="nuSelecionarPerfil('Diretoria','#8b5cf6')">
-            <div style="font-size:1.3rem;margin-bottom:4px">👔</div>Diretoria
+            <div style="font-size:1.3rem;margin-bottom:4px">ð</div>Diretoria
           </div>
-          <div class="perfil-opt" data-perfil="Operações" onclick="nuSelecionarPerfil('Operações','#ef4444')">
-            <div style="font-size:1.3rem;margin-bottom:4px">⚙️</div>Operações
+          <div class="perfil-opt" data-perfil="OperaÃ§Ãµes" onclick="nuSelecionarPerfil('OperaÃ§Ãµes','#ef4444')">
+            <div style="font-size:1.3rem;margin-bottom:4px">âï¸</div>OperaÃ§Ãµes
           </div>
           <div class="perfil-opt" data-perfil="Visualizador" onclick="nuSelecionarPerfil('Visualizador','#64748b')">
-            <div style="font-size:1.3rem;margin-bottom:4px">👁️</div>Visualizador
+            <div style="font-size:1.3rem;margin-bottom:4px">ðï¸</div>Visualizador
           </div>
                     <div class="perfil-opt" data-perfil="Admin" onclick="nuSelecionarPerfil('Admin','#7c3aed')">
                                   <div style="font-size:1.3rem;margin-bottom:4px">&#x1F451;</div>Admin
@@ -1625,14 +1626,14 @@
         </div>
       </div>
       <div class="field full">
-        <label>Permissões de acesso</label>
+        <label>PermissÃµes de acesso</label>
         <div id="nu-perms"></div>
       </div>
     </div>
     <div id="nu-erro" style="color:var(--danger);font-size:.82rem;margin-top:8px;font-weight:600"></div>
     <div class="modal-footer" style="margin-top:16px">
       <button class="btn btn-outline" onclick="closeModal('modal-novo-usuario')">Cancelar</button>
-      <button class="btn btn-accent" onclick="salvarNovoUsuario()">✅ Criar Usuário</button>
+      <button class="btn btn-accent" onclick="salvarNovoUsuario()">â Criar UsuÃ¡rio</button>
     </div>
   </div>
 </div>
@@ -1640,18 +1641,18 @@
 <!-- MODAL: ALTERAR SENHA -->
 <div class="modal-overlay" id="modal-alterar-senha">
   <div class="modal" style="width:460px">
-    <h3 style="margin-bottom:6px">🔑 Alterar Senha</h3>
+    <h3 style="margin-bottom:6px">ð Alterar Senha</h3>
     <div id="ap-email-label" style="font-size:.83rem;color:var(--text-muted);margin-bottom:18px"></div>
     <input type="hidden" id="ap-email-hidden"/>
     <div class="form-grid" style="grid-template-columns:1fr">
       <div class="field">
         <label>Senha atual</label>
         <input type="password" id="ap-senha-atual" placeholder="Digite a senha atual"/>
-        <div style="font-size:.73rem;color:var(--text-muted);margin-top:4px">Admin pode deixar em branco ao alterar senha de outro usuário</div>
+        <div style="font-size:.73rem;color:var(--text-muted);margin-top:4px">Admin pode deixar em branco ao alterar senha de outro usuÃ¡rio</div>
       </div>
       <div class="field">
         <label>Nova senha *</label>
-        <input type="password" id="ap-senha-nova" placeholder="Mínimo 6 caracteres" oninput="document.getElementById('ap-strength').className='senha-strength '+((this.value.length>=10&&/[A-Z]/.test(this.value)&&/[0-9]/.test(this.value))?'strength-strong':this.value.length>=6?'strength-medium':'strength-weak')"/>
+        <input type="password" id="ap-senha-nova" placeholder="MÃ­nimo 6 caracteres" oninput="document.getElementById('ap-strength').className='senha-strength '+((this.value.length>=10&&/[A-Z]/.test(this.value)&&/[0-9]/.test(this.value))?'strength-strong':this.value.length>=6?'strength-medium':'strength-weak')"/>
         <div id="ap-strength" class="senha-strength" style="margin-top:6px"></div>
       </div>
       <div class="field">
@@ -1662,7 +1663,7 @@
     <div id="ap-erro" style="color:var(--danger);font-size:.82rem;margin-top:8px;font-weight:600"></div>
     <div class="modal-footer" style="margin-top:16px">
       <button class="btn btn-outline" onclick="closeModal('modal-alterar-senha')">Cancelar</button>
-      <button class="btn btn-accent" onclick="salvarNovaSenha()">🔑 Salvar Nova Senha</button>
+      <button class="btn btn-accent" onclick="salvarNovaSenha()">ð Salvar Nova Senha</button>
     </div>
   </div>
 </div>
@@ -1671,26 +1672,26 @@
 <div class="modal-overlay" id="modal-branding">
   <div class="modal" style="width:600px">
     <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-      <div style="width:42px;height:42px;border-radius:10px;background:#3b82f6;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0">🎨</div>
+      <div style="width:42px;height:42px;border-radius:10px;background:#3b82f6;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0">ð¨</div>
       <div>
-        <h3 style="margin-bottom:2px">Branding & Aparência</h3>
-        <div style="font-size:.78rem;color:var(--text-muted)">Customize o nome, cores e logo da aplicação</div>
+        <h3 style="margin-bottom:2px">Branding & AparÃªncia</h3>
+        <div style="font-size:.78rem;color:var(--text-muted)">Customize o nome, cores e logo da aplicaÃ§Ã£o</div>
       </div>
-      <button onclick="closeModal('modal-branding')" style="background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--text-muted);margin-left:auto">✕</button>
+      <button onclick="closeModal('modal-branding')" style="background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--text-muted);margin-left:auto">â</button>
     </div>
 
-    <!-- Nome da Aplicação -->
+    <!-- Nome da AplicaÃ§Ã£o -->
     <div style="margin-bottom:20px">
-      <label style="display:block;font-weight:600;font-size:.85rem;margin-bottom:6px">Nome da Aplicação</label>
+      <label style="display:block;font-weight:600;font-size:.85rem;margin-bottom:6px">Nome da AplicaÃ§Ã£o</label>
       <input type="text" id="branding-nome" placeholder="ex: Compliance Hub" 
         style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.9rem">
-      <div style="font-size:.75rem;color:var(--text-muted);margin-top:4px">Aparecerá no login e na barra lateral</div>
+      <div style="font-size:.75rem;color:var(--text-muted);margin-top:4px">AparecerÃ¡ no login e na barra lateral</div>
     </div>
 
-    <!-- Subtítulo -->
+    <!-- SubtÃ­tulo -->
     <div style="margin-bottom:20px">
-      <label style="display:block;font-weight:600;font-size:.85rem;margin-bottom:6px">Subtítulo</label>
-      <input type="text" id="branding-subtitulo" placeholder="ex: Sistema de Gestão"
+      <label style="display:block;font-weight:600;font-size:.85rem;margin-bottom:6px">SubtÃ­tulo</label>
+      <input type="text" id="branding-subtitulo" placeholder="ex: Sistema de GestÃ£o"
         style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.9rem">
       <div style="font-size:.75rem;color:var(--text-muted);margin-top:4px">Texto exibido abaixo do nome</div>
     </div>
@@ -1704,7 +1705,7 @@
         <input type="text" id="branding-cor-primaria-hex" placeholder="#0f2d4a"
           style="flex:1;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-family:monospace;font-size:.85rem">
       </div>
-      <div style="font-size:.75rem;color:var(--text-muted);margin-top:4px">Usada em botões, títulos e destaques</div>
+      <div style="font-size:.75rem;color:var(--text-muted);margin-top:4px">Usada em botÃµes, tÃ­tulos e destaques</div>
     </div>
 
     <!-- Logo URL -->
@@ -1712,7 +1713,7 @@
       <label style="display:block;font-weight:600;font-size:.85rem;margin-bottom:6px">URL da Logo</label>
       <input type="text" id="branding-logo-url" placeholder="https://..."
         style="width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:.9rem">
-      <div style="font-size:.75rem;color:var(--text-muted);margin-top:4px">Link direto para PNG, SVG ou JPG (máx 200x200px recomendado)</div>
+      <div style="font-size:.75rem;color:var(--text-muted);margin-top:4px">Link direto para PNG, SVG ou JPG (mÃ¡x 200x200px recomendado)</div>
     </div>
 
     <!-- Preview da Logo -->
@@ -1720,14 +1721,14 @@
       <div style="font-size:.85rem;font-weight:600;margin-bottom:8px">Preview</div>
       <div style="width:100%;height:100px;border:1px dashed var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.02)">
         <img id="branding-logo-preview" src="" alt="preview" style="max-width:100%;max-height:100%;display:none">
-        <div id="branding-logo-vazio" style="color:var(--text-muted);font-size:.8rem">Logo não configurada</div>
+        <div id="branding-logo-vazio" style="color:var(--text-muted);font-size:.8rem">Logo nÃ£o configurada</div>
       </div>
     </div>
 
-    <!-- Botões -->
+    <!-- BotÃµes -->
     <div style="display:flex;gap:10px;margin-top:24px">
-      <button onclick="salvarBranding()" class="btn btn-primary" style="flex:1">💾 Salvar Configurações</button>
-      <button onclick="resetarBranding()" class="btn btn-outline">🔄 Restaurar Padrão</button>
+      <button onclick="salvarBranding()" class="btn btn-primary" style="flex:1">ð¾ Salvar ConfiguraÃ§Ãµes</button>
+      <button onclick="resetarBranding()" class="btn btn-outline">ð Restaurar PadrÃ£o</button>
       <button onclick="closeModal('modal-branding')" class="btn btn-outline">Cancelar</button>
     </div>
   </div>
@@ -1737,13 +1738,13 @@
   <div class="modal" style="width:820px;max-width:96vw;max-height:90vh;display:flex;flex-direction:column">
     <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-shrink:0">
       <div>
-        <h3 style="margin:0">📋 Logs de Auditoria</h3>
-        <div style="font-size:.78rem;color:var(--text-muted);margin-top:3px">Histórico completo de ações dos usuários no sistema</div>
+        <h3 style="margin:0">ð Logs de Auditoria</h3>
+        <div style="font-size:.78rem;color:var(--text-muted);margin-top:3px">HistÃ³rico completo de aÃ§Ãµes dos usuÃ¡rios no sistema</div>
       </div>
       <div style="display:flex;gap:8px">
-        <button onclick="exportarLogs()" class="btn btn-outline btn-sm">⬇️ Exportar CSV</button>
-        <button onclick="limparLogsAntigos()" class="btn btn-outline btn-sm" style="color:var(--warn)">🗑 Limpar antigos</button>
-        <button onclick="closeModal('modal-logs')" style="background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--text-muted)">✕</button>
+        <button onclick="exportarLogs()" class="btn btn-outline btn-sm">â¬ï¸ Exportar CSV</button>
+        <button onclick="limparLogsAntigos()" class="btn btn-outline btn-sm" style="color:var(--warn)">ð Limpar antigos</button>
+        <button onclick="closeModal('modal-logs')" style="background:none;border:none;font-size:1.3rem;cursor:pointer;color:var(--text-muted)">â</button>
       </div>
     </div>
 
@@ -1755,39 +1756,39 @@
       </div>
       <div class="log-stat">
         <div class="log-stat-num" id="log-stat-hoje" style="color:var(--accent)">0</div>
-        <div class="log-stat-lbl">Ações hoje</div>
+        <div class="log-stat-lbl">AÃ§Ãµes hoje</div>
       </div>
       <div class="log-stat">
         <div class="log-stat-num" id="log-stat-delete" style="color:var(--danger)">0</div>
-        <div class="log-stat-lbl">Exclusões</div>
+        <div class="log-stat-lbl">ExclusÃµes</div>
       </div>
       <div class="log-stat">
         <div class="log-stat-num" id="log-stat-users" style="color:var(--info)">0</div>
-        <div class="log-stat-lbl">Usuários ativos</div>
+        <div class="log-stat-lbl">UsuÃ¡rios ativos</div>
       </div>
     </div>
 
     <!-- Filters -->
     <div style="flex-shrink:0;margin-bottom:12px">
       <div class="log-filter-bar">
-        <button class="log-filter-btn active" data-filtro="todos" onclick="renderLogs('todos')">📋 Todos</button>
-        <button class="log-filter-btn" data-filtro="login" onclick="renderLogs('login')">🔐 Logins</button>
-        <button class="log-filter-btn" data-filtro="create" onclick="renderLogs('create')">➕ Criações</button>
-        <button class="log-filter-btn" data-filtro="update" onclick="renderLogs('update')">✏️ Edições</button>
-        <button class="log-filter-btn" data-filtro="delete" onclick="renderLogs('delete')">🗑 Exclusões</button>
-        <button class="log-filter-btn" data-filtro="denuncias" onclick="renderLogs('denuncias')">📢 Denúncias</button>
-        <button class="log-filter-btn" data-filtro="import" onclick="renderLogs('import')">📥 Importações</button>
+        <button class="log-filter-btn active" data-filtro="todos" onclick="renderLogs('todos')">ð Todos</button>
+        <button class="log-filter-btn" data-filtro="login" onclick="renderLogs('login')">ð Logins</button>
+        <button class="log-filter-btn" data-filtro="create" onclick="renderLogs('create')">â CriaÃ§Ãµes</button>
+        <button class="log-filter-btn" data-filtro="update" onclick="renderLogs('update')">âï¸ EdiÃ§Ãµes</button>
+        <button class="log-filter-btn" data-filtro="delete" onclick="renderLogs('delete')">ð ExclusÃµes</button>
+        <button class="log-filter-btn" data-filtro="denuncias" onclick="renderLogs('denuncias')">ð¢ DenÃºncias</button>
+        <button class="log-filter-btn" data-filtro="import" onclick="renderLogs('import')">ð¥ ImportaÃ§Ãµes</button>
       </div>
       <div style="display:flex;gap:8px">
-        <input type="text" placeholder="🔍 Filtrar por usuário..." oninput="logFiltrarUser(this.value)"
+        <input type="text" placeholder="ð Filtrar por usuÃ¡rio..." oninput="logFiltrarUser(this.value)"
           style="flex:1;padding:7px 12px;border:1px solid var(--border);border-radius:8px;font-size:.82rem;font-family:inherit"/>
-        <button onclick="logsLoad().then(()=>renderLogs(_logFiltroAtivo))" class="btn btn-outline btn-sm">🔄 Atualizar</button>
+        <button onclick="logsLoad().then(()=>renderLogs(_logFiltroAtivo))" class="btn btn-outline btn-sm">ð Atualizar</button>
       </div>
     </div>
 
     <!-- List -->
     <div id="logs-list" style="flex:1;overflow-y:auto;border:1px solid var(--border);border-radius:10px;background:var(--card)">
-      <div class="log-empty"><div style="font-size:2rem">⏳</div><div>Carregando logs...</div></div>
+      <div class="log-empty"><div style="font-size:2rem">â³</div><div>Carregando logs...</div></div>
     </div>
   </div>
 </div>
