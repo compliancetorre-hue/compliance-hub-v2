@@ -1151,9 +1151,16 @@
       </select></div>
       <div class="field"><label>Filial *</label><select id="f-dn-filial"></select></div>
       <div class="field"><label>Setor</label><input type="text" id="f-dn-setor" placeholder="Ex: Frente de loja"/></div>
-      <div class="field"><label>Anonimato</label><select id="f-dn-anon">
+      <div class="field"><label>Anonimato</label><select id="f-dn-anon" onchange="toggleDnIdentificado()">
         <option value="AnÃ´nima">AnÃ´nima</option><option value="Identificada">Identificada</option>
       </select></div>
+
+      <div id="dn-identificado-fields" style="display:none;grid-column:1/-1">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div class="field"><label>Nome do Denunciante</label><input type="text" id="f-dn-nome" placeholder="Nome completo"/></div>
+          <div class="field"><label>E-mail do Denunciante</label><input type="email" id="f-dn-email" placeholder="email@exemplo.com.br"/></div>
+        </div>
+      </div>
 
       <!-- CAMPO DE PERIGO - destaque visual -->
       <div class="field full">
