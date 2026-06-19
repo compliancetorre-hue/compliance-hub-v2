@@ -1351,6 +1351,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+function toggleDnIdentificado() {
+  const anon = (document.getElementById('f-dn-anon')||{}).value;
+  const fields = document.getElementById('dn-identificado-fields');
+  if(fields) fields.style.display = (anon === 'Identificada') ? '' : 'none';
+}
+
 function openModalDenuncia() {
   window._editDnId = null;
   ['f-dn-relato','f-dn-obs','f-dn-resp','f-dn-setor','f-dn-proto'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
@@ -1371,7 +1377,10 @@ function editDenuncia(id) {
   document.getElementById('f-dn-resp').value = d.resp||'';
   document.getElementById('f-dn-status').value = d.status;
   document.getElementById('f-dn-relato').value = d.relato;
-  document.getElementById('f-dn-obs').value = d.obs||'';
+  document.getElementById('f-dn-obs').value = d.obs||'';  if(document.getElementById('f-dn-nome')) document.getElementById('f-dn-nome').value = d.nome||'';
+  if(document.getElementById('f-dn-email')) document.getElementById('f-dn-email').value = d.email||'';
+  toggleDnIdentificado();
+  
   if(document.getElementById('f-dn-data')) document.getElementById('f-dn-data').value = d.data||'';
   if(document.getElementById('f-dn-proto')) document.getElementById('f-dn-proto').value = d.proto||'';
   setSelectedPerigo(d.perigo||'Leve');
