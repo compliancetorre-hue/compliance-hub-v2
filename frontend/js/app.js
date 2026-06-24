@@ -21,124 +21,124 @@ function ddHTML(){return `
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </div>
     <div>
-      <div class="dd-hero-t">Due Diligence â KYC &amp; MÃ­dias Negativas</div>
-      <div class="dd-hero-s">Pessoa FÃ­sica (CPF) Â· Pessoa JurÃ­dica (CNPJ) Â· Bhusca booleana Â· VerificaÃ§Ã£o automÃ¡tica Â· Juntas Comerciais</div>
+      <div class="dd-hero-t">Due Diligence — KYC &amp; Mídias Negativas</div>
+      <div class="dd-hero-s">Pessoa Física (CPF) · Pessoa Jurídica (CNPJ) · Bhusca booleana · Verificação automática · Juntas Comerciais</div>
     </div>
   </div>
   <div class="dd-apills">
-    <span class="dd-ap">CPF Â· PF</span><span class="dd-ap">CNPJ Â· PJ</span><span class="dd-ap">Boolean Search</span><span class="dd-ap">MÃ­dias Negativas</span><span class="dd-ap-dim">VerificaÃ§Ã£o auto</span>
+    <span class="dd-ap">CPF · PF</span><span class="dd-ap">CNPJ · PJ</span><span class="dd-ap">Boolean Search</span><span class="dd-ap">Mídias Negativas</span><span class="dd-ap-dim">Verificação auto</span>
   </div>
 </div>
 
 <div class="dd-tabs">
-  <button class="dd-tab active" id="dd-tab-pj" onclick="ddSwitchTab('pj')">ð¢ Pessoa JurÃ­dica â CNPJ</button>
-  <button class="dd-tab" id="dd-tab-pf" onclick="ddSwitchTab('pf')">ð¤ Pessoa FÃ­sica â CPF</button>
+  <button class="dd-tab active" id="dd-tab-pj" onclick="ddSwitchTab('pj')">🏢 Pessoa Jurídica — CNPJ</button>
+  <button class="dd-tab" id="dd-tab-pf" onclick="ddSwitchTab('pf')">👤 Pessoa Física — CPF</button>
 </div>
 
-<!-- âââ PAINEL PJ âââ -->
+<!-- ═══ PAINEL PJ ═══ -->
 <div id="dd-panel-pj">
   <div class="section" style="margin-bottom:13px">
-    <div class="section-header"><h2>ð¢ Dados da empresa e do contrato</h2><button class="btn btn-outline btn-sm" onclick="ddLimpar('pj')">ðï¸ Limpar</button></div>
+    <div class="section-header"><h2>🏢 Dados da empresa e do contrato</h2><button class="btn btn-outline btn-sm" onclick="ddLimpar('pj')">🗑️ Limpar</button></div>
     <div class="section-body">
       <div class="form-grid">
         <div class="field"><label>CNPJ *</label><input type="text" id="pj-cnpj" placeholder="00.000.000/0001-00" maxlength="18" oninput="this.value=ddMC(this.value)" onblur="pjAutoFill()"/></div>
         <div class="field"><label>Nome fantasia</label><input type="text" id="pj-fantasia" placeholder="Preenchido via API"/></div>
-        <div class="field full"><label>RazÃ£o social</label><input type="text" id="pj-razao" placeholder="Preenchido automaticamente via API"/></div>
-        <div class="field full"><label>EndereÃ§o</label><input type="text" id="pj-end" placeholder="Preenchido via API Â· ou informe manualmente"/></div>
-        <div class="field full"><label>SÃ³cios / representantes</label><input type="text" id="pj-socios" placeholder="Preenchido via API Â· ou informe manualmente"/></div>
-        <div class="field"><label>Objeto do contrato</label><input type="text" id="pj-objeto" placeholder="Ex: ServiÃ§os de TI"/></div>
+        <div class="field full"><label>Razão social</label><input type="text" id="pj-razao" placeholder="Preenchido automaticamente via API"/></div>
+        <div class="field full"><label>Endereço</label><input type="text" id="pj-end" placeholder="Preenchido via API · ou informe manualmente"/></div>
+        <div class="field full"><label>Sócios / representantes</label><input type="text" id="pj-socios" placeholder="Preenchido via API · ou informe manualmente"/></div>
+        <div class="field"><label>Objeto do contrato</label><input type="text" id="pj-objeto" placeholder="Ex: Serviços de TI"/></div>
         <div class="field"><label>Valor estimado</label><input type="text" id="pj-valor" placeholder="Ex: R$ 50.000"/></div>
         <div class="field"><label>Modalidade de pagamento</label>
-          <select id="pj-pagto"><option value="">Selecione</option><option value="100% antecipado">100% antecipado â maior risco</option><option value="Parcial antecipado">Parcial antecipado</option><option value="Parcelado conforme entrega">Parcelado conforme entrega</option><option value="PÃ³s-entrega">PÃ³s-entrega â menor risco</option></select>
+          <select id="pj-pagto"><option value="">Selecione</option><option value="100% antecipado">100% antecipado — maior risco</option><option value="Parcial antecipado">Parcial antecipado</option><option value="Parcelado conforme entrega">Parcelado conforme entrega</option><option value="Pós-entrega">Pós-entrega — menor risco</option></select>
         </div>
         <div class="field"><label>Estado sede (para Junta Comercial)</label>
           <select id="pj-estado"><option value="">Detectado via API</option>
-            <option value="AC">AC â JUCEA</option><option value="AL">AL â JUCEAL</option><option value="AM">AM â JUCEA-AM</option><option value="AP">AP â JUCAP</option><option value="BA">BA â JUCEB</option><option value="CE">CE â JUCEC</option><option value="DF">DF â JUCDF</option><option value="ES">ES â JUCEES</option><option value="GO">GO â JUCEG</option><option value="MA">MA â JUCEMA</option><option value="MG">MG â JUCEMG</option><option value="MS">MS â JUCEMS</option><option value="MT">MT â JUCEMAT</option><option value="PA">PA â JUCEPA</option><option value="PB">PB â JUCEP</option><option value="PE">PE â JUCEPE</option><option value="PI">PI â JUCEPI</option><option value="PR">PR â JUCEPAR</option><option value="RJ">RJ â JUCERJA</option><option value="RN">RN â JUCERN</option><option value="RO">RO â JUCER</option><option value="RR">RR â JUCERR</option><option value="RS">RS â JUCERGS</option><option value="SC">SC â JUCESC</option><option value="SE">SE â JUCESE</option><option value="SP">SP â JUCESP</option><option value="TO">TO â JUCETINS</option>
+            <option value="AC">AC — JUCEA</option><option value="AL">AL — JUCEAL</option><option value="AM">AM — JUCEA-AM</option><option value="AP">AP — JUCAP</option><option value="BA">BA — JUCEB</option><option value="CE">CE — JUCEC</option><option value="DF">DF — JUCDF</option><option value="ES">ES — JUCEES</option><option value="GO">GO — JUCEG</option><option value="MA">MA — JUCEMA</option><option value="MG">MG — JUCEMG</option><option value="MS">MS — JUCEMS</option><option value="MT">MT — JUCEMAT</option><option value="PA">PA — JUCEPA</option><option value="PB">PB — JUCEP</option><option value="PE">PE — JUCEPE</option><option value="PI">PI — JUCEPI</option><option value="PR">PR — JUCEPAR</option><option value="RJ">RJ — JUCERJA</option><option value="RN">RN — JUCERN</option><option value="RO">RO — JUCER</option><option value="RR">RR — JUCERR</option><option value="RS">RS — JUCERGS</option><option value="SC">SC — JUCESC</option><option value="SE">SE — JUCESE</option><option value="SP">SP — JUCESP</option><option value="TO">TO — JUCETINS</option>
           </select>
         </div>
       </div>
       <div style="display:flex;gap:8px;margin-top:13px;flex-wrap:wrap">
-        <button class="btn btn-accent" id="pj-btnapi" onclick="pjConsultar()" style="flex:1;min-width:185px;padding:11px;font-size:.88rem;justify-content:center"><span id="pj-bico">ð</span> <span id="pj-btxt">Consultar APIs + gerar links</span></button>
-        <button class="btn btn-primary" onclick="pjSomenteLinks()" style="padding:11px 14px;font-size:.86rem">ð Gerar links sem API</button>
-        <button class="btn" onclick="ddToggleManual('pj')" style="padding:11px 13px;font-size:.86rem;background:#fffbeb;color:#92400e;border:1px solid #fcd34d">âï¸ Manual</button>
+        <button class="btn btn-accent" id="pj-btnapi" onclick="pjConsultar()" style="flex:1;min-width:185px;padding:11px;font-size:.88rem;justify-content:center"><span id="pj-bico">🔍</span> <span id="pj-btxt">Consultar APIs + gerar links</span></button>
+        <button class="btn btn-primary" onclick="pjSomenteLinks()" style="padding:11px 14px;font-size:.86rem">📋 Gerar links sem API</button>
+        <button class="btn" onclick="ddToggleManual('pj')" style="padding:11px 13px;font-size:.86rem;background:#fffbeb;color:#92400e;border:1px solid #fcd34d">✏️ Manual</button>
       </div>
     </div>
   </div>
   <div id="pj-logwrap" style="display:none;margin-bottom:12px"><div style="background:#f8fafc;border:1px solid var(--border);border-radius:var(--radius);padding:12px 16px"><div style="font-size:.67rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--text-muted);margin-bottom:7px">Log de consulta</div><div id="pj-log"></div></div></div>
-  <div class="dd-vbar" id="pj-vbar"><div class="dd-vb-t"><span>ð Verificando resultados...</span><span id="pj-vb-pct" style="font-family:'DM Mono',monospace;font-weight:700">0%</span></div><div class="dd-vb-bar"><div class="dd-vb-fill" id="pj-vb-fill"></div></div><div class="dd-vb-stats">â Encontrados: <span class="dd-vb-f" id="pj-vb-f">0</span> &nbsp;|&nbsp; â Sem resultado: <span class="dd-vb-n" id="pj-vb-n">0</span> &nbsp;|&nbsp; ð£ MÃ­dia negativa: <span class="dd-vb-neg" id="pj-vb-neg">0</span> &nbsp;|&nbsp; â ï¸ Manual: <span class="dd-vb-e" id="pj-vb-e">0</span></div></div>
-  <div id="pj-manbox" style="display:none;margin-bottom:12px"><div style="background:#fffbeb;border:1px solid #fcd34d;border-radius:var(--radius);padding:17px"><div style="font-size:.85rem;font-weight:700;color:#92400e;margin-bottom:9px">âï¸ Modo manual â abra um link, copie o JSON (Ctrl+A â Ctrl+C) e cole aqui</div><div id="pj-manlinks" style="margin-bottom:11px"></div><div class="field"><label style="color:#92400e">JSON copiado da API</label><textarea id="pj-jsonpaste" style="min-height:85px;font-family:'DM Mono',monospace;font-size:.77rem;background:rgba(255,255,255,.8);border-color:#fcd34d" placeholder="Cole aqui o JSON retornado pela API..."></textarea></div><button class="btn btn-primary" onclick="ddParseManual('pj')" style="margin-top:8px">Processar JSON â</button></div></div>
+  <div class="dd-vbar" id="pj-vbar"><div class="dd-vb-t"><span>🔎 Verificando resultados...</span><span id="pj-vb-pct" style="font-family:'DM Mono',monospace;font-weight:700">0%</span></div><div class="dd-vb-bar"><div class="dd-vb-fill" id="pj-vb-fill"></div></div><div class="dd-vb-stats">✅ Encontrados: <span class="dd-vb-f" id="pj-vb-f">0</span> &nbsp;|&nbsp; ➖ Sem resultado: <span class="dd-vb-n" id="pj-vb-n">0</span> &nbsp;|&nbsp; 🟣 Mídia negativa: <span class="dd-vb-neg" id="pj-vb-neg">0</span> &nbsp;|&nbsp; ⚠️ Manual: <span class="dd-vb-e" id="pj-vb-e">0</span></div></div>
+  <div id="pj-manbox" style="display:none;margin-bottom:12px"><div style="background:#fffbeb;border:1px solid #fcd34d;border-radius:var(--radius);padding:17px"><div style="font-size:.85rem;font-weight:700;color:#92400e;margin-bottom:9px">✏️ Modo manual — abra um link, copie o JSON (Ctrl+A → Ctrl+C) e cole aqui</div><div id="pj-manlinks" style="margin-bottom:11px"></div><div class="field"><label style="color:#92400e">JSON copiado da API</label><textarea id="pj-jsonpaste" style="min-height:85px;font-family:'DM Mono',monospace;font-size:.77rem;background:rgba(255,255,255,.8);border-color:#fcd34d" placeholder="Cole aqui o JSON retornado pela API..."></textarea></div><button class="btn btn-primary" onclick="ddParseManual('pj')" style="margin-top:8px">Processar JSON →</button></div></div>
   <div id="pj-result"></div>
 </div>
 
-<!-- âââ PAINEL PF âââ -->
+<!-- ═══ PAINEL PF ═══ -->
 <div id="dd-panel-pf" style="display:none">
   <div class="section" style="margin-bottom:13px">
-    <div class="section-header"><h2>ð¤ Dados da pessoa fÃ­sica</h2><button class="btn btn-outline btn-sm" onclick="ddLimpar('pf')">ðï¸ Limpar</button></div>
+    <div class="section-header"><h2>👤 Dados da pessoa física</h2><button class="btn btn-outline btn-sm" onclick="ddLimpar('pf')">🗑️ Limpar</button></div>
     <div class="section-body">
       <div class="form-grid">
         <div class="field"><label>CPF *</label><input type="text" id="pf-cpf" placeholder="000.000.000-00" maxlength="14" oninput="this.value=ddMCpf(this.value)"/></div>
-        <div class="field"><label>Nome completo *</label><input type="text" id="pf-nome" placeholder="Ex: JoÃ£o da Silva Souza"/></div>
+        <div class="field"><label>Nome completo *</label><input type="text" id="pf-nome" placeholder="Ex: João da Silva Souza"/></div>
         <div class="field"><label>Data de nascimento</label><input type="text" id="pf-nasc" placeholder="DD/MM/AAAA" maxlength="10"/></div>
-        <div class="field"><label>ProfissÃ£o / cargo</label><input type="text" id="pf-prof" placeholder="Ex: EmpresÃ¡rio, Servidor PÃºblico, MÃ©dico"/></div>
-        <div class="field full"><label>EndereÃ§o (opcional â para Street View)</label><input type="text" id="pf-end" placeholder="Rua, nÃºmero, bairro, cidade, CEP"/></div>
+        <div class="field"><label>Profissão / cargo</label><input type="text" id="pf-prof" placeholder="Ex: Empresário, Servidor Público, Médico"/></div>
+        <div class="field full"><label>Endereço (opcional — para Street View)</label><input type="text" id="pf-end" placeholder="Rua, número, bairro, cidade, CEP"/></div>
         <div class="field"><label>Empresa(s) vinculada(s)</label><input type="text" id="pf-empresa" placeholder="Ex: XYZ Ltda, ABC ME (opcional)"/></div>
-        <div class="field"><label>PEP â Pessoa Exposta Politicamente?</label>
-          <select id="pf-pep"><option value="nao">NÃ£o</option><option value="sim">Sim â cargo pÃºblico</option><option value="relacionado">Relacionado a PEP</option></select>
+        <div class="field"><label>PEP — Pessoa Exposta Politicamente?</label>
+          <select id="pf-pep"><option value="nao">Não</option><option value="sim">Sim — cargo público</option><option value="relacionado">Relacionado a PEP</option></select>
         </div>
         <div class="field"><label>Natureza do relacionamento</label>
-          <select id="pf-nat"><option value="">Selecione</option><option value="Contratante">Contratante</option><option value="Fornecedor">Fornecedor</option><option value="SÃ³cio">SÃ³cio</option><option value="Representante legal">Representante legal</option><option value="Avalista">Avalista / fiador</option></select>
+          <select id="pf-nat"><option value="">Selecione</option><option value="Contratante">Contratante</option><option value="Fornecedor">Fornecedor</option><option value="Sócio">Sócio</option><option value="Representante legal">Representante legal</option><option value="Avalista">Avalista / fiador</option></select>
         </div>
       </div>
       <div style="display:flex;gap:8px;margin-top:13px;flex-wrap:wrap">
-        <button class="btn btn-accent" onclick="pfGerar()" style="flex:1;min-width:185px;padding:11px;font-size:.88rem;justify-content:center">ð Gerar links + verificar</button>
+        <button class="btn btn-accent" onclick="pfGerar()" style="flex:1;min-width:185px;padding:11px;font-size:.88rem;justify-content:center">🔍 Gerar links + verificar</button>
       </div>
     </div>
   </div>
-  <div class="dd-vbar" id="pf-vbar"><div class="dd-vb-t"><span>ð Verificando resultados...</span><span id="pf-vb-pct" style="font-family:'DM Mono',monospace;font-weight:700">0%</span></div><div class="dd-vb-bar"><div class="dd-vb-fill" id="pf-vb-fill"></div></div><div class="dd-vb-stats">â Encontrados: <span class="dd-vb-f" id="pf-vb-f">0</span> &nbsp;|&nbsp; â Sem resultado: <span class="dd-vb-n" id="pf-vb-n">0</span> &nbsp;|&nbsp; ð£ MÃ­dia negativa: <span class="dd-vb-neg" id="pf-vb-neg">0</span> &nbsp;|&nbsp; â ï¸ Manual: <span class="dd-vb-e" id="pf-vb-e">0</span></div></div>
+  <div class="dd-vbar" id="pf-vbar"><div class="dd-vb-t"><span>🔎 Verificando resultados...</span><span id="pf-vb-pct" style="font-family:'DM Mono',monospace;font-weight:700">0%</span></div><div class="dd-vb-bar"><div class="dd-vb-fill" id="pf-vb-fill"></div></div><div class="dd-vb-stats">✅ Encontrados: <span class="dd-vb-f" id="pf-vb-f">0</span> &nbsp;|&nbsp; ➖ Sem resultado: <span class="dd-vb-n" id="pf-vb-n">0</span> &nbsp;|&nbsp; 🟣 Mídia negativa: <span class="dd-vb-neg" id="pf-vb-neg">0</span> &nbsp;|&nbsp; ⚠️ Manual: <span class="dd-vb-e" id="pf-vb-e">0</span></div></div>
   <div id="pf-result"></div>
 </div>
 `;}
 
 
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 // DATA STORE
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 let DB = {
   filiais: [],
   riscos: [],
   controles: [],
   planos: [],
-  rmPlanos: [],  // carregado do Supabase apÃ³s login
-  denuncias: [],  // carregado do Supabase apÃ³s login
+  rmPlanos: [],  // carregado do Supabase após login
+  denuncias: [],  // carregado do Supabase após login
   fbBoards: {
     'planos-acao': {
-      name:'Planos de AÃ§Ã£o', color:'#3b82f6',
+      name:'Planos de Ação', color:'#3b82f6',
       cols:[
-        { id:'c1', name:'NÃ£o Iniciado', color:'#94a3b8', cards:[
-          { id:'k1', title:'Treinamento LGPD', resp:'Fernanda', prazo: futureDate(20), prio:'MÃ©dia', tag:'RH', check:['Preparar material','Agendar turmas','Registrar presenÃ§a'], checkDone:[0,0,0] },
+        { id:'c1', name:'Não Iniciado', color:'#94a3b8', cards:[
+          { id:'k1', title:'Treinamento LGPD', resp:'Fernanda', prazo: futureDate(20), prio:'Média', tag:'RH', check:['Preparar material','Agendar turmas','Registrar presença'], checkDone:[0,0,0] },
         ]},
         { id:'c2', name:'Em Andamento', color:'#3b82f6', cards:[
-          { id:'k2', title:'Implementar MFA', resp:'JoÃ£o TI', prazo: futureDate(7), prio:'Alta', tag:'TI', check:['Mapear sistemas','Configurar','Testar','Deploy'], checkDone:[1,1,0,0] },
-          { id:'k3', title:'Canal de DenÃºncias â DivulgaÃ§Ã£o', resp:'Ana Paula', prazo: futureDate(10), prio:'CrÃ­tica', tag:'RH', check:['Criar cartilha','Enviar comunicado'], checkDone:[1,0] },
+          { id:'k2', title:'Implementar MFA', resp:'João TI', prazo: futureDate(7), prio:'Alta', tag:'TI', check:['Mapear sistemas','Configurar','Testar','Deploy'], checkDone:[1,1,0,0] },
+          { id:'k3', title:'Canal de Denúncias – Divulgação', resp:'Ana Paula', prazo: futureDate(10), prio:'Crítica', tag:'RH', check:['Criar cartilha','Enviar comunicado'], checkDone:[1,0] },
         ]},
-        { id:'c3', name:'Em RevisÃ£o', color:'#f59e0b', cards:[] },
-        { id:'c4', name:'ConcluÃ­do', color:'#00c49a', cards:[
-          { id:'k4', title:'RevisÃ£o Contratos Fornecedores', resp:'Carlos Mendes', prazo: futureDate(-10), prio:'Baixa', tag:'JurÃ­dico', check:['Levantar contratos','Analisar','Assinar'], checkDone:[1,1,1] },
+        { id:'c3', name:'Em Revisão', color:'#f59e0b', cards:[] },
+        { id:'c4', name:'Concluído', color:'#00c49a', cards:[
+          { id:'k4', title:'Revisão Contratos Fornecedores', resp:'Carlos Mendes', prazo: futureDate(-10), prio:'Baixa', tag:'Jurídico', check:['Levantar contratos','Analisar','Assinar'], checkDone:[1,1,1] },
         ]},
       ]
     },
     'denuncias': {
-      name:'DenÃºncias', color:'#ef4444',
+      name:'Denúncias', color:'#ef4444',
       cols:[
         { id:'d1', name:'Aberta', color:'#3b82f6', cards:[
-          { id:'j1', title:'DN-2025-002 Â· AssÃ©dio / BH', resp:'Fernanda Lima', prazo: futureDate(3), prio:'CrÃ­tica', tag:'AssÃ©dio', check:['Registrar','Notificar comitÃª','Iniciar investigaÃ§Ã£o'], checkDone:[1,0,0] },
+          { id:'j1', title:'DN-2025-002 · Assédio / BH', resp:'Fernanda Lima', prazo: futureDate(3), prio:'Crítica', tag:'Assédio', check:['Registrar','Notificar comitê','Iniciar investigação'], checkDone:[1,0,0] },
         ]},
-        { id:'d2', name:'Em AnÃ¡lise', color:'#f59e0b', cards:[
-          { id:'j2', title:'DN-2025-001 Â· Fraude / SP', resp:'Carlos Mendes', prazo: futureDate(5), prio:'Alta', tag:'Fraude', check:['Coletar evidÃªncias','Entrevistar','RelatÃ³rio'], checkDone:[1,1,0] },
+        { id:'d2', name:'Em Análise', color:'#f59e0b', cards:[
+          { id:'j2', title:'DN-2025-001 · Fraude / SP', resp:'Carlos Mendes', prazo: futureDate(5), prio:'Alta', tag:'Fraude', check:['Coletar evidências','Entrevistar','Relatório'], checkDone:[1,1,0] },
         ]},
         { id:'d3', name:'Encerrada', color:'#00c49a', cards:[
-          { id:'j3', title:'DN-2025-003 Â· Conduta / RJ', resp:'Ana Paula', prazo: futureDate(-20), prio:'MÃ©dia', tag:'Conduta', check:['Apurar','DecisÃ£o','Comunicar'], checkDone:[1,1,1] },
+          { id:'j3', title:'DN-2025-003 · Conduta / RJ', resp:'Ana Paula', prazo: futureDate(-20), prio:'Média', tag:'Conduta', check:['Apurar','Decisão','Comunicar'], checkDone:[1,1,1] },
         ]},
         { id:'d4', name:'Arquivada', color:'#94a3b8', cards:[] },
       ]
@@ -147,12 +147,12 @@ let DB = {
       name:'Mapeamento de Risco', color:'#8b5cf6',
       cols:[
         { id:'r1', name:'Identificado', color:'#94a3b8', cards:[
-          { id:'m1', title:'Vazamento de dados â TI', resp:'JoÃ£o TI', prazo: futureDate(14), prio:'CrÃ­tica', tag:'TI', check:['Mapear','Avaliar probabilidade','Definir controle'], checkDone:[1,1,0] },
+          { id:'m1', title:'Vazamento de dados – TI', resp:'João TI', prazo: futureDate(14), prio:'Crítica', tag:'TI', check:['Mapear','Avaliar probabilidade','Definir controle'], checkDone:[1,1,0] },
         ]},
-        { id:'r2', name:'Em AvaliaÃ§Ã£o', color:'#f59e0b', cards:[
-          { id:'m2', title:'Fraude ConciliaÃ§Ã£o â Fin', resp:'Maria Fin', prazo: futureDate(7), prio:'Alta', tag:'Financeiro', check:['Analisar impacto','Propor mitigaÃ§Ã£o'], checkDone:[1,0] },
+        { id:'r2', name:'Em Avaliação', color:'#f59e0b', cards:[
+          { id:'m2', title:'Fraude Conciliação – Fin', resp:'Maria Fin', prazo: futureDate(7), prio:'Alta', tag:'Financeiro', check:['Analisar impacto','Propor mitigação'], checkDone:[1,0] },
         ]},
-        { id:'r3', name:'MitigaÃ§Ã£o em Andamento', color:'#3b82f6', cards:[] },
+        { id:'r3', name:'Mitigação em Andamento', color:'#3b82f6', cards:[] },
         { id:'r4', name:'Residual Aceito', color:'#00c49a', cards:[] },
       ]
     }
@@ -167,17 +167,17 @@ function futureDate(days) {
   return d.toISOString().split('T')[0];
 }
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 // NAVIGATION
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 const PAGE_TITLES = {
-  relatorios:'RelatÃ³rios â Canal de DenÃºncia',
-  importar:'Importar Planilha de DenÃºncias',
+  relatorios:'Relatórios — Canal de Denúncia',
+  importar:'Importar Planilha de Denúncias',
   dashboard:'Dashboard', filiais:'Filiais e Setores', 'mapa-risco':'Mapeamento de Risco',
-  controles:'Controles Internos', 'planos-acao':'Planos de AÃ§Ã£o',
-  'canal-denuncia':'Canal de DenÃºncia', flowboard:'Flow Board',
-  'due-diligence':'Due Diligence â KYC & MÃ­dias Negativas',
-    'due-diligence2':'Due Diligence 2 â KYC & MÃ­dias Negativas'
+  controles:'Controles Internos', 'planos-acao':'Planos de Ação',
+  'canal-denuncia':'Canal de Denúncia', flowboard:'Flow Board',
+  'due-diligence':'Due Diligence — KYC & Mídias Negativas',
+    'due-diligence2':'Due Diligence 2 – KYC & Mídias Negativas'
 };
 let currentPage = 'dashboard';
 
@@ -201,20 +201,20 @@ function _gotoImpl(page, el) {
   closeMobile();
 }
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 // MODAL HELPERS
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 function openModal(id) { document.getElementById(id).classList.add('open'); }
 function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 document.querySelectorAll('.modal-overlay').forEach(m => {
   m.addEventListener('click', e => { if(e.target === m) m.classList.remove('open'); });
 });
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 // DATE & BADGE HELPERS
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 function formatDate(d) {
-  if(!d) return 'â';
+  if(!d) return '—';
   const [y,m,dd] = d.split('-');
   return `${dd}/${m}/${y}`;
 }
@@ -225,38 +225,38 @@ function diasAte(d) {
 }
 function prazoChip(d) {
   const diff = diasAte(d);
-  if(diff === null) return 'â';
-  if(diff < 0) return `<span class="prazo-venc">â  ${Math.abs(diff)}d atrÃ¡s</span>`;
-  if(diff <= 7) return `<span class="prazo-warn">â° ${diff}d</span>`;
-  return `<span class="prazo-ok">ð ${formatDate(d)}</span>`;
+  if(diff === null) return '—';
+  if(diff < 0) return `<span class="prazo-venc">⚠ ${Math.abs(diff)}d atrás</span>`;
+  if(diff <= 7) return `<span class="prazo-warn">⏰ ${diff}d</span>`;
+  return `<span class="prazo-ok">📅 ${formatDate(d)}</span>`;
 }
 function statusBadge(s) {
   const map = {
-    'Alto':'badge-alto','MÃ©dio':'badge-medio','Baixo':'badge-baixo','CrÃ­tico':'badge-critico',
-    'Aberta':'badge-aberta','Em AnÃ¡lise':'badge-analise','Encerrada':'badge-encerrada','Arquivada':'badge-arquivada',
-    'Pendente':'badge-pendente','ConcluÃ­do':'badge-concluido','Vencido':'badge-vencido',
-    'Em Andamento':'badge-andamento','NÃ£o Iniciado':'badge-naoinitiado',
-    'CrÃ­tica':'badge-critico','Alta':'badge-alto','MÃ©dia':'badge-medio','Baixa':'badge-baixo',
+    'Alto':'badge-alto','Médio':'badge-medio','Baixo':'badge-baixo','Crítico':'badge-critico',
+    'Aberta':'badge-aberta','Em Análise':'badge-analise','Encerrada':'badge-encerrada','Arquivada':'badge-arquivada',
+    'Pendente':'badge-pendente','Concluído':'badge-concluido','Vencido':'badge-vencido',
+    'Em Andamento':'badge-andamento','Não Iniciado':'badge-naoinitiado',
+    'Crítica':'badge-critico','Alta':'badge-alto','Média':'badge-medio','Baixa':'badge-baixo',
   };
   return `<span class="badge ${map[s]||'badge-pendente'}">${s}</span>`;
 }
 function nivelRisco(p, i) {
   const score = p * i;
-  if(score >= 150) return 'CrÃ­tico';
+  if(score >= 150) return 'Crítico';
   if(score >= 75)  return 'Alto';
-  if(score >= 25)  return 'MÃ©dio';
-  if(score >= 16)  return 'CrÃ­tico';
+  if(score >= 25)  return 'Médio';
+  if(score >= 16)  return 'Crítico';
   if(score >= 9)   return 'Alto';
-  if(score >= 4)   return 'MÃ©dio';
+  if(score >= 4)   return 'Médio';
   return 'Baixo';
 }
 function progBar(v, cls='teal') {
   return `<div style="min-width:80px"><div style="font-size:.75rem;font-weight:600;color:var(--text-muted)">${v}%</div><div class="prog-bar"><div class="prog-fill ${cls}" style="width:${v}%"></div></div></div>`;
 }
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 // FILIAL SELECTS
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 function populateFilialSelects() {
   const ids = ['f-risco-filial','f-ctrl-filial','f-plano-filial','f-dn-filial',
                 'filtro-risco-filial','filtro-ctrl-filial','filtro-plano-filial','filtro-dn-filial','filtro-dn-filial2'];
@@ -271,13 +271,13 @@ function populateFilialSelects() {
   });
 }
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 // DASHBOARD
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 // DASHBOARD DRILLDOWN
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 function openDashDrill(type) {
   const panel  = document.getElementById('dash-drilldown');
   const thead  = document.getElementById('dash-dd-thead').querySelector('tr');
@@ -290,38 +290,38 @@ function openDashDrill(type) {
   let rows = '', icon = '', title = '', color = 'var(--primary)', count = 0;
 
   if(type === 'controles') {
-    // Controles Monitorados â mostra todos os riscos cadastrados
-    icon = 'ð¡ï¸'; title = 'Riscos Monitorados'; color = 'var(--accent)';
-    const nvCor = {'CrÃ­tico':'#ef4444','Alto':'#f59e0b','MÃ©dio':'#3b82f6','Baixo':'#10b981'};
+    // Controles Monitorados → mostra todos os riscos cadastrados
+    icon = '🛡️'; title = 'Riscos Monitorados'; color = 'var(--accent)';
+    const nvCor = {'Crítico':'#ef4444','Alto':'#f59e0b','Médio':'#3b82f6','Baixo':'#10b981'};
     const items = (DB.riscos||[]).slice().sort((a,b) => (b.prob*b.impacto)-(a.prob*a.impacto));
     count = items.length;
-    thead.innerHTML = '<th>Risco</th><th>Unidade</th><th>Categoria</th><th>Dono / Setor</th><th>P</th><th>I</th><th>NÃ­vel</th><th>Controle</th>';
+    thead.innerHTML = '<th>Risco</th><th>Unidade</th><th>Categoria</th><th>Dono / Setor</th><th>P</th><th>I</th><th>Nível</th><th>Controle</th>';
     rows = items.length ? items.map(r => {
       const nv = nivelRisco(r.prob, r.impacto);
       return `<tr>
-        <td style="font-weight:700;font-size:.84rem;max-width:220px">${r.desc||'â'}</td>
-        <td style="font-size:.78rem">${r.unidade||r.filial||'â'}</td>
-        <td style="font-size:.78rem">${r.cat||'â'}</td>
-        <td style="font-size:.78rem">${r.setor||'â'}</td>
+        <td style="font-weight:700;font-size:.84rem;max-width:220px">${r.desc||'—'}</td>
+        <td style="font-size:.78rem">${r.unidade||r.filial||'—'}</td>
+        <td style="font-size:.78rem">${r.cat||'—'}</td>
+        <td style="font-size:.78rem">${r.setor||'—'}</td>
         <td style="text-align:center;font-weight:700">${r.prob}</td>
         <td style="text-align:center;font-weight:700">${r.impacto}</td>
         <td><span style="background:${nvCor[nv]}22;color:${nvCor[nv]};padding:2px 8px;border-radius:10px;font-size:.73rem;font-weight:700">${nv}</span></td>
-        <td style="font-size:.75rem;max-width:180px">${r.controle||'â'}</td>
+        <td style="font-size:.75rem;max-width:180px">${r.controle||'—'}</td>
       </tr>`;
     }).join('') : '<tr><td colspan="8" style="text-align:center;color:var(--text-muted)">Nenhum risco cadastrado.</td></tr>';
 
   } else if(type === 'riscos') {
-    // Planos de AÃ§Ã£o â mostra todos os rmPlanos do mapeamento de risco
-    icon = 'ð'; title = 'Planos de AÃ§Ã£o'; color = 'var(--warn)';
+    // Planos de Ação → mostra todos os rmPlanos do mapeamento de risco
+    icon = '📋'; title = 'Planos de Ação'; color = 'var(--warn)';
     const items = (DB.rmPlanos||[]).slice().sort((a,b) => (a.prazo||'').localeCompare(b.prazo||''));
     count = items.length;
-    const stCor = {'NÃ£o Iniciado':'#94a3b8','Em Andamento':'#3b82f6','ConcluÃ­do':'#00c49a','Vencido':'#ef4444'};
-    thead.innerHTML = '<th>Plano de AÃ§Ã£o</th><th>ResponsÃ¡vel</th><th>Prazo</th><th>Status</th><th>Progresso</th>';
+    const stCor = {'Não Iniciado':'#94a3b8','Em Andamento':'#3b82f6','Concluído':'#00c49a','Vencido':'#ef4444'};
+    thead.innerHTML = '<th>Plano de Ação</th><th>Responsável</th><th>Prazo</th><th>Status</th><th>Progresso</th>';
     rows = items.length ? items.map(p => {
-      const st = p.status||'NÃ£o Iniciado';
+      const st = p.status||'Não Iniciado';
       return `<tr>
-        <td style="font-weight:700;font-size:.84rem;max-width:240px">${p.titulo||'â'}</td>
-        <td style="font-size:.78rem">${p.resp||'â'}</td>
+        <td style="font-weight:700;font-size:.84rem;max-width:240px">${p.titulo||'—'}</td>
+        <td style="font-size:.78rem">${p.resp||'—'}</td>
         <td>${prazoChip(p.prazo)}</td>
         <td><span style="background:${stCor[st]||'#94a3b8'}22;color:${stCor[st]||'#94a3b8'};padding:2px 8px;border-radius:10px;font-size:.73rem;font-weight:700">${st}</span></td>
         <td style="min-width:80px">${progBar(p.prog||0)}</td>
@@ -329,30 +329,30 @@ function openDashDrill(type) {
     }).join('') : '<tr><td colspan="5" style="text-align:center;color:var(--text-muted)">Nenhum plano cadastrado.</td></tr>';
 
   } else if(type === 'acoes') {
-    // AÃ§Ãµes Vencidas â rmPlanos com prazo jÃ¡ vencido (data < hoje)
-    icon = 'ð¨'; title = 'AÃ§Ãµes e Planos Vencidos'; color = '#ef4444';
+    // Ações Vencidas → rmPlanos com prazo já vencido (data < hoje)
+    icon = '🚨'; title = 'Ações e Planos Vencidos'; color = '#ef4444';
     const _hoje = new Date(); _hoje.setHours(0,0,0,0);
     const items = (DB.rmPlanos||[])
-      .filter(p => p.prazo && new Date(p.prazo) < _hoje && p.status !== 'ConcluÃ­do')
+      .filter(p => p.prazo && new Date(p.prazo) < _hoje && p.status !== 'Concluído')
       .sort((a,b) => (a.prazo||'').localeCompare(b.prazo||''));
     count = items.length;
-    thead.innerHTML = '<th>Plano / AÃ§Ã£o</th><th>ResponsÃ¡vel</th><th>Prazo</th><th>Status</th><th>Progresso</th>';
+    thead.innerHTML = '<th>Plano / Ação</th><th>Responsável</th><th>Prazo</th><th>Status</th><th>Progresso</th>';
     rows = items.length ? items.map(p => {
-      const st = p.status||'NÃ£o Iniciado';
-      const stCor = {'NÃ£o Iniciado':'#94a3b8','Em Andamento':'#3b82f6','ConcluÃ­do':'#00c49a','Vencido':'#ef4444'};
+      const st = p.status||'Não Iniciado';
+      const stCor = {'Não Iniciado':'#94a3b8','Em Andamento':'#3b82f6','Concluído':'#00c49a','Vencido':'#ef4444'};
       return `<tr>
-        <td style="font-weight:700;font-size:.84rem;max-width:240px">${p.titulo||'â'}</td>
-        <td style="font-size:.78rem">${p.resp||'â'}</td>
+        <td style="font-weight:700;font-size:.84rem;max-width:240px">${p.titulo||'—'}</td>
+        <td style="font-size:.78rem">${p.resp||'—'}</td>
         <td>${prazoChip(p.prazo)}</td>
         <td><span style="background:${stCor[st]||'#94a3b8'}22;color:${stCor[st]||'#94a3b8'};padding:2px 8px;border-radius:10px;font-size:.73rem;font-weight:700">${st}</span></td>
         <td style="min-width:80px">${progBar(p.prog||0)}</td>
       </tr>`;
-    }).join('') : '<tr><td colspan="5" style="text-align:center;color:var(--text-muted)">Nenhuma aÃ§Ã£o vencida.</td></tr>';
+    }).join('') : '<tr><td colspan="5" style="text-align:center;color:var(--text-muted)">Nenhuma ação vencida.</td></tr>';
   }
 
   icon_el.textContent  = icon;
   title_el.textContent = title;
-  count_el.textContent = 'Â· ' + count + ' item' + (count!==1?'s':'');
+  count_el.textContent = '· ' + count + ' item' + (count!==1?'s':'');
   header.style.borderBottomColor = color;
   tbody.innerHTML = rows;
   panel.style.display = '';
@@ -364,21 +364,21 @@ function closeDashDrill() {
 }
 
 function renderDashboard() {
-  // ââ KPIs
+  // ── KPIs
   document.getElementById('dash-total-controles').textContent = (DB.riscos||[]).length;
   const totalPlanos = (DB.rmPlanos||[]).length;
   document.getElementById('dash-riscos-altos').textContent = totalPlanos;
   const _hoje = new Date(); _hoje.setHours(0,0,0,0);
-  const acVenc = (DB.rmPlanos||[]).filter(p => p.prazo && new Date(p.prazo) < _hoje && p.status !== 'ConcluÃ­do').length;
+  const acVenc = (DB.rmPlanos||[]).filter(p => p.prazo && new Date(p.prazo) < _hoje && p.status !== 'Concluído').length;
   document.getElementById('dash-acoes-venc').textContent = acVenc;
   const dnAbertas = (DB.denuncias||[]).filter(d => d.status === 'Aberta').length;
-  const dnAnalise = (DB.denuncias||[]).filter(d => d.status === 'Em AnÃ¡lise').length;
+  const dnAnalise = (DB.denuncias||[]).filter(d => d.status === 'Em Análise').length;
   document.getElementById('dash-denuncias').textContent = dnAbertas + dnAnalise;
   const subEl = document.getElementById('dash-denuncias-sub');
-  if(subEl) subEl.textContent = dnAbertas + ' abertas Â· ' + dnAnalise + ' em anÃ¡lise';
+  if(subEl) subEl.textContent = dnAbertas + ' abertas · ' + dnAnalise + ' em análise';
 
-  // ââ Chart: Riscos por NÃ­vel
-  const lvls = ['CrÃ­tico','Alto','MÃ©dio','Baixo'];
+  // ── Chart: Riscos por Nível
+  const lvls = ['Crítico','Alto','Médio','Baixo'];
   const lvlColors = ['#8b5cf6','#ef4444','#f59e0b','#10b981'];
   const rCounts = lvls.map(l => (DB.riscos||[]).filter(r => nivelRisco(r.prob,r.impacto)===l).length);
   const rMax = Math.max(...rCounts, 1);
@@ -386,8 +386,8 @@ function renderDashboard() {
     `<div class="bar-row"><div class="bar-label">${l}</div><div class="bar-track"><div class="bar-fill" style="width:${rCounts[i]/rMax*100}%;background:${lvlColors[i]}"></div></div><div class="bar-val">${rCounts[i]}</div></div>`
   ).join('');
 
-  // ââ Chart: Status dos Planos de AÃ§Ã£o (rmPlanos)
-  const cStatuses = ['NÃ£o Iniciado','Em Andamento','ConcluÃ­do','Vencido'];
+  // ── Chart: Status dos Planos de Ação (rmPlanos)
+  const cStatuses = ['Não Iniciado','Em Andamento','Concluído','Vencido'];
   const cColors = ['#94a3b8','#3b82f6','#00c49a','#ef4444'];
   const cCounts = cStatuses.map(s => (DB.rmPlanos||[]).filter(p => p.status===s).length);
   const cMax = Math.max(...cCounts, 1);
@@ -395,8 +395,8 @@ function renderDashboard() {
     `<div class="bar-row"><div class="bar-label">${s}</div><div class="bar-track"><div class="bar-fill" style="width:${cCounts[i]/cMax*100}%;background:${cColors[i]}"></div></div><div class="bar-val">${cCounts[i]}</div></div>`
   ).join('');
 
-  // ââ Chart: Planos de AÃ§Ã£o por Status (rmPlanos)
-  const pStatuses = ['NÃ£o Iniciado','Em Andamento','ConcluÃ­do','Vencido'];
+  // ── Chart: Planos de Ação por Status (rmPlanos)
+  const pStatuses = ['Não Iniciado','Em Andamento','Concluído','Vencido'];
   const pColors = ['#94a3b8','#3b82f6','#00c49a','#ef4444'];
   const pCounts = pStatuses.map(s => (DB.rmPlanos||[]).filter(p => p.status===s).length);
   const pMax = Math.max(...pCounts, 1);
@@ -404,8 +404,8 @@ function renderDashboard() {
     `<div class="bar-row"><div class="bar-label">${s}</div><div class="bar-track"><div class="bar-fill" style="width:${pCounts[i]/pMax*100}%;background:${pColors[i]}"></div></div><div class="bar-val">${pCounts[i]}</div></div>`
   ).join('');
 
-  // ââ Chart: DenÃºncias por NÃ­vel de Perigo
-  const pLvls = ['Leve','MÃ©dio','Grave','Gravissima'];
+  // ── Chart: Denúncias por Nível de Perigo
+  const pLvls = ['Leve','Médio','Grave','Gravissima'];
   const pColors2 = ['#10b981','#f59e0b','#ef4444','#7c3aed'];
   const pCounts2 = pLvls.map(l => (DB.denuncias||[]).filter(d => d.perigo===l).length);
   const pMax2 = Math.max(...pCounts2, 1);
@@ -413,10 +413,10 @@ function renderDashboard() {
     `<div class="bar-row"><div class="bar-label">${l}</div><div class="bar-track"><div class="bar-fill" style="width:${pCounts2[i]/pMax2*100}%;background:${pColors2[i]}"></div></div><div class="bar-val">${pCounts2[i]}</div></div>`
   ).join('');
 
-  // ââ Tabela: Riscos CrÃ­ticos e Altos (substitui "Controles com Prazo Vencendo")
-  const nvCor = {'CrÃ­tico':'#ef4444','Alto':'#f59e0b','MÃ©dio':'#3b82f6','Baixo':'#10b981'};
+  // ── Tabela: Riscos Críticos e Altos (substitui "Controles com Prazo Vencendo")
+  const nvCor = {'Crítico':'#ef4444','Alto':'#f59e0b','Médio':'#3b82f6','Baixo':'#10b981'};
   const riscosCrit = (DB.riscos||[])
-    .filter(r => ['CrÃ­tico','Alto'].includes(nivelRisco(r.prob,r.impacto)))
+    .filter(r => ['Crítico','Alto'].includes(nivelRisco(r.prob,r.impacto)))
     .sort((a,b) => (b.prob*b.impacto)-(a.prob*a.impacto)).slice(0,5);
   const tbCtrl = document.getElementById('dash-controles-urgentes');
   if(riscosCrit.length === 0) {
@@ -426,14 +426,14 @@ function renderDashboard() {
     document.getElementById('dash-empty-ctrl').classList.add('hidden');
     tbCtrl.innerHTML = riscosCrit.map(r => {
       const nv = nivelRisco(r.prob,r.impacto);
-      return `<tr><td><strong>${r.desc||'â'}</strong></td><td>${r.unidade||r.filial||'â'}</td><td><span style="background:${nvCor[nv]}22;color:${nvCor[nv]};padding:2px 8px;border-radius:10px;font-size:.73rem;font-weight:700">${nv}</span></td><td style="font-size:.75rem">${r.cat||'â'}</td></tr>`;
+      return `<tr><td><strong>${r.desc||'—'}</strong></td><td>${r.unidade||r.filial||'—'}</td><td><span style="background:${nvCor[nv]}22;color:${nvCor[nv]};padding:2px 8px;border-radius:10px;font-size:.73rem;font-weight:700">${nv}</span></td><td style="font-size:.75rem">${r.cat||'—'}</td></tr>`;
     }).join('');
   }
 
-  // ââ Tabela: Planos de AÃ§Ã£o com Prazo PrÃ³ximo (substitui "AÃ§Ãµes com Prazo PrÃ³ximo")
+  // ── Tabela: Planos de Ação com Prazo Próximo (substitui "Ações com Prazo Próximo")
   const acUrg = (DB.rmPlanos||[]).filter(p => {
     const diff = diasAte(p.prazo);
-    return diff !== null && diff <= 30 && p.status !== 'ConcluÃ­do';
+    return diff !== null && diff <= 30 && p.status !== 'Concluído';
   }).sort((a,b) => diasAte(a.prazo)-diasAte(b.prazo)).slice(0,5);
   const tbAc = document.getElementById('dash-acoes-urgentes');
   if(acUrg.length === 0) {
@@ -453,7 +453,7 @@ function renderFiliais() {
     f.nome.toLowerCase().includes(q) || f.setor.toLowerCase().includes(q) ||
     (f.setores||'').toLowerCase().includes(q)
   );
-  if(items.length === 0) { grid.innerHTML = '<div class="empty"><div class="ico">ð¢</div>Nenhuma filial encontrada.</div>'; return; }
+  if(items.length === 0) { grid.innerHTML = '<div class="empty"><div class="ico">🏢</div>Nenhuma filial encontrada.</div>'; return; }
   grid.innerHTML = items.map(f => {
     const setoresArr = (f.setores||'').split(',').map(s=>s.trim()).filter(Boolean);
     const riscos = DB.riscos.filter(r => r.filial === f.nome).length;
@@ -461,10 +461,10 @@ function renderFiliais() {
     const planos = DB.planos.filter(p => p.filial === f.nome).length;
     return `<div style="background:#fff;border-radius:12px;border:1px solid var(--border);padding:20px;position:relative">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px">
-        <div style="width:44px;height:44px;border-radius:10px;background:rgba(0,196,154,.1);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">ð¢</div>
+        <div style="width:44px;height:44px;border-radius:10px;background:rgba(0,196,154,.1);display:flex;align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0">🏢</div>
         <div>
           <div style="font-weight:700;font-size:.94rem;color:var(--primary)">${f.nome}</div>
-          <div style="font-size:.76rem;color:var(--text-muted)">${f.cidade} Â· ${f.cnpj}</div>
+          <div style="font-size:.76rem;color:var(--text-muted)">${f.cidade} · ${f.cnpj}</div>
         </div>
       </div>
       <div style="font-size:.8rem;margin-bottom:10px"><strong>Resp. Compliance:</strong> ${f.resp}</div>
@@ -486,8 +486,8 @@ function renderFiliais() {
         </div>
       </div>
       <div style="display:flex;gap:6px">
-        <button class="btn btn-outline btn-sm" onclick="editFilial(${f.id})">âï¸ Editar</button>
-        <button class="btn btn-danger btn-sm" onclick="delFilial(${f.id})">ð</button>
+        <button class="btn btn-outline btn-sm" onclick="editFilial(${f.id})">✏️ Editar</button>
+        <button class="btn btn-danger btn-sm" onclick="delFilial(${f.id})">🗑</button>
       </div>
     </div>`;
   }).join('');
@@ -548,7 +548,7 @@ function salvarFilial() {
   window._editFilialId = null;
   if(_fSaved) {
     saveLocalCache();
-    sbSaveFilial(_fSaved).then(() => setSaveIndicator('âï¸ Filial salva na nuvem','var(--accent)'));
+    sbSaveFilial(_fSaved).then(() => setSaveIndicator('☁️ Filial salva na nuvem','var(--accent)'));
   }
 }
 
@@ -558,12 +558,12 @@ function delFilial(id) {
   populateFilialSelects();
   renderFiliais();
   saveLocalCache();
-  sbDeleteFilial(id).then(() => setSaveIndicator('âï¸ Filial excluÃ­da','var(--accent)'));
+  sbDeleteFilial(id).then(() => setSaveIndicator('☁️ Filial excluída','var(--accent)'));
 }
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 // MAPA DE RISCO
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 function renderRiscos() {
   const q = document.getElementById('filtro-risco-txt').value.toLowerCase();
   const nivel = document.getElementById('filtro-risco-nivel').value;
@@ -575,7 +575,7 @@ function renderRiscos() {
            (!nivel || niv === nivel) &&
            (!filial || r.filial === filial);
   });
-  if(items.length === 0) { tb.innerHTML = '<tr><td colspan="8" class="empty"><div class="ico">ðºï¸</div>Nenhum risco encontrado.</td></tr>'; return; }
+  if(items.length === 0) { tb.innerHTML = '<tr><td colspan="8" class="empty"><div class="ico">🗺️</div>Nenhum risco encontrado.</td></tr>'; return; }
   tb.innerHTML = items.map(r => {
     const niv = nivelRisco(r.prob, r.impacto);
     const score = r.prob * r.impacto;
@@ -586,10 +586,10 @@ function renderRiscos() {
       <td style="text-align:center">${r.prob}/5</td>
       <td style="text-align:center">${r.impacto}/5</td>
       <td><span style="font-weight:700">${score}</span> ${statusBadge(niv)}</td>
-      <td style="max-width:180px;font-size:.82rem">${r.controle||'â'}</td>
+      <td style="max-width:180px;font-size:.82rem">${r.controle||'—'}</td>
       <td>
-        <button class="btn btn-outline btn-sm" onclick="editRisco(${r.id})">âï¸</button>
-        <button class="btn btn-danger btn-sm" onclick="delRisco(${r.id})">ð</button>
+        <button class="btn btn-outline btn-sm" onclick="editRisco(${r.id})">✏️</button>
+        <button class="btn btn-danger btn-sm" onclick="delRisco(${r.id})">🗑</button>
       </td>
     </tr>`;
   }).join('');
@@ -611,7 +611,7 @@ function renderHeatMap() {
     if(score >= 4) return '#92400e';
     return '#065f46';
   };
-  let html = '<div style="display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--text-muted);font-weight:700">Pâ / Iâ</div>';
+  let html = '<div style="display:flex;align-items:center;justify-content:center;font-size:.65rem;color:var(--text-muted);font-weight:700">P↕ / I→</div>';
   impacts.forEach(i => {
     html += `<div style="display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:700;color:var(--text-muted)">I=${i}</div>`;
   });
@@ -654,7 +654,7 @@ function editRisco(id) {
 
 function salvarRisco() {
   const desc = document.getElementById('f-risco-desc').value.trim();
-  if(!desc) { alert('Informe a descriÃ§Ã£o do risco.'); return; }
+  if(!desc) { alert('Informe a descrição do risco.'); return; }
   const data = {
     desc, cat: document.getElementById('f-risco-cat').value,
     filial: document.getElementById('f-risco-filial').value,
@@ -676,7 +676,7 @@ function salvarRisco() {
   const _rId = window._editRiscoId;
   const _rSaved = _rId ? DB.riscos.find(r=>r.id===_rId) : DB.riscos[DB.riscos.length-1];
   window._editRiscoId = null;
-  if(_rSaved) sbSaveRisco(_rSaved).then(()=>setSaveIndicator('âï¸ Risco salvo na nuvem','var(--accent)'));
+  if(_rSaved) sbSaveRisco(_rSaved).then(()=>setSaveIndicator('☁️ Risco salvo na nuvem','var(--accent)'));
 }
 
 function delRisco(id) {
@@ -684,12 +684,12 @@ function delRisco(id) {
   DB.riscos = DB.riscos.filter(r => r.id !== id);
   renderRiscos(); renderHeatMap();
   saveLocalCache();
-  sbDeleteRisco(id).then(()=>setSaveIndicator('âï¸ Risco excluÃ­do','var(--accent)'));
+  sbDeleteRisco(id).then(()=>setSaveIndicator('☁️ Risco excluído','var(--accent)'));
 }
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 // CONTROLES INTERNOS
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 function renderControles() {
   const q = document.getElementById('filtro-ctrl-txt').value.toLowerCase();
   const st = document.getElementById('filtro-ctrl-status').value;
@@ -700,7 +700,7 @@ function renderControles() {
     (!st || c.status === st) &&
     (!fi || c.filial === fi)
   );
-  if(items.length === 0) { tb.innerHTML = '<tr><td colspan="9" class="empty"><div class="ico">ð</div>Nenhum controle encontrado.</td></tr>'; return; }
+  if(items.length === 0) { tb.innerHTML = '<tr><td colspan="9" class="empty"><div class="ico">🔒</div>Nenhum controle encontrado.</td></tr>'; return; }
   const progClass = v => v >= 100 ? 'teal' : v >= 50 ? 'teal' : 'amber';
   tb.innerHTML = items.map(c => `<tr>
     <td><strong>${c.nome}</strong><br><small style="color:var(--text-muted)">${c.desc||''}</small></td>
@@ -712,8 +712,8 @@ function renderControles() {
     <td>${statusBadge(c.status)}</td>
     <td>${progBar(c.prog||0, c.status==='Vencido'?'red':progClass(c.prog||0))}</td>
     <td>
-      <button class="btn btn-outline btn-sm" onclick="editControle(${c.id})">âï¸</button>
-      <button class="btn btn-danger btn-sm" onclick="delControle(${c.id})">ð</button>
+      <button class="btn btn-outline btn-sm" onclick="editControle(${c.id})">✏️</button>
+      <button class="btn btn-danger btn-sm" onclick="delControle(${c.id})">🗑</button>
     </td>
   </tr>`).join('');
 }
@@ -767,7 +767,7 @@ function salvarControle() {
   const _cId = window._editCtrlId;
   const _cSaved = _cId ? DB.controles.find(c=>c.id===_cId) : DB.controles[DB.controles.length-1];
   window._editCtrlId = null;
-  if(_cSaved) sbSaveControle(_cSaved).then(()=>setSaveIndicator('âï¸ Controle salvo na nuvem','var(--accent)'));
+  if(_cSaved) sbSaveControle(_cSaved).then(()=>setSaveIndicator('☁️ Controle salvo na nuvem','var(--accent)'));
 }
 
 function delControle(id) {
@@ -775,12 +775,12 @@ function delControle(id) {
   DB.controles = DB.controles.filter(c => c.id !== id);
   renderControles();
   saveLocalCache();
-  sbDeleteControle(id).then(()=>setSaveIndicator('âï¸ Controle excluÃ­do','var(--accent)'));
+  sbDeleteControle(id).then(()=>setSaveIndicator('☁️ Controle excluído','var(--accent)'));
 }
 
-// ââââââââââââââââââââââââââââââââââââââââââ
-// PLANOS DE AÃÃO
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
+// PLANOS DE AÇÃO
+// ══════════════════════════════════════════
 let planoFilter = '';
 function filterPlanos(st, el) {
   planoFilter = st;
@@ -800,9 +800,9 @@ function renderPlanos() {
     (!fi || p.filial === fi) &&
     (!pr || p.prio === pr)
   );
-  if(items.length === 0) { tb.innerHTML = '<tr><td colspan="9" class="empty"><div class="ico">ð</div>Nenhum plano encontrado.</td></tr>'; return; }
+  if(items.length === 0) { tb.innerHTML = '<tr><td colspan="9" class="empty"><div class="ico">📋</div>Nenhum plano encontrado.</td></tr>'; return; }
   tb.innerHTML = items.map(p => {
-    const pc = p.status==='Vencido'?'red':p.prio==='CrÃ­tica'?'red':p.prio==='Alta'?'amber':'teal';
+    const pc = p.status==='Vencido'?'red':p.prio==='Crítica'?'red':p.prio==='Alta'?'amber':'teal';
     return `<tr>
       <td><strong>${p.titulo}</strong>${p.desc?`<br><small style="color:var(--text-muted)">${p.desc}</small>`:''}</td>
       <td>${p.origem}</td>
@@ -811,10 +811,10 @@ function renderPlanos() {
       <td>${prazoChip(p.prazo)}</td>
       <td>${statusBadge(p.prio)}</td>
       <td>${statusBadge(p.status)}</td>
-      <td>${p.andamento ? `<div style="font-size:.75rem;color:var(--text-muted);margin-bottom:4px;border-left:3px solid var(--accent);padding-left:6px;white-space:pre-wrap;max-width:180px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical">${p.andamento}</div>` : ''}${progBar(p.prog||0, pc)}</td>
+      <td>${progBar(p.prog||0, pc)}</td>
       <td>
-        <button class="btn btn-outline btn-sm" onclick="editPlano(${p.id})">âï¸</button>
-        <button class="btn btn-danger btn-sm" onclick="delPlano(${p.id})">ð</button>
+        <button class="btn btn-outline btn-sm" onclick="editPlano(${p.id})">✏️</button>
+        <button class="btn btn-danger btn-sm" onclick="delPlano(${p.id})">🗑</button>
       </td>
     </tr>`;
   }).join('');
@@ -822,9 +822,8 @@ function renderPlanos() {
 
 function openModalPlano() {
   window._editPlanoId = null;
-  ['f-plano-titulo','f-plano-setor','f-plano-resp','f-plano-prazo','f-plano-desc','f-plano-andamento'].forEach(id => document.getElementById(id).value = '');
+  ['f-plano-titulo','f-plano-setor','f-plano-resp','f-plano-prazo','f-plano-desc'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('f-plano-prog').value = 0;
-  document.getElementById('f-plano-realizado').value = '';
   openModal('modal-plano');
 }
 
@@ -842,14 +841,12 @@ function editPlano(id) {
   document.getElementById('f-plano-status').value = p.status;
   document.getElementById('f-plano-prog').value = p.prog||0;
   document.getElementById('f-plano-desc').value = p.desc||'';
-  document.getElementById('f-plano-andamento').value = p.andamento||'';
-  document.getElementById('f-plano-realizado').value = p.realizado||'';
   openModal('modal-plano');
 }
 
 function salvarPlano() {
   const titulo = document.getElementById('f-plano-titulo').value.trim();
-  if(!titulo) { alert('Informe o tÃ­tulo do plano.'); return; }
+  if(!titulo) { alert('Informe o título do plano.'); return; }
   const data = {
     titulo, origem: document.getElementById('f-plano-origem').value,
     filial: document.getElementById('f-plano-filial').value,
@@ -859,8 +856,6 @@ function salvarPlano() {
     prio: document.getElementById('f-plano-prio').value,
     status: document.getElementById('f-plano-status').value,
     prog: +document.getElementById('f-plano-prog').value,
-    andamento: document.getElementById('f-plano-andamento').value,
-    realizado: document.getElementById('f-plano-realizado').value,
     desc: document.getElementById('f-plano-desc').value
   };
   if(window._editPlanoId) {
@@ -874,7 +869,7 @@ function salvarPlano() {
   const _pId = window._editPlanoId;
   const _pSaved = _pId ? DB.planos.find(p=>p.id===_pId) : DB.planos[DB.planos.length-1];
   window._editPlanoId = null;
-  if(_pSaved) sbSavePlano(_pSaved).then(()=>setSaveIndicator('âï¸ Plano salvo na nuvem','var(--accent)'));
+  if(_pSaved) sbSavePlano(_pSaved).then(()=>setSaveIndicator('☁️ Plano salvo na nuvem','var(--accent)'));
 }
 
 function delPlano(id) {
@@ -882,19 +877,19 @@ function delPlano(id) {
   DB.planos = DB.planos.filter(p => p.id !== id);
   renderPlanos();
   saveLocalCache();
-  sbDeletePlano(id).then(()=>setSaveIndicator('âï¸ Plano excluÃ­do','var(--accent)'));
+  sbDeletePlano(id).then(()=>setSaveIndicator('☁️ Plano excluído','var(--accent)'));
 }
 
 
-// ââââââââââââââââââââââââââââââââââââââââââ
-// DRILLDOWN DOS KPIs â CANAL DE DENÃNCIA
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
+// DRILLDOWN DOS KPIs — CANAL DE DENÚNCIA
+// ══════════════════════════════════════════
 let _dnDdRows = [];
 let _dnDdType = null;
 let _dnDdSortCol = 'data';
 let _dnDdSortDir = 'asc';
 
-const _perigoOrderDn = { 'GravÃ­ssima': 4, 'Grave': 3, 'MÃ©dio': 2, 'Leve': 1 };
+const _perigoOrderDn = { 'Gravíssima': 4, 'Grave': 3, 'Médio': 2, 'Leve': 1 };
 
 function _dnDdVal(d, col) {
   switch(col) {
@@ -940,37 +935,37 @@ function dnDdRenderRows() {
   if(!tbody) return;
 
   if(sorted.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="11" class="empty"><div class="ico">â</div>Nenhuma denÃºncia neste grupo.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="11" class="empty"><div class="ico">✅</div>Nenhuma denúncia neste grupo.</td></tr>';
   } else {
     const days2 = d => { const dt=_parseDataSafe(d.data); return dt ? Math.max(0,Math.floor((new Date()-dt)/86400000)) : 0; };
     tbody.innerHTML = sorted.map(d => {
       const dias = days2(d);
       const vencido = !['Encerrada','Arquivada'].includes(d.status) && dias > 90;
       const slaDisplay = vencido
-        ? `<div class="sla-wrap"><div class="sla-label"><span style="color:var(--danger);font-weight:700">â  ${dias}d/90d</span><span style="color:var(--danger);font-weight:700">100%</span></div><div class="sla-bar"><div class="sla-fill over" style="width:100%"></div></div></div>`
+        ? `<div class="sla-wrap"><div class="sla-label"><span style="color:var(--danger);font-weight:700">⚠ ${dias}d/90d</span><span style="color:var(--danger);font-weight:700">100%</span></div><div class="sla-bar"><div class="sla-fill over" style="width:100%"></div></div></div>`
         : slaBar(d.data, d.status);
       const rowBg = vencido ? 'background:#fff8f8' : '';
       return `<tr style="cursor:pointer;${rowBg}" onclick="openDnDetail(${d.id})" title="Ver relato completo">
         <td><strong style="font-family:'DM Mono',monospace;font-size:.78rem;white-space:nowrap">${d.proto}</strong></td>
         <td style="font-size:.78rem;max-width:130px">${d.cat}</td>
         <td style="font-size:.78rem;white-space:nowrap">${d.filial}</td>
-        <td style="font-size:.78rem">${d.setor||'â'}</td>
+        <td style="font-size:.78rem">${d.setor||'—'}</td>
         <td style="font-size:.78rem;white-space:nowrap">${formatDate(d.data)}</td>
-        <td style="font-size:.78rem">${d.anon==='AnÃ´nima'?'ð AnÃ´nima':'ð¤ Identificada'}</td>
+        <td style="font-size:.78rem">${d.anon==='Anônima'?'🔒 Anônima':'👤 Identificada'}</td>
         <td>${perigoBadge(d.perigo)}</td>
         <td>${statusBadge(d.status)}</td>
         <td style="min-width:120px">${slaDisplay}</td>
-        <td style="font-size:.78rem">${d.resp||'<span style="color:var(--text-muted)">â</span>'}</td>
+        <td style="font-size:.78rem">${d.resp||'<span style="color:var(--text-muted)">—</span>'}</td>
         <td style="white-space:nowrap">
-          <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();openDnDetail(${d.id})" title="Ver relato completo">ð</button>
-          <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();editDenuncia(${d.id})" title="Editar">âï¸</button>
+          <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();openDnDetail(${d.id})" title="Ver relato completo">👁</button>
+          <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();editDenuncia(${d.id})" title="Editar">✏️</button>
         </td>
       </tr>`;
     }).join('');
   }
 
   const countEl = document.getElementById('dn-dd-count');
-  if(countEl) countEl.textContent = `Â· ${sorted.length} denÃºncia${sorted.length!==1?'s':''}`;
+  if(countEl) countEl.textContent = `· ${sorted.length} denúncia${sorted.length!==1?'s':''}`;
 }
 
 function openDnDrilldown(type, icon, title) {
@@ -984,7 +979,7 @@ function openDnDrilldown(type, icon, title) {
     colorAccent = 'var(--accent)';
     _dnDdSortCol = 'data'; _dnDdSortDir = 'desc';
   } else if(type === 'analise') {
-    _dnDdRows = all.filter(d => d.status === 'Em AnÃ¡lise');
+    _dnDdRows = all.filter(d => d.status === 'Em Análise');
     colorAccent = 'var(--warn)';
     _dnDdSortCol = 'data'; _dnDdSortDir = 'asc';
   } else if(type === 'encerrada') {
@@ -992,9 +987,9 @@ function openDnDrilldown(type, icon, title) {
     colorAccent = 'var(--accent)';
     _dnDdSortCol = 'data'; _dnDdSortDir = 'desc';
   } else if(type === 'graves') {
-    _dnDdRows = all.filter(d => ['Grave','GravÃ­ssima'].includes(d.perigo));
+    _dnDdRows = all.filter(d => ['Grave','Gravíssima'].includes(d.perigo));
     colorAccent = 'var(--danger)';
-    _dnDdSortCol = 'perigo'; _dnDdSortDir = 'desc'; // gravÃ­ssimas primeiro
+    _dnDdSortCol = 'perigo'; _dnDdSortDir = 'desc'; // gravíssimas primeiro
   } else if(type === 'sla') {
     _dnDdRows = all.filter(d => {
       if(['Encerrada','Arquivada'].includes(d.status)) return false;
@@ -1038,9 +1033,9 @@ function closeDnDrilldown() {
 }
 
 
-// ââââââââââââââââââââââââââââââââââââââââââ
-// DENÃNCIAS â TABS + SLA + PERIGO
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
+// DENÚNCIAS — TABS + SLA + PERIGO
+// ══════════════════════════════════════════
 let dnCurrentTab = 'recebidas';
 
 function switchDnTab(tab, el) {
@@ -1076,10 +1071,10 @@ function _parseDataSafe(dataStr) {
 }
 function slaBar(dataStr, status) {
   if(['Encerrada','Arquivada'].includes(status)) {
-    return '<span style="font-size:.75rem;color:var(--accent);font-weight:700">â ConcluÃ­da</span>';
+    return '<span style="font-size:.75rem;color:var(--accent);font-weight:700">✅ Concluída</span>';
   }
   const dt = _parseDataSafe(dataStr);
-  if(!dt) return '<span style="font-size:.75rem;color:var(--text-muted)">â / 90d</span>';
+  if(!dt) return '<span style="font-size:.75rem;color:var(--text-muted)">— / 90d</span>';
   const days = Math.max(0, Math.floor((new Date() - dt) / 86400000));
   const pct = Math.min(Math.round(days / 90 * 100), 100);
   const cls = pct >= 100 ? 'over' : pct >= 70 ? 'warn' : 'ok';
@@ -1091,9 +1086,9 @@ function slaBar(dataStr, status) {
 }
 
 function perigoBadge(p) {
-  const map = { 'Leve':'badge-leve', 'MÃ©dio':'badge-medio', 'Grave':'badge-grave', 'GravÃ­ssima':'badge-gravissima' };
-  const ico = { 'Leve':'ð¢', 'MÃ©dio':'ð¡', 'Grave':'ð´', 'GravÃ­ssima':'â£ï¸' };
-  return `<span class="badge ${map[p]||'badge-medio'}">${ico[p]||''}  ${p||'â'}</span>`;
+  const map = { 'Leve':'badge-leve', 'Médio':'badge-medio', 'Grave':'badge-grave', 'Gravíssima':'badge-gravissima' };
+  const ico = { 'Leve':'🟢', 'Médio':'🟡', 'Grave':'🔴', 'Gravíssima':'☣️' };
+  return `<span class="badge ${map[p]||'badge-medio'}">${ico[p]||''}  ${p||'—'}</span>`;
 }
 
 function getFiltered() {
@@ -1110,14 +1105,14 @@ function getFiltered() {
   );
 }
 
-// ââ Sort state for main dn table
+// ── Sort state for main dn table
 let _dnMainSortCol = 'data';
 let _dnMainSortDir = 'desc';
 // Sort state for SLA table
 let _dnSlaSortCol = 'dias';
 let _dnSlaSortDir = 'desc';
 
-const _perigoOrderMain = { 'GravÃ­ssima': 4, 'Grave': 3, 'MÃ©dio': 2, 'Leve': 1 };
+const _perigoOrderMain = { 'Gravíssima': 4, 'Grave': 3, 'Médio': 2, 'Leve': 1 };
 
 function _dnMainVal(d, col) {
   switch(col) {
@@ -1183,12 +1178,12 @@ function setConclusao(id, val) {
   if(!d) return;
   d.conclusao = val;
   saveLocalCache();
-  auditLog('status', 'denuncias', `ConclusÃ£o da denÃºncia ${id} alterada para "${val}"`, {id, conclusao:val});
-  setSaveIndicator('â³ Salvando conclusÃ£o...','var(--warn)');
+  auditLog('status', 'denuncias', `Conclusão da denúncia ${id} alterada para "${val}"`, {id, conclusao:val});
+  setSaveIndicator('⏳ Salvando conclusão...','var(--warn)');
   sbSaveDenuncia(d).then(() => {
-    setSaveIndicator('âï¸ ConclusÃ£o salva na nuvem','var(--accent)');
+    setSaveIndicator('☁️ Conclusão salva na nuvem','var(--accent)');
   }).catch(() => {
-    setSaveIndicator('â ï¸ Erro ao salvar na nuvem','var(--danger)');
+    setSaveIndicator('⚠️ Erro ao salvar na nuvem','var(--danger)');
   });
 }
 function _conclusaoSelect(d) {
@@ -1198,11 +1193,11 @@ function _conclusaoSelect(d) {
     onclick="event.stopPropagation()"
     onmousedown="event.stopPropagation()"
     onchange="event.stopPropagation();setConclusao(${d.id},this.value);this.style.background=_conclusaoBg(this.value);this.style.color=_conclusaoColor(this.value)">
-    <option value=""                                        ${!d.conclusao              ?'selected':''}>â Pendente â</option>
-    <option value="Procedente"   style="background:#d1fae5" ${d.conclusao==='Procedente'  ?'selected':''}>â Procedente</option>
-    <option value="Improcedente" style="background:#fee2e2" ${d.conclusao==='Improcedente'?'selected':''}>â Improcedente</option>
-    <option value="Inconclusiva" style="background:#fef3c7" ${d.conclusao==='Inconclusiva'?'selected':''}>â ï¸ Inconclusiva</option>
-    <option value="Arquivada"    style="background:#f1f5f9" ${d.conclusao==='Arquivada'   ?'selected':''}>ð Arquivada</option>
+    <option value=""                                        ${!d.conclusao              ?'selected':''}>— Pendente —</option>
+    <option value="Procedente"   style="background:#d1fae5" ${d.conclusao==='Procedente'  ?'selected':''}>✅ Procedente</option>
+    <option value="Improcedente" style="background:#fee2e2" ${d.conclusao==='Improcedente'?'selected':''}>❌ Improcedente</option>
+    <option value="Inconclusiva" style="background:#fef3c7" ${d.conclusao==='Inconclusiva'?'selected':''}>⚠️ Inconclusiva</option>
+    <option value="Arquivada"    style="background:#f1f5f9" ${d.conclusao==='Arquivada'   ?'selected':''}>📁 Arquivada</option>
   </select>`;
 }
 
@@ -1212,16 +1207,16 @@ function _dnMainRow(d) {
     <td style="max-width:150px;font-size:.82rem">${d.cat}</td>
     <td style="font-size:.82rem">${d.filial}<br><small style="color:var(--text-muted)">${d.setor||''}</small></td>
     <td style="font-size:.82rem;white-space:nowrap">${formatDate(d.data)}</td>
-    <td style="font-size:.82rem">${d.anon==='AnÃ´nima'?'<span style="color:var(--text-muted)">ð AnÃ´nima</span>':'<span style="color:var(--accent)">ð¤ Identificada</span>'}</td>
+    <td style="font-size:.82rem">${d.anon==='Anônima'?'<span style="color:var(--text-muted)">🔒 Anônima</span>':'<span style="color:var(--accent)">👤 Identificada</span>'}</td>
     <td>${perigoBadge(d.perigo)}</td>
     <td>${statusBadge(d.status)}</td>
     <td>${slaBar(d.data, d.status)}</td>
     <td onclick="event.stopPropagation()">${_conclusaoSelect(d)}</td>
-    <td style="font-size:.82rem">${d.resp||'<span style="color:var(--text-muted)">â</span>'}</td>
+    <td style="font-size:.82rem">${d.resp||'<span style="color:var(--text-muted)">—</span>'}</td>
     <td style="white-space:nowrap">
-      <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();openDnDetail(${d.id})" title="Ver relato completo">ð</button>
-      <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();editDenuncia(${d.id})">âï¸</button>
-      <button class="btn btn-danger btn-sm" onclick="event.stopPropagation();delDenuncia(${d.id})">ð</button>
+      <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();openDnDetail(${d.id})" title="Ver relato completo">👁</button>
+      <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();editDenuncia(${d.id})">✏️</button>
+      <button class="btn btn-danger btn-sm" onclick="event.stopPropagation();delDenuncia(${d.id})">🗑</button>
     </td>
   </tr>`;
 }
@@ -1235,7 +1230,7 @@ function _renderDnMainBody() {
   if(!tb) return;
   const sorted = _applySortDn(_dnLastTabItems, _dnMainSortCol, _dnMainSortDir);
   if(sorted.length === 0) {
-    tb.innerHTML = '<tr><td colspan="10" class="empty"><div class="ico">ð¢</div>Nenhuma denÃºncia nesta aba.</td></tr>';
+    tb.innerHTML = '<tr><td colspan="10" class="empty"><div class="ico">📢</div>Nenhuma denúncia nesta aba.</td></tr>';
   } else {
     tb.innerHTML = sorted.map(_dnMainRow).join('');
   }
@@ -1246,7 +1241,7 @@ function _renderDnSlaBody() {
   if(!tbSla) return;
   const sorted = _applySortDn(_dnLastSlaItems, _dnSlaSortCol, _dnSlaSortDir);
   if(sorted.length === 0) {
-    tbSla.innerHTML = '<tr><td colspan="10" class="empty"><div class="ico">â±ï¸</div>Nenhuma denÃºncia.</td></tr>';
+    tbSla.innerHTML = '<tr><td colspan="10" class="empty"><div class="ico">⏱️</div>Nenhuma denúncia.</td></tr>';
   } else {
     tbSla.innerHTML = sorted.map(d => {
       const days = d.data ? Math.floor((new Date()-new Date(d.data))/86400000) : 0;
@@ -1262,10 +1257,10 @@ function _renderDnSlaBody() {
         <td>${slaBar(d.data, d.status)}</td>
         <td>${perigoBadge(d.perigo)}</td>
         <td>${statusBadge(d.status)}</td>
-        <td style="font-size:.82rem">${d.resp||'â'}</td>
+        <td style="font-size:.82rem">${d.resp||'—'}</td>
         <td style="white-space:nowrap">
-          <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();openDnDetail(${d.id})" title="Ver relato completo">ð</button>
-          <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();editDenuncia(${d.id})">âï¸</button>
+          <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();openDnDetail(${d.id})" title="Ver relato completo">👁</button>
+          <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();editDenuncia(${d.id})">✏️</button>
         </td>
       </tr>`;
     }).join('');
@@ -1276,9 +1271,9 @@ function renderDenuncias() {
   const all = DB.denuncias;
   // KPIs
   document.getElementById('dn-total').textContent = all.length;
-  document.getElementById('dn-analise').textContent = all.filter(d => d.status === 'Em AnÃ¡lise').length;
+  document.getElementById('dn-analise').textContent = all.filter(d => d.status === 'Em Análise').length;
   document.getElementById('dn-encerrada').textContent = all.filter(d => ['Encerrada','Arquivada'].includes(d.status)).length;
-  document.getElementById('dn-urgente').textContent = all.filter(d => ['Grave','GravÃ­ssima'].includes(d.perigo)).length;
+  document.getElementById('dn-urgente').textContent = all.filter(d => ['Grave','Gravíssima'].includes(d.perigo)).length;
   const slaVenc = all.filter(d => {
     if(['Encerrada','Arquivada'].includes(d.status)) return false;
     return !!_parseDataSafe(d.data) && Math.max(0,Math.floor((new Date()-_parseDataSafe(d.data))/86400000)) > 90;
@@ -1287,7 +1282,7 @@ function renderDenuncias() {
 
   // Tab counts
   document.getElementById('tab-count-recebidas').textContent = all.filter(d => d.status === 'Aberta').length;
-  document.getElementById('tab-count-analise').textContent = all.filter(d => d.status === 'Em AnÃ¡lise').length;
+  document.getElementById('tab-count-analise').textContent = all.filter(d => d.status === 'Em Análise').length;
   document.getElementById('tab-count-encerradas').textContent = all.filter(d => ['Encerrada','Arquivada'].includes(d.status)).length;
   document.getElementById('tab-count-sla').textContent = slaVenc;
 
@@ -1296,7 +1291,7 @@ function renderDenuncias() {
   // Main table: filter by tab
   let tabItems = filtered;
   if(dnCurrentTab === 'recebidas')  tabItems = filtered.filter(d => d.status === 'Aberta');
-  if(dnCurrentTab === 'analise')    tabItems = filtered.filter(d => d.status === 'Em AnÃ¡lise');
+  if(dnCurrentTab === 'analise')    tabItems = filtered.filter(d => d.status === 'Em Análise');
   if(dnCurrentTab === 'encerradas') tabItems = filtered.filter(d => ['Encerrada','Arquivada'].includes(d.status));
 
   // Store for re-sort
@@ -1329,9 +1324,9 @@ function getSelectedPerigo() {
 function setSelectedPerigo(val) {
   const radios = document.querySelectorAll('input[name="f-dn-perigo"]');
   const btns = document.querySelectorAll('.perigo-btn');
-  const outlines = {'Leve':'#d1fae5','MÃ©dio':'#fef3c7','Grave':'#fee2e2','GravÃ­ssima':'#e9d5ff'};
-  const bgs = {'Leve':'#f0fdf9','MÃ©dio':'#fffbeb','Grave':'#fff1f1','GravÃ­ssima':'#fdf4ff'};
-  const selected = {'Leve':'#10b981','MÃ©dio':'#f59e0b','Grave':'#ef4444','GravÃ­ssima':'#8b5cf6'};
+  const outlines = {'Leve':'#d1fae5','Médio':'#fef3c7','Grave':'#fee2e2','Gravíssima':'#e9d5ff'};
+  const bgs = {'Leve':'#f0fdf9','Médio':'#fffbeb','Grave':'#fff1f1','Gravíssima':'#fdf4ff'};
+  const selected = {'Leve':'#10b981','Médio':'#f59e0b','Grave':'#ef4444','Gravíssima':'#8b5cf6'};
   radios.forEach(r => r.checked = r.value === val);
   btns.forEach(btn => {
     const v = btn.dataset.val;
@@ -1354,12 +1349,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-function toggleDnIdentificado() {
-  const anon = (document.getElementById('f-dn-anon')||{}).value;
-  const fields = document.getElementById('dn-identificado-fields');
-  if(fields) fields.style.display = (anon === 'Identificada') ? '' : 'none';
-}
-
 function openModalDenuncia() {
   window._editDnId = null;
   ['f-dn-relato','f-dn-obs','f-dn-resp','f-dn-setor','f-dn-proto'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
@@ -1380,10 +1369,7 @@ function editDenuncia(id) {
   document.getElementById('f-dn-resp').value = d.resp||'';
   document.getElementById('f-dn-status').value = d.status;
   document.getElementById('f-dn-relato').value = d.relato;
-  document.getElementById('f-dn-obs').value = d.obs||'';  if(document.getElementById('f-dn-nome')) document.getElementById('f-dn-nome').value = d.nome||'';
-  if(document.getElementById('f-dn-email')) document.getElementById('f-dn-email').value = d.email||'';
-  toggleDnIdentificado();
-  
+  document.getElementById('f-dn-obs').value = d.obs||'';
   if(document.getElementById('f-dn-data')) document.getElementById('f-dn-data').value = d.data||'';
   if(document.getElementById('f-dn-proto')) document.getElementById('f-dn-proto').value = d.proto||'';
   setSelectedPerigo(d.perigo||'Leve');
@@ -1392,7 +1378,7 @@ function editDenuncia(id) {
 
 function salvarDenuncia() {
   const relato = document.getElementById('f-dn-relato').value.trim();
-  if(!relato) { alert('O relato Ã© obrigatÃ³rio.'); return; }
+  if(!relato) { alert('O relato é obrigatório.'); return; }
   const perigo = getSelectedPerigo();
   const dataReceb = document.getElementById('f-dn-data').value || new Date().toISOString().split('T')[0];
   const protoManual = (document.getElementById('f-dn-proto').value || '').trim();
@@ -1404,10 +1390,7 @@ function salvarDenuncia() {
     anon: document.getElementById('f-dn-anon').value,
     resp: document.getElementById('f-dn-resp').value,
     status: document.getElementById('f-dn-status').value,
-    relato, obs: document.getElementById('f-dn-obs').value,
-    nome: (document.getElementById('f-dn-nome')||{}).value||'',
-    email: (document.getElementById('f-dn-email')||{}).value||'',
-    telefone: (document.getElementById('f-dn-telefone')||{}).value||''
+    relato, obs: document.getElementById('f-dn-obs').value
   };
   if(window._editDnId) {
     Object.assign(DB.denuncias.find(d => d.id === window._editDnId), { ...data, data: dataReceb });
@@ -1419,13 +1402,13 @@ function salvarDenuncia() {
     let proto = protoManual || `DN-${year}-${String(newId).padStart(3,'0')}`;
     // Check for duplicate protocol
     if(DB.denuncias.find(d => d.proto === proto)) {
-      alert(`â ï¸ O protocolo "${proto}" jÃ¡ existe. Por favor, use outro protocolo.`);
+      alert(`⚠️ O protocolo "${proto}" já existe. Por favor, use outro protocolo.`);
       return;
     }
     DB.denuncias.push({ id: newId, proto, data: dataReceb, ...data });
     DB._ids.dn = newId + 1;
     // Show protocol to user
-    setTimeout(() => alert(`â DenÃºncia registrada!\n\nProtocolo: ${proto}\nData: ${dataReceb}\n\nGuarde este nÃºmero para acompanhamento.`), 100);
+    setTimeout(() => alert(`✅ Denúncia registrada!\n\nProtocolo: ${proto}\nData: ${dataReceb}\n\nGuarde este número para acompanhamento.`), 100);
   }
   // Salvar no Supabase
   const _dnId = window._editDnId;
@@ -1436,22 +1419,22 @@ function salvarDenuncia() {
     ? DB.denuncias.find(d => d.id === _dnId)
     : DB.denuncias[DB.denuncias.length - 1];
   if(_dnSaved) {
-    sbSaveDenuncia(_dnSaved).then(() => setSaveIndicator('âï¸ DenÃºncia salva na nuvem','var(--accent)'));
+    sbSaveDenuncia(_dnSaved).then(() => setSaveIndicator('☁️ Denúncia salva na nuvem','var(--accent)'));
   }
 }
 
 function delDenuncia(id) {
-  if(!confirm('Excluir esta denÃºncia?')) return;
+  if(!confirm('Excluir esta denúncia?')) return;
   DB.denuncias = DB.denuncias.filter(d => d.id !== id);
   renderDenuncias();
   saveLocalCache();
-  sbDeleteDenuncia(id).then(() => setSaveIndicator('âï¸ ExcluÃ­da da nuvem','var(--accent)'));
+  sbDeleteDenuncia(id).then(() => setSaveIndicator('☁️ Excluída da nuvem','var(--accent)'));
 }
 
 
-// ââââââââââââââââââââââââââââââââââââââââââ
-// RELATÃRIOS â CANAL DE DENÃNCIA
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
+// RELATÓRIOS — CANAL DE DENÚNCIA
+// ══════════════════════════════════════════
 function populateRelSelects(force) {
   const relFilial = document.getElementById('rel-filial');
   if(!relFilial) return;
@@ -1557,77 +1540,77 @@ function renderRelatorios() {
     setTimeout(() => { if(_lastDrilldownType) openDrilldown(_lastDrilldownType, icon, title); }, 20);
   }
 
-  // ââ KPIs
+  // ── KPIs
   const kpiEl = document.getElementById('rel-kpis');
   const total = items.length;
   const abertas = items.filter(d => d.status==='Aberta').length;
-  const analise = items.filter(d => d.status==='Em AnÃ¡lise').length;
+  const analise = items.filter(d => d.status==='Em Análise').length;
   const encerradas = items.filter(d => d.status==='Encerrada').length;
   const slaVenc = items.filter(d => {
     if(['Encerrada','Arquivada'].includes(d.status)) return false;
     return !!_parseDataSafe(d.data) && Math.max(0,Math.floor((new Date()-_parseDataSafe(d.data))/86400000)) > 90;
   }).length;
-  const graves = items.filter(d => ['Grave','GravÃ­ssima'].includes(d.perigo)).length;
+  const graves = items.filter(d => ['Grave','Gravíssima'].includes(d.perigo)).length;
 
   kpiEl.innerHTML = `
-    <div class="stat-card highlight kpi-card-clickable" onclick="openDrilldown('total','ð¢','Total Filtrado')" title="Ver todas as denÃºncias">
-      <div class="stat-icon" style="background:rgba(0,196,154,.2)">ð¢</div>
+    <div class="stat-card highlight kpi-card-clickable" onclick="openDrilldown('total','📢','Total Filtrado')" title="Ver todas as denúncias">
+      <div class="stat-icon" style="background:rgba(0,196,154,.2)">📢</div>
       <div><div class="stat-num">${total}</div><div class="stat-label">Total Filtrado</div></div>
     </div>
-    <div class="stat-card kpi-card-clickable" onclick="openDrilldown('aberta','ð','DenÃºncias Abertas')" title="Ver denÃºncias abertas">
-      <div class="stat-icon blue">ð</div>
+    <div class="stat-card kpi-card-clickable" onclick="openDrilldown('aberta','🔓','Denúncias Abertas')" title="Ver denúncias abertas">
+      <div class="stat-icon blue">🔓</div>
       <div><div class="stat-num" style="color:var(--info)">${abertas}</div><div class="stat-label">Abertas</div></div>
     </div>
-    <div class="stat-card kpi-card-clickable" onclick="openDrilldown('analise','ð','Em AnÃ¡lise')" title="Ver denÃºncias em anÃ¡lise">
-      <div class="stat-icon amber">ð</div>
-      <div><div class="stat-num" style="color:var(--warn)">${analise}</div><div class="stat-label">Em AnÃ¡lise</div></div>
+    <div class="stat-card kpi-card-clickable" onclick="openDrilldown('analise','🔍','Em Análise')" title="Ver denúncias em análise">
+      <div class="stat-icon amber">🔍</div>
+      <div><div class="stat-num" style="color:var(--warn)">${analise}</div><div class="stat-label">Em Análise</div></div>
     </div>
-    <div class="stat-card kpi-card-clickable" onclick="openDrilldown('encerrada','â','Encerradas')" title="Ver denÃºncias encerradas">
-      <div class="stat-icon teal">â</div>
+    <div class="stat-card kpi-card-clickable" onclick="openDrilldown('encerrada','✅','Encerradas')" title="Ver denúncias encerradas">
+      <div class="stat-icon teal">✅</div>
       <div><div class="stat-num" style="color:var(--accent)">${encerradas}</div><div class="stat-label">Encerradas</div></div>
     </div>
-    <div class="stat-card kpi-card-clickable" onclick="openDrilldown('graves','ð¨','Graves e GravÃ­ssimas')" title="Ver denÃºncias graves">
-      <div class="stat-icon red">ð¨</div>
-      <div><div class="stat-num" style="color:var(--danger)">${graves}</div><div class="stat-label">Graves/GravÃ­ssimas</div></div>
+    <div class="stat-card kpi-card-clickable" onclick="openDrilldown('graves','🚨','Graves e Gravíssimas')" title="Ver denúncias graves">
+      <div class="stat-icon red">🚨</div>
+      <div><div class="stat-num" style="color:var(--danger)">${graves}</div><div class="stat-label">Graves/Gravíssimas</div></div>
     </div>
-    <div class="stat-card kpi-card-clickable" onclick="openDrilldown('sla','â±ï¸','SLA Vencido â mais de 90 dias')" title="Ver denÃºncias com SLA vencido">
-      <div class="stat-icon" style="background:#ede9fe">â±ï¸</div>
+    <div class="stat-card kpi-card-clickable" onclick="openDrilldown('sla','⏱️','SLA Vencido — mais de 90 dias')" title="Ver denúncias com SLA vencido">
+      <div class="stat-icon" style="background:#ede9fe">⏱️</div>
       <div><div class="stat-num" style="color:var(--purple)">${slaVenc}</div><div class="stat-label">SLA Vencido (90d)</div></div>
     </div>
   `;
   kpiEl.style.gridTemplateColumns = 'repeat(6,1fr)';
 
-  // ââ Chart filial
+  // ── Chart filial
   const byFilial = {};
   items.forEach(d => { byFilial[d.filial] = (byFilial[d.filial]||0)+1; });
   const filialColors = ['#00c49a','#3b82f6','#8b5cf6','#f59e0b','#ef4444','#10b981','#6366f1','#f97316','#ec4899','#14b8a6','#84cc16','#a855f7','#06b6d4','#fb923c','#e11d48','#7c3aed'];
   relBarChart('rel-chart-filial', byFilial, filialColors);
 
-  // ââ Chart categoria
+  // ── Chart categoria
   const byCat = {};
   items.forEach(d => { byCat[d.cat] = (byCat[d.cat]||0)+1; });
   relBarChart('rel-chart-cat', byCat, ['#3b82f6','#ef4444','#f59e0b','#8b5cf6','#00c49a','#f97316','#94a3b8']);
 
-  // ââ Chart perigo
-  const perigoColors = {'Leve':'#10b981','MÃ©dio':'#f59e0b','Grave':'#ef4444','GravÃ­ssima':'#8b5cf6'};
-  const byPerigo = {'Leve':0,'MÃ©dio':0,'Grave':0,'GravÃ­ssima':0};
+  // ── Chart perigo
+  const perigoColors = {'Leve':'#10b981','Médio':'#f59e0b','Grave':'#ef4444','Gravíssima':'#8b5cf6'};
+  const byPerigo = {'Leve':0,'Médio':0,'Grave':0,'Gravíssima':0};
   items.forEach(d => { if(byPerigo[d.perigo]!==undefined) byPerigo[d.perigo]++; });
   relBarChart('rel-chart-perigo', byPerigo, perigoColors);
 
-  // ââ Chart status
-  const statusColors = {'Aberta':'#3b82f6','Em AnÃ¡lise':'#f59e0b','Encerrada':'#00c49a'};
-  const byStatus = {'Aberta':0,'Em AnÃ¡lise':0,'Encerrada':0};
+  // ── Chart status
+  const statusColors = {'Aberta':'#3b82f6','Em Análise':'#f59e0b','Encerrada':'#00c49a'};
+  const byStatus = {'Aberta':0,'Em Análise':0,'Encerrada':0};
   items.forEach(d => { if(byStatus[d.status]!==undefined) byStatus[d.status]++; });
   relBarChart('rel-chart-status', byStatus, statusColors);
 
-  // ââ ConclusÃ£o chart
+  // ── Conclusão chart
   const conclusaoColors = {'Procedente':'#10b981','Improcedente':'#ef4444','Inconclusiva':'#f59e0b','Arquivada':'#94a3b8','Pendente':'#cbd5e1'};
   const byConclusao = {'Procedente':0,'Improcedente':0,'Inconclusiva':0,'Arquivada':0,'Pendente':0};
   items.forEach(d => { const k = d.conclusao && byConclusao[d.conclusao]!==undefined ? d.conclusao : 'Pendente'; byConclusao[k]++; });
   relBarChart('rel-chart-conclusao', byConclusao, conclusaoColors);
   const kpiConc = document.getElementById('rel-conclusao-kpis');
   if(kpiConc) {
-    const icons = {'Procedente':'â','Improcedente':'â','Inconclusiva':'â ï¸','Arquivada':'ð','Pendente':'â³'};
+    const icons = {'Procedente':'✅','Improcedente':'❌','Inconclusiva':'⚠️','Arquivada':'📁','Pendente':'⏳'};
     kpiConc.innerHTML = Object.entries(byConclusao).map(([k,v]) =>
       `<div style="text-align:center;background:var(--bg);border:1.5px solid var(--border);border-radius:10px;padding:10px 14px;min-width:100px">
         <div style="font-size:1.4rem">${icons[k]}</div>
@@ -1637,7 +1620,7 @@ function renderRelatorios() {
       </div>`).join('');
   }
 
-  // ââ Ranking Filiais
+  // ── Ranking Filiais
   const filiaisAll = [...new Set(items.map(d=>d.filial))].sort();
   const tbFilial = document.getElementById('rel-tb-filial');
   const filialRanking = filiaisAll.map(f => {
@@ -1647,12 +1630,12 @@ function renderRelatorios() {
     return {
       f, total: fItems.length,
       ab: fItems.filter(d=>d.status==='Aberta').length,
-      an: fItems.filter(d=>d.status==='Em AnÃ¡lise').length,
+      an: fItems.filter(d=>d.status==='Em Análise').length,
       en: res,
       lv: fItems.filter(d=>d.perigo==='Leve').length,
-      md: fItems.filter(d=>d.perigo==='MÃ©dio').length,
+      md: fItems.filter(d=>d.perigo==='Médio').length,
       gr: fItems.filter(d=>d.perigo==='Grave').length,
-      gv: fItems.filter(d=>d.perigo==='GravÃ­ssima').length,
+      gv: fItems.filter(d=>d.perigo==='Gravíssima').length,
       slaV: venc,
       pct: fItems.length ? Math.round(res/fItems.length*100) : 0
     };
@@ -1679,9 +1662,9 @@ function renderRelatorios() {
         </div>
       </td>
     </tr>`;
-  }).join('') || '<tr><td colspan="12" class="empty"><div class="ico">ð¢</div>Nenhuma filial no filtro.</td></tr>';
+  }).join('') || '<tr><td colspan="12" class="empty"><div class="ico">🏢</div>Nenhuma filial no filtro.</td></tr>';
 
-  // ââ Ranking Setores
+  // ── Ranking Setores
   const setorMap = {};
   items.forEach(d => {
     const key = d.setor + '||' + d.filial;
@@ -1692,7 +1675,7 @@ function renderRelatorios() {
     ...s,
     total: s.items.length,
     ab: s.items.filter(d=>d.status==='Aberta').length,
-    graves: s.items.filter(d=>['Grave','GravÃ­ssima'].includes(d.perigo)).length,
+    graves: s.items.filter(d=>['Grave','Gravíssima'].includes(d.perigo)).length,
     en: s.items.filter(d=>['Encerrada','Arquivada'].includes(d.status)).length,
   })).sort((a,b)=>b.total-a.total).slice(0,20);
 
@@ -1701,7 +1684,7 @@ function renderRelatorios() {
     const pct = r.total ? Math.round(r.en/r.total*100) : 0;
     return `<tr>
       <td style="font-weight:700;color:var(--text-muted)">#${i+1}</td>
-      <td><strong>${r.setor||'â'}</strong></td>
+      <td><strong>${r.setor||'—'}</strong></td>
       <td style="font-size:.82rem">${r.filial}</td>
       <td style="font-weight:700">${r.total}</td>
       <td>${r.ab>0?`<span style="color:var(--info);font-weight:700">${r.ab}</span>`:r.ab}</td>
@@ -1715,27 +1698,27 @@ function renderRelatorios() {
     </tr>`;
   }).join('') || '<tr><td colspan="7" class="empty">Nenhum setor.</td></tr>';
 
-  // ââ Listagem completa
+  // ── Listagem completa
   const labelEl = document.getElementById('rel-count-label');
-  if(labelEl) labelEl.textContent = `${items.length} denÃºncia${items.length!==1?'s':''} encontrada${items.length!==1?'s':''}`;
+  if(labelEl) labelEl.textContent = `${items.length} denúncia${items.length!==1?'s':''} encontrada${items.length!==1?'s':''}`;
 
   const tbLista = document.getElementById('rel-tb-lista');
   tbLista.innerHTML = items.map(d => `<tr>
     <td><strong style="font-family:'DM Mono',monospace;font-size:.8rem">${d.proto}</strong></td>
     <td>${formatDate(d.data)}</td>
     <td style="font-size:.82rem">${d.filial}</td>
-    <td style="font-size:.82rem">${d.setor||'â'}</td>
+    <td style="font-size:.82rem">${d.setor||'—'}</td>
     <td style="font-size:.82rem">${d.cat}</td>
     <td>${perigoBadge(d.perigo)}</td>
     <td>${statusBadge(d.status)}</td>
     <td>${slaBar(d.data, d.status)}</td>
-    <td style="font-size:.8rem">${d.anon==='AnÃ´nima'?'ð':'ð¤'} ${d.anon}</td>
-  </tr>`).join('') || '<tr><td colspan="9" class="empty"><div class="ico">ð</div>Nenhuma denÃºncia no filtro.</td></tr>';
+    <td style="font-size:.8rem">${d.anon==='Anônima'?'🔒':'👤'} ${d.anon}</td>
+  </tr>`).join('') || '<tr><td colspan="9" class="empty"><div class="ico">📑</div>Nenhuma denúncia no filtro.</td></tr>';
 }
 
 function exportRelatorio() {
   const items = getRelFiltered();
-  const headers = ['Protocolo','Data','Filial','Setor','Categoria','Perigo','Status','Anonimato','Relato (resumo)','AÃ§Ã£o Inicial','ConclusÃ£o'];
+  const headers = ['Protocolo','Data','Filial','Setor','Categoria','Perigo','Status','Anonimato','Relato (resumo)','Ação Inicial','Conclusão'];
   const rows = items.map(d => [
     d.proto, d.data, d.filial, d.setor, d.cat, d.perigo, d.status, d.anon,
     (d.relato||'').replace(/"/g,"'").substring(0,100),
@@ -1757,16 +1740,16 @@ function printRelatorio() {
 
 
 
-// ââââââââââââââââââââââââââââââââââââââââââ
-// DRILLDOWN DOS KPIs â RELATÃRIOS (com ordenaÃ§Ã£o)
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
+// DRILLDOWN DOS KPIs — RELATÓRIOS (com ordenação)
+// ══════════════════════════════════════════
 let _lastDrilldownType = null;
 let _ddRows = [];         // current rows in drilldown
 let _ddSortCol = 'data';  // default sort
 let _ddSortDir = 'asc';   // asc | desc
 
 // Perigo sort order
-const _perigoOrder = { 'GravÃ­ssima': 4, 'Grave': 3, 'MÃ©dio': 2, 'Leve': 1 };
+const _perigoOrder = { 'Gravíssima': 4, 'Grave': 3, 'Médio': 2, 'Leve': 1 };
 
 function _ddGetVal(d, col) {
   switch(col) {
@@ -1813,7 +1796,7 @@ function ddRenderRows() {
   if(!tbody) return;
 
   if(sorted.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="11" class="empty"><div class="ico">â</div>Nenhuma denÃºncia neste grupo.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="11" class="empty"><div class="ico">✅</div>Nenhuma denúncia neste grupo.</td></tr>';
     return;
   }
 
@@ -1821,30 +1804,30 @@ function ddRenderRows() {
     const days = d.data ? Math.floor((new Date()-new Date(d.data))/86400000) : 0;
     const slaVencido = !['Encerrada','Arquivada'].includes(d.status) && days > 90;
     const slaDisplay = slaVencido
-      ? `<div class="sla-wrap"><div class="sla-label"><span style="color:var(--danger);font-weight:700">â  ${days}d / 90d</span><span style="color:var(--danger);font-weight:700">100%</span></div><div class="sla-bar"><div class="sla-fill over" style="width:100%"></div></div></div>`
+      ? `<div class="sla-wrap"><div class="sla-label"><span style="color:var(--danger);font-weight:700">⚠ ${days}d / 90d</span><span style="color:var(--danger);font-weight:700">100%</span></div><div class="sla-bar"><div class="sla-fill over" style="width:100%"></div></div></div>`
       : slaBar(d.data, d.status);
     const rowBg = slaVencido ? 'background:#fff8f8' : '';
     return `<tr style="cursor:pointer;${rowBg}" onclick="openDnDetail(${d.id})" title="Clique para ver relato completo">
       <td><strong style="font-family:'DM Mono',monospace;font-size:.78rem;white-space:nowrap">${d.proto}</strong></td>
       <td style="font-size:.78rem;max-width:130px">${d.cat}</td>
       <td style="font-size:.78rem;white-space:nowrap">${d.filial}</td>
-      <td style="font-size:.78rem">${d.setor||'â'}</td>
+      <td style="font-size:.78rem">${d.setor||'—'}</td>
       <td style="font-size:.78rem;white-space:nowrap">${formatDate(d.data)}</td>
-      <td style="font-size:.78rem">${d.anon==='AnÃ´nima'?'ð AnÃ´nima':'ð¤ Identificada'}</td>
+      <td style="font-size:.78rem">${d.anon==='Anônima'?'🔒 Anônima':'👤 Identificada'}</td>
       <td>${perigoBadge(d.perigo)}</td>
       <td>${statusBadge(d.status)}</td>
       <td style="min-width:120px">${slaDisplay}</td>
-      <td style="font-size:.78rem">${d.resp||'<span style="color:var(--text-muted)">â</span>'}</td>
+      <td style="font-size:.78rem">${d.resp||'<span style="color:var(--text-muted)">—</span>'}</td>
       <td style="white-space:nowrap">
-        <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();openDnDetail(${d.id})" title="Ver relato completo">ð</button>
-        <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();editDenuncia(${d.id})" title="Editar">âï¸</button>
+        <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();openDnDetail(${d.id})" title="Ver relato completo">👁</button>
+        <button class="btn btn-outline btn-sm" onclick="event.stopPropagation();editDenuncia(${d.id})" title="Editar">✏️</button>
       </td>
     </tr>`;
   }).join('');
 
   // Update count
   const countEl = document.getElementById('dd-count');
-  if(countEl) countEl.textContent = `Â· ${sorted.length} denÃºncia${sorted.length!==1?'s':''}`;
+  if(countEl) countEl.textContent = `· ${sorted.length} denúncia${sorted.length!==1?'s':''}`;
 }
 
 function openDrilldown(type, icon, title) {
@@ -1860,15 +1843,15 @@ function openDrilldown(type, icon, title) {
     _ddRows = items.filter(d => d.status === 'Aberta');
     colorAccent = 'var(--info)';
   } else if(type === 'analise') {
-    _ddRows = items.filter(d => d.status === 'Em AnÃ¡lise');
+    _ddRows = items.filter(d => d.status === 'Em Análise');
     colorAccent = 'var(--warn)';
   } else if(type === 'encerrada') {
     _ddRows = items.filter(d => ['Encerrada','Arquivada'].includes(d.status));
     colorAccent = 'var(--accent)';
   } else if(type === 'graves') {
-    _ddRows = items.filter(d => ['Grave','GravÃ­ssima'].includes(d.perigo));
+    _ddRows = items.filter(d => ['Grave','Gravíssima'].includes(d.perigo));
     colorAccent = 'var(--danger)';
-    // Default sort: gravÃ­ssima first
+    // Default sort: gravíssima first
     _ddSortCol = 'perigo'; _ddSortDir = 'desc';
   } else if(type === 'sla') {
     _ddRows = items.filter(d => {
@@ -1912,9 +1895,9 @@ function closeDrilldown() {
 }
 
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 // IMPORTAR PLANILHA
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 let importParsedRows = [];
 
 function renderImportar() {
@@ -1961,12 +1944,12 @@ function processImportFile(file) {
     reader.onload = e => parseXLSXImport(e.target.result);
     reader.readAsArrayBuffer(file);
   } else {
-    alert('Formato nÃ£o suportado. Use .xlsx ou .csv');
+    alert('Formato não suportado. Use .xlsx ou .csv');
   }
 }
 
 function normalizeSheetHeaders(rows) {
-  // Normaliza cabeÃ§alhos no formato "A (Id)", "B (Hora de inÃ­cio)" -> "Id", "Hora de inÃ­cio"
+  // Normaliza cabeçalhos no formato "A (Id)", "B (Hora de início)" -> "Id", "Hora de início"
   return rows.map(row => {
     const normalized = {};
     for (const key of Object.keys(row)) {
@@ -1987,7 +1970,7 @@ function parseXLSXImport(buffer) {
   const wb = XLSX.read(buffer, {type:'array', cellDates:true, codepage: 65001});
   const ws = wb.Sheets[wb.SheetNames[0]];
   const rawRows = XLSX.utils.sheet_to_json(ws, {defval:'', raw:true, cellDates:true});
-  // Normaliza cabeÃ§alhos no formato "A (Id)", "B (Hora de inÃ­cio)" etc.
+  // Normaliza cabeçalhos no formato "A (Id)", "B (Hora de início)" etc.
   const normalizedRows = normalizeSheetHeaders(rawRows);
   buildImportPreview(normalizedRows);
 }
@@ -2056,32 +2039,32 @@ function normalizeTipo(t) {
 }
 
 function inferStatus(row) {
-  const conc = findCol(row, ['conclusÃ£o','conclusao','conclus']);
-  const acao = findCol(row, ['aÃ§Ã£o inicial','acao inicial','aÃ§Ã£o_inicial']);
+  const conc = findCol(row, ['conclusão','conclusao','conclus']);
+  const acao = findCol(row, ['ação inicial','acao inicial','ação_inicial']);
   if(conc && conc.trim()) return 'Encerrada';
-  if(acao && acao.trim()) return 'Em AnÃ¡lise';
+  if(acao && acao.trim()) return 'Em Análise';
   return 'Aberta';
 }
 
 function inferPerigo(row) {
-  const nivel = (findCol(row, ['nivel','nÃ­vel']) || '').toUpperCase().trim()
+  const nivel = (findCol(row, ['nivel','nível']) || '').toUpperCase().trim()
     .normalize('NFD').replace(/[\u0300-\u036f]/g,'');
-  if(['GRAVE','GRAVISSIMA','GRAVÃSSIMA'].includes(nivel)) return nivel==='GRAVISSIMA'||nivel==='GRAVÃSSIMA'?'GravÃ­ssima':'Grave';
-  if(['MEDIO','MÃDIO'].includes(nivel)) return 'MÃ©dio';
+  if(['GRAVE','GRAVISSIMA','GRAVÍSSIMA'].includes(nivel)) return nivel==='GRAVISSIMA'||nivel==='GRAVÍSSIMA'?'Gravíssima':'Grave';
+  if(['MEDIO','MÉDIO'].includes(nivel)) return 'Médio';
   if(nivel==='LEVE') return 'Leve';
   // infer from tipo
-  const tipo = (findCol(row,['tipo de denuncia','tipo de denÃºncia'])||'').toLowerCase();
+  const tipo = (findCol(row,['tipo de denuncia','tipo de denúncia'])||'').toLowerCase();
   if(/fraude|desvio/.test(tipo)) return 'Grave';
-  if(/assedio|assÃ©dio|discrimin/.test(tipo)) return 'MÃ©dio';
+  if(/assedio|assédio|discrimin/.test(tipo)) return 'Médio';
   return 'Leve';
 }
 
 function inferAnon(row) {
   const email = (findCol(row, ['email']) || '').toLowerCase();
   const nome = findCol(row, ['nome (opcional)', 'nome opcional']);
-  if(email.includes('anon') || email.includes('anÃ´n')) return 'AnÃ´nima';
+  if(email.includes('anon') || email.includes('anôn')) return 'Anônima';
   if(nome && nome.trim()) return 'Identificada';
-  return 'AnÃ´nima';
+  return 'Anônima';
 }
 
 function parseImportDate(val) {
@@ -2098,16 +2081,16 @@ function parseImportDate(val) {
   // ISO YYYY-MM-DD (with or without time)
   if(/^\d{4}-\d{2}-\d{2}/.test(s)) return s.substring(0,10);
 
-  // Formato com hora: DD/MM/YYYY HH:MM ou D/M/YYYY H:MM (padrÃ£o BR do Google Forms)
+  // Formato com hora: DD/MM/YYYY HH:MM ou D/M/YYYY H:MM (padrão BR do Google Forms)
   // Ex: "25/11/2025 13:28", "28/11/2025 12:04", "1/3/2026 9:15"
   const mHora = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})\s+\d{1,2}:\d{2}/);
   if(mHora) {
     const p1 = parseInt(mHora[1]);
     const p2 = parseInt(mHora[2]);
     const ano = mHora[3].length===2 ? '20'+mHora[3] : mHora[3];
-    // Se p1 > 12: Ã© DD/MM/YYYY (dia primeiro, padrÃ£o BR)
-    // Se p2 > 12: Ã© MM/DD/YYYY (mÃªs primeiro, padrÃ£o US) - impossÃ­vel ter dia > 12 no mÃªs
-    // PadrÃ£o: assumir DD/MM/YYYY (formato BR, usado no Brasil)
+    // Se p1 > 12: é DD/MM/YYYY (dia primeiro, padrão BR)
+    // Se p2 > 12: é MM/DD/YYYY (mês primeiro, padrão US) - impossível ter dia > 12 no mês
+    // Padrão: assumir DD/MM/YYYY (formato BR, usado no Brasil)
     if(p1 > 12) {
       // Claramente DD/MM/YYYY
       return `${ano}-${mHora[2].padStart(2,'0')}-${mHora[1].padStart(2,'0')}`;
@@ -2116,7 +2099,7 @@ function parseImportDate(val) {
       // Claramente MM/DD/YYYY (dia no segundo campo > 12)
       return `${ano}-${mHora[1].padStart(2,'0')}-${mHora[2].padStart(2,'0')}`;
     }
-    // Ambos <= 12: assumir DD/MM/YYYY (padrÃ£o BR)
+    // Ambos <= 12: assumir DD/MM/YYYY (padrão BR)
     return `${ano}-${mHora[2].padStart(2,'0')}-${mHora[1].padStart(2,'0')}`;
   }
 
@@ -2128,7 +2111,7 @@ function parseImportDate(val) {
     const p2 = parseInt(m[2]);
     if(p1 > 12) return `${y}-${m[2].padStart(2,'0')}-${m[1].padStart(2,'0')}`;
     if(p2 > 12) return `${y}-${m[1].padStart(2,'0')}-${m[2].padStart(2,'0')}`;
-    // Ambos <= 12: assumir DD/MM/YYYY (padrÃ£o BR)
+    // Ambos <= 12: assumir DD/MM/YYYY (padrão BR)
     return `${y}-${m[2].padStart(2,'0')}-${m[1].padStart(2,'0')}`;
   }
 
@@ -2148,7 +2131,7 @@ function buildImportPreview(rawRows) {
 
     // Try multiple column names for date (Google Forms, Excel, custom)
     const dateRaw = findCol(row, [
-      'hora de inÃ­cio','hora de inicio','hora de inÃ­c','timestamp','carimbo de data/hora',
+      'hora de início','hora de inicio','hora de iníc','timestamp','carimbo de data/hora',
       'carimbo de data','data e hora','data/hora','data','date','recebida em','recebido em',
       'hora de envio','hora envio'
     ]) || (() => {
@@ -2163,10 +2146,10 @@ function buildImportPreview(rawRows) {
     const year = dataStr ? parseInt(dataStr.substring(0,4)) : new Date().getFullYear();
     const proto = `DN-${year}-${String(id).padStart(3,'0')}`;
 
-    const tipo = normalizeTipo(findCol(row, ['tipo de denÃºncia','tipo de denuncia','tipo']));
-    const relato = findCol(row, ['descriÃ§Ã£o do fato','descricao do fato','descriÃ§Ã£o','fato','relato']) || '';
-    const acao = findCol(row, ['aÃ§Ã£o inicial','acao inicial','aÃ§Ã£o_inicial','acao_inicial']) || '';
-    const obs = findCol(row, ['conclusÃ£o','conclusao','conclus']) || '';
+    const tipo = normalizeTipo(findCol(row, ['tipo de denúncia','tipo de denuncia','tipo']));
+    const relato = findCol(row, ['descrição do fato','descricao do fato','descrição','fato','relato']) || '';
+    const acao = findCol(row, ['ação inicial','acao inicial','ação_inicial','acao_inicial']) || '';
+    const obs = findCol(row, ['conclusão','conclusao','conclus']) || '';
 
     const isDuplicate = existingProtos.has(proto);
 
@@ -2179,9 +2162,6 @@ function buildImportPreview(rawRows) {
       anon: inferAnon(row),
       perigo: inferPerigo(row),
       status: inferStatus(row),
-      nome: String(row['Nome (opcional)']||row['Nome']||'').trim(),
-      email: String(row['Endereço de email (opcional)']||row['Endereço de Email']||'').trim(),
-      telefone: String(row['Número de telefone (opcional)']||row['Numero de telefone']||row['Telefone']||'').trim(),
       resp: '',
       relato: relato,
       acaoInicial: acao,
@@ -2197,7 +2177,7 @@ function buildImportPreview(rawRows) {
   const semData = parsed.filter(r=>!r.isDuplicate && (!r.data || r.data === new Date().toISOString().split('T')[0])).length;
 
   // Show column names detected for debugging
-  const colsDetected = rawRows.length > 0 ? Object.keys(rawRows[0]).join(' Â· ') : '';
+  const colsDetected = rawRows.length > 0 ? Object.keys(rawRows[0]).join(' · ') : '';
 
   // Show summary
   document.getElementById('import-preview-section').style.display = '';
@@ -2206,8 +2186,8 @@ function buildImportPreview(rawRows) {
   // Show detected columns to help debug date issues
   const statsEl = document.getElementById('import-preview-stats');
   if(statsEl) statsEl.innerHTML = `${total} linhas processadas
-    <div style="font-size:.72rem;color:var(--text-muted);margin-top:4px">ð Colunas: <em>${colsDetected.slice(0,200)}</em></div>
-    ${semData > 0 ? `<div style="font-size:.72rem;color:var(--warn);margin-top:2px">â ï¸ ${semData} linha(s) sem data detectada</div>` : ''}
+    <div style="font-size:.72rem;color:var(--text-muted);margin-top:4px">📋 Colunas: <em>${colsDetected.slice(0,200)}</em></div>
+    ${semData > 0 ? `<div style="font-size:.72rem;color:var(--warn);margin-top:2px">⚠️ ${semData} linha(s) sem data detectada</div>` : ''}
   `;
 
   document.getElementById('import-summary').innerHTML = `
@@ -2217,7 +2197,7 @@ function buildImportPreview(rawRows) {
     </div>
     <div style="background:#dbeafe;border-radius:8px;padding:12px;text-align:center">
       <div style="font-size:1.6rem;font-weight:700;color:var(--info)">${novos}</div>
-      <div style="font-size:.75rem;color:var(--text-muted)">Novas (serÃ£o importadas)</div>
+      <div style="font-size:.75rem;color:var(--text-muted)">Novas (serão importadas)</div>
     </div>
     <div style="background:#fef3c7;border-radius:8px;padding:12px;text-align:center">
       <div style="font-size:1.6rem;font-weight:700;color:var(--warn)">${dup}</div>
@@ -2225,7 +2205,7 @@ function buildImportPreview(rawRows) {
     </div>
     <div style="background:#f1f5f9;border-radius:8px;padding:12px;text-align:center">
       <div style="font-size:1.6rem;font-weight:700;color:var(--text-muted)">${DB.denuncias.length}</div>
-      <div style="font-size:.75rem;color:var(--text-muted)">JÃ¡ no sistema</div>
+      <div style="font-size:.75rem;color:var(--text-muted)">Já no sistema</div>
     </div>
   `;
 
@@ -2236,25 +2216,25 @@ function buildImportPreview(rawRows) {
       ? 'style="background:#fef3c7"'
       : (r.status==='Encerrada'?'style="background:#f0fdf9"':'');
     const situacao = r.isDuplicate
-      ? '<span class="badge" style="background:#fef3c7;color:#92400e">â ï¸ Duplicado</span>'
-      : '<span class="badge badge-concluido">â Novo</span>';
+      ? '<span class="badge" style="background:#fef3c7;color:#92400e">⚠️ Duplicado</span>'
+      : '<span class="badge badge-concluido">✅ Novo</span>';
     return `<tr ${statusClass}>
       <td>${situacao}</td>
       <td style="font-family:monospace">${r.id}</td>
       <td style="font-family:monospace;font-size:.8rem">${r.proto}</td>
       <td>${formatDate(r.data)}</td>
-      <td style="font-size:.82rem">${r.filial||'â'}</td>
-      <td style="font-size:.82rem">${r.setor||'â'}</td>
+      <td style="font-size:.82rem">${r.filial||'—'}</td>
+      <td style="font-size:.82rem">${r.setor||'—'}</td>
       <td style="font-size:.8rem;max-width:140px">${r.cat}</td>
       <td>${perigoBadge(r.perigo)}</td>
       <td>${statusBadge(r.status)}</td>
-      <td style="font-size:.78rem;max-width:220px;color:var(--text-muted)">${(r.relato||'').substring(0,120)}${r.relato && r.relato.length>120?'â¦':''}</td>
+      <td style="font-size:.78rem;max-width:220px;color:var(--text-muted)">${(r.relato||'').substring(0,120)}${r.relato && r.relato.length>120?'…':''}</td>
     </tr>`;
-  }).join('') || '<tr><td colspan="10" class="empty"><div class="ico">ð</div>Nenhuma linha vÃ¡lida encontrada.</td></tr>';
+  }).join('') || '<tr><td colspan="10" class="empty"><div class="ico">📊</div>Nenhuma linha válida encontrada.</td></tr>';
 
   document.getElementById('import-actions').style.display = novos > 0 ? '' : 'none';
   if(novos === 0) {
-    document.getElementById('btn-confirm-import').textContent = 'â Confirmar ImportaÃ§Ã£o';
+    document.getElementById('btn-confirm-import').textContent = '✅ Confirmar Importação';
   }
   document.getElementById('import-result').style.display = 'none';
 }
@@ -2262,7 +2242,7 @@ function buildImportPreview(rawRows) {
 function confirmImport() {
   const btn = document.getElementById('btn-confirm-import');
   btn.disabled = true;
-  btn.textContent = 'â³ Importando...';
+  btn.textContent = '⏳ Importando...';
 
   const novos = importParsedRows.filter(r=>!r.isDuplicate);
   let count = 0;
@@ -2281,25 +2261,25 @@ function confirmImport() {
   resultEl.style.display = '';
   resultEl.innerHTML = `
     <div style="background:#f0fdf9;border:1.5px solid var(--accent);border-radius:12px;padding:28px;text-align:center">
-      <div style="font-size:2.5rem;margin-bottom:10px">ð</div>
+      <div style="font-size:2.5rem;margin-bottom:10px">🎉</div>
       <div style="font-size:1.1rem;font-weight:700;color:var(--primary);margin-bottom:6px">
-        ImportaÃ§Ã£o concluÃ­da com sucesso!
+        Importação concluída com sucesso!
       </div>
       <div style="font-size:.88rem;color:var(--text-muted);margin-bottom:16px">
-        <strong style="color:var(--accent)">${count}</strong> novas denÃºncias adicionadas Â·
-        <strong>${importParsedRows.filter(r=>r.isDuplicate).length}</strong> duplicadas ignoradas Â·
-        Sistema agora com <strong>${DB.denuncias.length}</strong> denÃºncias no total
-      ${importParsedRows.filter(r=>!r.isDuplicate&&!r.data).length > 0 ? '<br><span style="color:var(--warn)">â ï¸ ' + importParsedRows.filter(r=>!r.isDuplicate&&!r.data).length + ' denÃºncias sem data detectada â verifique o nome da coluna de data</span>' : ''}
+        <strong style="color:var(--accent)">${count}</strong> novas denúncias adicionadas ·
+        <strong>${importParsedRows.filter(r=>r.isDuplicate).length}</strong> duplicadas ignoradas ·
+        Sistema agora com <strong>${DB.denuncias.length}</strong> denúncias no total
+      ${importParsedRows.filter(r=>!r.isDuplicate&&!r.data).length > 0 ? '<br><span style="color:var(--warn)">⚠️ ' + importParsedRows.filter(r=>!r.isDuplicate&&!r.data).length + ' denúncias sem data detectada — verifique o nome da coluna de data</span>' : ''}
       </div>
       <div style="display:flex;gap:10px;justify-content:center">
         <button class="btn btn-primary" onclick="goto('canal-denuncia',document.querySelector('[data-page=canal-denuncia]'))">
-          ð¢ Ver Canal de DenÃºncia
+          📢 Ver Canal de Denúncia
         </button>
         <button class="btn btn-accent" onclick="goto('relatorios',document.querySelector('[data-page=relatorios]'))">
-          ð Ver RelatÃ³rios
+          📑 Ver Relatórios
         </button>
         <button class="btn btn-outline" onclick="clearFileImport();populateRelSelects();">
-          â¬ï¸ Nova ImportaÃ§Ã£o
+          ⬆️ Nova Importação
         </button>
       </div>
     </div>
@@ -2312,9 +2292,9 @@ function confirmImport() {
   saveLocalCache();
   if(count > 0) {
     const novas = importParsedRows.filter(r => !r.isDuplicate);
-    setSaveIndicator('â³ Enviando ' + count + ' itens para a nuvem...', 'var(--warn)');
+    setSaveIndicator('⏳ Enviando ' + count + ' itens para a nuvem...', 'var(--warn)');
     sbBulkImportDenuncias(novas).then(() => {
-      setSaveIndicator('âï¸ ' + count + ' denÃºncias salvas na nuvem', 'var(--accent)');
+      setSaveIndicator('☁️ ' + count + ' denúncias salvas na nuvem', 'var(--accent)');
     });
   }
 
@@ -2323,12 +2303,12 @@ function confirmImport() {
   populateFilialSelects();
 
   btn.disabled = false;
-  btn.textContent = 'â Confirmar ImportaÃ§Ã£o';
+  btn.textContent = '✅ Confirmar Importação';
 }
 
 
 
-// ââ Detalhe de DenÃºncia (relato completo)
+// ── Detalhe de Denúncia (relato completo)
 function openDnDetail(id) {
   const d = DB.denuncias.find(x => x.id === id);
   if(!d) return;
@@ -2336,10 +2316,10 @@ function openDnDetail(id) {
   document.getElementById('dn-detail-perigo').innerHTML = perigoBadge(d.perigo);
   document.getElementById('dn-detail-status').innerHTML = statusBadge(d.status);
   document.getElementById('dn-detail-meta').textContent =
-    `${d.filial}${d.setor?' Â· '+d.setor:''} Â· ${formatDate(d.data)} Â· ${d.anon}`;
+    `${d.filial}${d.setor?' · '+d.setor:''} · ${formatDate(d.data)} · ${d.anon}`;
   document.getElementById('dn-detail-cat').textContent = d.cat;
   document.getElementById('dn-detail-sla').innerHTML = slaBar(d.data, d.status);
-  document.getElementById('dn-detail-relato').textContent = d.relato || 'â';
+  document.getElementById('dn-detail-relato').textContent = d.relato || '—';
   
   const acaoW = document.getElementById('dn-detail-acao-wrap');
   const obsW = document.getElementById('dn-detail-obs-wrap');
@@ -2353,9 +2333,9 @@ function openDnDetail(id) {
 }
 
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 // FLOWBOARD
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 let fbCurrentView = 'planos-acao';
 let fbDragCard = null;
 let fbDragSrcCol = null;
@@ -2425,8 +2405,8 @@ function fbMakeCardEl(card, colId) {
   const total = (card.check||[]).length;
   const checkPct = total > 0 ? Math.round(done/total*100) : 0;
 
-  const prioColors = {CrÃ­tica:'#fde8ff',Alta:'#fee2e2',MÃ©dia:'#fef3c7',Baixa:'#d1fae5'};
-  const prioText = {CrÃ­tica:'#7e22ce',Alta:'#991b1b',MÃ©dia:'#92400e',Baixa:'#065f46'};
+  const prioColors = {Crítica:'#fde8ff',Alta:'#fee2e2',Média:'#fef3c7',Baixa:'#d1fae5'};
+  const prioText = {Crítica:'#7e22ce',Alta:'#991b1b',Média:'#92400e',Baixa:'#065f46'};
 
   const today = new Date().toISOString().split('T')[0];
   let dateClass = '';
@@ -2437,7 +2417,7 @@ function fbMakeCardEl(card, colId) {
     <div class="fb-card-title">${card.title}</div>
     ${total > 0 ? `<div class="fb-card-checklist"><span>${done}/${total} tarefas</span><div class="fb-card-checklist-bar"><div class="fb-card-checklist-fill" style="width:${checkPct}%"></div></div></div>` : ''}
     <div class="fb-card-meta">
-      ${card.prazo ? `<span class="fb-card-date ${dateClass}">ð ${formatDate(card.prazo)}</span>` : ''}
+      ${card.prazo ? `<span class="fb-card-date ${dateClass}">📅 ${formatDate(card.prazo)}</span>` : ''}
       ${card.prio ? `<span class="fb-card-tag" style="background:${prioColors[card.prio]||'#f1f5f9'};color:${prioText[card.prio]||'#475569'}">${card.prio}</span>` : ''}
       ${card.tag ? `<span class="fb-card-tag" style="background:#f0f4f8;color:var(--text-muted)">${card.tag}</span>` : ''}
       ${card.resp ? `<div class="fb-card-avatar" style="background:var(--primary);margin-left:auto">${card.resp.slice(0,2).toUpperCase()}</div>` : ''}
@@ -2463,18 +2443,18 @@ function fbDrop(targetColId) {
   fbDragCard = null; fbDragSrcCol = null;
   renderFlowboard();
   saveLocalCache();
-  setSaveIndicator('â³ Salvando...','var(--warn)');
-  sbSaveFbBoards().then(() => setSaveIndicator('âï¸ FlowBoard salvo','var(--accent)'))
-                  .catch(() => setSaveIndicator('â ï¸ Erro ao salvar na nuvem','var(--danger)'));
+  setSaveIndicator('⏳ Salvando...','var(--warn)');
+  sbSaveFbBoards().then(() => setSaveIndicator('☁️ FlowBoard salvo','var(--accent)'))
+                  .catch(() => setSaveIndicator('⚠️ Erro ao salvar na nuvem','var(--danger)'));
 }
 
 function fbAddCard(colId) {
   const board = DB.fbBoards[fbCurrentView];
-  document.getElementById('fb-modal-title').textContent = 'ð Novo Card';
+  document.getElementById('fb-modal-title').textContent = '📌 Novo Card';
   document.getElementById('fb-edit-id').value = '';
   document.getElementById('fb-edit-col').value = colId || board.cols[0]?.id || '';
   ['fb-titulo','fb-desc','fb-check','fb-resp','fb-prazo','fb-tag'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('fb-prio').value = 'MÃ©dia';
+  document.getElementById('fb-prio').value = 'Média';
   document.getElementById('fb-del-btn').style.display = 'none';
 
   // Populate col select
@@ -2490,7 +2470,7 @@ function fbOpenCard(cardId, colId) {
   const col = board.cols.find(c => c.id === colId);
   const card = col?.cards.find(c => c.id === cardId);
   if(!card) return;
-  document.getElementById('fb-modal-title').textContent = 'âï¸ Editar Card';
+  document.getElementById('fb-modal-title').textContent = '✏️ Editar Card';
   document.getElementById('fb-edit-id').value = cardId;
   document.getElementById('fb-edit-col').value = colId;
   document.getElementById('fb-titulo').value = card.title;
@@ -2498,7 +2478,7 @@ function fbOpenCard(cardId, colId) {
   document.getElementById('fb-check').value = (card.check||[]).join('\n');
   document.getElementById('fb-resp').value = card.resp||'';
   document.getElementById('fb-prazo').value = card.prazo||'';
-  document.getElementById('fb-prio').value = card.prio||'MÃ©dia';
+  document.getElementById('fb-prio').value = card.prio||'Média';
   document.getElementById('fb-tag').value = card.tag||'';
   document.getElementById('fb-del-btn').style.display = 'inline-flex';
 
@@ -2511,7 +2491,7 @@ function fbOpenCard(cardId, colId) {
 
 function fbSaveCard() {
   const title = document.getElementById('fb-titulo').value.trim();
-  if(!title) { alert('Informe o tÃ­tulo do card.'); return; }
+  if(!title) { alert('Informe o título do card.'); return; }
   const board = DB.fbBoards[fbCurrentView];
   const editId = document.getElementById('fb-edit-id').value;
   const oldColId = document.getElementById('fb-edit-col').value;
@@ -2558,7 +2538,7 @@ function fbSaveCard() {
   closeModal('fb-card-modal');
   renderFlowboard();
   saveLocalCache();
-  sbSaveFbBoards().then(()=>setSaveIndicator('âï¸ FlowBoard salvo','var(--accent)'));
+  sbSaveFbBoards().then(()=>setSaveIndicator('☁️ FlowBoard salvo','var(--accent)'));
 }
 
 function fbDeleteCard() {
@@ -2572,7 +2552,7 @@ function fbDeleteCard() {
   closeModal('fb-card-modal');
   renderFlowboard();
   saveLocalCache();
-  sbSaveFbBoards().then(()=>setSaveIndicator('âï¸ FlowBoard atualizado','var(--accent)'));
+  sbSaveFbBoards().then(()=>setSaveIndicator('☁️ FlowBoard atualizado','var(--accent)'));
 }
 
 function fbAddCol() {
@@ -2594,15 +2574,15 @@ function fbNewBoard() {
     cols: [
       { id:'a1'+Date.now(), name:'A Fazer', color:'#94a3b8', cards:[] },
       { id:'a2'+Date.now(), name:'Em Andamento', color:'#3b82f6', cards:[] },
-      { id:'a3'+Date.now(), name:'ConcluÃ­do', color:'#00c49a', cards:[] },
+      { id:'a3'+Date.now(), name:'Concluído', color:'#00c49a', cards:[] },
     ]
   };
   fbSetView(key, null);
 }
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 // MOBILE
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 function toggleMobile() {
   document.getElementById('sidebar').classList.toggle('mobile-open');
   document.getElementById('mobile-overlay').classList.toggle('open');
@@ -2612,19 +2592,19 @@ function closeMobile() {
   document.getElementById('mobile-overlay').classList.remove('open');
 }
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 // INIT
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 // SISTEMA DE LOGIN
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 
-// Senhas armazenadas como SHA-256(email:senha:ch2025) â nunca em texto puro
+// Senhas armazenadas como SHA-256(email:senha:ch2025) — nunca em texto puro
 let USUARIOS = [
   { email:'admin@torre.com.br', hash:'32b1257273dc71a74bdd6462a8c4ab72a569a1d932c4e79d9a801605e3c2c270', nome:'Administrador', perfil:'Admin', avatar:'AD', cor:'#0f2d4a' },
 ];
-// Email do admin â imutÃ¡vel
+// Email do admin — imutável
 const ADMIN_EMAIL = 'admin@torre.com.br';
 // Derivar hash da senha (SHA-256 via SubtleCrypto)
 async function _hashSenha(email, senha) {
@@ -2668,14 +2648,14 @@ window.doLogin = async function() {
 
   if(!email) {
     emailEl.classList.add('error');
-    errorEl.innerHTML = 'â ï¸ Informe seu e-mail.';
+    errorEl.innerHTML = '⚠️ Informe seu e-mail.';
     emailEl.focus();
     return;
   }
 
   if(!senha) {
     passEl.classList.add('error');
-    errorEl.innerHTML = 'â ï¸ Informe sua senha.';
+    errorEl.innerHTML = '⚠️ Informe sua senha.';
     passEl.focus();
     return;
   }
@@ -2690,7 +2670,7 @@ async function doLoginAsync(email, senha, emailEl, passEl, errorEl, btnEl, btnTe
   try {
     const inputHash = await _hashSenha(email, senha);
 
-    // Verificar localmente â se nÃ£o achar, recarregar usuÃ¡rios extras e tentar de novo
+    // Verificar localmente — se não achar, recarregar usuários extras e tentar de novo
     let user = USUARIOS.find(u => u.email === email && u.hash === inputHash);
     if(!user) {
       await usersLoad(); // recarrega extras do localStorage/Supabase
@@ -2702,7 +2682,7 @@ async function doLoginAsync(email, senha, emailEl, passEl, errorEl, btnEl, btnTe
       btnText.textContent = 'Entrar no Sistema';
       emailEl.classList.add('error');
       passEl.classList.add('error');
-      errorEl.innerHTML = 'â E-mail ou senha incorretos.';
+      errorEl.innerHTML = '❌ E-mail ou senha incorretos.';
       passEl.value = '';
       passEl.focus();
       const box = document.querySelector('.login-box');
@@ -2710,7 +2690,7 @@ async function doLoginAsync(email, senha, emailEl, passEl, errorEl, btnEl, btnTe
       return;
     }
 
-    // Login OK â salvar sessÃ£o
+    // Login OK — salvar sessão
     currentUser = user;
     _saveSession(user);
 
@@ -2727,7 +2707,7 @@ async function doLoginAsync(email, senha, emailEl, passEl, errorEl, btnEl, btnTe
         console.log('[Login] Edge Function status:', r.status);
         if(r.ok) {
           const resp = await r.json();
-          console.log('[Login] Token recebido:', resp.token ? 'SIM' : 'NÃO');
+          console.log('[Login] Token recebido:', resp.token ? 'SIM' : 'NÃO');
           if(resp && resp.token) setAppToken(resp.token);
         } else {
           const errText = await r.text();
@@ -2735,7 +2715,7 @@ async function doLoginAsync(email, senha, emailEl, passEl, errorEl, btnEl, btnTe
         }
       } catch(e) {
         showLoadingBar(false);
-        console.warn('[Login] Edge Function indisponÃ­vel:', e.message);
+        console.warn('[Login] Edge Function indisponível:', e.message);
       }
     }
 
@@ -2743,34 +2723,34 @@ async function doLoginAsync(email, senha, emailEl, passEl, errorEl, btnEl, btnTe
   } catch(e) {
     btnEl.disabled = false;
     btnText.textContent = 'Entrar no Sistema';
-    errorEl.innerHTML = 'â Erro ao autenticar. Tente novamente.';
+    errorEl.innerHTML = '❌ Erro ao autenticar. Tente novamente.';
     console.error('Login error:', e);
   }
 }
 
 function enterApp(user) {
-  // Carregar usuÃ¡rios extras e permissÃµes sequencialmente
+  // Carregar usuários extras e permissões sequencialmente
   (async () => {
-    await usersLoad();         // carrega usuÃ¡rios do servidor
-    permLoad();                // carrega permissÃµes do localStorage
-    await permLoadFromSupabase(); // atualiza com versÃ£o do Supabase
-    permAtualizarNav();        // atualiza nav com permissÃµes corretas
+    await usersLoad();         // carrega usuários do servidor
+    permLoad();                // carrega permissões do localStorage
+    await permLoadFromSupabase(); // atualiza com versão do Supabase
+    permAtualizarNav();        // atualiza nav com permissões corretas
   })();
 
   // Log de login
   auditLog('login', 'sistema', `Login realizado`, {perfil: user.perfil});
 
-  // Mostrar/ocultar botÃµes admin
+  // Mostrar/ocultar botões admin
   const adminBtns = ['nav-permissoes','nav-usuarios','nav-audit','nav-branding'];
   adminBtns.forEach(id => {
     const el = document.getElementById(id);
     if(el) el.style.display = (user.email === ADMIN_EMAIL || user.perfil === 'Admin') ? 'flex' : 'none';
   });
-  // Mostrar grade admin sÃ³ se for admin
+  // Mostrar grade admin só se for admin
   const adminGrid = document.getElementById('nav-admin-grid');
   if(adminGrid) adminGrid.style.display = (user.email === ADMIN_EMAIL || user.perfil === 'Admin') ? 'grid' : 'none';
 
-  // Carregar dados do Supabase apÃ³s login (token jÃ¡ disponÃ­vel)
+  // Carregar dados do Supabase após login (token já disponível)
   if(USE_SUPABASE) {
     showLoadingBar(true, 'Carregando dados...');
     loadFromSupabase().then(ok => {
@@ -2791,7 +2771,7 @@ function enterApp(user) {
   const avEl = document.getElementById('user-av');
   const nameEl = document.getElementById('user-name');
   if(avEl) { avEl.textContent = user.avatar; avEl.style.background = user.cor; }
-  if(nameEl) nameEl.textContent = user.nome + ' Â· ' + user.perfil;
+  if(nameEl) nameEl.textContent = user.nome + ' · ' + user.perfil;
 
   // Hide login, show app
   const loginScreen = document.getElementById('login-screen');
@@ -2833,7 +2813,7 @@ function doLogout() {
   const avEl = document.getElementById('user-av');
   const nameEl = document.getElementById('user-name');
   if(avEl) { avEl.textContent = 'GC'; avEl.style.background = ''; }
-  if(nameEl) nameEl.textContent = 'GestÃ£o Compliance';
+  if(nameEl) nameEl.textContent = 'Gestão Compliance';
 
   setTimeout(() => { document.getElementById('login-email').focus(); }, 350);
 }
@@ -2848,7 +2828,7 @@ shakeStyle.textContent = '@keyframes shake { 0%,100%{transform:translateX(0)} 20
 document.head.appendChild(shakeStyle);
 
 // Check session on load (auto-login if session exists)
-// ââ DevTools detection â warn user in sensitive sessions
+// ── DevTools detection — warn user in sensitive sessions
 (function() {
   let _dtOpen = false;
   const _dtThreshold = 160;
@@ -2860,7 +2840,7 @@ document.head.appendChild(shakeStyle);
       // Clear sensitive data from DOM when DevTools detected
       document.querySelectorAll('.relato-text, #dn-detail-relato, #dn-detail-acao').forEach(el => {
         if(el._originalContent === undefined) el._originalContent = el.textContent;
-        el.textContent = '[ConteÃºdo protegido]';
+        el.textContent = '[Conteúdo protegido]';
       });
     } else if(!widthDiff && !heightDiff && _dtOpen) {
       _dtOpen = false;
@@ -2871,7 +2851,7 @@ document.head.appendChild(shakeStyle);
   }, 1000);
 })();
 
-// ââ Disable right-click context menu on sensitive areas
+// ── Disable right-click context menu on sensitive areas
 document.addEventListener('contextmenu', e => {
   if(e.target.closest('.section, .modal, .page')) e.preventDefault();
 });
@@ -2910,30 +2890,30 @@ function checkSession() {
 
 
 
-// ââââââââââââââââââââââââââââââââââââââââââ
-// SUPABASE CONFIG â preencha com suas credenciais
-// ââââââââââââââââââââââââââââââââââââââââââ
-// â ï¸  SUBSTITUA os valores abaixo pelos do seu projeto Supabase
-// Pegue em: https://app.supabase.com â Settings â API
+// ══════════════════════════════════════════
+// SUPABASE CONFIG — preencha com suas credenciais
+// ══════════════════════════════════════════
+// ⚠️  SUBSTITUA os valores abaixo pelos do seu projeto Supabase
+// Pegue em: https://app.supabase.com → Settings → API
 
-// â URL do projeto (correta)
-  // â JÃ DEFINIDA NO INÃCIO
+// ✅ URL do projeto (correta)
+  // ← JÁ DEFINIDA NO INÍCIO
 
-// â ï¸  COLE AQUI sua anon key (comeÃ§a com eyJ...)
-// Pegue em: supabase.com â seu projeto â Settings â API â "anon public"
-// Chave anon nÃ£o Ã© mais usada diretamente â todo acesso vai pelo Edge Function
-// Anon key â injetada pelo CI/CD via GitHub Secrets
+// ⚠️  COLE AQUI sua anon key (começa com eyJ...)
+// Pegue em: supabase.com → seu projeto → Settings → API → "anon public"
+// Chave anon não é mais usada diretamente — todo acesso vai pelo Edge Function
+// Anon key — injetada pelo CI/CD via GitHub Secrets
 const SUPABASE_ANON = '%%SUPABASE_ANON_KEY%%';
 
-// Ativo quando a anon key parece uma JWT vÃ¡lida (comeÃ§a com eyJ)
-// TambÃ©m verifica se hÃ¡ uma chave salva no localStorage
-// ââ EDGE FUNCTION â Ãºnico ponto de acesso ao banco (service_role fica no servidor)
-// const EDGE_URL = SUPABASE_URL + '/functions/v1/api';  // â JÃ DEFINIDA NO INÃCIO
+// Ativo quando a anon key parece uma JWT válida (começa com eyJ)
+// Também verifica se há uma chave salva no localStorage
+// ── EDGE FUNCTION — único ponto de acesso ao banco (service_role fica no servidor)
+// const EDGE_URL = SUPABASE_URL + '/functions/v1/api';  // ← JÁ DEFINIDA NO INÍCIO
 
 function getAppToken() { return sessionStorage.getItem('ch_app_token') || ''; }
 function setAppToken(t) { sessionStorage.setItem('ch_app_token', t); }
 
-// Mantido por compatibilidade (nÃ£o expÃµe chave ao cliente)
+// Mantido por compatibilidade (não expõe chave ao cliente)
 function getActiveKey() { return localStorage.getItem('sb_anon_key_override') || SUPABASE_ANON || ''; }
 function getSbHeaders(extra) { return Object.assign({'Content-Type':'application/json','x-app-token':getAppToken()}, extra||{}); }
 const SB_HEADERS = new Proxy({}, { get(_, prop) { return getSbHeaders()[prop]; } });
@@ -2944,7 +2924,7 @@ function _efH() {
   const k=getActiveKey(); return { 'Content-Type': 'application/json', 'x-app-token': getAppToken(), ...(k?{'apikey':k,'Authorization':'Bearer '+k}:{}) };
 }
 
-// ââ API helpers â todas as chamadas passam pelo Edge Function
+// ── API helpers — todas as chamadas passam pelo Edge Function
 async function sbGet(table, params='') {
   const qs = params ? '&' + params : '';
   const token = getAppToken();
@@ -3022,14 +3002,13 @@ async function sbDeleteProto(proto) {
   if(!r2.ok) throw new Error(`sbDeleteProto: ${r2.status}`);
 }
 
-// ââ Map DB.denuncias item â Supabase row
+// ── Map DB.denuncias item → Supabase row
 function dnToRow(d) {
   return {
     id: d.id, proto: d.proto, cat: d.cat, filial: d.filial, setor: d.setor||'',
     data: d.data||null, anon: d.anon, perigo: d.perigo, status: d.status,
     resp: d.resp||'', relato: d.relato||'', acao_inicial: d.acaoInicial||'', obs: d.obs||'',
-    conclusao: d.conclusao||'',
-    nome: d.nome||'', email: d.email||'', telefone: d.telefone||''
+    conclusao: d.conclusao||''
   };
 }
 function rowToDn(r) {
@@ -3044,12 +3023,12 @@ function rowToDn(r) {
   };
 }
 
-// ââ Load ALL data from Supabase into DB
+// ── Load ALL data from Supabase into DB
 async function loadFromSupabase() {
   try {
     showLoadingBar(true, 'Conectando ao Supabase...');
 
-    // Uma Ãºnica chamada carrega tudo â economiza crÃ©ditos Netlify/Supabase
+    // Uma única chamada carrega tudo — economiza créditos Netlify/Supabase
     const allData = await (async () => {
       const token = getAppToken();
       if(token) {
@@ -3081,11 +3060,11 @@ async function loadFromSupabase() {
     })();
     const { filiais, riscos, controles, planos, denRows, fbRows } = allData;
     // Restore extra data from load-all
-    if(allData.rmPlanos?.length > 0) DB.rmPlanos = allData.rmPlanos.map(p=>({id:p.id,riscoId:p.risco_id,titulo:p.titulo,resp:p.resp||'',prazo:p.prazo||'',tipo:p.tipo||'Preventiva',status:p.status||'NÃ£o Iniciado',prog:p.prog||0}));
+    if(allData.rmPlanos?.length > 0) DB.rmPlanos = allData.rmPlanos.map(p=>({id:p.id,riscoId:p.risco_id,titulo:p.titulo,resp:p.resp||'',prazo:p.prazo||'',tipo:p.tipo||'Preventiva',status:p.status||'Não Iniciado',prog:p.prog||0}));
     if(allData.agenda?.length > 0) DB.agenda = allData.agenda.map(e=>({id:e.id,titulo:e.titulo,tipo:e.tipo||'Outro',data:e.data,hora:e.hora||'',horaFim:e.hora_fim||'',local:e.local||'',resp:e.resp||'',desc:e.descricao||'',lembrete:e.lembrete||'',recorrencia:e.recorrencia||'nenhuma'}));
     if(allData.settings?.length > 0) { const units = allData.settings.find(s=>s.key==='rm_units'); if(units?.value) { try { const su=JSON.parse(units.value); if(Array.isArray(su)) su.forEach(u=>{ if(u.id&&!RM_UNITS.some(x=>x.id===u.id)) RM_UNITS.push(u); }); } catch(e){} } }
 
-    // ââ FILIAIS: Supabase Ã© a fonte de verdade se tiver dados, senÃ£o mantÃ©m built-in
+    // ── FILIAIS: Supabase é a fonte de verdade se tiver dados, senão mantém built-in
     if(filiais.length > 0) {
       DB.filiais = filiais.map(f => ({
         id:f.id, nome:f.nome, cnpj:f.cnpj||'', cidade:f.cidade||'',
@@ -3093,8 +3072,8 @@ async function loadFromSupabase() {
       }));
     }
 
-    // ââ RISCOS: merge Supabase + built-in
-    // ââ RISCOS: Supabase Ã© a Ãºnica fonte de verdade
+    // ── RISCOS: merge Supabase + built-in
+    // ── RISCOS: Supabase é a única fonte de verdade
     if(riscos.length > 0) {
       DB.riscos = riscos.map(r => ({
         id:r.id, desc:r.descricao||r.desc||'', cat:r.cat||'', filial:r.filial||'Todas',
@@ -3103,7 +3082,7 @@ async function loadFromSupabase() {
       }));
     }
 
-    // ââ CONTROLES
+    // ── CONTROLES
     if(controles.length > 0) {
       DB.controles = controles.map(c => ({
         id:c.id, nome:c.nome, tipo:c.tipo, filial:c.filial, setor:c.setor,
@@ -3112,29 +3091,29 @@ async function loadFromSupabase() {
       }));
     }
 
-    // ââ PLANOS
+    // ── PLANOS
     if(planos.length > 0) {
       DB.planos = planos.map(p => ({
         id:p.id, titulo:p.titulo, origem:p.origem||'', filial:p.filial, setor:p.setor,
         resp:p.resp||'', prazo:p.prazo||'', prio:p.prio, status:p.status,
-        prog:p.prog||0, andamento:p.andamento||'', desc:p.descricao||''
+        prog:p.prog||0, desc:p.descricao||''
       }));
     }
 
-    // ââ DENÃNCIAS: Supabase Ã© a Ãºnica fonte de verdade
+    // ── DENÚNCIAS: Supabase é a única fonte de verdade
     if(denRows.length > 0) {
       DB.denuncias = denRows.map(rowToDn);
     }
 
-    // ââ FLOWBOARD
+    // ── FLOWBOARD
     if(fbRows && fbRows[0] && fbRows[0].data) {
       const saved = fbRows[0].data;
       if(Object.keys(saved).length > 0) DB.fbBoards = saved;
     }
 
-    // rm_planos, agenda e settings jÃ¡ carregados no load-all acima
+    // rm_planos, agenda e settings já carregados no load-all acima
 
-    // ââ Atualizar _ids com o mÃ¡ximo de todos os dados
+    // ── Atualizar _ids com o máximo de todos os dados
     const maxId = arr => arr && arr.length ? Math.max(...arr.map(x=>x.id||0)) + 1 : 1;
     DB._ids.filial  = Math.max(DB._ids.filial||1,  maxId(DB.filiais));
     DB._ids.risco   = Math.max(DB._ids.risco||20,  maxId(DB.riscos));
@@ -3146,39 +3125,39 @@ async function loadFromSupabase() {
 
     saveLocalCache();
     showLoadingBar(false);
-    setSaveIndicator('âï¸ Sincronizado', 'var(--accent)');
-    console.log(`[ComplianceHub] Supabase OK: ${DB.riscos.length} riscos, ${DB.denuncias.length} denÃºncias, ${DB.filiais.length} filiais`);
+    setSaveIndicator('☁️ Sincronizado', 'var(--accent)');
+    console.log(`[ComplianceHub] Supabase OK: ${DB.riscos.length} riscos, ${DB.denuncias.length} denúncias, ${DB.filiais.length} filiais`);
     return true;
   } catch(e) {
     showLoadingBar(false);
     console.warn('[ComplianceHub] Supabase erro:', e.message);
 
     if(e.message && (e.message.includes('Failed to fetch') || e.message.includes('NetworkError'))) {
-      setSaveIndicator('â ï¸ Sem internet (cache local)', 'var(--warn)');
+      setSaveIndicator('⚠️ Sem internet (cache local)', 'var(--warn)');
       return false;
     }
-    if(e.message && e.message.includes('nÃ£o existe')) {
-      setSaveIndicator('â Tabelas nÃ£o criadas', 'var(--danger)');
-      setTimeout(() => alert('â ' + e.message + '\n\nExecute o arquivo supabase_COMPLETO.sql no SQL Editor do Supabase.'), 300);
+    if(e.message && e.message.includes('não existe')) {
+      setSaveIndicator('❌ Tabelas não criadas', 'var(--danger)');
+      setTimeout(() => alert('❌ ' + e.message + '\n\nExecute o arquivo supabase_COMPLETO.sql no SQL Editor do Supabase.'), 300);
       return false;
     }
-    if(e.message && e.message.includes('sem permissÃ£o')) {
-      setSaveIndicator('â PermissÃ£o negada', 'var(--danger)');
-      setTimeout(() => alert('â ' + e.message + '\n\nExecute o arquivo supabase_LIBERAR_SCHEMA.sql no SQL Editor do Supabase.'), 300);
+    if(e.message && e.message.includes('sem permissão')) {
+      setSaveIndicator('❌ Permissão negada', 'var(--danger)');
+      setTimeout(() => alert('❌ ' + e.message + '\n\nExecute o arquivo supabase_LIBERAR_SCHEMA.sql no SQL Editor do Supabase.'), 300);
       return false;
     }
-    setSaveIndicator('â ' + e.message.slice(0,50), 'var(--danger)');
+    setSaveIndicator('❌ ' + e.message.slice(0,50), 'var(--danger)');
     console.warn('[ComplianceHub] Erro Supabase:', e.message);
     return false;
   }
 }
 
-// ââ Save single item to Supabase
+// ── Save single item to Supabase
 async function sbSaveDenuncia(d) {
   if(!USE_SUPABASE) return;
   try {
     await sbUpsert('denuncias', dnToRow(d));
-    auditLog('update','denuncias', `DenÃºncia ${d.proto||d.id} â status: ${d.status||''}`, {proto:d.proto, status:d.status});
+    auditLog('update','denuncias', `Denúncia ${d.proto||d.id} — status: ${d.status||''}`, {proto:d.proto, status:d.status});
   } catch(e) { console.warn('sbSaveDenuncia:', e.message); }
 }
 async function sbSaveAgenda(e) {
@@ -3194,14 +3173,14 @@ async function sbSaveAgenda(e) {
 }
 async function sbDeleteAgenda(id) {
   if(!USE_SUPABASE) return;
-  try { await sbDelete('agenda', id); auditLog('delete','agenda',`Evento ID ${id} excluÃ­do`,{id}); }
+  try { await sbDelete('agenda', id); auditLog('delete','agenda',`Evento ID ${id} excluído`,{id}); }
   catch(e) { console.warn('sbDeleteAgenda:', e.message); }
 }
 async function sbDeleteDenuncia(id) {
   if(!USE_SUPABASE) return;
   try {
     await sbDelete('denuncias', id);
-    auditLog('delete','denuncias', `DenÃºncia ID ${id} excluÃ­da`, {id});
+    auditLog('delete','denuncias', `Denúncia ID ${id} excluída`, {id});
   } catch(e) { console.warn('sbDeleteDenuncia:', e.message); }
 }
 async function sbSaveFilial(f) {
@@ -3212,30 +3191,30 @@ async function sbSaveFilial(f) {
 }
 async function sbDeleteFilial(id) {
   if(!USE_SUPABASE) return;
-  try { await sbDelete('filiais', id); auditLog('delete','filiais',`Filial ID ${id} excluÃ­da`,{id}); }
+  try { await sbDelete('filiais', id); auditLog('delete','filiais',`Filial ID ${id} excluída`,{id}); }
   catch(e) { console.warn('sbDeleteFilial:', e.message); }
 }
 async function sbSaveRisco(r) {
   if(!USE_SUPABASE) return;
   const row = { id:r.id, descricao:r.desc, cat:r.cat, filial:r.filial||'Todas', setor:r.setor, unidade:r.unidade||'Geral', prob:r.prob, impacto:r.impacto, controle:r.controle||'', obs:r.obs||'' };
-  try { await sbUpsert('riscos', row); auditLog('update','riscos',`Risco "${r.desc?.substring(0,40)}" salvo â ${r.unidade||''}`,{unidade:r.unidade}); }
+  try { await sbUpsert('riscos', row); auditLog('update','riscos',`Risco "${r.desc?.substring(0,40)}" salvo — ${r.unidade||''}`,{unidade:r.unidade}); }
   catch(e) { console.warn('sbSaveRisco:', e.message); }
 }
 async function sbDeleteRisco(id) {
   if(!USE_SUPABASE) return;
-  try { await sbDelete('riscos', id); auditLog('delete','riscos',`Risco ID ${id} excluÃ­do`,{id}); }
+  try { await sbDelete('riscos', id); auditLog('delete','riscos',`Risco ID ${id} excluído`,{id}); }
   catch(e) { console.warn('sbDeleteRisco:', e.message); }
 }
 async function sbSaveRmPlano(p) {
   if(!USE_SUPABASE) return;
   // rmPlanos table: id, risco_id, titulo, resp, prazo, tipo, status, prog
-  const row = { id:p.id, risco_id:p.riscoId, titulo:p.titulo, resp:p.resp||'', prazo:p.prazo||null, tipo:p.tipo||'Preventiva', status:p.status||'NÃ£o Iniciado', prog:p.prog||0 };
+  const row = { id:p.id, risco_id:p.riscoId, titulo:p.titulo, resp:p.resp||'', prazo:p.prazo||null, tipo:p.tipo||'Preventiva', status:p.status||'Não Iniciado', prog:p.prog||0 };
   try { await sbUpsert('rm_planos', row); auditLog('update','rm_planos',`Plano RM "${p.titulo}" salvo`,{titulo:p.titulo,status:p.status}); }
   catch(e) { console.warn('sbSaveRmPlano:', e.message); }
 }
 async function sbDeleteRmPlano(id) {
   if(!USE_SUPABASE) return;
-  try { await sbDelete('rm_planos', id); auditLog('delete','rm_planos',`Plano RM ID ${id} excluÃ­do`,{id}); }
+  try { await sbDelete('rm_planos', id); auditLog('delete','rm_planos',`Plano RM ID ${id} excluído`,{id}); }
   catch(e) { console.warn('sbDeleteRmPlano:', e.message); }
 }
 async function sbSaveRmUnit(units) {
@@ -3252,18 +3231,18 @@ async function sbSaveControle(c) {
 }
 async function sbDeleteControle(id) {
   if(!USE_SUPABASE) return;
-  try { await sbDelete('controles', id); auditLog('delete','controles',`Controle ID ${id} excluÃ­do`,{id}); }
+  try { await sbDelete('controles', id); auditLog('delete','controles',`Controle ID ${id} excluído`,{id}); }
   catch(e) { console.warn('sbDeleteControle:', e.message); }
 }
 async function sbSavePlano(p) {
   if(!USE_SUPABASE) return;
-  const row = { id:p.id, titulo:p.titulo, origem:p.origem||'', filial:p.filial, setor:p.setor, resp:p.resp||'', prazo:p.prazo||null, prio:p.prio, status:p.status, prog:p.prog||0, andamento:p.andamento||'', descricao:p.desc||'' };
+  const row = { id:p.id, titulo:p.titulo, origem:p.origem||'', filial:p.filial, setor:p.setor, resp:p.resp||'', prazo:p.prazo||null, prio:p.prio, status:p.status, prog:p.prog||0, descricao:p.desc||'' };
   try { await sbUpsert('planos', row); auditLog('update','planos',`Plano "${p.titulo}" salvo`,{titulo:p.titulo,status:p.status}); }
   catch(e) { console.warn('sbSavePlano:', e.message); }
 }
 async function sbDeletePlano(id) {
   if(!USE_SUPABASE) return;
-  try { await sbDelete('planos', id); auditLog('delete','planos',`Plano ID ${id} excluÃ­do`,{id}); }
+  try { await sbDelete('planos', id); auditLog('delete','planos',`Plano ID ${id} excluído`,{id}); }
   catch(e) { console.warn('sbDeletePlano:', e.message); }
 }
 async function sbSaveFbBoards() {
@@ -3272,7 +3251,7 @@ async function sbSaveFbBoards() {
   catch(e) { console.warn('sbSaveFbBoards:', e.message); }
 }
 
-// ââ Bulk import denuncias to Supabase
+// ── Bulk import denuncias to Supabase
 async function sbBulkImportDenuncias(rows) {
   if(!USE_SUPABASE || rows.length === 0) return;
   let success = 0, failed = 0;
@@ -3300,21 +3279,21 @@ async function sbBulkImportDenuncias(rows) {
     }
     showLoadingBar(false);
     if(failed > 0) {
-      setSaveIndicator(`â ï¸ ${success} salvas, ${failed} com erro`, 'var(--warn)');
+      setSaveIndicator(`⚠️ ${success} salvas, ${failed} com erro`, 'var(--warn)');
     } else {
-      auditLog('import', 'denuncias', `Planilha importada â ${success} denÃºncias`, {total:success, erros:failed});
-    setSaveIndicator(`âï¸ ${success} denÃºncias salvas na nuvem`, 'var(--accent)');
+      auditLog('import', 'denuncias', `Planilha importada — ${success} denúncias`, {total:success, erros:failed});
+    setSaveIndicator(`☁️ ${success} denúncias salvas na nuvem`, 'var(--accent)');
     }
   } catch(e) {
     console.warn('sbBulkImport erro geral:', e.message);
     showLoadingBar(false);
-    setSaveIndicator('â Erro ao salvar na nuvem: ' + e.message.slice(0,60), 'var(--danger)');
+    setSaveIndicator('❌ Erro ao salvar na nuvem: ' + e.message.slice(0,60), 'var(--danger)');
   }
 }
 
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 // CACHE LOCAL (fallback offline)
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 const DB_KEY = 'compliance_hub_db_v5';
 function saveLocalCache() {
   try {
@@ -3334,8 +3313,8 @@ function loadLocalCache() {
     if(!raw) return false;
     const s = JSON.parse(raw);
     if(!s) return false;
-    // Filiais: cache sÃ³ vence se tiver mais que o built-in (16)
-    // Supabase Ã© a fonte de verdade â cache local Ã© sÃ³ fallback offline
+    // Filiais: cache só vence se tiver mais que o built-in (16)
+    // Supabase é a fonte de verdade — cache local é só fallback offline
     if(s.filiais && s.filiais.length > 0) DB.filiais = s.filiais;
     if(s.riscos && s.riscos.length > 0) DB.riscos = s.riscos;
     if(s.rmPlanos && s.rmPlanos.length > 0) DB.rmPlanos = s.rmPlanos;
@@ -3357,7 +3336,7 @@ function loadLocalCache() {
   } catch(e) { return false; }
 }
 function forceResetCache() {
-  if(!confirm('Limpar cache e recarregar dados originais?\nSuas denÃºncias serÃ£o mantidas.')) return;
+  if(!confirm('Limpar cache e recarregar dados originais?\nSuas denúncias serão mantidas.')) return;
   try {
     const dn = JSON.stringify(DB.denuncias);
     ['v1','v2','v3','v4','v5'].forEach(v => { try { localStorage.removeItem('compliance_hub_db_'+v); } catch(e){} });
@@ -3372,9 +3351,9 @@ function clearLocalCache() { localStorage.removeItem(DB_KEY); }
 let _saveTimer = null;
 function saveDB() {
   saveLocalCache();
-  setSaveIndicator('ð¾ Salvando...', 'var(--warn)');
+  setSaveIndicator('💾 Salvando...', 'var(--warn)');
   clearTimeout(_saveTimer);
-  _saveTimer = setTimeout(() => setSaveIndicator('â Salvo localmente', 'var(--accent)'), 500);
+  _saveTimer = setTimeout(() => setSaveIndicator('✅ Salvo localmente', 'var(--accent)'), 500);
 }
 
 function setSaveIndicator(text, color) {
@@ -3387,7 +3366,7 @@ function getDBSizeKB() {
   try { const r = localStorage.getItem(DB_KEY); return r ? (r.length/1024).toFixed(1):'0'; } catch(e){ return '?'; }
 }
 
-// ââ Loading bar for Supabase ops
+// ── Loading bar for Supabase ops
 function showLoadingBar(show, msg='') {
   let bar = document.getElementById('sb-loading');
   if(!bar) {
@@ -3400,13 +3379,13 @@ function showLoadingBar(show, msg='') {
     document.body.appendChild(bar);
   }
   bar.style.display = show ? 'block' : 'none';
-  if(msg) setSaveIndicator('â³ ' + msg, 'var(--warn)');
+  if(msg) setSaveIndicator('⏳ ' + msg, 'var(--warn)');
 }
 
 
-// ââââââââââââââââââââââââââââââââââââââââââ
-// PAINEL ADMIN â GERENCIAR DADOS
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
+// PAINEL ADMIN — GERENCIAR DADOS
+// ══════════════════════════════════════════
 function openAdminPanel() {
   const size = getDBSizeKB();
   const savedAt = (() => {
@@ -3423,8 +3402,8 @@ function openAdminPanel() {
   const sbStatusEl = document.getElementById('admin-sb-status');
   if(sbStatusEl) {
     sbStatusEl.textContent = USE_SUPABASE
-      ? 'ð¢ Supabase configurado (' + SUPABASE_URL.replace('https://','').split('.')[0] + '.supabase.co)'
-      : 'ð´ Supabase nÃ£o configurado â dados salvos sÃ³ neste navegador';
+      ? '🟢 Supabase configurado (' + SUPABASE_URL.replace('https://','').split('.')[0] + '.supabase.co)'
+      : '🔴 Supabase não configurado — dados salvos só neste navegador';
     sbStatusEl.style.color = USE_SUPABASE ? 'var(--accent)' : 'var(--danger)';
   }
 
@@ -3441,8 +3420,8 @@ function openAdminPanel() {
 function adminSaveNow() {
   saveDB();
   const btn = document.getElementById('btn-admin-save');
-  btn.textContent = 'â Salvo!';
-  setTimeout(() => { btn.textContent = 'ð¾ Salvar Agora'; }, 1500);
+  btn.textContent = '✅ Salvo!';
+  setTimeout(() => { btn.textContent = '💾 Salvar Agora'; }, 1500);
   openAdminPanel(); // refresh stats
 }
 
@@ -3467,8 +3446,8 @@ function adminImportJSON(e) {
   reader.onload = ev => {
     try {
       const snap = JSON.parse(ev.target.result);
-      if(!snap.denuncias) { alert('Arquivo invÃ¡lido â nÃ£o Ã© um backup do Compliance Hub.'); return; }
-      if(!confirm(`Importar backup de ${new Date(snap._exportedAt||Date.now()).toLocaleString('pt-BR')}?\n\nIsso substituirÃ¡ TODOS os dados atuais.\n\nContinuar?`)) return;
+      if(!snap.denuncias) { alert('Arquivo inválido — não é um backup do Compliance Hub.'); return; }
+      if(!confirm(`Importar backup de ${new Date(snap._exportedAt||Date.now()).toLocaleString('pt-BR')}?\n\nIsso substituirá TODOS os dados atuais.\n\nContinuar?`)) return;
       DB.filiais   = snap.filiais   || DB.filiais;
       DB.riscos    = snap.riscos    || DB.riscos;
       DB.controles = snap.controles || DB.controles;
@@ -3481,7 +3460,7 @@ function adminImportJSON(e) {
       populateRelSelectsForce();
       renderDashboard();
       closeModal('modal-admin');
-      alert('â Backup importado com sucesso! ' + DB.denuncias.length + ' denÃºncias carregadas.');
+      alert('✅ Backup importado com sucesso! ' + DB.denuncias.length + ' denúncias carregadas.');
     } catch(err) {
       alert('Erro ao importar: ' + err.message);
     }
@@ -3492,7 +3471,7 @@ function adminImportJSON(e) {
 
 async function adminSyncSupabase() {
   if(!USE_SUPABASE) {
-    alert('â ï¸ Supabase nÃ£o configurado.\n\nAbra o arquivo HTML e substitua os valores:\n- SUPABASE_URL\n- SUPABASE_ANON_KEY');
+    alert('⚠️ Supabase não configurado.\n\nAbra o arquivo HTML e substitua os valores:\n- SUPABASE_URL\n- SUPABASE_ANON_KEY');
     return;
   }
   closeModal('modal-admin');
@@ -3502,20 +3481,20 @@ async function adminSyncSupabase() {
     populateRelSelectsForce();
     renderDashboard();
     if(typeof renderMapaRisco === 'function') renderMapaRisco();
-    alert('â Dados sincronizados com sucesso!\n\n' + DB.riscos.length + ' riscos, ' + DB.denuncias.length + ' denÃºncias carregadas da nuvem.');
+    alert('✅ Dados sincronizados com sucesso!\n\n' + DB.riscos.length + ' riscos, ' + DB.denuncias.length + ' denúncias carregadas da nuvem.');
   } else {
-    alert('â Falha ao conectar ao Supabase.\n\nVerifique:\n1. URL e chave corretas\n2. ConexÃ£o com a internet\n3. PolÃ­ticas RLS no Supabase');
+    alert('❌ Falha ao conectar ao Supabase.\n\nVerifique:\n1. URL e chave corretas\n2. Conexão com a internet\n3. Políticas RLS no Supabase');
   }
 }
 
-// Push ALL local data to Supabase (resolve inconsistÃªncias entre dispositivos)
+// Push ALL local data to Supabase (resolve inconsistências entre dispositivos)
 async function adminPushToSupabase() {
-  if(!USE_SUPABASE) { alert('Supabase nÃ£o configurado.'); return; }
-  if(!confirm('Isso vai enviar TODOS os dados locais para o Supabase, sobrescrevendo o que estÃ¡ na nuvem.\n\nContinuar?')) return;
+  if(!USE_SUPABASE) { alert('Supabase não configurado.'); return; }
+  if(!confirm('Isso vai enviar TODOS os dados locais para o Supabase, sobrescrevendo o que está na nuvem.\n\nContinuar?')) return;
   closeModal('modal-admin');
-  setSaveIndicator('â³ Enviando para nuvem...','var(--warn)');
+  setSaveIndicator('⏳ Enviando para nuvem...','var(--warn)');
   try {
-    // Push riscos (apenas os que nÃ£o sÃ£o built-in puro â com unidade definida)
+    // Push riscos (apenas os que não são built-in puro — com unidade definida)
     const riscosToSync = (DB.riscos||[]);
     await Promise.all(riscosToSync.map(r => sbSaveRisco(r)));
     // Push rmPlanos
@@ -3528,16 +3507,16 @@ async function adminPushToSupabase() {
     // Push denuncias
     await Promise.all((DB.denuncias||[]).map(d => sbSaveDenuncia(d)));
     await Promise.all((DB.agenda||[]).map(e => sbSaveAgenda(e)));
-    setSaveIndicator('âï¸ Tudo enviado para nuvem','var(--accent)');
-    alert('â Todos os dados foram enviados para o Supabase!\n\n' + riscosToSync.length + ' riscos\n' + rmPlanosToSync.length + ' planos\n' + (DB.denuncias||[]).length + ' denÃºncias\n' + (DB.agenda||[]).length + ' eventos');
+    setSaveIndicator('☁️ Tudo enviado para nuvem','var(--accent)');
+    alert('✅ Todos os dados foram enviados para o Supabase!\n\n' + riscosToSync.length + ' riscos\n' + rmPlanosToSync.length + ' planos\n' + (DB.denuncias||[]).length + ' denúncias\n' + (DB.agenda||[]).length + ' eventos');
   } catch(e) {
-    setSaveIndicator('â Erro ao enviar','var(--danger)');
-    alert('â Erro: ' + e.message);
+    setSaveIndicator('❌ Erro ao enviar','var(--danger)');
+    alert('❌ Erro: ' + e.message);
   }
 }
 
 function adminReset() {
-  if(!confirm('â ï¸ ATENÃÃO\n\nIsso apagarÃ¡ TODAS as ediÃ§Ãµes do cache local e recarregarÃ¡ da nuvem (se configurado).\n\nEsta aÃ§Ã£o nÃ£o pode ser desfeita.\n\nTem certeza?')) return;
+  if(!confirm('⚠️ ATENÇÃO\n\nIsso apagará TODAS as edições do cache local e recarregará da nuvem (se configurado).\n\nEsta ação não pode ser desfeita.\n\nTem certeza?')) return;
   if(!confirm('Confirme: deseja realmente resetar o cache local?')) return;
   clearLocalCache();
   location.reload();
@@ -3549,7 +3528,7 @@ function init() {
   const now = new Date();
   document.getElementById('date-chip').textContent = now.toLocaleDateString('pt-BR', { weekday:'short', day:'2-digit', month:'short', year:'numeric' });
 
-  // ââ Load data: try Supabase first, fall back to local cache
+  // ── Load data: try Supabase first, fall back to local cache
   if(USE_SUPABASE) {
     // Show cache immediately while Supabase loads
     loadLocalCache();
@@ -3572,11 +3551,11 @@ function init() {
     }
     return; // init continues in async callback above
   } else {
-    // No Supabase configured â use localStorage only
+    // No Supabase configured — use localStorage only
     const loaded = loadLocalCache();
     if(loaded) console.log('[ComplianceHub] Dados do cache local.');
-    else console.log('[ComplianceHub] â ï¸ Configure o Supabase para persistÃªncia em nuvem.');
-    setSaveIndicator('ð¾ Modo local (sem nuvem)', '#f59e0b');
+    else console.log('[ComplianceHub] ⚠️ Configure o Supabase para persistência em nuvem.');
+    setSaveIndicator('💾 Modo local (sem nuvem)', '#f59e0b');
   }
 
   populateFilialSelects();
@@ -3593,13 +3572,13 @@ function init() {
   }, 200);
 }
 
-// Verificar se Supabase estÃ¡ configurado
+// Verificar se Supabase está configurado
 if(!USE_SUPABASE) {
   // Mostra aviso na tela depois de carregar
   setTimeout(() => {
     const ind = document.getElementById('save-indicator');
     if(ind) {
-      ind.innerHTML = 'â ï¸ Anon Key nÃ£o configurada';
+      ind.innerHTML = '⚠️ Anon Key não configurada';
       ind.style.color = '#f59e0b';
       ind.style.cursor = 'pointer';
       ind.title = 'Clique para configurar';
@@ -3610,33 +3589,33 @@ if(!USE_SUPABASE) {
 
 function showAnonKeySetup() {
   const key = prompt(
-    'ð Cole aqui sua ANON KEY do Supabase\n\n' +
+    '🔑 Cole aqui sua ANON KEY do Supabase\n\n' +
     'Como pegar:\n' +
     '1. Acesse: https://supabase.com\n' +
     '2. Abra seu projeto\n' +
-    '3. Clique em Settings â API\n' +
+    '3. Clique em Settings → API\n' +
     '4. Copie o campo "anon public"\n\n' +
-    'A chave comeÃ§a com: eyJhbGci...'
+    'A chave começa com: eyJhbGci...'
   );
   if(!key || !key.startsWith('eyJ')) {
-    if(key) alert('â Chave invÃ¡lida! A anon key deve comeÃ§ar com "eyJ"\n\nCertifique-se de copiar o campo "anon public" (nÃ£o o service_role)');
+    if(key) alert('❌ Chave inválida! A anon key deve começar com "eyJ"\n\nCertifique-se de copiar o campo "anon public" (não o service_role)');
     return;
   }
   // Salvar a chave no localStorage e recarregar com ela
   localStorage.setItem('sb_anon_key_override', key);
-  alert('â Chave salva! O sistema vai recarregar agora.');
+  alert('✅ Chave salva! O sistema vai recarregar agora.');
   location.reload();
 }
 
 // Anon key override gerenciado por getActiveKey()
 
-// ââââââââââââââââââââââââââââââââââââââââââ
-// DUE DILIGENCE v4 â CPF + CNPJ + MÃ­dias Negativas + Boolean Search
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
+// DUE DILIGENCE v4 — CPF + CNPJ + Mídias Negativas + Boolean Search
+// ══════════════════════════════════════════
 let ddTab='pj', ddCnpjN='', ddVerQueues={pj:[],pf:[]}, ddStCount=0;
 const JUNTAS={AC:{n:'JUCEA',u:'https://www.jucea.ac.gov.br/'},AL:{n:'JUCEAL',u:'https://www.juceal.al.gov.br/'},AM:{n:'JUCEA-AM',u:'https://www.jucea.am.gov.br/'},AP:{n:'JUCAP',u:'http://www.jucap.ap.gov.br/'},BA:{n:'JUCEB',u:'https://www.juceb.ba.gov.br/'},CE:{n:'JUCEC',u:'https://www.jucec.ce.gov.br/'},DF:{n:'JUCDF',u:'https://www.jucdf.df.gov.br/'},ES:{n:'JUCEES',u:'https://www.jucees.es.gov.br/'},GO:{n:'JUCEG',u:'https://www.juceg.go.gov.br/'},MA:{n:'JUCEMA',u:'https://www.jucema.ma.gov.br/'},MG:{n:'JUCEMG',u:'https://www.jucemg.mg.gov.br/'},MS:{n:'JUCEMS',u:'https://www.jucems.ms.gov.br/'},MT:{n:'JUCEMAT',u:'https://www.jucemat.mt.gov.br/'},PA:{n:'JUCEPA',u:'https://www.jucepa.pa.gov.br/'},PB:{n:'JUCEP',u:'https://www.jucep.pb.gov.br/'},PE:{n:'JUCEPE',u:'https://www.jucepe.pe.gov.br/'},PI:{n:'JUCEPI',u:'https://www.jucepi.pi.gov.br/'},PR:{n:'JUCEPAR',u:'https://www.jucepar.pr.gov.br/'},RJ:{n:'JUCERJA',u:'https://www.jucerja.rj.gov.br/'},RN:{n:'JUCERN',u:'https://www.jucern.rn.gov.br/'},RO:{n:'JUCER',u:'http://www.jucer.ro.gov.br/'},RR:{n:'JUCERR',u:'https://www.jucerr.rr.gov.br/'},RS:{n:'JUCERGS',u:'https://www.jucergs.rs.gov.br/'},SC:{n:'JUCESC',u:'https://www.jucesc.sc.gov.br/'},SE:{n:'JUCESE',u:'https://www.jucese.se.gov.br/'},SP:{n:'JUCESP',u:'https://www.jucesp.sp.gov.br/'},TO:{n:'JUCETINS',u:'https://www.jucetins.to.gov.br/'}};
 
-// ââ MASKS âââââââââââââââââââââââââââââââââ
+// ── MASKS ─────────────────────────────────
 function ddMC(v){v=v.replace(/\D/g,'');v=v.replace(/^(\d{2})(\d)/,'$1.$2');v=v.replace(/^(\d{2})\.(\d{3})(\d)/,'$1.$2.$3');v=v.replace(/\.(\d{3})(\d)/,'.$1/$2');v=v.replace(/(\d{4})(\d)/,'$1-$2');return v.substr(0,18);}
 function ddMCpf(v){v=v.replace(/\D/g,'');v=v.replace(/(\d{3})(\d)/,'$1.$2');v=v.replace(/(\d{3})(\d)/,'$1.$2');v=v.replace(/(\d{3})(\d{1,2})$/,'$1-$2');return v.substr(0,14);}
 function ddFmt(n){return n.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/,'$1.$2.$3/$4-$5');}
@@ -3644,7 +3623,7 @@ function ddV(id){const e=document.getElementById(id);return e?e.value.trim():'';
 function ddSet(id,v){const e=document.getElementById(id);if(e&&v&&!e.value)e.value=v;}
 function ddSC(s){const u=(s||'').toUpperCase();if(u.includes('ATIVA')||u==='02')return'ok';if(u.includes('INAPT')||u.includes('SUSPENS')||u.includes('BAIXAD')||u.includes('CANCEL'))return'err';return'warn';}
 
-// ââ TABS ââââââââââââââââââââââââââââââââââ
+// ── TABS ──────────────────────────────────
 function ddSwitchTab(tab){
   ddTab=tab;
   document.getElementById('dd-tab-pj').classList.toggle('active',tab==='pj');
@@ -3653,34 +3632,34 @@ function ddSwitchTab(tab){
   document.getElementById('dd-panel-pf').style.display=tab==='pf'?'block':'none';
 }
 
-// ââ GOOGLE URL ââââââââââââââââââââââââââââ
+// ── GOOGLE URL ────────────────────────────
 function ddG(q){return{url:'https://www.google.com/search?q='+encodeURIComponent(q),query:q,isGoogle:true};}
-function ddGT(q){return{url:'https://www.google.com/search?q='+encodeURIComponent(q)+'&tbm=nws',query:q+' [NOTÃCIAS]',isGoogle:true};}// Google NotÃ­cias
+function ddGT(q){return{url:'https://www.google.com/search?q='+encodeURIComponent(q)+'&tbm=nws',query:q+' [NOTÍCIAS]',isGoogle:true};}// Google Notícias
 function ddA(url,q){return{url,query:q,isGoogle:false};}
 
-// ââ BOOLEAN SEARCH BUILDER ââââââââââââââââ
-// ConstrÃ³i queries booleanas profissionais para mÃ­dias negativas
+// ── BOOLEAN SEARCH BUILDER ────────────────
+// Constrói queries booleanas profissionais para mídias negativas
 function buildBooleanQuery(alvo, doc){
   const base = `"${alvo}"`;
   const docStr = doc ? ` "${doc}"` : '';
 
   return {
-    criminal: `${base}${docStr} AND (corrupÃ§Ã£o OR crime OR processo OR investigaÃ§Ã£o OR fraude OR "lavagem de dinheiro" OR suborno OR "trabalho escravo" OR "lista suja" OR condenado OR rÃ©u OR "mandado de prisÃ£o" OR peculato OR trÃ¡fico OR sequestro) -site:instagram.com -site:facebook.com -site:tiktok.com`,
-    financeiro: `${base}${docStr} AND (fraude OR "pirÃ¢mide financeira" OR Ponzi OR insolvÃªncia OR inadimplÃªncia OR offshore OR "evasÃ£o de divisas" OR "crimes financeiros" OR falÃªncia OR "recuperaÃ§Ã£o judicial" OR protesto OR inadimplente OR estelionato) -site:instagram.com -site:facebook.com`,
-    regulatorio: `${base}${docStr} AND (sanÃ§Ã£o OR "improbidade administrativa" OR OFAC OR blacklist OR "investigaÃ§Ã£o MP" OR "MinistÃ©rio PÃºblico" OR CVM OR BACEN OR "processo administrativo" OR interdiÃ§Ã£o OR cassaÃ§Ã£o OR suspenso) -site:instagram.com -site:facebook.com`,
-    reputacional: `${base}${docStr} AND (escÃ¢ndalo OR denÃºncia OR "assÃ©dio moral" OR "assÃ©dio sexual" OR "desastre ambiental" OR "multa IBAMA" OR "direitos humanos" OR "trabalho anÃ¡logo" OR golpe OR fraude OR calote OR enganou) -site:instagram.com`,
-    pep: `"${alvo}" AND ("cargo pÃºblico" OR "servidor pÃºblico" OR governador OR senador OR deputado OR prefeito OR secretÃ¡rio OR ministro OR "Pessoa Politicamente Exposta" OR PEP OR "partido polÃ­tico")`,
+    criminal: `${base}${docStr} AND (corrupção OR crime OR processo OR investigação OR fraude OR "lavagem de dinheiro" OR suborno OR "trabalho escravo" OR "lista suja" OR condenado OR réu OR "mandado de prisão" OR peculato OR tráfico OR sequestro) -site:instagram.com -site:facebook.com -site:tiktok.com`,
+    financeiro: `${base}${docStr} AND (fraude OR "pirâmide financeira" OR Ponzi OR insolvência OR inadimplência OR offshore OR "evasão de divisas" OR "crimes financeiros" OR falência OR "recuperação judicial" OR protesto OR inadimplente OR estelionato) -site:instagram.com -site:facebook.com`,
+    regulatorio: `${base}${docStr} AND (sanção OR "improbidade administrativa" OR OFAC OR blacklist OR "investigação MP" OR "Ministério Público" OR CVM OR BACEN OR "processo administrativo" OR interdição OR cassação OR suspenso) -site:instagram.com -site:facebook.com`,
+    reputacional: `${base}${docStr} AND (escândalo OR denúncia OR "assédio moral" OR "assédio sexual" OR "desastre ambiental" OR "multa IBAMA" OR "direitos humanos" OR "trabalho análogo" OR golpe OR fraude OR calote OR enganou) -site:instagram.com`,
+    pep: `"${alvo}" AND ("cargo público" OR "servidor público" OR governador OR senador OR deputado OR prefeito OR secretário OR ministro OR "Pessoa Politicamente Exposta" OR PEP OR "partido político")`,
     recente: `"${alvo}"${docStr} after:${new Date(Date.now()-365*24*60*60*1000).toISOString().split('T')[0]}`,
   };
 }
 
-// ââ VERIFY ââââââââââââââââââââââââââââââââ
+// ── VERIFY ────────────────────────────────
 let ddVStats={};
 function ddInitStats(prefix){ddVStats[prefix]={f:0,n:0,neg:0,e:0,tot:0};}
 
 async function ddCheckLink(statusEl, url, query, prefix, isNegative){
   if(!url||!url.includes('google.com/search')){
-    ddSetStatus(statusEl,'manual','VerificaÃ§Ã£o manual');
+    ddSetStatus(statusEl,'manual','Verificação manual');
     ddVStats[prefix].e++;ddUpdVerBar(prefix,ddVerQueues[prefix].length);return;
   }
   const clean=query.replace(/site:\S+/g,'').replace(/"[^"]*"\s+AND\s+/g,'').replace(/AND|OR|NOT/g,'').replace(/[-"()]/g,'').replace(/\s+/g,' ').trim().substring(0,80);
@@ -3691,10 +3670,10 @@ async function ddCheckLink(statusEl, url, query, prefix, isNegative){
     const d=await r.json();
     const has=!!(d.AbstractText?.length>15||d.RelatedTopics?.length>0||d.Results?.length>0||d.Answer?.length>0);
     if(has){
-      if(isNegative){ddSetStatus(statusEl,'negative','ð£ MÃ­dia negativa detectada');ddVStats[prefix].neg++;}
-      else{ddSetStatus(statusEl,'found','â Encontrado');ddVStats[prefix].f++;}
-    }else{ddSetStatus(statusEl,'not-found','â Sem resultados');ddVStats[prefix].n++;}
-  }catch(e){ddSetStatus(statusEl,'manual','VerificaÃ§Ã£o manual');ddVStats[prefix].e++;}
+      if(isNegative){ddSetStatus(statusEl,'negative','🟣 Mídia negativa detectada');ddVStats[prefix].neg++;}
+      else{ddSetStatus(statusEl,'found','✅ Encontrado');ddVStats[prefix].f++;}
+    }else{ddSetStatus(statusEl,'not-found','➖ Sem resultados');ddVStats[prefix].n++;}
+  }catch(e){ddSetStatus(statusEl,'manual','Verificação manual');ddVStats[prefix].e++;}
   ddUpdVerBar(prefix, ddVerQueues[prefix].length);
 }
 
@@ -3704,14 +3683,14 @@ function ddSetStatus(el,cls,txt){
   el.innerHTML=`<div class="dd-std"></div>${txt}`;
 }
 
-// Atualiza painel de risco quando mÃ­dias negativas sÃ£o detectadas em tempo real
+// Atualiza painel de risco quando mídias negativas são detectadas em tempo real
 function ddAtualizarPainelRisco(prefix) {
   const s = ddVStats[prefix];
   if(!s || s.neg === 0) return;
   const painelId = prefix === 'pj' ? 'pj-risk-midia' : 'pf-risk-midia';
   let painel = document.getElementById(painelId);
   if(!painel) {
-    // Criar painel de alerta de mÃ­dias negativas
+    // Criar painel de alerta de mídias negativas
     const resultado = document.getElementById(prefix+'-result');
     if(!resultado) return;
     const riskBox = resultado.querySelector('.dd-rb');
@@ -3723,15 +3702,15 @@ function ddAtualizarPainelRisco(prefix) {
   }
   painel.innerHTML = `
     <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
-      <span style="font-size:1.3rem">ð£</span>
+      <span style="font-size:1.3rem">🟣</span>
       <div>
-        <div style="font-weight:800;color:#7e22ce;font-size:.9rem">ATENÃÃO â ${s.neg} mÃ­dia(s) negativa(s) detectada(s) automaticamente</div>
-        <div style="font-size:.77rem;color:#6b21a8;margin-top:2px">Verifique os links marcados com ð£ abaixo. PresenÃ§a em mÃ­dias negativas eleva significativamente o risco contratual.</div>
+        <div style="font-weight:800;color:#7e22ce;font-size:.9rem">ATENÇÃO — ${s.neg} mídia(s) negativa(s) detectada(s) automaticamente</div>
+        <div style="font-size:.77rem;color:#6b21a8;margin-top:2px">Verifique os links marcados com 🟣 abaixo. Presença em mídias negativas eleva significativamente o risco contratual.</div>
       </div>
     </div>
     <div style="background:#fff;border-radius:8px;padding:10px 14px;font-size:.82rem;color:#7e22ce;font-weight:600">
-      â ï¸ RecomendaÃ§Ã£o: investigar o conteÃºdo de cada link marcado antes de qualquer decisÃ£o de contrataÃ§Ã£o. 
-      Considere elevar o nÃ­vel de risco desta empresa para <strong>ALTO</strong> se o conteÃºdo confirmar irregularidades.
+      ⚠️ Recomendação: investigar o conteúdo de cada link marcado antes de qualquer decisão de contratação. 
+      Considere elevar o nível de risco desta empresa para <strong>ALTO</strong> se o conteúdo confirmar irregularidades.
     </div>`;
 }
 
@@ -3742,7 +3721,7 @@ function ddUpdVerBar(prefix, total){
   const fill=document.getElementById(prefix+'-vb-fill');const pctEl=document.getElementById(prefix+'-vb-pct');
   if(fill)fill.style.width=pct+'%';if(pctEl)pctEl.textContent=pct+'%';
   ['f','n','neg','e'].forEach(k=>{const el=document.getElementById(prefix+'-vb-'+k);if(el)el.textContent=s[k];});
-  if(done>=total){const vb=document.getElementById(prefix+'-vbar');const t=vb?.querySelector('.dd-vb-t span');if(t)setTimeout(()=>{t.textContent=`â VerificaÃ§Ã£o concluÃ­da â ${s.neg} mÃ­dia(s) negativa(s) detectada(s)`;t.style.color=s.neg>0?'#7e22ce':'var(--text-muted)';},500);}
+  if(done>=total){const vb=document.getElementById(prefix+'-vbar');const t=vb?.querySelector('.dd-vb-t span');if(t)setTimeout(()=>{t.textContent=`✅ Verificação concluída — ${s.neg} mídia(s) negativa(s) detectada(s)`;t.style.color=s.neg>0?'#7e22ce':'var(--text-muted)';},500);}
 }
 
 async function ddRunVerify(queue,prefix){
@@ -3757,15 +3736,15 @@ async function ddRunVerify(queue,prefix){
   }
 }
 
-// ââ LINK HTML âââââââââââââââââââââââââââââ
+// ── LINK HTML ─────────────────────────────
 function ddLiHTML(item, prefix, isNegative=false){
-  if(item.disabled)return`<div class="dd-li disabled"><span class="dd-lb lb-${item.p||'g'}">${item.p==='r'?'CRÃTICO':item.p==='a'?'ATENÃÃO':'BASE'}</span><div class="dd-li-main"><div class="dd-li-lbl">${item.label}</div></div></div>`;
+  if(item.disabled)return`<div class="dd-li disabled"><span class="dd-lb lb-${item.p||'g'}">${item.p==='r'?'CRÍTICO':item.p==='a'?'ATENÇÃO':'BASE'}</span><div class="dd-li-main"><div class="dd-li-lbl">${item.label}</div></div></div>`;
   const sid='ds'+(++ddStCount);
   const initCls=item.isGoogle?'checking':'manual';
-  const initTxt=item.isGoogle?'Verificando...':'VerificaÃ§Ã£o manual';
+  const initTxt=item.isGoogle?'Verificando...':'Verificação manual';
   const lbCls=item.isMidia?'lb-neg':(item.p==='r'?'lb-r':item.p==='a'?'lb-a':'lb-g');
-  const lbTxt=item.isMidia?'MÃDIA NEG.':(item.p==='r'?'CRÃTICO':item.p==='a'?'ATENÃÃO':'BASE');
-  const qchip=item.query?`<span class="dd-li-q" title="${item.query.replace(/"/g,"'")}">${item.query.length>68?item.query.substr(0,68)+'â¦':item.query}</span>`:'';
+  const lbTxt=item.isMidia?'MÍDIA NEG.':(item.p==='r'?'CRÍTICO':item.p==='a'?'ATENÇÃO':'BASE');
+  const qchip=item.query?`<span class="dd-li-q" title="${item.query.replace(/"/g,"'")}">${item.query.length>68?item.query.substr(0,68)+'…':item.query}</span>`:'';
   if(item.isGoogle&&item.url&&item.url!=='#'){
     ddVerQueues[prefix].push({id:sid,url:item.url,query:item.query||'',isNegative:item.isMidia||isNegative});
   }
@@ -3773,11 +3752,11 @@ function ddLiHTML(item, prefix, isNegative=false){
     <span class="dd-lb ${lbCls}">${lbTxt}</span>
     <div class="dd-li-main"><div class="dd-li-lbl">${item.label}</div>${qchip}</div>
     <div class="dd-st ${initCls}" id="${sid}"><div class="dd-std"></div>${initTxt}</div>
-    <span style="color:var(--text-muted);font-size:.76rem;flex-shrink:0;margin-left:2px">â</span>
+    <span style="color:var(--text-muted);font-size:.76rem;flex-shrink:0;margin-left:2px">↗</span>
   </a>`;
 }
 
-// ââ LOG âââââââââââââââââââââââââââââââââââ
+// ── LOG ───────────────────────────────────
 function ddAddLog(prefix,msg,type='spin'){
   const w=document.getElementById(prefix+'-logwrap');const el=document.getElementById(prefix+'-log');
   if(w)w.style.display='block';
@@ -3792,19 +3771,19 @@ function ddUpdLog(el,msg,type){
   const sp=el.querySelector('span');if(sp)sp.textContent=msg;
 }
 
-// ââ API âââââââââââââââââââââââââââââââââââ
+// ── API ───────────────────────────────────
 async function ddTryApi(url,name,line){
   try{
     const ctrl=new AbortController();const tid=setTimeout(()=>ctrl.abort(),9000);
     const r=await fetch(url,{signal:ctrl.signal,headers:{'Accept':'application/json'}});
-    clearTimeout(tid);if(!r.ok){ddUpdLog(line,`${name} â HTTP ${r.status}`,'err');return null;}
+    clearTimeout(tid);if(!r.ok){ddUpdLog(line,`${name} — HTTP ${r.status}`,'err');return null;}
     const d=await r.json();
-    if(d&&(d.razao_social||d.nome||d.cnpj)){ddUpdLog(line,`${name} â dados recebidos`,'ok');return{api:name,data:d};}
-    ddUpdLog(line,`${name} â resposta vazia`,'err');return null;
-  }catch(e){ddUpdLog(line,`${name} â ${e.name==='AbortError'?'timeout':'bloqueado por CORS'}`,'err');return null;}
+    if(d&&(d.razao_social||d.nome||d.cnpj)){ddUpdLog(line,`${name} — dados recebidos`,'ok');return{api:name,data:d};}
+    ddUpdLog(line,`${name} — resposta vazia`,'err');return null;
+  }catch(e){ddUpdLog(line,`${name} — ${e.name==='AbortError'?'timeout':'bloqueado por CORS'}`,'err');return null;}
 }
 
-// ââ NORMALIZE âââââââââââââââââââââââââââââ
+// ── NORMALIZE ─────────────────────────────
 function ddNorm(d,api){
   try{
     let o={razao:'',situacao:'',abertura:'',porte:'',natureza:'',capital:'',email:'',telefone:'',uf:'',municipio:'',endereco:'',cnae_pri:{cod:'',desc:''},cnaes_sec:[],socios:[]};
@@ -3842,14 +3821,14 @@ function ddNorm(d,api){
   }catch(e){return null;}
 }
 
-// ââ AUTOFILL PJ âââââââââââââââââââââââââââ
+// ── AUTOFILL PJ ───────────────────────────
 async function pjAutoFill(){
   const raw=ddV('pj-cnpj').replace(/\D/g,'');if(raw.length!==14)return;
   ddCnpjN=raw;
-  const l=ddAddLog('pj','PrÃ©-carregando dados do CNPJ...','spin');
+  const l=ddAddLog('pj','Pré-carregando dados do CNPJ...','spin');
   const apis=[{name:'BrasilAPI',url:`https://brasilapi.com.br/api/cnpj/v1/${raw}`},{name:'ReceitaWS',url:`https://www.receitaws.com.br/v1/cnpj/${raw}`},{name:'CNPJ.ws',url:`https://publica.cnpj.ws/cnpj/${raw}`}];
   let found=null;for(const a of apis){found=await ddTryApi(a.url,a.name,l);if(found)break;}
-  if(!found){ddUpdLog(l,'APIs indisponÃ­veis â preencha manualmente','warn');return;}
+  if(!found){ddUpdLog(l,'APIs indisponíveis — preencha manualmente','warn');return;}
   const info=ddNorm(found.data,found.api);if(!info)return;
   ddUpdLog(l,'Campos preenchidos automaticamente','ok');
   ddSet('pj-razao',info.razao);if(info.endereco)ddSet('pj-end',info.endereco);
@@ -3858,7 +3837,7 @@ async function pjAutoFill(){
   setTimeout(()=>{const lw=document.getElementById('pj-logwrap');if(lw)lw.style.display='none';},2500);
 }
 
-// ââ GRUPOS LINKS PJ âââââââââââââââââââââââ
+// ── GRUPOS LINKS PJ ───────────────────────
 function pjBuildGrupos(razao,fantasia,cnpjNum,cnpjFmt,endStr,socios,uf){
   const RL=razao||cnpjFmt;const FT=fantasia||RL;
   const endQ=encodeURIComponent(endStr||'');
@@ -3867,204 +3846,204 @@ function pjBuildGrupos(razao,fantasia,cnpjNum,cnpjFmt,endStr,socios,uf){
   const bool=buildBooleanQuery(RL,cnpjFmt);
 
   return[
-    {title:'ð VerificaÃ§Ã£o cadastral',items:[
-      {...ddA(`https://www.receitaws.com.br/v1/cnpj/${cnpjNum}`,`GET /v1/cnpj/${cnpjNum}`),label:'ReceitaWS â JSON direto (sem CAPTCHA)',p:'r'},
-      {...ddA(`https://brasilapi.com.br/api/cnpj/v1/${cnpjNum}`,`GET /api/cnpj/v1/${cnpjNum}`),label:'BrasilAPI â JSON cadastral',p:'r'},
-      {...ddA(`https://casadosdados.com.br/solucao/cnpj/${cnpjNum}`,`CNPJ ${cnpjNum}`),label:'Casa dos Dados â sÃ³cios e endereÃ§os vinculados',p:'a'},
-      {...ddA(`https://portaltransparencia.gov.br/sancoes/ceis?termo=${cnpjNum}`,`CNPJ ${cnpjNum}`),label:'CEIS â impedida de contratar com o governo',p:'r'},
-      {...ddA(`https://portaltransparencia.gov.br/sancoes/cnep?termo=${cnpjNum}`,`CNPJ ${cnpjNum}`),label:'CNEP â puniÃ§Ãµes e sanÃ§Ãµes',p:'r'},
-      {...ddA('https://sit.trabalho.gov.br/radar/','Busca manual'),label:'Lista Suja â trabalho escravo (Radar SIT)',p:'r'},
-      {...ddG(`"${cnpjFmt}"`),label:`Google â CNPJ exato "${cnpjFmt}"`,p:'r'},
-      {...ddG(`"${RL}" "${cnpjFmt}"`),label:'Google â razÃ£o social exata + CNPJ',p:'r'},
+    {title:'📋 Verificação cadastral',items:[
+      {...ddA(`https://www.receitaws.com.br/v1/cnpj/${cnpjNum}`,`GET /v1/cnpj/${cnpjNum}`),label:'ReceitaWS — JSON direto (sem CAPTCHA)',p:'r'},
+      {...ddA(`https://brasilapi.com.br/api/cnpj/v1/${cnpjNum}`,`GET /api/cnpj/v1/${cnpjNum}`),label:'BrasilAPI — JSON cadastral',p:'r'},
+      {...ddA(`https://casadosdados.com.br/solucao/cnpj/${cnpjNum}`,`CNPJ ${cnpjNum}`),label:'Casa dos Dados — sócios e endereços vinculados',p:'a'},
+      {...ddA(`https://portaltransparencia.gov.br/sancoes/ceis?termo=${cnpjNum}`,`CNPJ ${cnpjNum}`),label:'CEIS — impedida de contratar com o governo',p:'r'},
+      {...ddA(`https://portaltransparencia.gov.br/sancoes/cnep?termo=${cnpjNum}`,`CNPJ ${cnpjNum}`),label:'CNEP — punições e sanções',p:'r'},
+      {...ddA('https://sit.trabalho.gov.br/radar/','Busca manual'),label:'Lista Suja — trabalho escravo (Radar SIT)',p:'r'},
+      {...ddG(`"${cnpjFmt}"`),label:`Google — CNPJ exato "${cnpjFmt}"`,p:'r'},
+      {...ddG(`"${RL}" "${cnpjFmt}"`),label:'Google — razão social exata + CNPJ',p:'r'},
     ]},
-    {title:'ð£ MÃ­dias negativas â busca booleana (criminal)',items:[
-      {...ddG(bool.criminal),label:'Boolean â riscos criminais (corrupÃ§Ã£o, fraude, lavagem, trabalho escravo)',p:'r',isMidia:true},
-      {...ddGT(bool.criminal),label:'NotÃ­cias â riscos criminais (Ãºltimos 12 meses)',p:'r',isMidia:true},
-      {...ddG(`"${RL}" AND ("lista suja" OR OFAC OR blacklist OR sanÃ§Ã£o OR "improbidade administrativa")`),label:'Boolean â sanÃ§Ãµes e listas restritivas',p:'r',isMidia:true},
+    {title:'🟣 Mídias negativas — busca booleana (criminal)',items:[
+      {...ddG(bool.criminal),label:'Boolean — riscos criminais (corrupção, fraude, lavagem, trabalho escravo)',p:'r',isMidia:true},
+      {...ddGT(bool.criminal),label:'Notícias — riscos criminais (últimos 12 meses)',p:'r',isMidia:true},
+      {...ddG(`"${RL}" AND ("lista suja" OR OFAC OR blacklist OR sanção OR "improbidade administrativa")`),label:'Boolean — sanções e listas restritivas',p:'r',isMidia:true},
     ]},
-    {title:'ð£ MÃ­dias negativas â financeiro e regulatÃ³rio',items:[
-      {...ddG(bool.financeiro),label:'Boolean â riscos financeiros (fraude, Ponzi, insolvÃªncia, evasÃ£o)',p:'r',isMidia:true},
-      {...ddGT(bool.financeiro),label:'NotÃ­cias â riscos financeiros recentes',p:'r',isMidia:true},
-      {...ddG(bool.regulatorio),label:'Boolean â riscos regulatÃ³rios (MP, CVM, BACEN, cassaÃ§Ã£o)',p:'r',isMidia:true},
-      {...ddG(bool.reputacional),label:'Boolean â riscos reputacionais (escÃ¢ndalos, assÃ©dio, ambiental)',p:'a',isMidia:true},
+    {title:'🟣 Mídias negativas — financeiro e regulatório',items:[
+      {...ddG(bool.financeiro),label:'Boolean — riscos financeiros (fraude, Ponzi, insolvência, evasão)',p:'r',isMidia:true},
+      {...ddGT(bool.financeiro),label:'Notícias — riscos financeiros recentes',p:'r',isMidia:true},
+      {...ddG(bool.regulatorio),label:'Boolean — riscos regulatórios (MP, CVM, BACEN, cassação)',p:'r',isMidia:true},
+      {...ddG(bool.reputacional),label:'Boolean — riscos reputacionais (escândalos, assédio, ambiental)',p:'a',isMidia:true},
     ]},
-    {title:'ð£ MÃ­dias negativas â atividade recente (12 meses)',items:[
-      {...ddG(bool.recente),label:`Google â "${RL}" Â· publicaÃ§Ãµes do Ãºltimo ano`,p:'r',isMidia:true},
-      {...ddGT(`"${RL}"`),label:`Google NotÃ­cias â "${RL}" Â·  qualquer data`,p:'r',isMidia:true},
-      {...ddG(`"${RL}" OR "${cnpjFmt}" site:g1.globo.com OR site:uol.com.br OR site:folha.uol.com.br OR site:estadao.com.br OR site:valor.com.br`),label:'Grandes veÃ­culos â G1, UOL, Folha, EstadÃ£o, Valor EconÃ´mico',p:'r',isMidia:true},
+    {title:'🟣 Mídias negativas — atividade recente (12 meses)',items:[
+      {...ddG(bool.recente),label:`Google — "${RL}" · publicações do último ano`,p:'r',isMidia:true},
+      {...ddGT(`"${RL}"`),label:`Google Notícias — "${RL}" ·  qualquer data`,p:'r',isMidia:true},
+      {...ddG(`"${RL}" OR "${cnpjFmt}" site:g1.globo.com OR site:uol.com.br OR site:folha.uol.com.br OR site:estadao.com.br OR site:valor.com.br`),label:'Grandes veículos — G1, UOL, Folha, Estadão, Valor Econômico',p:'r',isMidia:true},
     ]},
-    {title:'ðï¸ Junta Comercial'+(uf?` â ${uf}`:''),items:[
+    {title:'🏛️ Junta Comercial'+(uf?` — ${uf}`:''),items:[
       ...(junta?[
-        {...ddA(junta.u,`Buscar: "${RL}" ou CNPJ ${cnpjFmt}`),label:`${junta.n} â ${uf} Â· Consultar registro e atos societÃ¡rios`,p:'r'},
-        {...ddG(`"${RL}" ${junta.n}`),label:`Google â "${RL}" + ${junta.n}`,p:'r'},
-        {...ddG(`"${cnpjFmt}" "junta comercial"`),label:'Google â CNPJ exato + "junta comercial"',p:'r'},
-        {...ddG(`"${RL}" "ato constitutivo" OR "contrato social" OR "alteraÃ§Ã£o contratual"`),label:'Google â documentos societÃ¡rios exatos',p:'a'},
+        {...ddA(junta.u,`Buscar: "${RL}" ou CNPJ ${cnpjFmt}`),label:`${junta.n} — ${uf} · Consultar registro e atos societários`,p:'r'},
+        {...ddG(`"${RL}" ${junta.n}`),label:`Google — "${RL}" + ${junta.n}`,p:'r'},
+        {...ddG(`"${cnpjFmt}" "junta comercial"`),label:'Google — CNPJ exato + "junta comercial"',p:'r'},
+        {...ddG(`"${RL}" "ato constitutivo" OR "contrato social" OR "alteração contratual"`),label:'Google — documentos societários exatos',p:'a'},
       ]:[{label:'Selecione o estado para ativar os links da Junta Comercial',url:'#',query:'',p:'a',disabled:true}]),
-      {...ddA('https://www.gov.br/drei/pt-br','Portal federal'),label:'DREI â Departamento Nacional de Registro Empresarial',p:'a'},
+      {...ddA('https://www.gov.br/drei/pt-br','Portal federal'),label:'DREI — Departamento Nacional de Registro Empresarial',p:'a'},
     ]},
-    {title:'ð¢ Fachada fÃ­sica',items:[
+    {title:'🏢 Fachada física',items:[
       ...(endStr?[
-        {...ddA(`https://www.google.com/maps?q=${endQ}&layer=c`,`EndereÃ§o: ${endStr}`),label:'Google Street View â verificar fachada',p:'r'},
-        {...ddA(`https://www.google.com/maps/search/${endQ}`,endStr),label:'Google Maps â tipo de imÃ³vel',p:'a'},
-        {...ddG(`"${endStr}" "${RL}"`),label:'Google â endereÃ§o exato + razÃ£o social',p:'a'},
-        {...ddG(`"${endStr}" "escritÃ³rio virtual" OR coworking OR "sala virtual"`),label:'Google â endereÃ§o + coworking / sala virtual',p:'r'},
-      ]:[{label:'Preencha o endereÃ§o para ativar Street View',url:'#',query:'',p:'a',disabled:true}]),
+        {...ddA(`https://www.google.com/maps?q=${endQ}&layer=c`,`Endereço: ${endStr}`),label:'Google Street View — verificar fachada',p:'r'},
+        {...ddA(`https://www.google.com/maps/search/${endQ}`,endStr),label:'Google Maps — tipo de imóvel',p:'a'},
+        {...ddG(`"${endStr}" "${RL}"`),label:'Google — endereço exato + razão social',p:'a'},
+        {...ddG(`"${endStr}" "escritório virtual" OR coworking OR "sala virtual"`),label:'Google — endereço + coworking / sala virtual',p:'r'},
+      ]:[{label:'Preencha o endereço para ativar Street View',url:'#',query:'',p:'a',disabled:true}]),
     ]},
-    {title:'ð Redes sociais',items:[
-      {...ddG(`"${RL}" site:instagram.com`),label:'Instagram â razÃ£o social exata',p:'a'},
-      {...ddG(`"${FT}" site:instagram.com`),label:'Instagram â nome fantasia exato',p:'a'},
-      {...ddG(`"${RL}" site:facebook.com`),label:'Facebook â empresa exata',p:'a'},
-      {...ddG(`"${RL}" site:linkedin.com`),label:'LinkedIn â empresa exata',p:'a'},
-      {...ddG(`"${FT}".com.br OR "${FT}".com`),label:'Site oficial â domÃ­nio exato',p:'g'},
-      {...ddG(`"${RL}" aposta OR bet OR cassino OR rifa OR "jogo online"`),label:'ð¨ ALERTA PLD â apostas / bets',p:'r',isMidia:true},
+    {title:'🌐 Redes sociais',items:[
+      {...ddG(`"${RL}" site:instagram.com`),label:'Instagram — razão social exata',p:'a'},
+      {...ddG(`"${FT}" site:instagram.com`),label:'Instagram — nome fantasia exato',p:'a'},
+      {...ddG(`"${RL}" site:facebook.com`),label:'Facebook — empresa exata',p:'a'},
+      {...ddG(`"${RL}" site:linkedin.com`),label:'LinkedIn — empresa exata',p:'a'},
+      {...ddG(`"${FT}".com.br OR "${FT}".com`),label:'Site oficial — domínio exato',p:'g'},
+      {...ddG(`"${RL}" aposta OR bet OR cassino OR rifa OR "jogo online"`),label:'🚨 ALERTA PLD — apostas / bets',p:'r',isMidia:true},
     ]},
-    {title:'â­ ReputaÃ§Ã£o',items:[
-      {...ddA(`https://www.reclameaqui.com.br/busca/?q=${encodeURIComponent('"'+FT+'"')}`,`"${FT}"`),label:'Reclame Aqui â nome fantasia exato',p:'r'},
-      {...ddA(`https://www.reclameaqui.com.br/busca/?q=${encodeURIComponent('"'+RL+'"')}`,`"${RL}"`),label:'Reclame Aqui â razÃ£o social exata',p:'r'},
+    {title:'⭐ Reputação',items:[
+      {...ddA(`https://www.reclameaqui.com.br/busca/?q=${encodeURIComponent('"'+FT+'"')}`,`"${FT}"`),label:'Reclame Aqui — nome fantasia exato',p:'r'},
+      {...ddA(`https://www.reclameaqui.com.br/busca/?q=${encodeURIComponent('"'+RL+'"')}`,`"${RL}"`),label:'Reclame Aqui — razão social exata',p:'r'},
       {...ddA('https://www.consumidor.gov.br/pages/indicador/relatos/abrir','Portal federal'),label:'Consumidor.gov.br',p:'r'},
-      {...ddG(`"${RL}" "nÃ£o entregou" OR calote OR golpe OR fraude OR abandonou`),label:`Google â "${RL}" calote / fraude (busca exata)`,p:'r',isMidia:true},
+      {...ddG(`"${RL}" "não entregou" OR calote OR golpe OR fraude OR abandonou`),label:`Google — "${RL}" calote / fraude (busca exata)`,p:'r',isMidia:true},
     ]},
-    {title:'âï¸ Processos e dÃ­vidas',items:[
-      {...ddA(`https://www.jusbrasil.com.br/consulta-processual/?q=${cnpjNum}`,cnpjNum),label:'JusBrasil â processos por CNPJ',p:'r'},
-      {...ddA(`https://www.jusbrasil.com.br/consulta-processual/?q=${encodeURIComponent('"'+RL+'"')}`,`"${RL}"`),label:'JusBrasil â razÃ£o social exata',p:'r'},
-      ...sArr.slice(0,3).map(s=>({...ddA(`https://www.jusbrasil.com.br/consulta-processual/?q=${encodeURIComponent(s)}`,s),label:`JusBrasil â sÃ³cio "${s}"`,p:'a'})),
-      {...ddA('https://www.cnj.jus.br/consulta-processual-nacional/',`CNPJ: ${cnpjFmt}`),label:'CNJ â consulta processual nacional',p:'r'},
-      {...ddA(`https://www.in.gov.br/consulta/-/buscar/dou?q=${encodeURIComponent('"'+RL+'"')}`,`"${RL}"`),label:'DiÃ¡rio Oficial â publicaÃ§Ãµes exatas',p:'a'},
-      {...ddG(`"${RL}" "execuÃ§Ã£o fiscal" OR protesto OR "dÃ­vida ativa"`),label:`Google â "${RL}" execuÃ§Ã£o fiscal`,p:'a',isMidia:true},
+    {title:'⚖️ Processos e dívidas',items:[
+      {...ddA(`https://www.jusbrasil.com.br/consulta-processual/?q=${cnpjNum}`,cnpjNum),label:'JusBrasil — processos por CNPJ',p:'r'},
+      {...ddA(`https://www.jusbrasil.com.br/consulta-processual/?q=${encodeURIComponent('"'+RL+'"')}`,`"${RL}"`),label:'JusBrasil — razão social exata',p:'r'},
+      ...sArr.slice(0,3).map(s=>({...ddA(`https://www.jusbrasil.com.br/consulta-processual/?q=${encodeURIComponent(s)}`,s),label:`JusBrasil — sócio "${s}"`,p:'a'})),
+      {...ddA('https://www.cnj.jus.br/consulta-processual-nacional/',`CNPJ: ${cnpjFmt}`),label:'CNJ — consulta processual nacional',p:'r'},
+      {...ddA(`https://www.in.gov.br/consulta/-/buscar/dou?q=${encodeURIComponent('"'+RL+'"')}`,`"${RL}"`),label:'Diário Oficial — publicações exatas',p:'a'},
+      {...ddG(`"${RL}" "execução fiscal" OR protesto OR "dívida ativa"`),label:`Google — "${RL}" execução fiscal`,p:'a',isMidia:true},
     ]},
-    {title:'ð¤ SÃ³cios',items:[
+    {title:'👤 Sócios',items:[
       ...sArr.slice(0,4).flatMap(s=>[
-        {...ddG(buildBooleanQuery(s,'').criminal),label:`Boolean mÃ­dias negativas â sÃ³cio "${s}"`,p:'r',isMidia:true},
-        {...ddA(`https://www.jusbrasil.com.br/consulta-processual/?q=${encodeURIComponent(s)}`,s),label:`JusBrasil â processos de "${s}"`,p:'r'},
-        {...ddG(`"${s}" "${RL}"`),label:`Google â "${s}" + empresa exata`,p:'a'},
-        {...ddG(`"${s}" site:linkedin.com`),label:`LinkedIn â "${s}"`,p:'a'},
+        {...ddG(buildBooleanQuery(s,'').criminal),label:`Boolean mídias negativas — sócio "${s}"`,p:'r',isMidia:true},
+        {...ddA(`https://www.jusbrasil.com.br/consulta-processual/?q=${encodeURIComponent(s)}`,s),label:`JusBrasil — processos de "${s}"`,p:'r'},
+        {...ddG(`"${s}" "${RL}"`),label:`Google — "${s}" + empresa exata`,p:'a'},
+        {...ddG(`"${s}" site:linkedin.com`),label:`LinkedIn — "${s}"`,p:'a'},
       ]),
-      ...(sArr.length===0?[{label:'Preencha o campo sÃ³cios',url:'#',query:'',p:'a',disabled:true}]:[]),
+      ...(sArr.length===0?[{label:'Preencha o campo sócios',url:'#',query:'',p:'a',disabled:true}]:[]),
     ]},
-    {title:'ðï¸ ÃrgÃ£os reguladores',items:[
-      {...ddA(`https://www.bcb.gov.br/estabilidadefinanceira/pesquisainstituicao?nome=${encodeURIComponent(RL)}`,`"${RL}"`),label:'ð´ BACEN â autorizaÃ§Ã£o para funcionar como instituiÃ§Ã£o financeira',p:'r'},
-      {...ddA(`https://sistemas.cvm.gov.br/asp/cvmwww/enetads/adm_cons.asp?txtcnpj=${cnpjNum}`,`CNPJ: ${cnpjNum}`),label:'ð´ CVM â registro para operar no mercado de capitais',p:'r'},
-      {...ddA(`https://www.susep.gov.br/menu/informacoes-ao-publico/consultas-cadastros`,`CNPJ: ${cnpjFmt}`),label:'ð´ SUSEP â autorizaÃ§Ã£o para operar seguros/previdÃªncia',p:'r'},
-      {...ddA(`https://portaltransparencia.gov.br/sancoes/ceis?termo=${cnpjNum}`,`CNPJ: ${cnpjNum}`),label:'ð´ CEIS â impedida de contratar com o poder pÃºblico',p:'r'},
-      {...ddA(`https://portaltransparencia.gov.br/sancoes/cnep?termo=${cnpjNum}`,`CNPJ: ${cnpjNum}`),label:'ð´ CNEP â puniÃ§Ãµes e sanÃ§Ãµes aplicadas',p:'r'},
-      {...ddA('https://sit.trabalho.gov.br/radar/',`CNPJ: ${cnpjFmt}`),label:'ð´ Lista Suja MTE â trabalho escravo/anÃ¡logo',p:'r'},
-      {...ddA('https://cna.oab.org.br/',`"${RL}"`),label:'OAB â escritÃ³rio de advocacia',p:'g'},
-      {...ddA('https://www3.cfc.org.br/spw/crcs/ConselhoRegionalAtivo.aspx',`CNPJ: ${cnpjFmt}`),label:'CFC/CRC â empresa contÃ¡bil',p:'g'},
-      {...ddA('https://www.cofeci.gov.br/',`"${RL}"`),label:'CRECI/COFECI â imobiliÃ¡ria',p:'g'},
-      {...ddA('https://www.antt.gov.br/',`CNPJ: ${cnpjFmt}`),label:'ANTT â empresa de transporte',p:'g'},
-      {...ddA('https://consultas.anvisa.gov.br/#/',`CNPJ: ${cnpjFmt}`),label:'ANVISA â farmÃ¡cia/alimentos/saÃºde',p:'g'},
-      {...ddA('https://cadastur.turismo.gov.br/',`CNPJ: ${cnpjFmt}`),label:'Cadastur â agÃªncia de turismo',p:'g'},
-      {...ddA(`https://www.in.gov.br/consulta/-/buscar/dou?q=${encodeURIComponent('"'+cnpjFmt+'"')}`,`"${cnpjFmt}"`),label:'DiÃ¡rio Oficial â publicaÃ§Ãµes com o CNPJ',p:'a'},
+    {title:'🏛️ Órgãos reguladores',items:[
+      {...ddA(`https://www.bcb.gov.br/estabilidadefinanceira/pesquisainstituicao?nome=${encodeURIComponent(RL)}`,`"${RL}"`),label:'🔴 BACEN — autorização para funcionar como instituição financeira',p:'r'},
+      {...ddA(`https://sistemas.cvm.gov.br/asp/cvmwww/enetads/adm_cons.asp?txtcnpj=${cnpjNum}`,`CNPJ: ${cnpjNum}`),label:'🔴 CVM — registro para operar no mercado de capitais',p:'r'},
+      {...ddA(`https://www.susep.gov.br/menu/informacoes-ao-publico/consultas-cadastros`,`CNPJ: ${cnpjFmt}`),label:'🔴 SUSEP — autorização para operar seguros/previdência',p:'r'},
+      {...ddA(`https://portaltransparencia.gov.br/sancoes/ceis?termo=${cnpjNum}`,`CNPJ: ${cnpjNum}`),label:'🔴 CEIS — impedida de contratar com o poder público',p:'r'},
+      {...ddA(`https://portaltransparencia.gov.br/sancoes/cnep?termo=${cnpjNum}`,`CNPJ: ${cnpjNum}`),label:'🔴 CNEP — punições e sanções aplicadas',p:'r'},
+      {...ddA('https://sit.trabalho.gov.br/radar/',`CNPJ: ${cnpjFmt}`),label:'🔴 Lista Suja MTE — trabalho escravo/análogo',p:'r'},
+      {...ddA('https://cna.oab.org.br/',`"${RL}"`),label:'OAB — escritório de advocacia',p:'g'},
+      {...ddA('https://www3.cfc.org.br/spw/crcs/ConselhoRegionalAtivo.aspx',`CNPJ: ${cnpjFmt}`),label:'CFC/CRC — empresa contábil',p:'g'},
+      {...ddA('https://www.cofeci.gov.br/',`"${RL}"`),label:'CRECI/COFECI — imobiliária',p:'g'},
+      {...ddA('https://www.antt.gov.br/',`CNPJ: ${cnpjFmt}`),label:'ANTT — empresa de transporte',p:'g'},
+      {...ddA('https://consultas.anvisa.gov.br/#/',`CNPJ: ${cnpjFmt}`),label:'ANVISA — farmácia/alimentos/saúde',p:'g'},
+      {...ddA('https://cadastur.turismo.gov.br/',`CNPJ: ${cnpjFmt}`),label:'Cadastur — agência de turismo',p:'g'},
+      {...ddA(`https://www.in.gov.br/consulta/-/buscar/dou?q=${encodeURIComponent('"'+cnpjFmt+'"')}`,`"${cnpjFmt}"`),label:'Diário Oficial — publicações com o CNPJ',p:'a'},
     ]},
   ];
 }
 
-// ââ GRUPOS LINKS PF âââââââââââââââââââââââ
+// ── GRUPOS LINKS PF ───────────────────────
 function pfBuildGrupos(nome,cpf,cpfFmt,end,empresa,pep){
   const bool=buildBooleanQuery(nome,cpfFmt);
   const endQ=encodeURIComponent(end||'');
 
   return[
-    {title:'ð VerificaÃ§Ã£o cadastral â CPF',items:[
-      {...ddA('https://servicos.receita.fazenda.gov.br/Servicos/CPF/ConsultaSituacao/ConsultaPublica.asp',`CPF: ${cpfFmt}`),label:'Receita Federal â situaÃ§Ã£o do CPF',p:'r'},
-      {...ddG(`"${cpfFmt}"`),label:`Google â CPF exato "${cpfFmt}"`,p:'r'},
-      {...ddG(`"${nome}" "${cpfFmt}"`),label:'Google â nome exato + CPF',p:'r'},
-      {...ddA(`https://portaltransparencia.gov.br/sancoes/ceis?termo=${cpf}`,`CPF: ${cpfFmt}`),label:'CEIS â impedida de contratar com o governo',p:'r'},
-      {...ddA(`https://portaltransparencia.gov.br/sancoes/cnep?termo=${cpf}`,`CPF: ${cpfFmt}`),label:'CNEP â puniÃ§Ãµes e sanÃ§Ãµes',p:'r'},
-      {...ddA('https://sit.trabalho.gov.br/radar/','Busca manual'),label:'Lista Suja â trabalho escravo',p:'r'},
+    {title:'📋 Verificação cadastral — CPF',items:[
+      {...ddA('https://servicos.receita.fazenda.gov.br/Servicos/CPF/ConsultaSituacao/ConsultaPublica.asp',`CPF: ${cpfFmt}`),label:'Receita Federal — situação do CPF',p:'r'},
+      {...ddG(`"${cpfFmt}"`),label:`Google — CPF exato "${cpfFmt}"`,p:'r'},
+      {...ddG(`"${nome}" "${cpfFmt}"`),label:'Google — nome exato + CPF',p:'r'},
+      {...ddA(`https://portaltransparencia.gov.br/sancoes/ceis?termo=${cpf}`,`CPF: ${cpfFmt}`),label:'CEIS — impedida de contratar com o governo',p:'r'},
+      {...ddA(`https://portaltransparencia.gov.br/sancoes/cnep?termo=${cpf}`,`CPF: ${cpfFmt}`),label:'CNEP — punições e sanções',p:'r'},
+      {...ddA('https://sit.trabalho.gov.br/radar/','Busca manual'),label:'Lista Suja — trabalho escravo',p:'r'},
     ]},
-    ...(pep!=='nao'?[{title:'ðï¸ PEP â Pessoa Politicamente Exposta',items:[
-      {...ddG(`"${nome}" "Pessoa Politicamente Exposta" OR PEP OR "cargo pÃºblico" OR governador OR senador OR deputado OR prefeito OR ministro`),label:`Boolean PEP â "${nome}" cargos pÃºblicos`,p:'r',isMidia:true},
-      {...ddA('https://portaltransparencia.gov.br/servidores','Busca manual'),label:'Portal TransparÃªncia â servidores pÃºblicos federais',p:'r'},
-      {...ddA('https://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais-1','Busca manual'),label:'TSE â candidatos e filiaÃ§Ãµes partidÃ¡rias',p:'r'},
-      {...ddG(`"${nome}" site:portaltransparencia.gov.br`),label:`Portal TransparÃªncia â "${nome}" exato`,p:'r',isMidia:true},
+    ...(pep!=='nao'?[{title:'🏛️ PEP — Pessoa Politicamente Exposta',items:[
+      {...ddG(`"${nome}" "Pessoa Politicamente Exposta" OR PEP OR "cargo público" OR governador OR senador OR deputado OR prefeito OR ministro`),label:`Boolean PEP — "${nome}" cargos públicos`,p:'r',isMidia:true},
+      {...ddA('https://portaltransparencia.gov.br/servidores','Busca manual'),label:'Portal Transparência — servidores públicos federais',p:'r'},
+      {...ddA('https://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais-1','Busca manual'),label:'TSE — candidatos e filiações partidárias',p:'r'},
+      {...ddG(`"${nome}" site:portaltransparencia.gov.br`),label:`Portal Transparência — "${nome}" exato`,p:'r',isMidia:true},
     ]}]:[]),
-    {title:'ð£ MÃ­dias negativas â criminal e fraude',items:[
-      {...ddG(bool.criminal),label:'Boolean â riscos criminais (corrupÃ§Ã£o, fraude, lavagem, investigaÃ§Ã£o)',p:'r',isMidia:true},
-      {...ddGT(bool.criminal),label:'NotÃ­cias â riscos criminais recentes',p:'r',isMidia:true},
-      {...ddG(`"${nome}" AND ("lista suja" OR OFAC OR blacklist OR sanÃ§Ã£o OR "improbidade administrativa")`),label:'Boolean â sanÃ§Ãµes e listas restritivas',p:'r',isMidia:true},
-      {...ddG(`"${cpfFmt}" fraude OR golpe OR estelionato OR crime`),label:`Google â CPF exato em registros negativos`,p:'r',isMidia:true},
+    {title:'🟣 Mídias negativas — criminal e fraude',items:[
+      {...ddG(bool.criminal),label:'Boolean — riscos criminais (corrupção, fraude, lavagem, investigação)',p:'r',isMidia:true},
+      {...ddGT(bool.criminal),label:'Notícias — riscos criminais recentes',p:'r',isMidia:true},
+      {...ddG(`"${nome}" AND ("lista suja" OR OFAC OR blacklist OR sanção OR "improbidade administrativa")`),label:'Boolean — sanções e listas restritivas',p:'r',isMidia:true},
+      {...ddG(`"${cpfFmt}" fraude OR golpe OR estelionato OR crime`),label:`Google — CPF exato em registros negativos`,p:'r',isMidia:true},
     ]},
-    {title:'ð£ MÃ­dias negativas â financeiro e reputacional',items:[
-      {...ddG(bool.financeiro),label:'Boolean â riscos financeiros (fraude, Ponzi, insolvÃªncia)',p:'r',isMidia:true},
-      {...ddGT(bool.financeiro),label:'NotÃ­cias financeiras recentes',p:'r',isMidia:true},
-      {...ddG(bool.regulatorio),label:'Boolean â riscos regulatÃ³rios (MP, CVM, improbidade)',p:'r',isMidia:true},
-      {...ddG(bool.reputacional),label:'Boolean â riscos reputacionais (escÃ¢ndalos, denÃºncias)',p:'a',isMidia:true},
+    {title:'🟣 Mídias negativas — financeiro e reputacional',items:[
+      {...ddG(bool.financeiro),label:'Boolean — riscos financeiros (fraude, Ponzi, insolvência)',p:'r',isMidia:true},
+      {...ddGT(bool.financeiro),label:'Notícias financeiras recentes',p:'r',isMidia:true},
+      {...ddG(bool.regulatorio),label:'Boolean — riscos regulatórios (MP, CVM, improbidade)',p:'r',isMidia:true},
+      {...ddG(bool.reputacional),label:'Boolean — riscos reputacionais (escândalos, denúncias)',p:'a',isMidia:true},
     ]},
-    {title:'ð£ MÃ­dias negativas â publicaÃ§Ãµes recentes',items:[
-      {...ddG(bool.recente),label:`Google â "${nome}" Â· publicaÃ§Ãµes do Ãºltimo ano`,p:'r',isMidia:true},
-      {...ddGT(`"${nome}"`),label:`Google NotÃ­cias â "${nome}" qualquer data`,p:'r',isMidia:true},
-      {...ddG(`"${nome}" site:g1.globo.com OR site:uol.com.br OR site:folha.uol.com.br OR site:estadao.com.br OR site:valor.com.br`),label:'Grandes veÃ­culos de jornalismo â G1, Folha, EstadÃ£o, Valor',p:'r',isMidia:true},
+    {title:'🟣 Mídias negativas — publicações recentes',items:[
+      {...ddG(bool.recente),label:`Google — "${nome}" · publicações do último ano`,p:'r',isMidia:true},
+      {...ddGT(`"${nome}"`),label:`Google Notícias — "${nome}" qualquer data`,p:'r',isMidia:true},
+      {...ddG(`"${nome}" site:g1.globo.com OR site:uol.com.br OR site:folha.uol.com.br OR site:estadao.com.br OR site:valor.com.br`),label:'Grandes veículos de jornalismo — G1, Folha, Estadão, Valor',p:'r',isMidia:true},
     ]},
-    {title:'âï¸ Processos judiciais',items:[
-      {...ddA(`https://www.jusbrasil.com.br/consulta-processual/?q=${encodeURIComponent('"'+nome+'"')}`,`"${nome}"`),label:'JusBrasil â processos pelo nome exato',p:'r'},
-      ...(cpf?[{...ddA(`https://www.jusbrasil.com.br/consulta-processual/?q=${cpf}`,cpf),label:'JusBrasil â processos pelo CPF',p:'r'}]:[]),
-      {...ddA('https://www.cnj.jus.br/consulta-processual-nacional/',`Nome: "${nome}"`),label:'CNJ â consulta processual nacional',p:'r'},
-      {...ddG(`"${nome}" "execuÃ§Ã£o fiscal" OR protesto OR "dÃ­vida ativa" OR inadimplente`),label:`Google â "${nome}" execuÃ§Ã£o fiscal`,p:'a',isMidia:true},
+    {title:'⚖️ Processos judiciais',items:[
+      {...ddA(`https://www.jusbrasil.com.br/consulta-processual/?q=${encodeURIComponent('"'+nome+'"')}`,`"${nome}"`),label:'JusBrasil — processos pelo nome exato',p:'r'},
+      ...(cpf?[{...ddA(`https://www.jusbrasil.com.br/consulta-processual/?q=${cpf}`,cpf),label:'JusBrasil — processos pelo CPF',p:'r'}]:[]),
+      {...ddA('https://www.cnj.jus.br/consulta-processual-nacional/',`Nome: "${nome}"`),label:'CNJ — consulta processual nacional',p:'r'},
+      {...ddG(`"${nome}" "execução fiscal" OR protesto OR "dívida ativa" OR inadimplente`),label:`Google — "${nome}" execução fiscal`,p:'a',isMidia:true},
     ]},
-    ...(end?[{title:'ð  VerificaÃ§Ã£o de endereÃ§o',items:[
-      {...ddA(`https://www.google.com/maps?q=${endQ}&layer=c`,`EndereÃ§o: ${end}`),label:'Google Street View â verificar endereÃ§o',p:'a'},
-      {...ddA(`https://www.google.com/maps/search/${endQ}`,end),label:'Google Maps â localizaÃ§Ã£o',p:'a'},
-      {...ddG(`"${nome}" "${end}"`),label:'Google â nome + endereÃ§o exatos',p:'a'},
+    ...(end?[{title:'🏠 Verificação de endereço',items:[
+      {...ddA(`https://www.google.com/maps?q=${endQ}&layer=c`,`Endereço: ${end}`),label:'Google Street View — verificar endereço',p:'a'},
+      {...ddA(`https://www.google.com/maps/search/${endQ}`,end),label:'Google Maps — localização',p:'a'},
+      {...ddG(`"${nome}" "${end}"`),label:'Google — nome + endereço exatos',p:'a'},
     ]}]:[]),
-    {title:'ð Redes sociais',items:[
-      {...ddG(`"${nome}" site:instagram.com`),label:'Instagram â nome exato',p:'a'},
-      {...ddG(`"${nome}" site:facebook.com`),label:'Facebook â nome exato',p:'a'},
-      {...ddG(`"${nome}" site:linkedin.com`),label:'LinkedIn â perfil exato',p:'a'},
-      {...ddG(`"${nome}" aposta OR bet OR cassino OR rifa`),label:'ð¨ ALERTA PLD â apostas/bets',p:'r',isMidia:true},
+    {title:'🌐 Redes sociais',items:[
+      {...ddG(`"${nome}" site:instagram.com`),label:'Instagram — nome exato',p:'a'},
+      {...ddG(`"${nome}" site:facebook.com`),label:'Facebook — nome exato',p:'a'},
+      {...ddG(`"${nome}" site:linkedin.com`),label:'LinkedIn — perfil exato',p:'a'},
+      {...ddG(`"${nome}" aposta OR bet OR cassino OR rifa`),label:'🚨 ALERTA PLD — apostas/bets',p:'r',isMidia:true},
     ]},
-    ...(empresa?[{title:'ð¢ Empresa(s) vinculada(s)',items:[
-      {...ddG(`"${nome}" "${empresa}"`),label:`Google â "${nome}" + empresa vinculada`,p:'a'},
-      {...ddA(`https://www.jusbrasil.com.br/consulta-processual/?q=${encodeURIComponent(empresa)}`,empresa),label:`JusBrasil â processos da empresa "${empresa}"`,p:'a'},
-      {...ddG(buildBooleanQuery(empresa,'').criminal),label:`Boolean mÃ­dias negativas â empresa "${empresa}"`,p:'r',isMidia:true},
+    ...(empresa?[{title:'🏢 Empresa(s) vinculada(s)',items:[
+      {...ddG(`"${nome}" "${empresa}"`),label:`Google — "${nome}" + empresa vinculada`,p:'a'},
+      {...ddA(`https://www.jusbrasil.com.br/consulta-processual/?q=${encodeURIComponent(empresa)}`,empresa),label:`JusBrasil — processos da empresa "${empresa}"`,p:'a'},
+      {...ddG(buildBooleanQuery(empresa,'').criminal),label:`Boolean mídias negativas — empresa "${empresa}"`,p:'r',isMidia:true},
     ]}]:[]),
-    {title:'ðï¸ ÃrgÃ£os reguladores â habilitaÃ§Ã£o profissional',items:[
-      {...ddA(`https://cna.oab.org.br/Advogado/BuscaAvancada?Nome=${encodeURIComponent(nome)}`,`"${nome}"`),label:'OAB â advogado (ativo / suspenso / cancelado)',p:'r'},
-      {...ddA(`https://portal.cfm.org.br/busca-medicos/?nome=${encodeURIComponent(nome)}`,`"${nome}"`),label:'CFM â mÃ©dico (ativo / suspenso / cassado)',p:'r'},
-      {...ddA(`https://www.cfp.org.br/registro/?nome=${encodeURIComponent(nome)}`,`"${nome}"`),label:'CFP â psicÃ³logo',p:'r'},
-      {...ddA(`https://cfo.org.br/servicos/consulta-cirurgiao-dentista/?nome=${encodeURIComponent(nome)}`,`"${nome}"`),label:'CFO â cirurgiÃ£o-dentista',p:'r'},
-      {...ddA('https://www.crea.org.br/',`Pesquisar: "${nome}"`),label:'CREA â engenheiro / tÃ©cnico (busca manual)',p:'r'},
-      {...ddA('https://www.cau.org.br/',`Pesquisar: "${nome}"`),label:'CAU â arquiteto (busca manual)',p:'r'},
-      {...ddA('https://cfc.org.br/tecnico/consultar-registro-de-contabilista/',`Pesquisar: "${nome}"`),label:'CFC/CRC â contador (busca manual)',p:'r'},
-      {...ddA('https://www.cofeci.gov.br/',`Pesquisar: "${nome}"`),label:'CRECI/COFECI â corretor de imÃ³veis',p:'r'},
-      {...ddA('https://www.bcb.gov.br/',`Pesquisar: "${nome}"`),label:'BACEN â operador financeiro / cÃ¢mbio',p:'r'},
-      {...ddA('https://www.cvm.gov.br/',`Pesquisar: "${nome}"`),label:'CVM â agente autÃ´nomo de investimentos',p:'r'},
-      {...ddA('https://portaltransparencia.gov.br/sancoes/ceis?termo='+encodeURIComponent(nome),nome),label:'ð´ CEIS â impedido de contratar com o governo',p:'r'},
-      {...ddA('https://portaltransparencia.gov.br/sancoes/cnep?termo='+encodeURIComponent(nome),nome),label:'ð´ CNEP â puniÃ§Ãµes e sanÃ§Ãµes',p:'r'},
-      {...ddA('https://sit.trabalho.gov.br/radar/',`Pesquisar: "${nome}" ou CPF`),label:'ð´ Lista Suja MTE â trabalho escravo',p:'r'},
-      {...ddG(`"${nome}" conselho OR CRM OR CRO OR OAB OR CREA OR suspenso OR cassado OR cancelado OR inabilitado`),label:'Google â situaÃ§Ã£o em conselhos profissionais',p:'r',isMidia:true},
+    {title:'🏛️ Órgãos reguladores — habilitação profissional',items:[
+      {...ddA(`https://cna.oab.org.br/Advogado/BuscaAvancada?Nome=${encodeURIComponent(nome)}`,`"${nome}"`),label:'OAB — advogado (ativo / suspenso / cancelado)',p:'r'},
+      {...ddA(`https://portal.cfm.org.br/busca-medicos/?nome=${encodeURIComponent(nome)}`,`"${nome}"`),label:'CFM — médico (ativo / suspenso / cassado)',p:'r'},
+      {...ddA(`https://www.cfp.org.br/registro/?nome=${encodeURIComponent(nome)}`,`"${nome}"`),label:'CFP — psicólogo',p:'r'},
+      {...ddA(`https://cfo.org.br/servicos/consulta-cirurgiao-dentista/?nome=${encodeURIComponent(nome)}`,`"${nome}"`),label:'CFO — cirurgião-dentista',p:'r'},
+      {...ddA('https://www.crea.org.br/',`Pesquisar: "${nome}"`),label:'CREA — engenheiro / técnico (busca manual)',p:'r'},
+      {...ddA('https://www.cau.org.br/',`Pesquisar: "${nome}"`),label:'CAU — arquiteto (busca manual)',p:'r'},
+      {...ddA('https://cfc.org.br/tecnico/consultar-registro-de-contabilista/',`Pesquisar: "${nome}"`),label:'CFC/CRC — contador (busca manual)',p:'r'},
+      {...ddA('https://www.cofeci.gov.br/',`Pesquisar: "${nome}"`),label:'CRECI/COFECI — corretor de imóveis',p:'r'},
+      {...ddA('https://www.bcb.gov.br/',`Pesquisar: "${nome}"`),label:'BACEN — operador financeiro / câmbio',p:'r'},
+      {...ddA('https://www.cvm.gov.br/',`Pesquisar: "${nome}"`),label:'CVM — agente autônomo de investimentos',p:'r'},
+      {...ddA('https://portaltransparencia.gov.br/sancoes/ceis?termo='+encodeURIComponent(nome),nome),label:'🔴 CEIS — impedido de contratar com o governo',p:'r'},
+      {...ddA('https://portaltransparencia.gov.br/sancoes/cnep?termo='+encodeURIComponent(nome),nome),label:'🔴 CNEP — punições e sanções',p:'r'},
+      {...ddA('https://sit.trabalho.gov.br/radar/',`Pesquisar: "${nome}" ou CPF`),label:'🔴 Lista Suja MTE — trabalho escravo',p:'r'},
+      {...ddG(`"${nome}" conselho OR CRM OR CRO OR OAB OR CREA OR suspenso OR cassado OR cancelado OR inabilitado`),label:'Google — situação em conselhos profissionais',p:'r',isMidia:true},
     ]},
   ];
 }
 
-// ââ MÃDIAS NEGATIVAS SECTION HTML âââââââââ
+// ── MÍDIAS NEGATIVAS SECTION HTML ─────────
 function ddMidiasHTML(alvo, doc){
   const bool=buildBooleanQuery(alvo,doc);
   return`<div class="dd-neg-section">
-    <div class="dd-neg-title">ð£ Protocolo de MÃ­dias Negativas â KYC</div>
-    <div class="dd-neg-sub">Consulte os links abaixo para varredura estruturada de mÃ­dias negativas. As queries booleanas filtram ruÃ­do de redes sociais e focam em jornalismo investigativo e registros judiciais.</div>
+    <div class="dd-neg-title">🟣 Protocolo de Mídias Negativas — KYC</div>
+    <div class="dd-neg-sub">Consulte os links abaixo para varredura estruturada de mídias negativas. As queries booleanas filtram ruído de redes sociais e focam em jornalismo investigativo e registros judiciais.</div>
     <div class="dd-neg-grid">
-      <div class="dd-neg-cat"><div class="dd-neg-cat-t">â ï¸ Riscos criminais</div><div class="dd-neg-cat-lbl">CorrupÃ§Ã£o Â· Lavagem de dinheiro Â· Processo judicial Â· InvestigaÃ§Ã£o Â· Trabalho escravo</div></div>
-      <div class="dd-neg-cat"><div class="dd-neg-cat-t">ð° Riscos financeiros</div><div class="dd-neg-cat-lbl">Fraude Â· PirÃ¢mide Â· InsolvÃªncia Â· Offshore Â· EvasÃ£o de divisas Â· FalÃªncia</div></div>
-      <div class="dd-neg-cat"><div class="dd-neg-cat-t">ðï¸ Riscos regulatÃ³rios</div><div class="dd-neg-cat-lbl">SanÃ§Ãµes Â· Improbidade Â· MP Â· CVM Â· BACEN Â· Blacklist Â· OFAC</div></div>
-      <div class="dd-neg-cat"><div class="dd-neg-cat-t">ð° Riscos reputacionais</div><div class="dd-neg-cat-lbl">EscÃ¢ndalos Â· AssÃ©dio Â· Ambiental Â· IBAMA Â· DenÃºncia Â· Golpe</div></div>
+      <div class="dd-neg-cat"><div class="dd-neg-cat-t">⚠️ Riscos criminais</div><div class="dd-neg-cat-lbl">Corrupção · Lavagem de dinheiro · Processo judicial · Investigação · Trabalho escravo</div></div>
+      <div class="dd-neg-cat"><div class="dd-neg-cat-t">💰 Riscos financeiros</div><div class="dd-neg-cat-lbl">Fraude · Pirâmide · Insolvência · Offshore · Evasão de divisas · Falência</div></div>
+      <div class="dd-neg-cat"><div class="dd-neg-cat-t">🏛️ Riscos regulatórios</div><div class="dd-neg-cat-lbl">Sanções · Improbidade · MP · CVM · BACEN · Blacklist · OFAC</div></div>
+      <div class="dd-neg-cat"><div class="dd-neg-cat-t">📰 Riscos reputacionais</div><div class="dd-neg-cat-lbl">Escândalos · Assédio · Ambiental · IBAMA · Denúncia · Golpe</div></div>
     </div>
-    <div style="font-size:.72rem;font-weight:700;color:#6b21a8;margin:12px 0 4px;text-transform:uppercase;letter-spacing:.5px">Query booleana principal (criminal) â copie e cole no Google:</div>
+    <div style="font-size:.72rem;font-weight:700;color:#6b21a8;margin:12px 0 4px;text-transform:uppercase;letter-spacing:.5px">Query booleana principal (criminal) — copie e cole no Google:</div>
     <div class="dd-neg-bool">${bool.criminal.replace(/AND/g,'<span class="kw-and">AND</span>').replace(/OR/g,'<span class="kw-or">OR</span>').replace(/-site:\S+/g,'<span class="kw-not">$&</span>').replace(/"[^"]+"/g,'<span class="kw-term">$&</span>').replace(/^<span class="kw-term">"[^"]+"<\/span>/,'<span class="kw-name">$&</span>')}</div>
-    <div style="font-size:.7rem;color:#7e22ce;margin-top:6px;font-family:'DM Mono',monospace">Dica: No Google, clique em <strong>Ferramentas â PerÃ­odo â Ãltimo ano</strong> para filtrar publicaÃ§Ãµes recentes.</div>
+    <div style="font-size:.7rem;color:#7e22ce;margin-top:6px;font-family:'DM Mono',monospace">Dica: No Google, clique em <strong>Ferramentas → Período → Último ano</strong> para filtrar publicações recentes.</div>
   </div>`;
 }
 
-// ââ RENDER GRUPOS âââââââââââââââââââââââââ
+// ── RENDER GRUPOS ─────────────────────────
 function ddRenderGrupos(grupos, prefix){
   return grupos.map(g=>{
     const linksHtml=g.items.map(l=>ddLiHTML(l,prefix,l.isMidia||false)).join('');
     const allUrls=g.items.filter(i=>!i.disabled&&i.url&&i.url!=='#').map(i=>i.url);
-    return`<div class="dd-seclbl">${g.title}</div><div>${linksHtml}<button class="dd-oa" onclick="ddOpenAll(${JSON.stringify(allUrls)})">Abrir todas deste grupo (${allUrls.length}) â</button></div>`;
+    return`<div class="dd-seclbl">${g.title}</div><div>${linksHtml}<button class="dd-oa" onclick="ddOpenAll(${JSON.stringify(allUrls)})">Abrir todas deste grupo (${allUrls.length}) ↗</button></div>`;
   }).join('');
 }
 
-// ââ RENDER PJ âââââââââââââââââââââââââââââ
+// ── RENDER PJ ─────────────────────────────
 function pjRender(info,cnpjNum,apiName){
   const cnpjFmt=ddFmt(cnpjNum);
   const endStr=ddV('pj-end');const pagto=ddV('pj-pagto');
@@ -4074,20 +4053,20 @@ function pjRender(info,cnpjNum,apiName){
   const razao=info.razao||fantasia||cnpjFmt;
   const uf=info.uf||ddV('pj-estado');
 
-  // âââ ANÃLISE DE RISCO PROFISSIONAL âââ
+  // ═══ ANÁLISE DE RISCO PROFISSIONAL ═══
   const alertas=[], atencao=[], positivos=[];
   let scoreRisco = 0; // 0=baixo, acumula pontos
 
-  // ââ 1. SITUAÃÃO CADASTRAL (peso alto)
+  // ── 1. SITUAÇÃO CADASTRAL (peso alto)
   const sit=(info.situacao||'').toUpperCase();
   if(sit.includes('INAPT')||sit.includes('SUSPENS'))
-    { alertas.push('ð´ CNPJ INAPTO/SUSPENSO â empresa irregular perante a Receita Federal. Contratos podem ser nulos.'); scoreRisco+=40; }
+    { alertas.push('🔴 CNPJ INAPTO/SUSPENSO — empresa irregular perante a Receita Federal. Contratos podem ser nulos.'); scoreRisco+=40; }
   else if(sit.includes('BAIXAD')||sit.includes('CANCEL'))
-    { alertas.push('ð´ CNPJ BAIXADO/CANCELADO â empresa encerrada. Qualquer contrato serÃ¡ invÃ¡lido.'); scoreRisco+=50; }
+    { alertas.push('🔴 CNPJ BAIXADO/CANCELADO — empresa encerrada. Qualquer contrato será inválido.'); scoreRisco+=50; }
   else if(sit==='ATIVA'||sit.includes('ATIV'))
-    { positivos.push('â CNPJ Ativo e regular perante a Receita Federal'); }
+    { positivos.push('✅ CNPJ Ativo e regular perante a Receita Federal'); }
 
-  // ââ 2. TEMPO DE EXISTÃNCIA (peso mÃ©dio)
+  // ── 2. TEMPO DE EXISTÊNCIA (peso médio)
   if(info.abertura){
     const s=info.abertura; let dt;
     if(/^\d{4}-\d{2}-\d{2}/.test(s)) dt=new Date(s);
@@ -4095,142 +4074,142 @@ function pjRender(info,cnpjNum,apiName){
     if(!isNaN(dt)){
       const meses=Math.round((Date.now()-dt.getTime())/(1000*60*60*24*30));
       const anos=(meses/12).toFixed(1);
-      if(meses<6) { alertas.push(`ð´ Empresa com apenas ${meses} meses â sem histÃ³rico operacional. Risco de empresa fantasma ou laranja.`); scoreRisco+=30; }
-      else if(meses<18) { atencao.push(`â ï¸ Empresa jovem (${meses} meses) â histÃ³rico financeiro limitado. Exigir referÃªncias de clientes anteriores.`); scoreRisco+=15; }
-      else if(meses<36) { atencao.push(`â ï¸ ${Math.round(meses)} meses de operaÃ§Ã£o â verifique se hÃ¡ contratos anteriores similares.`); scoreRisco+=5; }
-      else { positivos.push(`â Empresa com ${anos} anos de existÃªncia â histÃ³rico operacional estabelecido`); }
+      if(meses<6) { alertas.push(`🔴 Empresa com apenas ${meses} meses — sem histórico operacional. Risco de empresa fantasma ou laranja.`); scoreRisco+=30; }
+      else if(meses<18) { atencao.push(`⚠️ Empresa jovem (${meses} meses) — histórico financeiro limitado. Exigir referências de clientes anteriores.`); scoreRisco+=15; }
+      else if(meses<36) { atencao.push(`⚠️ ${Math.round(meses)} meses de operação — verifique se há contratos anteriores similares.`); scoreRisco+=5; }
+      else { positivos.push(`✅ Empresa com ${anos} anos de existência — histórico operacional estabelecido`); }
     }
   }
 
-  // ââ 3. CAPITAL SOCIAL vs VALOR DO CONTRATO (peso alto)
+  // ── 3. CAPITAL SOCIAL vs VALOR DO CONTRATO (peso alto)
   const capN=parseFloat((info.capital||'0').replace(/[^0-9,]/g,'').replace(',','.'));
   const valN=parseFloat((ddV('pj-valor')||'0').replace(/[^0-9,]/g,'').replace(',','.'));
   if(capN>0){
-    if(capN<10000) { atencao.push(`â ï¸ Capital social baixÃ­ssimo (${info.capital}) â empresa pode nÃ£o ter capacidade financeira para arcar com inadimplemento.`); scoreRisco+=20; }
-    else if(capN<50000) { atencao.push(`â ï¸ Capital social reduzido (${info.capital}) â avaliar capacidade de execuÃ§Ã£o do contrato.`); scoreRisco+=10; }
-    else { positivos.push(`â Capital social de ${info.capital}`); }
-    if(valN>0 && valN>capN*5) { alertas.push(`ð´ Valor do contrato (R$ ${valN.toLocaleString('pt-BR')}) Ã© ${Math.round(valN/capN)}x maior que o capital social â risco de inadimplÃªncia elevado.`); scoreRisco+=25; }
-    else if(valN>0 && valN>capN*2) { atencao.push(`â ï¸ Valor do contrato representa ${Math.round(valN/capN)}x o capital social â exigir garantias adicionais.`); scoreRisco+=10; }
+    if(capN<10000) { atencao.push(`⚠️ Capital social baixíssimo (${info.capital}) — empresa pode não ter capacidade financeira para arcar com inadimplemento.`); scoreRisco+=20; }
+    else if(capN<50000) { atencao.push(`⚠️ Capital social reduzido (${info.capital}) — avaliar capacidade de execução do contrato.`); scoreRisco+=10; }
+    else { positivos.push(`✅ Capital social de ${info.capital}`); }
+    if(valN>0 && valN>capN*5) { alertas.push(`🔴 Valor do contrato (R$ ${valN.toLocaleString('pt-BR')}) é ${Math.round(valN/capN)}x maior que o capital social — risco de inadimplência elevado.`); scoreRisco+=25; }
+    else if(valN>0 && valN>capN*2) { atencao.push(`⚠️ Valor do contrato representa ${Math.round(valN/capN)}x o capital social — exigir garantias adicionais.`); scoreRisco+=10; }
   }
 
-  // ââ 4. PORTE DA EMPRESA
+  // ── 4. PORTE DA EMPRESA
   const porte=(info.porte||'').toUpperCase();
-  if(porte.includes('MEI')) { atencao.push('â ï¸ Empresa MEI â faturamento limitado a ~R$ 81mil/ano. Avaliar capacidade de entrega para contratos maiores.'); scoreRisco+=10; }
-  else if(porte.includes('MICRO')||porte.includes('EPP')) { atencao.push('â ï¸ Micro ou pequena empresa â verificar estrutura operacional e capacidade de execuÃ§Ã£o.'); scoreRisco+=5; }
-  else if(porte.includes('GRANDE')||porte.includes('MÃDIO')) { positivos.push(`â Porte ${info.porte} â estrutura operacional mais consolidada`); }
+  if(porte.includes('MEI')) { atencao.push('⚠️ Empresa MEI — faturamento limitado a ~R$ 81mil/ano. Avaliar capacidade de entrega para contratos maiores.'); scoreRisco+=10; }
+  else if(porte.includes('MICRO')||porte.includes('EPP')) { atencao.push('⚠️ Micro ou pequena empresa — verificar estrutura operacional e capacidade de execução.'); scoreRisco+=5; }
+  else if(porte.includes('GRANDE')||porte.includes('MÉDIO')) { positivos.push(`✅ Porte ${info.porte} — estrutura operacional mais consolidada`); }
 
-  // ââ 5. CNAE PRINCIPAL â atividades de risco
+  // ── 5. CNAE PRINCIPAL — atividades de risco
   const cnaeDesc=(info.cnae_pri?.desc||'').toLowerCase();
   const cnaeCode=(info.cnae_pri?.cod||'');
-  const cnaesRisco=['642','643','649','661','662','663','64','65','66']; // setor financeiro nÃ£o regulado
+  const cnaesRisco=['642','643','649','661','662','663','64','65','66']; // setor financeiro não regulado
   const cnaesBet=['9200','9201','9209']; // jogos e apostas
   const cnaesPld=['5229','4921','7490','8299']; // alto risco PLD
-  if(cnaesBet.some(c=>cnaeCode.startsWith(c))) { alertas.push('ð´ CNAE indica atividade de apostas/jogos â segmento de altÃ­ssimo risco PLD/FT.'); scoreRisco+=30; }
-  else if(cnaesRisco.some(c=>cnaeCode.startsWith(c))) { atencao.push('â ï¸ CNAE do setor financeiro â verificar regulaÃ§Ã£o no BACEN/CVM.'); scoreRisco+=15; }
-  else if(cnaesPld.some(c=>cnaeCode.startsWith(c))) { atencao.push('â ï¸ Atividade com histÃ³rico de uso em esquemas de lavagem â diligÃªncia ampliada recomendada.'); scoreRisco+=10; }
+  if(cnaesBet.some(c=>cnaeCode.startsWith(c))) { alertas.push('🔴 CNAE indica atividade de apostas/jogos — segmento de altíssimo risco PLD/FT.'); scoreRisco+=30; }
+  else if(cnaesRisco.some(c=>cnaeCode.startsWith(c))) { atencao.push('⚠️ CNAE do setor financeiro — verificar regulação no BACEN/CVM.'); scoreRisco+=15; }
+  else if(cnaesPld.some(c=>cnaeCode.startsWith(c))) { atencao.push('⚠️ Atividade com histórico de uso em esquemas de lavagem — diligência ampliada recomendada.'); scoreRisco+=10; }
 
-  // ââ 6. CONDIÃÃO DE PAGAMENTO (peso crÃ­tico)
-  if(pagto==='100% antecipado') { alertas.push('ð´ PAGAMENTO 100% ANTECIPADO â mÃ¡ximo risco financeiro. Nunca aceitar sem garantias reais comprovadas.'); scoreRisco+=35; }
-  else if(pagto==='Parcial antecipado') { atencao.push('â ï¸ Pagamento parcialmente antecipado â liberar somente apÃ³s anÃ¡lise jurÃ­dica e com contrato assinado.'); scoreRisco+=15; }
-  else if(pagto==='30/60/90 dias'||pagto==='Contra entrega') { positivos.push('â CondiÃ§Ã£o de pagamento favorÃ¡vel ao contratante'); }
+  // ── 6. CONDIÇÃO DE PAGAMENTO (peso crítico)
+  if(pagto==='100% antecipado') { alertas.push('🔴 PAGAMENTO 100% ANTECIPADO — máximo risco financeiro. Nunca aceitar sem garantias reais comprovadas.'); scoreRisco+=35; }
+  else if(pagto==='Parcial antecipado') { atencao.push('⚠️ Pagamento parcialmente antecipado — liberar somente após análise jurídica e com contrato assinado.'); scoreRisco+=15; }
+  else if(pagto==='30/60/90 dias'||pagto==='Contra entrega') { positivos.push('✅ Condição de pagamento favorável ao contratante'); }
 
-  // ââ 7. SÃCIOS â quantidade e perfil
+  // ── 7. SÓCIOS — quantidade e perfil
   const numSocios=(info.socios||[]).length;
-  if(numSocios===0) { atencao.push('â ï¸ Nenhum sÃ³cio identificado nos dados da Receita Federal â verificar QSA atualizado na Junta Comercial.'); scoreRisco+=10; }
-  else if(numSocios===1) { atencao.push('â ï¸ Empresa com sÃ³cio Ãºnico â risco de concentraÃ§Ã£o e confusÃ£o patrimonial entre PF e PJ.'); scoreRisco+=5; }
-  else { positivos.push(`â ${numSocios} sÃ³cio(s) identificado(s) â pesquisar individualmente`); }
+  if(numSocios===0) { atencao.push('⚠️ Nenhum sócio identificado nos dados da Receita Federal — verificar QSA atualizado na Junta Comercial.'); scoreRisco+=10; }
+  else if(numSocios===1) { atencao.push('⚠️ Empresa com sócio único — risco de concentração e confusão patrimonial entre PF e PJ.'); scoreRisco+=5; }
+  else { positivos.push(`✅ ${numSocios} sócio(s) identificado(s) — pesquisar individualmente`); }
 
-  // ââ 8. ENDEREÃO â sinais de risco
+  // ── 8. ENDEREÇO — sinais de risco
   const endLower=(endStr||'').toLowerCase();
-  if(endLower.includes('caixa postal')||endLower.includes('cx postal')) { atencao.push('â ï¸ EndereÃ§o com Caixa Postal â nÃ£o permite verificar fachada fÃ­sica real.'); scoreRisco+=10; }
-  if(!endStr||endStr.trim().length<10) { atencao.push('â ï¸ EndereÃ§o nÃ£o informado â impossÃ­vel verificar existÃªncia fÃ­sica.'); scoreRisco+=15; }
+  if(endLower.includes('caixa postal')||endLower.includes('cx postal')) { atencao.push('⚠️ Endereço com Caixa Postal — não permite verificar fachada física real.'); scoreRisco+=10; }
+  if(!endStr||endStr.trim().length<10) { atencao.push('⚠️ Endereço não informado — impossível verificar existência física.'); scoreRisco+=15; }
 
-  // ââ SCORE FINAL E CLASSIFICAÃÃO
+  // ── SCORE FINAL E CLASSIFICAÇÃO
   const nivel = scoreRisco>=40?'alto': scoreRisco>=15?'medio':'baixo';
-  const scoreLabel = scoreRisco>=40?`${scoreRisco} pts â ALTO RISCO`:scoreRisco>=15?`${scoreRisco} pts â RISCO MÃDIO`:`${scoreRisco} pts â RISCO BAIXO`;
+  const scoreLabel = scoreRisco>=40?`${scoreRisco} pts — ALTO RISCO`:scoreRisco>=15?`${scoreRisco} pts — RISCO MÉDIO`:`${scoreRisco} pts — RISCO BAIXO`;
   const nivelLabel = nivel==='alto'
-    ?'â ALTO RISCO â NÃ£o contratar sem investigaÃ§Ã£o aprofundada'
+    ?'⛔ ALTO RISCO — Não contratar sem investigação aprofundada'
     :nivel==='medio'
-    ?'â ï¸ RISCO MÃDIO â Prosseguir com cautela e garantias'
-    :'â RISCO BAIXO â Perfil inicial favorÃ¡vel, conclua a pesquisa';
+    ?'⚠️ RISCO MÉDIO — Prosseguir com cautela e garantias'
+    :'✅ RISCO BAIXO — Perfil inicial favorável, conclua a pesquisa';
 
   const recItems = nivel==='alto'
     ?[
-      'Suspender negociaÃ§Ã£o atÃ© conclusÃ£o de due diligence completa com assessoria jurÃ­dica',
-      'NÃ£o realizar nenhum pagamento antecipado sob nenhuma hipÃ³tese',
-      'Solicitar certidÃµes negativas: Receita Federal, PGFN, INSS, FGTS e JustiÃ§a do Trabalho',
-      'Consultar o CEIS e CNEP no Portal da TransparÃªncia antes de qualquer assinatura',
-      'Verificar histÃ³rico dos sÃ³cios individualmente em processos judiciais e mÃ­dias negativas',
+      'Suspender negociação até conclusão de due diligence completa com assessoria jurídica',
+      'Não realizar nenhum pagamento antecipado sob nenhuma hipótese',
+      'Solicitar certidões negativas: Receita Federal, PGFN, INSS, FGTS e Justiça do Trabalho',
+      'Consultar o CEIS e CNEP no Portal da Transparência antes de qualquer assinatura',
+      'Verificar histórico dos sócios individualmente em processos judiciais e mídias negativas',
     ]
     :nivel==='medio'
     ?[
-      'Sanar todos os pontos de atenÃ§Ã£o antes de assinar o contrato',
-      'Exigir contrato formal com clÃ¡usulas de multa, entrega e responsabilidade dos sÃ³cios',
-      'Solicitar 3 referÃªncias de clientes anteriores e verificar cada uma',
-      'Pagamento vinculado a marcos de entrega â nunca 100% antecipado',
-      'Arquivar toda a documentaÃ§Ã£o desta anÃ¡lise no processo de contrataÃ§Ã£o',
+      'Sanar todos os pontos de atenção antes de assinar o contrato',
+      'Exigir contrato formal com cláusulas de multa, entrega e responsabilidade dos sócios',
+      'Solicitar 3 referências de clientes anteriores e verificar cada uma',
+      'Pagamento vinculado a marcos de entrega — nunca 100% antecipado',
+      'Arquivar toda a documentação desta análise no processo de contratação',
     ]
     :[
-      'Formalizar contrato escrito com clÃ¡usulas de multa, prazo e responsabilidade',
-      'Solicitar certidÃµes negativas antes da assinatura (CND Federal, Trabalhista, Estadual)',
+      'Formalizar contrato escrito com cláusulas de multa, prazo e responsabilidade',
+      'Solicitar certidões negativas antes da assinatura (CND Federal, Trabalhista, Estadual)',
       'Manter pagamentos vinculados a entregas documentadas e aceitas formalmente',
-      'Pesquisar os grupos de links abaixo para confirmar ausÃªncia de mÃ­dias negativas',
-      'Arquivar esta anÃ¡lise junto ao processo contratual por no mÃ­nimo 5 anos',
+      'Pesquisar os grupos de links abaixo para confirmar ausência de mídias negativas',
+      'Arquivar esta análise junto ao processo contratual por no mínimo 5 anos',
     ];
 
   const sc=ddSC(info.situacao);
   ddVerQueues.pj=[];ddStCount=0;
   const grupos=pjBuildGrupos(razao,fantasia,cnpjNum,cnpjFmt,endStr,socios,uf);
-  const sociosHtml=socios.length?socios.map(s=>{const ini=(s.nome||'?').split(' ').slice(0,2).map(w=>w[0]||'').join('').toUpperCase();return`<div class="dd-soc"><div class="dd-sav">${ini}</div><div><div style="font-size:.86rem;font-weight:600">${s.nome}</div><div style="font-size:.73rem;color:var(--text-muted)">${s.qual||'â'}</div></div></div>`;}).join(''):'<div style="font-size:.82rem;color:var(--text-muted)">Nenhum sÃ³cio listado</div>';
-  const cnaesHtml=(info.cnaes_sec||[]).slice(0,5).map(c=>`<div class="dd-cnae"><span class="dd-cc">${c.cod}</span><span class="dd-cd">${c.desc}</span></div>`).join('')||'<div class="dd-cnae"><span class="dd-cd" style="color:var(--text-muted)">Nenhum secundÃ¡rio</span></div>';
-  const now=new Date();const dtStr=now.toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'})+' Ã s '+now.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+  const sociosHtml=socios.length?socios.map(s=>{const ini=(s.nome||'?').split(' ').slice(0,2).map(w=>w[0]||'').join('').toUpperCase();return`<div class="dd-soc"><div class="dd-sav">${ini}</div><div><div style="font-size:.86rem;font-weight:600">${s.nome}</div><div style="font-size:.73rem;color:var(--text-muted)">${s.qual||'—'}</div></div></div>`;}).join(''):'<div style="font-size:.82rem;color:var(--text-muted)">Nenhum sócio listado</div>';
+  const cnaesHtml=(info.cnaes_sec||[]).slice(0,5).map(c=>`<div class="dd-cnae"><span class="dd-cc">${c.cod}</span><span class="dd-cd">${c.desc}</span></div>`).join('')||'<div class="dd-cnae"><span class="dd-cd" style="color:var(--text-muted)">Nenhum secundário</span></div>';
+  const now=new Date();const dtStr=now.toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'})+' às '+now.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
 
   const html=`
-  <div class="dd-rb"><div class="dd-rt ${nivel}"><div><div class="dd-rl ${nivel}">${nivelLabel}</div><div class="dd-rs" style="color:${nivel==='alto'?'#991b1b':nivel==='medio'?'#92400e':'#065f46'}">Score baseado nos dados cadastrais Â· Conclua a pesquisa nos links abaixo</div></div><div class="dd-rbg">${alertas.length}Ã crÃ­tico Â· ${atencao.length}Ã atenÃ§Ã£o Â· via ${apiName}</div></div>
-  ${alertas.length?`<div class="dd-as alto"><div class="dd-at">ð« Alertas crÃ­ticos</div><ul class="dd-al alr">${alertas.map(a=>`<li>${a}</li>`).join('')}</ul></div>`:''}
-  ${atencao.length?`<div class="dd-as medio"><div class="dd-at">â ï¸ Pontos de atenÃ§Ã£o</div><ul class="dd-al ala">${atencao.map(a=>`<li>${a}</li>`).join('')}</ul></div>`:''}
+  <div class="dd-rb"><div class="dd-rt ${nivel}"><div><div class="dd-rl ${nivel}">${nivelLabel}</div><div class="dd-rs" style="color:${nivel==='alto'?'#991b1b':nivel==='medio'?'#92400e':'#065f46'}">Score baseado nos dados cadastrais · Conclua a pesquisa nos links abaixo</div></div><div class="dd-rbg">${alertas.length}× crítico · ${atencao.length}× atenção · via ${apiName}</div></div>
+  ${alertas.length?`<div class="dd-as alto"><div class="dd-at">🚫 Alertas críticos</div><ul class="dd-al alr">${alertas.map(a=>`<li>${a}</li>`).join('')}</ul></div>`:''}
+  ${atencao.length?`<div class="dd-as medio"><div class="dd-at">⚠️ Pontos de atenção</div><ul class="dd-al ala">${atencao.map(a=>`<li>${a}</li>`).join('')}</ul></div>`:''}
   </div>
   <div class="stat-grid" style="margin-bottom:14px">
-    <div class="stat-card ${nivel==='alto'?'highlight':''}"><div class="stat-icon ${nivel==='alto'?'red':nivel==='medio'?'amber':'teal'}" style="font-size:1.5rem">${nivel==='alto'?'â':nivel==='medio'?'â ï¸':'â'}</div><div><div class="stat-num" style="color:${nivel==='alto'?'var(--danger)':nivel==='medio'?'var(--warn)':'var(--accent)'}">${nivel.toUpperCase()}</div><div class="stat-label">Risco contratual</div></div></div>
-    <div class="stat-card"><div class="stat-icon" style="background:#fef2f2;font-size:1.2rem">ð¨</div><div><div class="stat-num" style="color:${alertas.length?'var(--danger)':'var(--text)'}">${alertas.length}</div><div class="stat-label">Alertas crÃ­ticos</div></div></div>
-    <div class="stat-card"><div class="stat-icon amber" style="font-size:1.2rem">â ï¸</div><div><div class="stat-num" style="color:${atencao.length?'var(--warn)':'var(--text)'}">${atencao.length}</div><div class="stat-label">Pontos de atenÃ§Ã£o</div></div></div>
-    <div class="stat-card"><div class="stat-icon teal" style="font-size:1.2rem">â</div><div><div class="stat-num" style="color:var(--accent)">${positivos.length}</div><div class="stat-label">Pontos positivos</div></div></div>
-    <div class="stat-card"><div class="stat-icon" style="background:#f0f9ff;font-size:1.2rem">ð</div><div><div class="stat-num" style="color:${nivel==='alto'?'var(--danger)':nivel==='medio'?'var(--warn)':'var(--accent)'}; font-size:1.1rem">${scoreRisco}</div><div class="stat-label">Score de risco</div></div></div>
+    <div class="stat-card ${nivel==='alto'?'highlight':''}"><div class="stat-icon ${nivel==='alto'?'red':nivel==='medio'?'amber':'teal'}" style="font-size:1.5rem">${nivel==='alto'?'⛔':nivel==='medio'?'⚠️':'✅'}</div><div><div class="stat-num" style="color:${nivel==='alto'?'var(--danger)':nivel==='medio'?'var(--warn)':'var(--accent)'}">${nivel.toUpperCase()}</div><div class="stat-label">Risco contratual</div></div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#fef2f2;font-size:1.2rem">🚨</div><div><div class="stat-num" style="color:${alertas.length?'var(--danger)':'var(--text)'}">${alertas.length}</div><div class="stat-label">Alertas críticos</div></div></div>
+    <div class="stat-card"><div class="stat-icon amber" style="font-size:1.2rem">⚠️</div><div><div class="stat-num" style="color:${atencao.length?'var(--warn)':'var(--text)'}">${atencao.length}</div><div class="stat-label">Pontos de atenção</div></div></div>
+    <div class="stat-card"><div class="stat-icon teal" style="font-size:1.2rem">✅</div><div><div class="stat-num" style="color:var(--accent)">${positivos.length}</div><div class="stat-label">Pontos positivos</div></div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#f0f9ff;font-size:1.2rem">📊</div><div><div class="stat-num" style="color:${nivel==='alto'?'var(--danger)':nivel==='medio'?'var(--warn)':'var(--accent)'}; font-size:1.1rem">${scoreRisco}</div><div class="stat-label">Score de risco</div></div></div>
   </div>
-  ${positivos.length?`<div style="background:#f0fdf9;border:1px solid #6ee7b7;border-radius:10px;padding:12px 16px;margin-bottom:12px"><div style="font-weight:700;font-size:.82rem;color:#065f46;margin-bottom:6px">â Pontos favorÃ¡veis identificados</div><ul style="margin:0;padding-left:18px;font-size:.82rem;color:#065f46;line-height:1.8">${positivos.map(p=>`<li>${p}</li>`).join('')}</ul></div>`:''}
-  <div class="dd-recbox"><div class="dd-rechd ${nivel}"><span style="font-size:1.1rem">${nivel==='alto'?'ð«':nivel==='medio'?'â ï¸':'â'}</span><div class="dd-rcht">Plano de aÃ§Ã£o â o que fazer antes de assinar</div></div><div class="dd-recbd"><ul class="dd-recli">${recItems.map((r,i)=>`<li><strong>${i+1}.</strong> ${r}</li>`).join('')}</ul></div></div>
+  ${positivos.length?`<div style="background:#f0fdf9;border:1px solid #6ee7b7;border-radius:10px;padding:12px 16px;margin-bottom:12px"><div style="font-weight:700;font-size:.82rem;color:#065f46;margin-bottom:6px">✅ Pontos favoráveis identificados</div><ul style="margin:0;padding-left:18px;font-size:.82rem;color:#065f46;line-height:1.8">${positivos.map(p=>`<li>${p}</li>`).join('')}</ul></div>`:''}
+  <div class="dd-recbox"><div class="dd-rechd ${nivel}"><span style="font-size:1.1rem">${nivel==='alto'?'🚫':nivel==='medio'?'⚠️':'✅'}</span><div class="dd-rcht">Plano de ação — o que fazer antes de assinar</div></div><div class="dd-recbd"><ul class="dd-recli">${recItems.map((r,i)=>`<li><strong>${i+1}.</strong> ${r}</li>`).join('')}</ul></div></div>
   ${ddMidiasHTML(razao,cnpjFmt)}
   <div class="section" style="margin-bottom:13px">
-    <div class="section-header"><h2>ðï¸ Dados cadastrais <span class="badge ${sc==='ok'?'badge-baixo':sc==='err'?'badge-alto':'badge-medio'}" style="margin-left:6px">${info.situacao||'â'}</span></h2><span style="font-size:.72rem;color:var(--text-muted);font-family:'DM Mono',monospace">via ${apiName} Â· ${dtStr}</span></div>
+    <div class="section-header"><h2>🏛️ Dados cadastrais <span class="badge ${sc==='ok'?'badge-baixo':sc==='err'?'badge-alto':'badge-medio'}" style="margin-left:6px">${info.situacao||'—'}</span></h2><span style="font-size:.72rem;color:var(--text-muted);font-family:'DM Mono',monospace">via ${apiName} · ${dtStr}</span></div>
     <div class="section-body">
       <div class="dd-dg">
-        <div class="dd-dr"><div class="dd-dl">RazÃ£o social</div><div class="dd-dv">${razao||'â'}</div></div>
-        <div class="dd-dr"><div class="dd-dl">SituaÃ§Ã£o</div><div class="dd-dv ${sc}">${info.situacao||'â'}</div></div>
+        <div class="dd-dr"><div class="dd-dl">Razão social</div><div class="dd-dv">${razao||'—'}</div></div>
+        <div class="dd-dr"><div class="dd-dl">Situação</div><div class="dd-dv ${sc}">${info.situacao||'—'}</div></div>
         <div class="dd-dr"><div class="dd-dl">CNPJ</div><div class="dd-dv" style="font-family:'DM Mono',monospace">${cnpjFmt}</div></div>
-        <div class="dd-dr"><div class="dd-dl">Data de abertura</div><div class="dd-dv">${info.abertura||'â'}</div></div>
-        <div class="dd-dr"><div class="dd-dl">Porte</div><div class="dd-dv">${info.porte||'â'}</div></div>
-        <div class="dd-dr"><div class="dd-dl">Capital social</div><div class="dd-dv">${info.capital||'â'}</div></div>
-        <div class="dd-dr"><div class="dd-dl">E-mail (RF)</div><div class="dd-dv">${info.email||'â'}</div></div>
-        <div class="dd-dr"><div class="dd-dl">Telefone (RF)</div><div class="dd-dv">${info.telefone||'â'}</div></div>
-        <div class="dd-dr full"><div class="dd-dl">EndereÃ§o cadastrado na RF</div><div class="dd-dv">${info.endereco||'â'}</div></div>
+        <div class="dd-dr"><div class="dd-dl">Data de abertura</div><div class="dd-dv">${info.abertura||'—'}</div></div>
+        <div class="dd-dr"><div class="dd-dl">Porte</div><div class="dd-dv">${info.porte||'—'}</div></div>
+        <div class="dd-dr"><div class="dd-dl">Capital social</div><div class="dd-dv">${info.capital||'—'}</div></div>
+        <div class="dd-dr"><div class="dd-dl">E-mail (RF)</div><div class="dd-dv">${info.email||'—'}</div></div>
+        <div class="dd-dr"><div class="dd-dl">Telefone (RF)</div><div class="dd-dv">${info.telefone||'—'}</div></div>
+        <div class="dd-dr full"><div class="dd-dl">Endereço cadastrado na RF</div><div class="dd-dv">${info.endereco||'—'}</div></div>
       </div>
     </div>
   </div>
   <div style="display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:13px">
-    <div class="section"><div class="section-header"><h2>ð CNAE</h2></div><div class="section-body"><div class="dd-cnae dd-cprim"><span class="dd-cc">${info.cnae_pri?.cod||'â'}</span><span class="dd-cd"><strong>Principal:</strong> ${info.cnae_pri?.desc||'â'}</span></div>${cnaesHtml}</div></div>
-    <div class="section"><div class="section-header"><h2>ð¤ QSA â SÃ³cios</h2></div><div class="section-body">${sociosHtml}</div></div>
+    <div class="section"><div class="section-header"><h2>📊 CNAE</h2></div><div class="section-body"><div class="dd-cnae dd-cprim"><span class="dd-cc">${info.cnae_pri?.cod||'—'}</span><span class="dd-cd"><strong>Principal:</strong> ${info.cnae_pri?.desc||'—'}</span></div>${cnaesHtml}</div></div>
+    <div class="section"><div class="section-header"><h2>👤 QSA — Sócios</h2></div><div class="section-body">${sociosHtml}</div></div>
   </div>
   <div class="section" style="margin-bottom:13px">
-    <div class="section-header"><h2>ð Links â busca exata + mÃ­dias negativas</h2><div style="display:flex;gap:5px;flex-wrap:wrap"><span class="badge badge-alto">CRÃTICO</span><span class="badge badge-medio">ATENÃÃO</span><span class="badge badge-baixo">BASE</span><span style="font-size:.66rem;background:#fde8ff;color:#7e22ce;padding:2px 7px;border-radius:4px;font-weight:700">ð£ MÃDIA NEG.</span></div></div>
+    <div class="section-header"><h2>🔗 Links — busca exata + mídias negativas</h2><div style="display:flex;gap:5px;flex-wrap:wrap"><span class="badge badge-alto">CRÍTICO</span><span class="badge badge-medio">ATENÇÃO</span><span class="badge badge-baixo">BASE</span><span style="font-size:.66rem;background:#fde8ff;color:#7e22ce;padding:2px 7px;border-radius:4px;font-weight:700">🟣 MÍDIA NEG.</span></div></div>
     <div class="section-body">
-      <div style="background:#f0fdf9;border:1px solid #6ee7b7;border-radius:7px;padding:8px 12px;margin-bottom:13px;font-size:.77rem;color:#065f46;display:flex;gap:7px;align-items:center"><span>â¹ï¸</span><span>Indicadores atualizados em segundo plano: <strong>â Encontrado Â· â Sem resultado Â· ð£ MÃ­dia negativa detectada</strong></span></div>
+      <div style="background:#f0fdf9;border:1px solid #6ee7b7;border-radius:7px;padding:8px 12px;margin-bottom:13px;font-size:.77rem;color:#065f46;display:flex;gap:7px;align-items:center"><span>ℹ️</span><span>Indicadores atualizados em segundo plano: <strong>✅ Encontrado · ➖ Sem resultado · 🟣 Mídia negativa detectada</strong></span></div>
       ${ddRenderGrupos(grupos,'pj')}
     </div>
   </div>
-  <div class="dd-disc">â ï¸ Busca exata com aspas duplas Â· Queries booleanas para mÃ­dias negativas eliminam ruÃ­do de redes sociais Â· Indicadores via DuckDuckGo (pode ter imprecisÃµes) Â· NÃ£o substitui due diligence jurÃ­dica Â· ${dtStr}</div>
+  <div class="dd-disc">⚠️ Busca exata com aspas duplas · Queries booleanas para mídias negativas eliminam ruído de redes sociais · Indicadores via DuckDuckGo (pode ter imprecisões) · Não substitui due diligence jurídica · ${dtStr}</div>
   <div style="display:flex;gap:10px;margin-top:14px">
-    <button class="btn btn-accent" onclick="ddAnalisarComIA('${razao}','${cnpjFmt}','${nivel}',${scoreRisco},${alertas.length},${atencao.length},'${info.situacao||''}','${info.porte||''}','${info.capital||''}','${info.abertura||''}')" style="flex:1;justify-content:center">ð¤ AnÃ¡lise Profunda com IA â Gemini</button>
-    <button class="btn btn-outline" onclick="window.print()" style="justify-content:center">ð¨ï¸ PDF</button>
+    <button class="btn btn-accent" onclick="ddAnalisarComIA('${razao}','${cnpjFmt}','${nivel}',${scoreRisco},${alertas.length},${atencao.length},'${info.situacao||''}','${info.porte||''}','${info.capital||''}','${info.abertura||''}')" style="flex:1;justify-content:center">🤖 Análise Profunda com IA — Gemini</button>
+    <button class="btn btn-outline" onclick="window.print()" style="justify-content:center">🖨️ PDF</button>
   </div>
   <div id="dd-ai-result" style="display:none;margin-top:16px"></div>`;
 
@@ -4241,30 +4220,30 @@ function pjRender(info,cnpjNum,apiName){
   setTimeout(()=>ddRunVerify(ddVerQueues.pj.map(q=>({el:document.getElementById(q.id),url:q.url,query:q.query,isNegative:q.isNegative})),'pj'),400);
 }
 
-// ââ ANÃLISE IA â Due Diligence ââââââââââââââ
+// ── ANÁLISE IA — Due Diligence ──────────────
 async function ddAnalisarComIA(razao,cnpj,nivel,score,alertas,atencao,situacao,porte,capital,abertura){
   const GEMINI_KEY='AIzaSyB6ZjO_Lj9AhpphMZtwUKYeQdzRWLu6Qm8';
   const GEMINI_URL='https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key='+GEMINI_KEY;
   const panel=document.getElementById('dd-ai-result');
   if(!panel) return;
   panel.style.display='block';
-  panel.innerHTML=`<div style="background:linear-gradient(135deg,#4f46e5,#7c3aed);padding:12px 16px;border-radius:10px 10px 0 0;display:flex;align-items:center;gap:10px"><span style="color:#fff;font-weight:700">ð¤ AnÃ¡lise Profunda com Gemini IA</span><div style="margin-left:auto;width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin 1s linear infinite"></div></div><div style="background:#fff;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 10px 10px;padding:16px;font-size:.85rem;line-height:1.8;color:#374151">â³ Analisando a empresa com inteligÃªncia artificial...</div>`;
+  panel.innerHTML=`<div style="background:linear-gradient(135deg,#4f46e5,#7c3aed);padding:12px 16px;border-radius:10px 10px 0 0;display:flex;align-items:center;gap:10px"><span style="color:#fff;font-weight:700">🤖 Análise Profunda com Gemini IA</span><div style="margin-left:auto;width:16px;height:16px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin 1s linear infinite"></div></div><div style="background:#fff;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 10px 10px;padding:16px;font-size:.85rem;line-height:1.8;color:#374151">⏳ Analisando a empresa com inteligência artificial...</div>`;
 
-  const prompt=`VocÃª Ã© um especialista em due diligence corporativa e anÃ¡lise de risco contratual brasileiro. Analise a empresa abaixo e forneÃ§a um parecer profissional completo como se estivesse preparando um relatÃ³rio executivo para um diretor decidir se fecha ou nÃ£o um contrato.
+  const prompt=`Você é um especialista em due diligence corporativa e análise de risco contratual brasileiro. Analise a empresa abaixo e forneça um parecer profissional completo como se estivesse preparando um relatório executivo para um diretor decidir se fecha ou não um contrato.
 
 EMPRESA ANALISADA:
-- RazÃ£o Social: ${razao}
+- Razão Social: ${razao}
 - CNPJ: ${cnpj}
-- SituaÃ§Ã£o Receita Federal: ${situacao}
+- Situação Receita Federal: ${situacao}
 - Porte: ${porte}
 - Capital Social: ${capital}
 - Data de Abertura: ${abertura}
 - Score de Risco Calculado: ${score} pontos
-- NÃ­vel de Risco: ${nivel.toUpperCase()}
-- Alertas CrÃ­ticos: ${alertas}
-- Pontos de AtenÃ§Ã£o: ${atencao}
+- Nível de Risco: ${nivel.toUpperCase()}
+- Alertas Críticos: ${alertas}
+- Pontos de Atenção: ${atencao}
 
-ForneÃ§a uma anÃ¡lise estruturada com:
+Forneça uma análise estruturada com:
 
 ## 1. PARECER EXECUTIVO (3-4 linhas diretas e objetivas)
 
@@ -4274,13 +4253,13 @@ Liste os riscos mais relevantes com base nos dados cadastrais.
 ## 3. PONTOS QUE PRECISAM SER INVESTIGADOS
 O que verificar obrigatoriamente antes de assinar.
 
-## 4. CLÃUSULAS CONTRATUAIS RECOMENDADAS
-Quais proteÃ§Ãµes incluir no contrato caso decida avanÃ§ar.
+## 4. CLÁUSULAS CONTRATUAIS RECOMENDADAS
+Quais proteções incluir no contrato caso decida avançar.
 
 ## 5. VEREDICTO FINAL
-Uma linha clara: APROVAR / APROVAR COM RESSALVAS / REPROVAR â com justificativa objetiva.
+Uma linha clara: APROVAR / APROVAR COM RESSALVAS / REPROVAR — com justificativa objetiva.
 
-Seja direto, profissional e objetivo. Use linguagem executiva. Responda em portuguÃªs.`;
+Seja direto, profissional e objetivo. Use linguagem executiva. Responda em português.`;
 
   try{
     const r=await fetch(GEMINI_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.2,maxOutputTokens:1500}})});
@@ -4290,51 +4269,51 @@ Seja direto, profissional e objetivo. Use linguagem executiva. Responda em portu
     const html=txt
       .replace(/## (.+)/g,'<h3 style="color:#4f46e5;font-size:.9rem;font-weight:800;margin:14px 0 6px;border-bottom:2px solid #e0e7ff;padding-bottom:4px">$1</h3>')
       .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
-      .replace(/\n- /g,'<br>â¢ ')
+      .replace(/\n- /g,'<br>• ')
       .replace(/\n/g,'<br>');
-    panel.innerHTML=`<div style="background:linear-gradient(135deg,#4f46e5,#7c3aed);padding:12px 16px;border-radius:10px 10px 0 0;display:flex;align-items:center;justify-content:space-between"><span style="color:#fff;font-weight:700">ð¤ AnÃ¡lise Profunda com Gemini IA</span><button onclick="document.getElementById('dd-ai-result').style.display='none'" style="background:rgba(255,255,255,.2);border:none;color:#fff;border-radius:50%;width:24px;height:24px;cursor:pointer">â</button></div><div style="background:#fff;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 10px 10px;padding:16px;font-size:.85rem;line-height:1.8;color:#374151">${html}</div>`;
+    panel.innerHTML=`<div style="background:linear-gradient(135deg,#4f46e5,#7c3aed);padding:12px 16px;border-radius:10px 10px 0 0;display:flex;align-items:center;justify-content:space-between"><span style="color:#fff;font-weight:700">🤖 Análise Profunda com Gemini IA</span><button onclick="document.getElementById('dd-ai-result').style.display='none'" style="background:rgba(255,255,255,.2);border:none;color:#fff;border-radius:50%;width:24px;height:24px;cursor:pointer">✕</button></div><div style="background:#fff;border:1px solid #e5e7eb;border-top:none;border-radius:0 0 10px 10px;padding:16px;font-size:.85rem;line-height:1.8;color:#374151">${html}</div>`;
   }catch(e){
-    panel.innerHTML=`<div style="background:#fef2f2;border:1px solid #fca5a5;border-radius:10px;padding:14px;color:#991b1b">â Erro ao consultar IA: ${e.message}</div>`;
+    panel.innerHTML=`<div style="background:#fef2f2;border:1px solid #fca5a5;border-radius:10px;padding:14px;color:#991b1b">❌ Erro ao consultar IA: ${e.message}</div>`;
   }
 }
 
-// ââ RENDER PF âââââââââââââââââââââââââââââ
+// ── RENDER PF ─────────────────────────────
 function pfRender(nome,cpf,cpfFmt,end,empresa,pep){
   const alertas=[],atencao=[];
-  if(pep==='sim') alertas.push('Pessoa Politicamente Exposta (PEP) â diligÃªncia ampliada obrigatÃ³ria conforme normativa BACEN');
-  else if(pep==='relacionado') atencao.push('Relacionado a PEP â verificar grau de relacionamento e exigir documentaÃ§Ã£o adicional');
+  if(pep==='sim') alertas.push('Pessoa Politicamente Exposta (PEP) — diligência ampliada obrigatória conforme normativa BACEN');
+  else if(pep==='relacionado') atencao.push('Relacionado a PEP — verificar grau de relacionamento e exigir documentação adicional');
 
   const nivel=alertas.length?'alto':atencao.length?'medio':'baixo';
-  const nivelLabel=nivel==='alto'?'â ALTO RISCO â PEP identificado':nivel==='medio'?'â ï¸ RISCO MÃDIO â Verificar pontos sinalizados':'â RISCO INICIAL BAIXO â Complete a pesquisa';
+  const nivelLabel=nivel==='alto'?'⛔ ALTO RISCO — PEP identificado':nivel==='medio'?'⚠️ RISCO MÉDIO — Verificar pontos sinalizados':'✅ RISCO INICIAL BAIXO — Complete a pesquisa';
 
   ddVerQueues.pf=[];ddStCount=0;
   const grupos=pfBuildGrupos(nome,cpf,cpfFmt,end,empresa,pep);
-  const now=new Date();const dtStr=now.toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'})+' Ã s '+now.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+  const now=new Date();const dtStr=now.toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'})+' às '+now.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
 
-  const pepBadge=pep!=='nao'?`<div class="dd-pep">â ï¸ ${pep==='sim'?'PEP â DiligÃªncia ampliada obrigatÃ³ria':'Relacionado a PEP â verificar vÃ­nculo'}</div>`:'';
+  const pepBadge=pep!=='nao'?`<div class="dd-pep">⚠️ ${pep==='sim'?'PEP — Diligência ampliada obrigatória':'Relacionado a PEP — verificar vínculo'}</div>`:'';
 
   const html=`
-  <div class="dd-rb"><div class="dd-rt ${nivel}"><div><div class="dd-rl ${nivel}">${nivelLabel}</div><div class="dd-rs" style="color:${nivel==='alto'?'#991b1b':nivel==='medio'?'#92400e':'#065f46'}">Varredura de mÃ­dias negativas com operadores booleanos profissionais</div></div><div class="dd-rbg">${alertas.length}Ã crÃ­tico Â· ${atencao.length}Ã atenÃ§Ã£o</div></div>
-  ${alertas.length?`<div class="dd-as alto"><div class="dd-at">ð« Alertas crÃ­ticos</div><ul class="dd-al alr">${alertas.map(a=>`<li>${a}</li>`).join('')}</ul></div>`:''}
-  ${atencao.length?`<div class="dd-as medio"><div class="dd-at">â ï¸ Pontos de atenÃ§Ã£o</div><ul class="dd-al ala">${atencao.map(a=>`<li>${a}</li>`).join('')}</ul></div>`:''}
+  <div class="dd-rb"><div class="dd-rt ${nivel}"><div><div class="dd-rl ${nivel}">${nivelLabel}</div><div class="dd-rs" style="color:${nivel==='alto'?'#991b1b':nivel==='medio'?'#92400e':'#065f46'}">Varredura de mídias negativas com operadores booleanos profissionais</div></div><div class="dd-rbg">${alertas.length}× crítico · ${atencao.length}× atenção</div></div>
+  ${alertas.length?`<div class="dd-as alto"><div class="dd-at">🚫 Alertas críticos</div><ul class="dd-al alr">${alertas.map(a=>`<li>${a}</li>`).join('')}</ul></div>`:''}
+  ${atencao.length?`<div class="dd-as medio"><div class="dd-at">⚠️ Pontos de atenção</div><ul class="dd-al ala">${atencao.map(a=>`<li>${a}</li>`).join('')}</ul></div>`:''}
   </div>
   <div class="stat-grid" style="margin-bottom:14px">
-    <div class="stat-card"><div class="stat-icon teal">ð¤</div><div><div class="stat-num" style="font-size:1rem">${nome}</div><div class="stat-label">Titular da anÃ¡lise</div></div></div>
-    <div class="stat-card"><div class="stat-icon blue">ðªª</div><div><div class="stat-num" style="font-size:1rem;font-family:'DM Mono',monospace">${cpfFmt||'â'}</div><div class="stat-label">CPF</div></div></div>
-    <div class="stat-card"><div class="stat-icon ${pep!=='nao'?'amber':'teal'}">${pep!=='nao'?'â ï¸':'â'}</div><div><div class="stat-num" style="font-size:.95rem;color:${pep!=='nao'?'var(--warn)':'var(--accent)'}">${pep==='sim'?'PEP':pep==='relacionado'?'REL. PEP':'NÃ£o PEP'}</div><div class="stat-label">ExposiÃ§Ã£o polÃ­tica</div></div></div>
-    <div class="stat-card"><div class="stat-icon" style="background:#fde8ff">ð£</div><div><div class="stat-num" style="font-size:1rem;color:#7e22ce">Ativa</div><div class="stat-label">Varredura mÃ­dias negativas</div></div></div>
+    <div class="stat-card"><div class="stat-icon teal">👤</div><div><div class="stat-num" style="font-size:1rem">${nome}</div><div class="stat-label">Titular da análise</div></div></div>
+    <div class="stat-card"><div class="stat-icon blue">🪪</div><div><div class="stat-num" style="font-size:1rem;font-family:'DM Mono',monospace">${cpfFmt||'—'}</div><div class="stat-label">CPF</div></div></div>
+    <div class="stat-card"><div class="stat-icon ${pep!=='nao'?'amber':'teal'}">${pep!=='nao'?'⚠️':'✅'}</div><div><div class="stat-num" style="font-size:.95rem;color:${pep!=='nao'?'var(--warn)':'var(--accent)'}">${pep==='sim'?'PEP':pep==='relacionado'?'REL. PEP':'Não PEP'}</div><div class="stat-label">Exposição política</div></div></div>
+    <div class="stat-card"><div class="stat-icon" style="background:#fde8ff">🟣</div><div><div class="stat-num" style="font-size:1rem;color:#7e22ce">Ativa</div><div class="stat-label">Varredura mídias negativas</div></div></div>
   </div>
   ${pepBadge}
   ${ddMidiasHTML(nome,cpfFmt)}
   <div class="section" style="margin-bottom:13px">
-    <div class="section-header"><h2>ð Links â busca exata + mÃ­dias negativas</h2><div style="display:flex;gap:5px;flex-wrap:wrap"><span class="badge badge-alto">CRÃTICO</span><span class="badge badge-medio">ATENÃÃO</span><span class="badge badge-baixo">BASE</span><span style="font-size:.66rem;background:#fde8ff;color:#7e22ce;padding:2px 7px;border-radius:4px;font-weight:700">ð£ MÃDIA NEG.</span></div></div>
+    <div class="section-header"><h2>🔗 Links — busca exata + mídias negativas</h2><div style="display:flex;gap:5px;flex-wrap:wrap"><span class="badge badge-alto">CRÍTICO</span><span class="badge badge-medio">ATENÇÃO</span><span class="badge badge-baixo">BASE</span><span style="font-size:.66rem;background:#fde8ff;color:#7e22ce;padding:2px 7px;border-radius:4px;font-weight:700">🟣 MÍDIA NEG.</span></div></div>
     <div class="section-body">
-      <div style="background:#f0fdf9;border:1px solid #6ee7b7;border-radius:7px;padding:8px 12px;margin-bottom:13px;font-size:.77rem;color:#065f46;display:flex;gap:7px;align-items:center"><span>â¹ï¸</span><span>Indicadores atualizados em segundo plano: <strong>â Encontrado Â· â Sem resultado Â· ð£ MÃ­dia negativa detectada</strong></span></div>
+      <div style="background:#f0fdf9;border:1px solid #6ee7b7;border-radius:7px;padding:8px 12px;margin-bottom:13px;font-size:.77rem;color:#065f46;display:flex;gap:7px;align-items:center"><span>ℹ️</span><span>Indicadores atualizados em segundo plano: <strong>✅ Encontrado · ➖ Sem resultado · 🟣 Mídia negativa detectada</strong></span></div>
       ${ddRenderGrupos(grupos,'pf')}
     </div>
   </div>
-  <div class="dd-disc">â ï¸ Busca booleana com aspas duplas e operadores AND/OR/NOT Â· RuÃ­do de redes sociais filtrado com -site: Â· Indicadores via DuckDuckGo Â· NÃ£o substitui due diligence jurÃ­dica Â· ${dtStr}</div>
-  <button class="btn btn-outline" onclick="window.print()" style="margin-top:10px;width:100%;justify-content:center">ð¨ï¸ Imprimir / Salvar como PDF</button>`;
+  <div class="dd-disc">⚠️ Busca booleana com aspas duplas e operadores AND/OR/NOT · Ruído de redes sociais filtrado com -site: · Indicadores via DuckDuckGo · Não substitui due diligence jurídica · ${dtStr}</div>
+  <button class="btn btn-outline" onclick="window.print()" style="margin-top:10px;width:100%;justify-content:center">🖨️ Imprimir / Salvar como PDF</button>`;
 
   const res=document.getElementById('pf-result');
   res.innerHTML=html;res.style.display='block';
@@ -4343,23 +4322,23 @@ function pfRender(nome,cpf,cpfFmt,end,empresa,pep){
   setTimeout(()=>ddRunVerify(ddVerQueues.pf.map(q=>({el:document.getElementById(q.id),url:q.url,query:q.query,isNegative:q.isNegative})),'pf'),400);
 }
 
-// ââ AÃÃES PJ ââââââââââââââââââââââââââââââ
+// ── AÇÕES PJ ──────────────────────────────
 async function pjConsultar(){
   const raw=ddV('pj-cnpj').replace(/\D/g,'');
-  if(raw.length!==14){alert('Informe um CNPJ vÃ¡lido com 14 dÃ­gitos.');return;}
+  if(raw.length!==14){alert('Informe um CNPJ válido com 14 dígitos.');return;}
   ddCnpjN=raw;
   const btn=document.getElementById('pj-btnapi');
-  btn.disabled=true;document.getElementById('pj-bico').textContent='â³';document.getElementById('pj-btxt').textContent='Consultando APIs...';
+  btn.disabled=true;document.getElementById('pj-bico').textContent='⏳';document.getElementById('pj-btxt').textContent='Consultando APIs...';
   document.getElementById('pj-log').innerHTML='';document.getElementById('pj-logwrap').style.display='block';
   document.getElementById('pj-result').style.display='none';document.getElementById('pj-result').innerHTML='';
   document.getElementById('pj-manbox').style.display='none';
   const vb=document.getElementById('pj-vbar');if(vb)vb.classList.remove('show');
-  ddAddLog('pj','Consultando 3 APIs pÃºblicas...','ok');
+  ddAddLog('pj','Consultando 3 APIs públicas...','ok');
   const apis=[{name:'BrasilAPI',url:`https://brasilapi.com.br/api/cnpj/v1/${raw}`},{name:'ReceitaWS',url:`https://www.receitaws.com.br/v1/cnpj/${raw}`},{name:'CNPJ.ws',url:`https://publica.cnpj.ws/cnpj/${raw}`}];
   let found=null;
   for(const a of apis){const l=ddAddLog('pj',`Tentando ${a.name}...`,'spin');found=await ddTryApi(a.url,a.name,l);if(found)break;await new Promise(r=>setTimeout(r,350));}
-  btn.disabled=false;document.getElementById('pj-bico').textContent='ð';document.getElementById('pj-btxt').textContent='Consultar APIs + gerar links';
-  if(!found){ddAddLog('pj','Todas as APIs bloqueadas â ativando modo manual','err');pjBuildManLinks(raw);document.getElementById('pj-manbox').style.display='block';pjSomenteLinks();return;}
+  btn.disabled=false;document.getElementById('pj-bico').textContent='🔍';document.getElementById('pj-btxt').textContent='Consultar APIs + gerar links';
+  if(!found){ddAddLog('pj','Todas as APIs bloqueadas — ativando modo manual','err');pjBuildManLinks(raw);document.getElementById('pj-manbox').style.display='block';pjSomenteLinks();return;}
   const info=ddNorm(found.data,found.api);if(!info){ddAddLog('pj','Erro ao processar resposta','err');return;}
   ddSet('pj-razao',info.razao);if(info.endereco&&!ddV('pj-end'))ddSet('pj-end',info.endereco);
   if(info.socios?.length&&!ddV('pj-socios'))ddSet('pj-socios',info.socios.map(s=>s.nome).filter(Boolean).join(', '));
@@ -4379,10 +4358,10 @@ function pjSomenteLinks(){
   const vb=document.getElementById('pj-vbar');if(vb)vb.classList.remove('show');
   const res=document.getElementById('pj-result');
   res.innerHTML=`
-    <div class="dd-rb"><div class="dd-rt baixo"><div><div class="dd-rl baixo">ð Links gerados â complete a pesquisa</div><div class="dd-rs" style="color:#065f46">Busca exata + mÃ­dias negativas + operadores booleanos</div></div></div></div>
+    <div class="dd-rb"><div class="dd-rt baixo"><div><div class="dd-rl baixo">📋 Links gerados — complete a pesquisa</div><div class="dd-rs" style="color:#065f46">Busca exata + mídias negativas + operadores booleanos</div></div></div></div>
     ${ddMidiasHTML(razao,cnpjFmt)}
-    <div class="section"><div class="section-header"><h2>ð Links de pesquisa</h2></div><div class="section-body">${ddRenderGrupos(grupos,'pj')}</div></div>
-    <div class="dd-disc">Todos os links usam aspas duplas para busca exata. Se nÃ£o encontrar resultado, remova as aspas manualmente no Google.</div>`;
+    <div class="section"><div class="section-header"><h2>🔗 Links de pesquisa</h2></div><div class="section-body">${ddRenderGrupos(grupos,'pj')}</div></div>
+    <div class="dd-disc">Todos os links usam aspas duplas para busca exata. Se não encontrar resultado, remova as aspas manualmente no Google.</div>`;
   res.style.display='block';res.scrollIntoView({behavior:'smooth',block:'start'});
   const vb2=document.getElementById('pj-vbar');if(vb2)vb2.classList.add('show');
   setTimeout(()=>ddRunVerify(ddVerQueues.pj.map(q=>({el:document.getElementById(q.id),url:q.url,query:q.query,isNegative:q.isNegative})),'pj'),400);
@@ -4390,7 +4369,7 @@ function pjSomenteLinks(){
 
 function pfGerar(){
   const nome=ddV('pf-nome');
-  if(!nome){alert('Informe o nome completo da pessoa fÃ­sica.');return;}
+  if(!nome){alert('Informe o nome completo da pessoa física.');return;}
   const cpf=ddV('pf-cpf').replace(/\D/g,'');
   const cpfFmt=cpf.length===11?cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/,'$1.$2.$3-$4'):ddV('pf-cpf');
   const end=ddV('pf-end');const empresa=ddV('pf-empresa');const pep=ddV('pf-pep');
@@ -4400,11 +4379,11 @@ function pfGerar(){
   pfRender(nome,cpf,cpfFmt,end,empresa,pep);
 }
 
-// ââ MODO MANUAL âââââââââââââââââââââââââââ
+// ── MODO MANUAL ───────────────────────────
 function pjBuildManLinks(cnpjNum){
   const el=document.getElementById('pj-manlinks');if(!el)return;
-  const links=[{n:'BrasilAPI',u:`https://brasilapi.com.br/api/cnpj/v1/${cnpjNum}`,d:'API governamental'},{n:'ReceitaWS',u:`https://www.receitaws.com.br/v1/cnpj/${cnpjNum}`,d:'Completa com QSA'},{n:'CNPJ.ws',u:`https://publica.cnpj.ws/cnpj/${cnpjNum}`,d:'SÃ³cios e CNAEs'},{n:'Minha Receita',u:`https://minhareceita.org/${cnpjNum}`,d:'Receita Federal direta'}];
-  el.innerHTML=links.map((l,i)=>`<a class="dd-manlink" href="${l.u}" target="_blank"><div class="dd-mannum">${i+1}</div><div><strong>${l.n}</strong> â ${l.d}<div style="font-size:.67rem;font-family:'DM Mono',monospace;opacity:.65;margin-top:1px">${l.u}</div></div><span>â</span></a>`).join('');
+  const links=[{n:'BrasilAPI',u:`https://brasilapi.com.br/api/cnpj/v1/${cnpjNum}`,d:'API governamental'},{n:'ReceitaWS',u:`https://www.receitaws.com.br/v1/cnpj/${cnpjNum}`,d:'Completa com QSA'},{n:'CNPJ.ws',u:`https://publica.cnpj.ws/cnpj/${cnpjNum}`,d:'Sócios e CNAEs'},{n:'Minha Receita',u:`https://minhareceita.org/${cnpjNum}`,d:'Receita Federal direta'}];
+  el.innerHTML=links.map((l,i)=>`<a class="dd-manlink" href="${l.u}" target="_blank"><div class="dd-mannum">${i+1}</div><div><strong>${l.n}</strong> — ${l.d}<div style="font-size:.67rem;font-family:'DM Mono',monospace;opacity:.65;margin-top:1px">${l.u}</div></div><span>↗</span></a>`).join('');
 }
 
 function ddToggleManual(prefix){
@@ -4416,10 +4395,10 @@ function ddToggleManual(prefix){
 function ddParseManual(prefix){
   const raw=document.getElementById(prefix+'-jsonpaste').value.trim();
   if(!raw){alert('Cole o JSON antes de processar.');return;}
-  let d;try{d=JSON.parse(raw);}catch(e){alert('JSON invÃ¡lido.\n\nErro: '+e.message);return;}
+  let d;try{d=JSON.parse(raw);}catch(e){alert('JSON inválido.\n\nErro: '+e.message);return;}
   let info=null;
   for(const a of['BrasilAPI','ReceitaWS','CNPJ.ws']){info=ddNorm(d,a);if(info&&info.razao)break;}
-  if(!info){alert('NÃ£o foi possÃ­vel interpretar o JSON.');return;}
+  if(!info){alert('Não foi possível interpretar o JSON.');return;}
   document.getElementById(prefix+'-manbox').style.display='none';
   if(prefix==='pj') pjRender(info,ddCnpjN||'00000000000100','Manual');
 }
@@ -4442,32 +4421,32 @@ function ddLimpar(prefix){
   const vb=document.getElementById(prefix+'-vbar');if(vb)vb.classList.remove('show');
   ddVerQueues[prefix]=[];ddStCount=0;
 }
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 // END DUE DILIGENCE MODULE v4
-// ââââââââââââââââââââââââââââââââââââââââââ
+// ══════════════════════════════════════════
 
 // Check session first, then init app
 
-// ââââââââââââââââââââââââââââââââââââââââââââ
-// AGENDA â Google Calendar style
-// ââââââââââââââââââââââââââââââââââââââââââââ
+// ════════════════════════════════════════════
+// AGENDA — Google Calendar style
+// ════════════════════════════════════════════
 let _agView = 'mes';
 let _agDate = new Date();
 let _agSelDate = null;
 
 const AG_TIPOS = {
-  'ReuniÃ£o':     { cor:'#1a73e8', bg:'#e8f0fe', icon:'ð¤' },
-  'Compromisso': { cor:'#8b5cf6', bg:'#ede9fe', icon:'ð' },
-  'Prazo':       { cor:'#ea4335', bg:'#fce8e6', icon:'â°' },
-  'Auditoria':   { cor:'#f59e0b', bg:'#fef3c7', icon:'ð' },
-  'Treinamento': { cor:'#0f9d58', bg:'#e6f4ea', icon:'ð' },
-  'Evento':      { cor:'#6366f1', bg:'#e0e7ff', icon:'ð¯' },
-  'Outro':       { cor:'#64748b', bg:'#f1f5f9', icon:'ð' },
+  'Reunião':     { cor:'#1a73e8', bg:'#e8f0fe', icon:'🤝' },
+  'Compromisso': { cor:'#8b5cf6', bg:'#ede9fe', icon:'📌' },
+  'Prazo':       { cor:'#ea4335', bg:'#fce8e6', icon:'⏰' },
+  'Auditoria':   { cor:'#f59e0b', bg:'#fef3c7', icon:'🔍' },
+  'Treinamento': { cor:'#0f9d58', bg:'#e6f4ea', icon:'📚' },
+  'Evento':      { cor:'#6366f1', bg:'#e0e7ff', icon:'🎯' },
+  'Outro':       { cor:'#64748b', bg:'#f1f5f9', icon:'📋' },
 };
-const AG_MONTHS = ['Janeiro','Fevereiro','MarÃ§o','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
+const AG_MONTHS = ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'];
 const AG_MONTHS_SHORT = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-const AG_DAYS = ['Dom','Seg','Ter','Qua','Qui','Sex','SÃ¡b'];
-const AG_DAYS_FULL = ['Domingo','Segunda-feira','TerÃ§a-feira','Quarta-feira','Quinta-feira','Sexta-feira','SÃ¡bado'];
+const AG_DAYS = ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+const AG_DAYS_FULL = ['Domingo','Segunda-feira','Terça-feira','Quarta-feira','Quinta-feira','Sexta-feira','Sábado'];
 
 function _agKey(d) {
   return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
@@ -4564,7 +4543,7 @@ function _renderAgendaSemana(el, titleEl, today) {
   const dow = _agDate.getDay();
   const mon = new Date(_agDate); mon.setDate(_agDate.getDate()-dow);
   const sun = new Date(mon); sun.setDate(mon.getDate()+6);
-  if(titleEl) titleEl.textContent = mon.getDate()+' '+AG_MONTHS_SHORT[mon.getMonth()]+' â '+sun.getDate()+' '+AG_MONTHS_SHORT[sun.getMonth()]+' '+sun.getFullYear();
+  if(titleEl) titleEl.textContent = mon.getDate()+' '+AG_MONTHS_SHORT[mon.getMonth()]+' – '+sun.getDate()+' '+AG_MONTHS_SHORT[sun.getMonth()]+' '+sun.getFullYear();
 
   let html = `<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px">`;
   for(let i=0;i<7;i++) {
@@ -4596,14 +4575,14 @@ function _renderAgendaSemana(el, titleEl, today) {
 }
 
 function _renderAgendaLista(el, titleEl, today) {
-  if(titleEl) titleEl.textContent = 'PrÃ³ximos eventos';
+  if(titleEl) titleEl.textContent = 'Próximos eventos';
   const upcoming = (DB.agenda||[])
     .filter(e => e.data >= _agKey(today))
     .sort((a,b)=>a.data.localeCompare(b.data)||(a.hora||'').localeCompare(b.hora||''));
 
   if(!upcoming.length) {
     el.innerHTML = `<div style="text-align:center;padding:60px 20px;color:var(--text-muted)">
-      <div style="font-size:3rem;margin-bottom:12px">ð</div>
+      <div style="font-size:3rem;margin-bottom:12px">📅</div>
       <div style="font-size:1rem;font-weight:700;margin-bottom:6px">Nenhum evento cadastrado</div>
       <div style="font-size:.85rem">Clique em <strong>+ Evento</strong> para adicionar</div>
     </div>`;
@@ -4617,7 +4596,7 @@ function _renderAgendaLista(el, titleEl, today) {
       const d = new Date(e.data+'T00:00:00');
       const isToday = d.toDateString()===today.toDateString();
       const isTomorrow = d.toDateString()===new Date(today.getTime()+86400000).toDateString();
-      const label = isToday ? 'ð Hoje' : isTomorrow ? 'ð AmanhÃ£' : AG_DAYS_FULL[d.getDay()];
+      const label = isToday ? '📍 Hoje' : isTomorrow ? '📅 Amanhã' : AG_DAYS_FULL[d.getDay()];
       html += `<div style="display:flex;align-items:center;gap:12px;margin:18px 0 8px">
         <div style="font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;color:${isToday?'var(--primary)':'var(--text-muted)'}">${label}</div>
         <div style="font-weight:700;font-size:.9rem;color:var(--text)">${d.getDate()} de ${AG_MONTHS[d.getMonth()]} ${d.getFullYear()}</div>
@@ -4631,14 +4610,14 @@ function _renderAgendaLista(el, titleEl, today) {
         <div style="font-weight:700;font-size:.9rem;color:var(--text)">${t.icon} ${e.titulo}</div>
         ${e.desc?`<div style="font-size:.78rem;color:var(--text-muted);margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${e.desc}</div>`:''}
         <div style="display:flex;gap:10px;margin-top:4px;flex-wrap:wrap">
-          ${e.local?`<span style="font-size:.73rem;color:var(--text-muted)">ð ${e.local}</span>`:''}
-          ${e.resp?`<span style="font-size:.73rem;color:var(--text-muted)">ð¤ ${e.resp}</span>`:''}
-          ${e.horaFim?`<span style="font-size:.73rem;color:var(--text-muted)">â± atÃ© ${e.horaFim}</span>`:''}
+          ${e.local?`<span style="font-size:.73rem;color:var(--text-muted)">📍 ${e.local}</span>`:''}
+          ${e.resp?`<span style="font-size:.73rem;color:var(--text-muted)">👤 ${e.resp}</span>`:''}
+          ${e.horaFim?`<span style="font-size:.73rem;color:var(--text-muted)">⏱ até ${e.horaFim}</span>`:''}
         </div>
       </div>
       <div style="display:flex;gap:4px;align-items:flex-start">
         <span style="background:${t.bg};color:${t.cor};padding:2px 9px;border-radius:20px;font-size:.72rem;font-weight:700;white-space:nowrap">${e.tipo}</span>
-        <button onclick="event.stopPropagation();agendaDelEvento(${e.id})" style="background:#fee2e2;border:none;color:#ef4444;border-radius:6px;width:26px;height:26px;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center">ð</button>
+        <button onclick="event.stopPropagation();agendaDelEvento(${e.id})" style="background:#fee2e2;border:none;color:#ef4444;border-radius:6px;width:26px;height:26px;cursor:pointer;font-size:.8rem;display:flex;align-items:center;justify-content:center">🗑</button>
       </div>
     </div>`;
   });
@@ -4656,10 +4635,10 @@ function agendaClickDay(key) {
   const d = new Date(key+'T00:00:00');
   const today = _agToday();
   const isToday = d.toDateString()===today.toDateString();
-  ptitle.textContent = (isToday?'Hoje â ':'')+AG_DAYS_FULL[d.getDay()]+', '+d.getDate()+' de '+AG_MONTHS[d.getMonth()]+' '+d.getFullYear();
+  ptitle.textContent = (isToday?'Hoje — ':'')+AG_DAYS_FULL[d.getDay()]+', '+d.getDate()+' de '+AG_MONTHS[d.getMonth()]+' '+d.getFullYear();
   if(!evts.length) {
     pbody.innerHTML = `<div style="text-align:center;padding:24px;color:var(--text-muted)">
-      <div style="font-size:1.8rem;margin-bottom:8px">ð­</div>
+      <div style="font-size:1.8rem;margin-bottom:8px">📭</div>
       <div style="font-weight:600;margin-bottom:10px">Nenhum evento neste dia</div>
       <button onclick="agendaNovoEvento('${key}')" class="btn btn-accent btn-sm">+ Adicionar Evento</button>
     </div>`;
@@ -4667,19 +4646,19 @@ function agendaClickDay(key) {
     pbody.innerHTML = evts.map(e => {
       const t = AG_TIPOS[e.tipo]||AG_TIPOS['Outro'];
       return `<div style="display:flex;gap:12px;align-items:flex-start;padding:12px 16px;border-radius:10px;border:1px solid var(--border);background:var(--card);margin-bottom:8px;border-left:4px solid ${t.cor}">
-        <div style="font-size:.8rem;font-weight:700;color:var(--text-muted);min-width:50px">${e.hora||'Todo dia'}${e.horaFim?'<br><span style=font-size:.7rem>atÃ© '+e.horaFim+'</span>':''}</div>
+        <div style="font-size:.8rem;font-weight:700;color:var(--text-muted);min-width:50px">${e.hora||'Todo dia'}${e.horaFim?'<br><span style=font-size:.7rem>até '+e.horaFim+'</span>':''}</div>
         <div style="flex:1">
           <div style="font-weight:700;font-size:.92rem">${t.icon} ${e.titulo}</div>
           <div style="margin-top:3px"><span style="background:${t.bg};color:${t.cor};padding:1px 8px;border-radius:20px;font-size:.71rem;font-weight:700">${e.tipo}</span></div>
           ${e.desc?`<div style="font-size:.8rem;color:var(--text-muted);margin-top:5px">${e.desc}</div>`:''}
-          ${e.local?`<div style="font-size:.77rem;color:var(--text-muted);margin-top:3px">ð ${e.local}</div>`:''}
-          ${e.resp?`<div style="font-size:.77rem;color:var(--text-muted);margin-top:2px">ð¤ ${e.resp}</div>`:''}
-          ${e.lembrete?`<div style="font-size:.74rem;color:var(--warn);margin-top:2px">ð ${e.lembrete}</div>`:''}
-          ${e.recorrencia&&e.recorrencia!=='nenhuma'?`<div style="font-size:.74rem;color:var(--info);margin-top:2px">ð ${e.recorrencia}</div>`:''}
+          ${e.local?`<div style="font-size:.77rem;color:var(--text-muted);margin-top:3px">📍 ${e.local}</div>`:''}
+          ${e.resp?`<div style="font-size:.77rem;color:var(--text-muted);margin-top:2px">👤 ${e.resp}</div>`:''}
+          ${e.lembrete?`<div style="font-size:.74rem;color:var(--warn);margin-top:2px">🔔 ${e.lembrete}</div>`:''}
+          ${e.recorrencia&&e.recorrencia!=='nenhuma'?`<div style="font-size:.74rem;color:var(--info);margin-top:2px">🔁 ${e.recorrencia}</div>`:''}
         </div>
         <div style="display:flex;gap:4px">
-          <button onclick="agendaEditEvento(${e.id})" class="btn btn-outline btn-sm" style="padding:4px 8px">âï¸</button>
-          <button onclick="agendaDelEvento(${e.id})" class="btn btn-danger btn-sm" style="padding:4px 8px">ð</button>
+          <button onclick="agendaEditEvento(${e.id})" class="btn btn-outline btn-sm" style="padding:4px 8px">✏️</button>
+          <button onclick="agendaDelEvento(${e.id})" class="btn btn-danger btn-sm" style="padding:4px 8px">🗑</button>
         </div>
       </div>`;
     }).join('') + `<div style="margin-top:8px"><button onclick="agendaNovoEvento('${key}')" class="btn btn-outline btn-sm">+ Evento neste dia</button></div>`;
@@ -4691,7 +4670,7 @@ function agendaClickDay(key) {
 function agendaNovoEvento(dataInicial) {
   window._agEditId = null;
   document.getElementById('ag-f-titulo').value='';
-  document.getElementById('ag-f-tipo').value='ReuniÃ£o';
+  document.getElementById('ag-f-tipo').value='Reunião';
   document.getElementById('ag-f-data').value = dataInicial||_agSelDate||_agKey(new Date());
   document.getElementById('ag-f-hora').value='';
   document.getElementById('ag-f-hora-fim').value='';
@@ -4700,7 +4679,7 @@ function agendaNovoEvento(dataInicial) {
   document.getElementById('ag-f-desc').value='';
   document.getElementById('ag-f-lembrete').value='';
   document.getElementById('ag-f-recorrencia').value='nenhuma';
-  document.getElementById('ag-modal-title').textContent='ð Novo Evento';
+  document.getElementById('ag-modal-title').textContent='📅 Novo Evento';
   openModal('modal-agenda');
 }
 
@@ -4708,7 +4687,7 @@ function agendaEditEvento(id) {
   const e=(DB.agenda||[]).find(x=>x.id===id); if(!e) return;
   window._agEditId=id;
   document.getElementById('ag-f-titulo').value=e.titulo||'';
-  document.getElementById('ag-f-tipo').value=e.tipo||'ReuniÃ£o';
+  document.getElementById('ag-f-tipo').value=e.tipo||'Reunião';
   document.getElementById('ag-f-data').value=e.data||'';
   document.getElementById('ag-f-hora').value=e.hora||'';
   document.getElementById('ag-f-hora-fim').value=e.horaFim||'';
@@ -4717,14 +4696,14 @@ function agendaEditEvento(id) {
   document.getElementById('ag-f-desc').value=e.desc||'';
   document.getElementById('ag-f-lembrete').value=e.lembrete||'';
   document.getElementById('ag-f-recorrencia').value=e.recorrencia||'nenhuma';
-  document.getElementById('ag-modal-title').textContent='âï¸ Editar Evento';
+  document.getElementById('ag-modal-title').textContent='✏️ Editar Evento';
   openModal('modal-agenda');
 }
 
 function agendaSalvarEvento() {
   const titulo=document.getElementById('ag-f-titulo').value.trim();
   const data=document.getElementById('ag-f-data').value;
-  if(!titulo){alert('Informe o tÃ­tulo.');return;}
+  if(!titulo){alert('Informe o título.');return;}
   if(!data){alert('Informe a data.');return;}
   const evt={titulo,data,
     tipo:document.getElementById('ag-f-tipo').value,
@@ -4742,7 +4721,7 @@ function agendaSalvarEvento() {
   closeModal('modal-agenda');
   saveLocalCache();
   const _savedEvt = window._agEditId ? DB.agenda.find(e=>e.id===window._agEditId) : DB.agenda[DB.agenda.length-1];
-  if(_savedEvt) sbSaveAgenda(_savedEvt).then(()=>setSaveIndicator('âï¸ Evento salvo na nuvem','var(--accent)'));
+  if(_savedEvt) sbSaveAgenda(_savedEvt).then(()=>setSaveIndicator('☁️ Evento salvo na nuvem','var(--accent)'));
   _agSelDate=data;
   renderAgenda();
   agendaClickDay(data);
@@ -4755,57 +4734,57 @@ function agendaDelEvento(id) {
   sbDeleteAgenda(id);
   if(_agSelDate) agendaClickDay(_agSelDate);
   renderAgenda();
-  setSaveIndicator('ð Evento removido','var(--warn)');
+  setSaveIndicator('🗑 Evento removido','var(--warn)');
 }
 
 async function agendaSyncNuvem() {
-  if(!USE_SUPABASE) { alert('Supabase nÃ£o configurado.'); return; }
+  if(!USE_SUPABASE) { alert('Supabase não configurado.'); return; }
   const eventos = DB.agenda||[];
   if(!eventos.length) { alert('Nenhum evento para sincronizar.'); return; }
-  setSaveIndicator('â³ Sincronizando agenda...','var(--warn)');
+  setSaveIndicator('⏳ Sincronizando agenda...','var(--warn)');
   try {
     await Promise.all(eventos.map(e => sbSaveAgenda(e)));
-    setSaveIndicator('âï¸ Agenda sincronizada â '+eventos.length+' evento(s)','var(--accent)');
+    setSaveIndicator('☁️ Agenda sincronizada — '+eventos.length+' evento(s)','var(--accent)');
   } catch(err) {
-    setSaveIndicator('â Erro ao sincronizar','var(--danger)');
+    setSaveIndicator('❌ Erro ao sincronizar','var(--danger)');
     console.error('Sync agenda:', err);
   }
 }
 
 
 
-// ââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ════════════════════════════════════════════════════
 // SISTEMA DE LOGS DE AUDITORIA
-// ââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ════════════════════════════════════════════════════
 const LOGS_KEY = 'ch_audit_logs_v1';
-const LOGS_MAX_LOCAL = 500; // mÃ¡ximo no localStorage
+const LOGS_MAX_LOCAL = 500; // máximo no localStorage
 
-// Tipos de aÃ§Ã£o com Ã­cone e cor
+// Tipos de ação com ícone e cor
 const LOG_TIPOS = {
-  'login':       { icon:'ð', label:'Login',           cls:'login'  },
-  'logout':      { icon:'ðª', label:'Logout',          cls:'login'  },
-  'create':      { icon:'â', label:'CriaÃ§Ã£o',         cls:'create' },
-  'update':      { icon:'âï¸', label:'EdiÃ§Ã£o',          cls:'update' },
-  'delete':      { icon:'ðï¸', label:'ExclusÃ£o',       cls:'delete' },
-  'import':      { icon:'ð¥', label:'ImportaÃ§Ã£o',      cls:'import' },
-  'status':      { icon:'ð', label:'Status alterado', cls:'update' },
-  'permissao':   { icon:'ð', label:'PermissÃ£o',       cls:'update' },
-  'senha':       { icon:'ð', label:'Senha',           cls:'update' },
-  'usuario':     { icon:'ð¤', label:'UsuÃ¡rio',         cls:'create' },
+  'login':       { icon:'🔐', label:'Login',           cls:'login'  },
+  'logout':      { icon:'🚪', label:'Logout',          cls:'login'  },
+  'create':      { icon:'➕', label:'Criação',         cls:'create' },
+  'update':      { icon:'✏️', label:'Edição',          cls:'update' },
+  'delete':      { icon:'🗑️', label:'Exclusão',       cls:'delete' },
+  'import':      { icon:'📥', label:'Importação',      cls:'import' },
+  'status':      { icon:'🔄', label:'Status alterado', cls:'update' },
+  'permissao':   { icon:'🔑', label:'Permissão',       cls:'update' },
+  'senha':       { icon:'🔒', label:'Senha',           cls:'update' },
+  'usuario':     { icon:'👤', label:'Usuário',         cls:'create' },
 };
 
-// MÃ³dulos legÃ­veis
+// Módulos legíveis
 const LOG_MODULOS = {
-  'denuncias':'Canal de DenÃºncia', 'riscos':'Mapeamento de Risco',
-  'controles':'Controles Internos', 'planos':'Planos de AÃ§Ã£o',
+  'denuncias':'Canal de Denúncia', 'riscos':'Mapeamento de Risco',
+  'controles':'Controles Internos', 'planos':'Planos de Ação',
   'filiais':'Filiais e Setores', 'agenda':'Agenda',
-  'rm_planos':'Planos RM', 'usuarios':'UsuÃ¡rios', 'sistema':'Sistema',
-  'fbboards':'Flow Board', 'permissoes':'PermissÃµes',
+  'rm_planos':'Planos RM', 'usuarios':'Usuários', 'sistema':'Sistema',
+  'fbboards':'Flow Board', 'permissoes':'Permissões',
 };
 
-let _logsCache = null; // cache em memÃ³ria para a sessÃ£o
+let _logsCache = null; // cache em memória para a sessão
 
-// ââ REGISTRAR LOG
+// ── REGISTRAR LOG
 async function auditLog(acao, modulo, descricao, detalhes = {}) {
   if(!currentUser) return;
   const entry = {
@@ -4846,7 +4825,7 @@ async function auditLog(acao, modulo, descricao, detalhes = {}) {
   }
 }
 
-// ââ CARREGAR LOGS
+// ── CARREGAR LOGS
 async function logsLoad() {
   // Tentar Supabase (mais completo)
   if(USE_SUPABASE) {
@@ -4873,10 +4852,10 @@ async function logsLoad() {
   } catch(e) { return []; }
 }
 
-// ââ BRANDING & APARÃNCIA ââ
+// ── BRANDING & APARÊNCIA ──
 let BRANDING = {
   nome: 'Compliance',
-  subtitulo: 'Sistema de GestÃ£o',
+  subtitulo: 'Sistema de Gestão',
   corPrimaria: '#0f2d4a',
   logoUrl: ''
 };
@@ -4897,7 +4876,7 @@ async function carregarBranding() {
             const config = data[0];
             BRANDING = {
               nome: config.nome || 'Compliance',
-              subtitulo: config.subtitulo || 'Sistema de GestÃ£o',
+              subtitulo: config.subtitulo || 'Sistema de Gestão',
               corPrimaria: config.cor_primaria || '#0f2d4a',
               logoUrl: config.logo_url || ''
             };
@@ -4906,7 +4885,7 @@ async function carregarBranding() {
             return;
           }
         }
-      } catch(e) { try { const r2=await fetch(`${SUPABASE_URL}/rest/v1/branding?limit=1`,{headers:{'apikey':getActiveKey(),'Authorization':'Bearer '+getActiveKey()}}); if(r2.ok){const d2=await r2.json();if(d2&&d2.length>0){const c2=d2[0];BRANDING={nome:c2.nome||'Compliance',subtitulo:c2.subtitulo||'Sistema de GestÃ£o',corPrimaria:c2.cor_primaria||'#0f2d4a',logoUrl:c2.logo_url||''};localStorage.setItem(BRANDING_KEY,JSON.stringify(BRANDING));aplicarBranding();return;}} } catch(e2){} console.warn('Erro ao carregar branding do Supabase:', e.message); }
+      } catch(e) { try { const r2=await fetch(`${SUPABASE_URL}/rest/v1/branding?limit=1`,{headers:{'apikey':getActiveKey(),'Authorization':'Bearer '+getActiveKey()}}); if(r2.ok){const d2=await r2.json();if(d2&&d2.length>0){const c2=d2[0];BRANDING={nome:c2.nome||'Compliance',subtitulo:c2.subtitulo||'Sistema de Gestão',corPrimaria:c2.cor_primaria||'#0f2d4a',logoUrl:c2.logo_url||''};localStorage.setItem(BRANDING_KEY,JSON.stringify(BRANDING));aplicarBranding();return;}} } catch(e2){} console.warn('Erro ao carregar branding do Supabase:', e.message); }
     }
     
     // Fallback: localStorage
@@ -4916,7 +4895,7 @@ async function carregarBranding() {
       BRANDING = { ...BRANDING, ...config };
       aplicarBranding();
     } else {
-      aplicarBranding(); // Aplicar padrÃ£o
+      aplicarBranding(); // Aplicar padrão
     }
   } catch(e) { console.warn('Erro ao carregar branding:', e); }
 }
@@ -4926,7 +4905,7 @@ function aplicarBranding() {
   const brandElements = document.querySelectorAll('.brand');
   brandElements.forEach(el => el.textContent = BRANDING.nome);
 
-  // Mudar cor primÃ¡ria
+  // Mudar cor primária
   document.documentElement.style.setProperty('--primary', BRANDING.corPrimaria);
 
   // Mudar logo se configurada
@@ -4937,8 +4916,8 @@ function aplicarBranding() {
     });
   }
 
-  // Mudar title da pÃ¡gina
-  document.title = `${BRANDING.nome} Â· ${BRANDING.subtitulo}`;
+  // Mudar title da página
+  document.title = `${BRANDING.nome} · ${BRANDING.subtitulo}`;
 }
 
 function abrirPainelBranding() {
@@ -4983,7 +4962,7 @@ function abrirPainelBranding() {
       preview.onerror = function() {
         preview.style.display = 'none';
         vazio.style.display = 'block';
-        alert('â Erro ao carregar a imagem. Verifique a URL.');
+        alert('❌ Erro ao carregar a imagem. Verifique a URL.');
       };
       preview.onload = function() {
         preview.style.display = 'block';
@@ -4998,7 +4977,7 @@ function abrirPainelBranding() {
 
 async function salvarBranding() {
   const nome = document.getElementById('branding-nome').value.trim() || 'Compliance';
-  const subtitulo = document.getElementById('branding-subtitulo').value.trim() || 'Sistema de GestÃ£o';
+  const subtitulo = document.getElementById('branding-subtitulo').value.trim() || 'Sistema de Gestão';
   const corPrimaria = document.getElementById('branding-cor-primaria').value || '#0f2d4a';
   const logoUrl = document.getElementById('branding-logo-url').value.trim() || '';
 
@@ -5009,7 +4988,7 @@ async function salvarBranding() {
     localStorage.setItem(BRANDING_KEY, JSON.stringify(BRANDING));
     aplicarBranding();
 
-    // Tentar salvar no Supabase tambÃ©m
+    // Tentar salvar no Supabase também
     if(USE_SUPABASE && SUPABASE_URL) {
       const payload = {
         nome,
@@ -5032,35 +5011,35 @@ async function salvarBranding() {
         });
 
         if(r.ok) {
-          console.log('â Branding salvo no Supabase');
+          console.log('✅ Branding salvo no Supabase');
           auditLog('update', 'branding', 'Branding alterado', { nome, subtitulo, corPrimaria });
-          alert('â Branding salvo com sucesso para todos os usuÃ¡rios!');
+          alert('✅ Branding salvo com sucesso para todos os usuários!');
         } else {
           console.warn('Falha Supabase:', r.status, await r.text());
-          alert('â ï¸ Branding salvo localmente. Servidor pode estar indisponÃ­vel.');
+          alert('⚠️ Branding salvo localmente. Servidor pode estar indisponível.');
         }
       } catch(e) {
         console.warn('Erro ao enviar para Supabase:', e.message);
-        alert('â ï¸ Branding salvo localmente. Servidor pode estar indisponÃ­vel.');
+        alert('⚠️ Branding salvo localmente. Servidor pode estar indisponível.');
       }
     } else {
       auditLog('update', 'branding', 'Branding alterado (local)', { nome, subtitulo, corPrimaria });
-      alert('â Branding salvo com sucesso!');
+      alert('✅ Branding salvo com sucesso!');
     }
     
     closeModal('modal-branding');
   } catch(e) {
     console.error('Erro ao salvar branding:', e);
-    alert('â Erro ao salvar: ' + e.message);
+    alert('❌ Erro ao salvar: ' + e.message);
   }
 }
 
 async function resetarBranding() {
-  if(confirm('Tem certeza que deseja restaurar as configuraÃ§Ãµes padrÃ£o?\n\nIsso afetarÃ¡ todos os usuÃ¡rios!')) {
+  if(confirm('Tem certeza que deseja restaurar as configurações padrão?\n\nIsso afetará todos os usuários!')) {
     try {
       BRANDING = {
         nome: 'Compliance',
-        subtitulo: 'Sistema de GestÃ£o',
+        subtitulo: 'Sistema de Gestão',
         corPrimaria: '#0f2d4a',
         logoUrl: ''
       };
@@ -5080,7 +5059,7 @@ async function resetarBranding() {
             },
             body: JSON.stringify({
               nome: 'Compliance',
-              subtitulo: 'Sistema de GestÃ£o',
+              subtitulo: 'Sistema de Gestão',
               cor_primaria: '#0f2d4a',
               logo_url: '',
               atualizado_por: currentUser?.email || 'admin@torre.com.br'
@@ -5096,16 +5075,16 @@ async function resetarBranding() {
       }
 
       aplicarBranding();
-      auditLog('update', 'branding', 'Branding restaurado para padrÃ£o', {});
-      alert('â PadrÃ£o restaurado!');
+      auditLog('update', 'branding', 'Branding restaurado para padrão', {});
+      alert('✅ Padrão restaurado!');
       closeModal('modal-branding');
     } catch(e) {
-      alert('â Erro: ' + e.message);
+      alert('❌ Erro: ' + e.message);
     }
   }
 }
 
-// ââ ABRIR PAINEL DE LOGS
+// ── ABRIR PAINEL DE LOGS
 async function abrirLogs() {
   if(!isAdmin()) { alert('Apenas o administrador pode ver os logs.'); return; }
   openModal('modal-logs');
@@ -5152,20 +5131,20 @@ function renderLogs(filtro) {
   if(!container) return;
 
   if(!filtrados.length) {
-    container.innerHTML = `<div class="log-empty"><div style="font-size:2.5rem;margin-bottom:10px">ð</div><div style="font-weight:700">Nenhum log encontrado</div><div style="font-size:.83rem;margin-top:6px">As aÃ§Ãµes dos usuÃ¡rios aparecerÃ£o aqui</div></div>`;
+    container.innerHTML = `<div class="log-empty"><div style="font-size:2.5rem;margin-bottom:10px">📋</div><div style="font-weight:700">Nenhum log encontrado</div><div style="font-size:.83rem;margin-top:6px">As ações dos usuários aparecerão aqui</div></div>`;
     return;
   }
 
   container.innerHTML = filtrados.map(l => {
-    const tipo = LOG_TIPOS[l.acao] || { icon:'ð', label:l.acao, cls:'update' };
+    const tipo = LOG_TIPOS[l.acao] || { icon:'📋', label:l.acao, cls:'update' };
     const modLabel = LOG_MODULOS[l.modulo] || l.modulo;
     const dt = new Date(l.ts);
     const agora = new Date();
     const diffMin = Math.round((agora - dt) / 60000);
     let timeStr;
     if(diffMin < 1) timeStr = 'Agora';
-    else if(diffMin < 60) timeStr = diffMin + 'min atrÃ¡s';
-    else if(diffMin < 1440) timeStr = Math.round(diffMin/60) + 'h atrÃ¡s';
+    else if(diffMin < 60) timeStr = diffMin + 'min atrás';
+    else if(diffMin < 1440) timeStr = Math.round(diffMin/60) + 'h atrás';
     else timeStr = dt.toLocaleDateString('pt-BR') + ' ' + dt.toLocaleTimeString('pt-BR', {hour:'2-digit',minute:'2-digit'});
 
     // User color
@@ -5174,16 +5153,16 @@ function renderLogs(filtro) {
 
     // Detalhes extras
     const det = l.detalhes || {};
-    const detStr = Object.entries(det).filter(([k])=>k!=='id').map(([k,v])=>`${k}: ${v}`).join(' Â· ');
+    const detStr = Object.entries(det).filter(([k])=>k!=='id').map(([k,v])=>`${k}: ${v}`).join(' · ');
 
     return `<div class="log-item">
       <div class="log-icon ${tipo.cls}">${tipo.icon}</div>
       <div class="log-meta">
-        <div class="log-title">${tipo.label} â <span style="color:var(--primary)">${modLabel}</span></div>
-        <div class="log-detail">${l.descricao}${detStr?'<span style="color:#94a3b8"> Â· '+detStr+'</span>':''}</div>
+        <div class="log-title">${tipo.label} — <span style="color:var(--primary)">${modLabel}</span></div>
+        <div class="log-detail">${l.descricao}${detStr?'<span style="color:#94a3b8"> · '+detStr+'</span>':''}</div>
         <span class="log-user" style="background:${cor}22;color:${cor}">
           <span style="width:16px;height:16px;border-radius:50%;background:${cor};color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:.6rem;font-weight:800">${(l.nome||'?')[0]}</span>
-          ${l.nome} Â· ${l.perfil}
+          ${l.nome} · ${l.perfil}
         </span>
       </div>
       <div class="log-time">${timeStr}</div>
@@ -5198,7 +5177,7 @@ function logFiltrarUser(val) {
 
 async function exportarLogs() {
   const logs = _logsCache || [];
-  const csv = ['Data,Hora,UsuÃ¡rio,E-mail,Perfil,AÃ§Ã£o,MÃ³dulo,DescriÃ§Ã£o']
+  const csv = ['Data,Hora,Usuário,E-mail,Perfil,Ação,Módulo,Descrição']
     .concat(logs.map(l => {
       const dt = new Date(l.ts);
       return [
@@ -5217,24 +5196,24 @@ async function exportarLogs() {
 }
 
 async function limparLogsAntigos() {
-  if(!confirm('Limpar logs com mais de 90 dias?\n\nLogs recentes serÃ£o mantidos.')) return;
+  if(!confirm('Limpar logs com mais de 90 dias?\n\nLogs recentes serão mantidos.')) return;
   const cutoff = new Date(Date.now() - 90*24*60*60*1000).toISOString();
   _logsCache = (_logsCache||[]).filter(l => l.ts > cutoff);
   localStorage.setItem(LOGS_KEY, JSON.stringify(_logsCache));
-  setSaveIndicator('ð Logs antigos removidos','var(--warn)');
+  setSaveIndicator('🗑 Logs antigos removidos','var(--warn)');
   renderLogs(_logFiltroAtivo);
 }
-// ââââââââââââââââââââââââââââââââââââââââââââââââââââ
-// GESTÃO DE USUÃRIOS (Admin)
-// ââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ════════════════════════════════════════════════════
+// GESTÃO DE USUÁRIOS (Admin)
+// ════════════════════════════════════════════════════
 const USERS_KEY = 'ch_usuarios_v1';
 const CORES_AVATAR = ['#0f2d4a','#00c49a','#3b82f6','#f59e0b','#8b5cf6','#ef4444','#10b981','#f97316','#06b6d4','#ec4899'];
 
 async function usersLoad() {
-  // Limpar array â mantÃ©m sÃ³ admin â evita re-adiÃ§Ã£o de excluÃ­dos
+  // Limpar array — mantém só admin — evita re-adição de excluídos
   while(USUARIOS.length > 1) USUARIOS.pop();
 
-  // Buscar via REST direto (anon key) â independente do Edge Function
+  // Buscar via REST direto (anon key) — independente do Edge Function
   if(USE_SUPABASE) {
     try {
       const r = await fetch(
@@ -5273,7 +5252,7 @@ async function usersSave() {
   const extras = USUARIOS.filter(u => u.email !== ADMIN_EMAIL);
   // 1. Salvar local imediatamente
   localStorage.setItem(USERS_KEY, JSON.stringify(extras));
-  // 2. Salvar no Supabase via REST direto (anon key â sem depender de token)
+  // 2. Salvar no Supabase via REST direto (anon key — sem depender de token)
   if(USE_SUPABASE) {
     try {
       const r = await fetch(`${SUPABASE_URL}/rest/v1/settings`, {
@@ -5286,7 +5265,7 @@ async function usersSave() {
         },
         body: JSON.stringify({ key: 'usuarios_extras', value: JSON.stringify(extras) })
       });
-      if(r.ok) console.log('[usersSave] Supabase OK â', extras.length, 'usuario(s)');
+      if(r.ok) console.log('[usersSave] Supabase OK —', extras.length, 'usuario(s)');
       else console.warn('[usersSave] Supabase status:', r.status);
     } catch(e) { console.warn('[usersSave] REST erro:', e.message); }
   }
@@ -5312,12 +5291,12 @@ function renderUsersModal() {
         <div style="font-size:.75rem;color:var(--text-muted)">${u.email}</div>
         <div style="margin-top:4px;display:flex;gap:6px;flex-wrap:wrap">
           <span style="background:#e0e7ff;color:#3730a3;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:700">${u.perfil}</span>
-          ${isBuiltin?'<span style="background:#fef9c3;color:#854d0e;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:700">PadrÃ£o</span>':'<span style="background:#dcfce7;color:#166534;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:700">Criado</span>'}
+          ${isBuiltin?'<span style="background:#fef9c3;color:#854d0e;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:700">Padrão</span>':'<span style="background:#dcfce7;color:#166534;padding:2px 8px;border-radius:10px;font-size:.7rem;font-weight:700">Criado</span>'}
         </div>
       </div>
       <div style="display:flex;gap:6px;flex-direction:column;align-items:flex-end">
-        ${!isAdminUser?`<button onclick="abrirAlterarSenha('${u.email}','${u.nome}')" class="btn btn-outline btn-sm" style="font-size:.73rem;white-space:nowrap">ð Alterar Senha</button>`:''}
-        ${!isBuiltin?`<button onclick="confirmarExcluirUsuario('${u.email}','${u.nome}')" class="btn btn-danger btn-sm" style="font-size:.73rem">ð Excluir</button>`:''}
+        ${!isAdminUser?`<button onclick="abrirAlterarSenha('${u.email}','${u.nome}')" class="btn btn-outline btn-sm" style="font-size:.73rem;white-space:nowrap">🔑 Alterar Senha</button>`:''}
+        ${!isBuiltin?`<button onclick="confirmarExcluirUsuario('${u.email}','${u.nome}')" class="btn btn-danger btn-sm" style="font-size:.73rem">🗑 Excluir</button>`:''}
       </div>
     </div>`;
   }).join('');
@@ -5354,13 +5333,13 @@ function _renderNovoUserPerms(perfil) {
   const container = document.getElementById('nu-perms');
   if(!container) return;
   const defaultPerms = PERM_PADRAO[perfil]||[];
-  container.innerHTML = `<div style="font-size:.78rem;font-weight:700;color:var(--text-muted);margin-bottom:8px">PermissÃµes (baseadas no perfil â personalizÃ¡vel):</div>
+  container.innerHTML = `<div style="font-size:.78rem;font-weight:700;color:var(--text-muted);margin-bottom:8px">Permissões (baseadas no perfil — personalizável):</div>
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px">
       ${MODULOS.map(m => {
         const checked=defaultPerms.includes(m.id);
         return `<label style="display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:7px;border:1px solid ${checked?'var(--accent)':'var(--border)'};background:${checked?'rgba(0,196,154,.06)':'var(--card)'};cursor:pointer;font-size:.78rem;font-weight:600;transition:all .15s">
           <input type="checkbox" id="nu-perm-${m.id}" ${checked?'checked':''} style="width:15px;height:15px;accent-color:var(--primary)">
-          ${m.icon} ${m.label}${m.restrito?'<span style="font-size:.65rem;color:#9333ea;margin-left:auto">ð</span>':''}
+          ${m.icon} ${m.label}${m.restrito?'<span style="font-size:.65rem;color:#9333ea;margin-left:auto">🔒</span>':''}
         </label>`;
       }).join('')}
     </div>`;
@@ -5380,12 +5359,12 @@ async function salvarNovoUsuario() {
   const senha2=document.getElementById('nu-senha2').value;
   const erro=document.getElementById('nu-erro');
   if(!nome){erro.textContent='Informe o nome.';return;}
-  if(!email||!email.includes('@')){erro.textContent='E-mail invÃ¡lido.';return;}
+  if(!email||!email.includes('@')){erro.textContent='E-mail inválido.';return;}
   // Recarregar antes de verificar duplicata
   await usersLoad();
-  if(USUARIOS.find(u=>u.email===email)){erro.textContent='Este e-mail jÃ¡ estÃ¡ cadastrado.';return;}
+  if(USUARIOS.find(u=>u.email===email)){erro.textContent='Este e-mail já está cadastrado.';return;}
   if(!senha||senha.length<6){erro.textContent='Senha deve ter pelo menos 6 caracteres.';return;}
-  if(senha!==senha2){erro.textContent='As senhas nÃ£o conferem.';return;}
+  if(senha!==senha2){erro.textContent='As senhas não conferem.';return;}
   erro.textContent='';
   const palavras=nome.split(' ').filter(p=>p.length>0);
   const avatar=palavras.length>=2?(palavras[0][0]+palavras[palavras.length-1][0]).toUpperCase():nome.substring(0,2).toUpperCase();
@@ -5398,22 +5377,22 @@ async function salvarNovoUsuario() {
   await usersSave();
   closeModal('modal-novo-usuario');
   renderUsersModal();
-  auditLog('usuario', 'usuarios', `UsuÃ¡rio "${nome}" criado`, {email, perfil:_novoUserPerfil});
-  setSaveIndicator(`â UsuÃ¡rio ${nome} criado â sincronizado automaticamente`,'var(--accent)');
+  auditLog('usuario', 'usuarios', `Usuário "${nome}" criado`, {email, perfil:_novoUserPerfil});
+  setSaveIndicator(`✅ Usuário ${nome} criado — sincronizado automaticamente`,'var(--accent)');
 }
 
 async function confirmarExcluirUsuario(email, nome) {
-  if(!confirm(`Excluir "${nome}" (${email})?\n\nO usuÃ¡rio perderÃ¡ todo o acesso ao sistema.`)) return;
-  // Remove do array em memÃ³ria
+  if(!confirm(`Excluir "${nome}" (${email})?\n\nO usuário perderá todo o acesso ao sistema.`)) return;
+  // Remove do array em memória
   const idx = USUARIOS.findIndex(u => u.email === email);
   if(idx >= 0) USUARIOS.splice(idx, 1);
   delete PERMISSOES[email];
-  // Salvar sequencialmente para garantir consistÃªncia no servidor
+  // Salvar sequencialmente para garantir consistência no servidor
   await usersSave();
   await permSave();
-  auditLog('delete', 'usuarios', `UsuÃ¡rio "${nome}" excluÃ­do`, {email});
+  auditLog('delete', 'usuarios', `Usuário "${nome}" excluído`, {email});
   renderUsersModal();
-  setSaveIndicator(`ð UsuÃ¡rio "${nome}" removido e sincronizado`, 'var(--warn)');
+  setSaveIndicator(`🗑 Usuário "${nome}" removido e sincronizado`, 'var(--warn)');
 }
 
 function abrirAlterarSenha(email,nome) {
@@ -5438,7 +5417,7 @@ async function salvarNovaSenha() {
   const erro=document.getElementById('ap-erro');
   erro.textContent='';
   const user=USUARIOS.find(u=>u.email===email);
-  if(!user){erro.textContent='UsuÃ¡rio nÃ£o encontrado.';return;}
+  if(!user){erro.textContent='Usuário não encontrado.';return;}
   const ehProprioUsuario=currentUser.email===email;
   if(ehProprioUsuario || !isAdmin()) {
     if(!atual){erro.textContent='Informe a senha atual.';return;}
@@ -5446,47 +5425,47 @@ async function salvarNovaSenha() {
     if(hashAtual!==user.hash){erro.textContent='Senha atual incorreta.';return;}
   }
   if(!nova||nova.length<6){erro.textContent='Nova senha deve ter pelo menos 6 caracteres.';return;}
-  if(nova!==nova2){erro.textContent='As senhas nÃ£o conferem.';return;}
+  if(nova!==nova2){erro.textContent='As senhas não conferem.';return;}
   const novoHash=await _hashSenha(email,nova);
   user.hash=novoHash;
   await usersSave();
   closeModal('modal-alterar-senha');
-  setSaveIndicator('â Senha alterada â sincronizada automaticamente','var(--accent)');
+  setSaveIndicator('✅ Senha alterada — sincronizada automaticamente','var(--accent)');
 }
 
-// ââââââââââââââââââââââââââââââââââââââââââââââââââââ
-// SISTEMA DE PERMISSÃES POR MÃDULO
-// ââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ════════════════════════════════════════════════════
+// SISTEMA DE PERMISSÕES POR MÓDULO
+// ════════════════════════════════════════════════════
 
-// MÃ³dulos do sistema com metadados
+// Módulos do sistema com metadados
 const MODULOS = [
-  { id:'dashboard',      label:'Dashboard',           icon:'ð', grupo:'VisÃ£o Geral',  restrito:false },
-  { id:'agenda',         label:'Agenda',              icon:'ð', grupo:'VisÃ£o Geral',  restrito:false },
-  { id:'filiais',        label:'Filiais e Setores',   icon:'ð¢', grupo:'Estrutura',    restrito:false },
-  { id:'mapa-risco',     label:'Mapeamento de Risco', icon:'ðºï¸', grupo:'Compliance',   restrito:false },
-  { id:'controles',      label:'Controles Internos',  icon:'ð¡ï¸', grupo:'Compliance',   restrito:false },
-  { id:'planos-acao',    label:'Planos de AÃ§Ã£o',      icon:'ð', grupo:'Compliance',   restrito:false },
-  { id:'canal-denuncia', label:'Canal de DenÃºncia',   icon:'ð¢', grupo:'DenÃºncias',    restrito:true  },
-  { id:'relatorios',     label:'RelatÃ³rios',          icon:'ð', grupo:'AnÃ¡lise',      restrito:true  },
-  { id:'importar',       label:'Importar Planilha',   icon:'ð¥', grupo:'AnÃ¡lise',      restrito:false },
-  { id:'flowboard',      label:'Flow Board',          icon:'ðï¸', grupo:'Fluxo Visual', restrito:false },
-  { id:'due-diligence',  label:'Due Diligence',       icon:'ð', grupo:'Pesquisa',     restrito:false },
-    { id:'due-diligence2', label:'Due Diligence 2', icon:'ð', grupo:'Pesquisa',  restrito:false },
+  { id:'dashboard',      label:'Dashboard',           icon:'📊', grupo:'Visão Geral',  restrito:false },
+  { id:'agenda',         label:'Agenda',              icon:'📅', grupo:'Visão Geral',  restrito:false },
+  { id:'filiais',        label:'Filiais e Setores',   icon:'🏢', grupo:'Estrutura',    restrito:false },
+  { id:'mapa-risco',     label:'Mapeamento de Risco', icon:'🗺️', grupo:'Compliance',   restrito:false },
+  { id:'controles',      label:'Controles Internos',  icon:'🛡️', grupo:'Compliance',   restrito:false },
+  { id:'planos-acao',    label:'Planos de Ação',      icon:'📋', grupo:'Compliance',   restrito:false },
+  { id:'canal-denuncia', label:'Canal de Denúncia',   icon:'📢', grupo:'Denúncias',    restrito:true  },
+  { id:'relatorios',     label:'Relatórios',          icon:'📈', grupo:'Análise',      restrito:true  },
+  { id:'importar',       label:'Importar Planilha',   icon:'📥', grupo:'Análise',      restrito:false },
+  { id:'flowboard',      label:'Flow Board',          icon:'🗂️', grupo:'Fluxo Visual', restrito:false },
+  { id:'due-diligence',  label:'Due Diligence',       icon:'🔍', grupo:'Pesquisa',     restrito:false },
+    { id:'due-diligence2', label:'Due Diligence 2', icon:'🔎', grupo:'Pesquisa',  restrito:false },
 ];
 
-// PermissÃµes padrÃ£o por perfil (sem personalizaÃ§Ã£o)
+// Permissões padrão por perfil (sem personalização)
 const PERM_PADRAO = {
   'Admin':        MODULOS.map(m=>m.id),
   'Compliance':   MODULOS.map(m=>m.id),
   'Auditoria':    MODULOS.filter(m=>!['importar'].includes(m.id)).map(m=>m.id),
   'RH':           ['dashboard','agenda','filiais'],
   'Diretoria':    MODULOS.filter(m=>!['importar','canal-denuncia'].includes(m.id)).map(m=>m.id),
-  'OperaÃ§Ãµes':    ['dashboard','agenda','filiais','mapa-risco','planos-acao'],
+  'Operações':    ['dashboard','agenda','filiais','mapa-risco','planos-acao'],
   'Visualizador': ['dashboard','filiais'],
-  // Perfis personalizados (criados pelo admin) herdam Compliance por padrÃ£o
+  // Perfis personalizados (criados pelo admin) herdam Compliance por padrão
 };
 
-// PermissÃµes salvas (admin pode personalizar por usuÃ¡rio)
+// Permissões salvas (admin pode personalizar por usuário)
 let PERMISSOES = {}; // { 'email@...': ['dashboard','agenda',...] }
 const PERM_KEY = 'ch_permissoes_v1';
 
@@ -5539,9 +5518,9 @@ async function permLoadFromSupabase() {
 function permGetUser(email) {
   if(!email) return [];
   if(email === ADMIN_EMAIL) return MODULOS.map(m=>m.id);
-  // PermissÃ£o personalizada tem prioridade
+  // Permissão personalizada tem prioridade
   if(PERMISSOES[email]) return PERMISSOES[email];
-  // SenÃ£o usa o padrÃ£o do perfil
+  // Senão usa o padrão do perfil
   const user = USUARIOS.find(u=>u.email===email);
   return user ? (PERM_PADRAO[user.perfil] || MODULOS.filter(m=>!m.restrito).map(m=>m.id)) : [];
 }
@@ -5556,7 +5535,7 @@ function isAdmin() {
   return currentUser && (currentUser.email === ADMIN_EMAIL || currentUser.perfil === 'Admin');
 }
 
-// ââ Atualizar nav com base nas permissÃµes
+// ── Atualizar nav com base nas permissões
 function permAtualizarNav() {
   MODULOS.forEach(m => {
     const el = document.querySelector(`[data-page="${m.id}"]`);
@@ -5564,11 +5543,11 @@ function permAtualizarNav() {
     const tem = canAccess(m.id);
     el.classList.toggle('nav-item-locked', !tem);
     el.style.pointerEvents = tem ? '' : 'none';
-    el.title = tem ? '' : 'Sem permissÃ£o â solicite acesso ao administrador';
+    el.title = tem ? '' : 'Sem permissão — solicite acesso ao administrador';
   });
 }
 
-// ââ Interceptar goto para verificar permissÃ£o
+// ── Interceptar goto para verificar permissão
 function goto(page, el) {
   if(!canAccess(page)) {
     const modulo = MODULOS.find(m=>m.id===page);
@@ -5584,13 +5563,13 @@ function _showPermDenied(modulo) {
   overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:9999;display:flex;align-items:center;justify-content:center';
   overlay.innerHTML = `
     <div style="background:#fff;border-radius:16px;padding:32px;max-width:420px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.3)">
-      <div style="font-size:3rem;margin-bottom:12px">ð</div>
+      <div style="font-size:3rem;margin-bottom:12px">🔒</div>
       <div style="font-size:1.1rem;font-weight:800;color:#1e293b;margin-bottom:8px">Acesso Restrito</div>
       <div style="font-size:.88rem;color:#64748b;line-height:1.6;margin-bottom:20px">
-        VocÃª nÃ£o tem permissÃ£o para acessar o mÃ³dulo <strong>${modulo}</strong>.<br>
+        Você não tem permissão para acessar o módulo <strong>${modulo}</strong>.<br>
         Solicite acesso ao administrador do sistema.
       </div>
-      <div style="font-size:.8rem;color:#94a3b8;margin-bottom:16px">ð¤ admin@torre.com.br</div>
+      <div style="font-size:.8rem;color:#94a3b8;margin-bottom:16px">👤 admin@torre.com.br</div>
       <button onclick="this.closest('div[style]').remove()" 
         style="background:var(--primary);color:#fff;border:none;padding:10px 28px;border-radius:8px;font-weight:700;cursor:pointer">
         Entendi
@@ -5600,11 +5579,11 @@ function _showPermDenied(modulo) {
   overlay.addEventListener('click', e => { if(e.target===overlay) overlay.remove(); });
 }
 
-// ââââââââââââââââââââââââââââââââââââââââââââââââââââ
-// MODAL DE GERENCIAMENTO DE PERMISSÃES (sÃ³ Admin)
-// ââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ════════════════════════════════════════════════════
+// MODAL DE GERENCIAMENTO DE PERMISSÕES (só Admin)
+// ════════════════════════════════════════════════════
 function abrirGerenciarPermissoes() {
-  if(!isAdmin()) { alert('Apenas o administrador pode gerenciar permissÃµes.'); return; }
+  if(!isAdmin()) { alert('Apenas o administrador pode gerenciar permissões.'); return; }
   renderPermModal();
   openModal('modal-permissoes');
 }
@@ -5617,9 +5596,9 @@ function renderPermModal() {
 
   if(!outrosUsuarios.length) {
     container.innerHTML = `<div style="text-align:center;padding:30px;color:var(--text-muted)">
-      <div style="font-size:2rem;margin-bottom:10px">ð¥</div>
-      <div style="font-weight:700;margin-bottom:6px">Nenhum usuÃ¡rio criado ainda</div>
-      <div style="font-size:.83rem">VÃ¡ em <strong>ð¥ Gerenciar UsuÃ¡rios</strong> para criar o primeiro usuÃ¡rio.</div>
+      <div style="font-size:2rem;margin-bottom:10px">👥</div>
+      <div style="font-weight:700;margin-bottom:6px">Nenhum usuário criado ainda</div>
+      <div style="font-size:.83rem">Vá em <strong>👥 Gerenciar Usuários</strong> para criar o primeiro usuário.</div>
     </div>`;
     return;
   }
@@ -5634,19 +5613,19 @@ function renderPermModal() {
       <div class="perm-avatar" style="background:${user.cor}">${user.avatar}</div>
       <div style="flex:1;min-width:0">
         <div style="font-weight:700;font-size:.9rem">${user.nome}</div>
-        <div style="font-size:.75rem;color:var(--text-muted)">${user.email} Â· <em>${user.perfil}</em></div>
-      <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:8px">
+        <div style="font-size:.75rem;color:var(--text-muted)">${user.email} · <em>${user.perfil}</em></div>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;justify-content:flex-end">
         <button onclick="permExpandir('${user.email}')" class="btn btn-outline btn-sm" style="font-size:.75rem">
-          âï¸ Configurar mÃ³dulos
+          ⚙️ Configurar módulos
         </button>
         <button onclick="permDarTudo('${user.email}')" class="btn btn-outline btn-sm" style="font-size:.75rem;color:var(--accent)">
-          â Liberar tudo
+          ✅ Liberar tudo
         </button>
         <button onclick="permRevogarTudo('${user.email}')" class="btn btn-danger btn-sm" style="font-size:.75rem">
-          ð« Revogar tudo
+          🚫 Revogar tudo
         </button>
       </div>
-            </div>
       <div id="perm-expand-${user.email.replace(/[@.]/g,'_')}" style="display:none;width:100%;margin-top:12px">
         ${renderPermModulos(user.email, perms)}
       </div>
@@ -5669,7 +5648,7 @@ function renderPermModulos(email, perms) {
               <span style="font-size:1.1rem">${m.icon}</span>
               <div style="flex:1;min-width:0">
                 <div style="font-size:.8rem;font-weight:700">${m.label}</div>
-                ${m.restrito?'<div style="font-size:.68rem;color:#9333ea;font-weight:600">ð Acesso restrito</div>':''}
+                ${m.restrito?'<div style="font-size:.68rem;color:#9333ea;font-weight:600">🔒 Acesso restrito</div>':''}
               </div>
               <button class="perm-toggle ${tem?'on':'off'}" onclick="event.stopPropagation();permToggle('${email}','${m.id}')"></button>
             </div>`;
@@ -5707,7 +5686,7 @@ async function permToggle(email, modulo) {
     const btn = item.querySelector('.perm-toggle');
     if(btn) btn.className = `perm-toggle ${tem?'on':'off'}`;
   }
-  setSaveIndicator('â PermissÃ£o atualizada','var(--accent)');
+  setSaveIndicator('✅ Permissão atualizada','var(--accent)');
 }
 
 async function permDarTudo(email) {
@@ -5715,28 +5694,28 @@ async function permDarTudo(email) {
   await permSave();
   permAtualizarNav();
   renderPermModal();
-  setSaveIndicator(`â Acesso total liberado para ${email}`,'var(--accent)');
+  setSaveIndicator(`✅ Acesso total liberado para ${email}`,'var(--accent)');
 }
 
 async function permRevogarTudo(email) {
   if(!confirm(`Revogar TODOS os acessos de ${email}?
 
-O usuÃ¡rio nÃ£o conseguirÃ¡ acessar nenhum mÃ³dulo.`)) return;
+O usuário não conseguirá acessar nenhum módulo.`)) return;
   PERMISSOES[email] = [];
   await permSave();
   permAtualizarNav();
   renderPermModal();
-  setSaveIndicator(`â Acesso revogado para ${email}`,'var(--danger)');
+  setSaveIndicator(`⛔ Acesso revogado para ${email}`,'var(--danger)');
 }
-// ââââââââââââââââââââââââââââââââââââââââââââ
-// MAPEAMENTO DE RISCO â UNIDADES
-// ââââââââââââââââââââââââââââââââââââââââââââ
+// ════════════════════════════════════════════
+// MAPEAMENTO DE RISCO — UNIDADES
+// ════════════════════════════════════════════
 let RM_UNITS = [
-  {id:'PDV',icon:'ð',cor:'#ef4444'},{id:'InventÃ¡rio',icon:'ð¦',cor:'#f59e0b'},
-  {id:'TI',icon:'ð»',cor:'#3b82f6'},{id:'RH',icon:'ð¥',cor:'#8b5cf6'},
-  {id:'Fiscal',icon:'ð',cor:'#10b981'},{id:'Auditoria',icon:'ð',cor:'#6366f1'},
-  {id:'JurÃ­dico',icon:'âï¸',cor:'#64748b'},{id:'OperaÃ§Ãµes',icon:'âï¸',cor:'#0ea5e9'},
-  {id:'Geral',icon:'ðï¸',cor:'#78716c'},
+  {id:'PDV',icon:'🛒',cor:'#ef4444'},{id:'Inventário',icon:'📦',cor:'#f59e0b'},
+  {id:'TI',icon:'💻',cor:'#3b82f6'},{id:'RH',icon:'👥',cor:'#8b5cf6'},
+  {id:'Fiscal',icon:'📊',cor:'#10b981'},{id:'Auditoria',icon:'🔍',cor:'#6366f1'},
+  {id:'Jurídico',icon:'⚖️',cor:'#64748b'},{id:'Operações',icon:'⚙️',cor:'#0ea5e9'},
+  {id:'Geral',icon:'🗂️',cor:'#78716c'},
 ];
 let _rmUnit = 'PDV', _rmTab = 'riscos';
 
@@ -5759,8 +5738,8 @@ function _rmSetTab(t) {
   document.querySelectorAll('.rm-subpanel').forEach(p=>p.classList.toggle('active',p.dataset.panel===t));
 }
 
-function _rmNivel(p,i){const s=p*i;return s>=150?'CrÃ­tico':s>=75?'Alto':s>=25?'MÃ©dio':'Baixo';}
-function _rmNivelCor(nv){return{CrÃ­tico:'#ef4444',Alto:'#f59e0b',MÃ©dio:'#3b82f6',Baixo:'#10b981'}[nv]||'#94a3b8';}
+function _rmNivel(p,i){const s=p*i;return s>=150?'Crítico':s>=75?'Alto':s>=25?'Médio':'Baixo';}
+function _rmNivelCor(nv){return{Crítico:'#ef4444',Alto:'#f59e0b',Médio:'#3b82f6',Baixo:'#10b981'}[nv]||'#94a3b8';}
 
 function _rmRenderBody() {
   const body = document.getElementById('rm-unit-body');
@@ -5775,9 +5754,9 @@ function _rmRenderBody() {
       <strong style="color:var(--primary)">${u.id}</strong>
       <span style="background:${u.cor};color:#fff;padding:2px 9px;border-radius:20px;font-size:.73rem;font-weight:700">${riscos.length} riscos</span>
       <div class="rm-subtabs" style="margin-left:auto;margin-bottom:0">
-        <button class="rm-subtab${_rmTab==='riscos'?' active':''}" data-tab="riscos" onclick="_rmSetTab('riscos')">ð¯ Riscos</button>
-        <button class="rm-subtab${_rmTab==='planos'?' active':''}" data-tab="planos" onclick="_rmSetTab('planos')">ð Planos de AÃ§Ã£o</button>
-        <button class="rm-subtab${_rmTab==='heatmap'?' active':''}" data-tab="heatmap" onclick="_rmSetTab('heatmap')">ð¢ Heat Map</button>
+        <button class="rm-subtab${_rmTab==='riscos'?' active':''}" data-tab="riscos" onclick="_rmSetTab('riscos')">🎯 Riscos</button>
+        <button class="rm-subtab${_rmTab==='planos'?' active':''}" data-tab="planos" onclick="_rmSetTab('planos')">📋 Planos de Ação</button>
+        <button class="rm-subtab${_rmTab==='heatmap'?' active':''}" data-tab="heatmap" onclick="_rmSetTab('heatmap')">🔢 Heat Map</button>
       </div>
     </div>
     <div class="rm-subpanel${_rmTab==='riscos'?' active':''}" data-panel="riscos">${_rmHtmlRiscos(riscos)}</div>
@@ -5788,12 +5767,12 @@ function _rmRenderBody() {
 
 function _rmHtmlRiscos(riscos) {
   if(!riscos.length) return `<div style="text-align:center;padding:30px;color:var(--text-muted)">
-    <div style="font-size:2rem;margin-bottom:8px">ð¯</div>
+    <div style="font-size:2rem;margin-bottom:8px">🎯</div>
     <div style="font-weight:600">Nenhum risco nesta unidade</div>
     <div style="font-size:.82rem">Clique em "+ Novo Risco" ou importe um arquivo Word</div>
   </div>`;
   return `<div class="table-wrap"><table>
-    <thead><tr><th>ID</th><th>Risco</th><th>Categoria</th><th>Dono</th><th>P</th><th>I</th><th>NÃ­vel</th><th>Controle</th><th>Planos</th><th>AÃ§Ãµes</th></tr></thead>
+    <thead><tr><th>ID</th><th>Risco</th><th>Categoria</th><th>Dono</th><th>P</th><th>I</th><th>Nível</th><th>Controle</th><th>Planos</th><th>Ações</th></tr></thead>
     <tbody>${riscos.map(r=>{
       const nv=_rmNivel(r.prob,r.impacto), cor=_rmNivelCor(nv);
       const cnt=(DB.rmPlanos||[]).filter(p=>p.riscoId===r.id).length;
@@ -5801,17 +5780,17 @@ function _rmHtmlRiscos(riscos) {
         <td style="font-family:'DM Mono',monospace;font-size:.76rem;color:var(--text-muted)">#${r.id}</td>
         <td style="max-width:240px;font-size:.84rem;font-weight:600">${r.desc}</td>
         <td style="font-size:.75rem">${r.cat}</td>
-        <td style="font-size:.78rem">${r.setor||'â'}</td>
+        <td style="font-size:.78rem">${r.setor||'—'}</td>
         <td style="text-align:center;font-weight:700">${r.prob}</td>
         <td style="text-align:center;font-weight:700">${r.impacto}</td>
         <td><span style="background:${cor};color:#fff;padding:2px 9px;border-radius:20px;font-size:.75rem;font-weight:700">${r.prob*r.impacto} ${nv}</span></td>
-        <td style="font-size:.78rem;max-width:150px">${r.controle||'â'}</td>
+        <td style="font-size:.78rem;max-width:150px">${r.controle||'—'}</td>
         <td><span style="font-size:.78rem;color:var(--text-muted)">${cnt}</span>
-          <button class="btn btn-outline btn-sm" style="padding:2px 7px;font-size:.71rem;margin-left:3px" onclick="rmNovoPlano(${r.id})">+ AÃ§Ã£o</button>
+          <button class="btn btn-outline btn-sm" style="padding:2px 7px;font-size:.71rem;margin-left:3px" onclick="rmNovoPlano(${r.id})">+ Ação</button>
         </td>
         <td style="white-space:nowrap">
-          <button class="btn btn-outline btn-sm" onclick="rmEditRisco(${r.id})">âï¸</button>
-          <button class="btn btn-danger btn-sm" onclick="rmDelRisco(${r.id})">ð</button>
+          <button class="btn btn-outline btn-sm" onclick="rmEditRisco(${r.id})">✏️</button>
+          <button class="btn btn-danger btn-sm" onclick="rmDelRisco(${r.id})">🗑</button>
         </td>
       </tr>`;
     }).join('')}</tbody>
@@ -5820,9 +5799,9 @@ function _rmHtmlRiscos(riscos) {
 
 function _rmHtmlPlanos(riscos, planos) {
   if(!planos.length) return `<div style="text-align:center;padding:30px;color:var(--text-muted)">
-    <div style="font-size:2rem;margin-bottom:8px">ð</div>
+    <div style="font-size:2rem;margin-bottom:8px">📋</div>
     <div style="font-weight:600">Nenhum plano cadastrado</div>
-    <div style="font-size:.82rem">Abra a aba Riscos e clique em "+ AÃ§Ã£o" em um risco</div>
+    <div style="font-size:.82rem">Abra a aba Riscos e clique em "+ Ação" em um risco</div>
   </div>`;
   return riscos.filter(r=>(DB.rmPlanos||[]).some(p=>p.riscoId===r.id)).map(r=>{
     const rPlanos=(DB.rmPlanos||[]).filter(p=>p.riscoId===r.id);
@@ -5834,25 +5813,25 @@ function _rmHtmlPlanos(riscos, planos) {
       </div>
       ${rPlanos.map(pl=>{
         const dias=pl.prazo?Math.ceil((new Date(pl.prazo)-new Date())/86400000):null;
-        const sc=pl.status==='ConcluÃ­do'?'#10b981':pl.status==='Vencido'?'#ef4444':pl.status==='Em Andamento'?'#3b82f6':'#94a3b8';
+        const sc=pl.status==='Concluído'?'#10b981':pl.status==='Vencido'?'#ef4444':pl.status==='Em Andamento'?'#3b82f6':'#94a3b8';
         return `<div class="plan-card">
           <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:8px">
             <div style="flex:1">
               <div class="plan-card-title">${pl.titulo}</div>
               <div class="plan-card-meta">
-                <span>ð¤ ${pl.resp}</span>
-                <span>ð ${pl.prazo||'â'}</span>
-                ${dias!==null?`<span style="color:${dias<0?'#ef4444':dias<=7?'#f59e0b':'#10b981'}">${dias<0?'â ï¸ '+Math.abs(dias)+'d vencido':'â³ '+dias+'d'}</span>`:''}
+                <span>👤 ${pl.resp}</span>
+                <span>📅 ${pl.prazo||'—'}</span>
+                ${dias!==null?`<span style="color:${dias<0?'#ef4444':dias<=7?'#f59e0b':'#10b981'}">${dias<0?'⚠️ '+Math.abs(dias)+'d vencido':'⏳ '+dias+'d'}</span>`:''}
                 <span style="background:${sc};color:#fff;padding:1px 7px;border-radius:10px;font-size:.71rem">${pl.status}</span>
               </div>
             </div>
             <div style="display:flex;gap:3px">
-              <button class="btn btn-outline btn-sm" onclick="rmEditPlano(${pl.id})">âï¸</button>
-              <button class="btn btn-danger btn-sm" onclick="rmDelPlano(${pl.id})">ð</button>
+              <button class="btn btn-outline btn-sm" onclick="rmEditPlano(${pl.id})">✏️</button>
+              <button class="btn btn-danger btn-sm" onclick="rmDelPlano(${pl.id})">🗑</button>
             </div>
           </div>
           <div class="plan-prog"><div class="plan-prog-fill" style="width:${pl.prog||0}%;background:${sc}"></div></div>
-          <div style="font-size:.71rem;color:var(--text-muted);margin-top:2px">${pl.prog||0}% concluÃ­do</div>
+          <div style="font-size:.71rem;color:var(--text-muted);margin-top:2px">${pl.prog||0}% concluído</div>
         </div>`;
       }).join('')}
     </div>`;
@@ -5860,9 +5839,9 @@ function _rmHtmlPlanos(riscos, planos) {
 }
 
 function _rmHtmlHeat(riscos) {
-  const vs=[5,10,15], lb={5:'Baixo',10:'MÃ©dio',15:'Alto'};
+  const vs=[5,10,15], lb={5:'Baixo',10:'Médio',15:'Alto'};
   return `<div style="display:inline-block">
-    <div style="font-size:.78rem;font-weight:700;color:var(--text-muted);margin-bottom:8px">Probabilidade Ã Impacto</div>
+    <div style="font-size:.78rem;font-weight:700;color:var(--text-muted);margin-bottom:8px">Probabilidade × Impacto</div>
     <div style="display:grid;grid-template-columns:60px repeat(3,80px);gap:4px;font-size:.76rem">
       <div style="font-weight:700;color:var(--text-muted);display:flex;align-items:flex-end;padding-bottom:4px">P \ I</div>
       ${vs.map(i=>`<div style="text-align:center;font-weight:700;padding:4px 0">${lb[i]}</div>`).join('')}
@@ -5873,7 +5852,7 @@ function _rmHtmlHeat(riscos) {
           const fc=pxi>=150?'#991b1b':pxi>=75?'#92400e':pxi>=25?'#1e3a8a':'#065f46';
           return `<div style="background:${bg};color:${fc};border-radius:6px;padding:10px 4px;text-align:center">
             <div style="font-weight:800">${pxi}</div>
-            ${cnt?`<div style="font-size:.7rem">${cnt} risco${cnt>1?'s':''}</div>`:'<div style="opacity:.3;font-size:.7rem">â</div>'}
+            ${cnt?`<div style="font-size:.7rem">${cnt} risco${cnt>1?'s':''}</div>`:'<div style="opacity:.3;font-size:.7rem">—</div>'}
           </div>`;
         }).join('')}
       `).join('')}
@@ -5881,7 +5860,7 @@ function _rmHtmlHeat(riscos) {
   </div>`;
 }
 
-// ââ Novo Risco
+// ── Novo Risco
 function rmNovoRisco() {
   window._rmEditId = null;
   ['rm-f-desc','rm-f-cat','rm-f-setor','rm-f-controle','rm-f-obs'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
@@ -5889,7 +5868,7 @@ function rmNovoRisco() {
   const un=document.getElementById('rm-f-unidade'); if(un) un.value=_rmUnit;
   const pr=document.getElementById('rm-f-prob'); if(pr) pr.value='10';
   const im=document.getElementById('rm-f-impacto'); if(im) im.value='10';
-  document.getElementById('rm-modal-title').textContent='ð¯ Novo Risco';
+  document.getElementById('rm-modal-title').textContent='🎯 Novo Risco';
   openModal('modal-rm-risco');
 }
 function rmEditRisco(id) {
@@ -5904,7 +5883,7 @@ function rmEditRisco(id) {
   document.getElementById('rm-f-impacto').value=r.impacto||10;
   document.getElementById('rm-f-controle').value=r.controle||'';
   document.getElementById('rm-f-obs').value=r.obs||'';
-  document.getElementById('rm-modal-title').textContent='âï¸ Editar Risco';
+  document.getElementById('rm-modal-title').textContent='✏️ Editar Risco';
   openModal('modal-rm-risco');
 }
 function rmSalvarRisco() {
@@ -5919,14 +5898,14 @@ function rmSalvarRisco() {
     obs:document.getElementById('rm-f-obs').value.trim(),
     filial:'Todas',
   };
-  if(!data.desc){alert('Informe a descriÃ§Ã£o.');return;}
+  if(!data.desc){alert('Informe a descrição.');return;}
   if(!DB.riscos) DB.riscos=[];
   if(window._rmEditId) Object.assign(DB.riscos.find(r=>r.id===window._rmEditId),data);
   else { DB._ids.risco=(DB._ids.risco||20)+1; DB.riscos.push({id:DB._ids.risco,...data}); }
   const _saved = window._rmEditId ? DB.riscos.find(r=>r.id===window._rmEditId) : DB.riscos[DB.riscos.length-1];
   closeModal('modal-rm-risco');
   saveLocalCache(); renderMapaRisco();
-  if(_saved) sbSaveRisco(_saved).then(()=>setSaveIndicator('âï¸ Risco salvo na nuvem','var(--accent)'));
+  if(_saved) sbSaveRisco(_saved).then(()=>setSaveIndicator('☁️ Risco salvo na nuvem','var(--accent)'));
 }
 function rmDelRisco(id) {
   if(!confirm('Excluir risco e planos vinculados?')) return;
@@ -5936,15 +5915,15 @@ function rmDelRisco(id) {
   saveLocalCache(); renderMapaRisco();
   sbDeleteRisco(id);
   planosToDelete.forEach(pid => sbDeleteRmPlano(pid));
-  setSaveIndicator('âï¸ Risco removido da nuvem','var(--accent)');
+  setSaveIndicator('☁️ Risco removido da nuvem','var(--accent)');
 }
-// ââ Planos
+// ── Planos
 function rmNovoPlano(riscoId) {
   window._rmEditPlanoId=null; window._rmPlanoRiscoId=riscoId;
   ['rm-f-plano-titulo','rm-f-plano-resp'].forEach(id=>{const e=document.getElementById(id);if(e)e.value='';});
   document.getElementById('rm-f-plano-prazo').value='';
   document.getElementById('rm-f-plano-tipo').value='Preventiva';
-  document.getElementById('rm-f-plano-status').value='NÃ£o Iniciado';
+  document.getElementById('rm-f-plano-status').value='Não Iniciado';
   document.getElementById('rm-f-plano-prog').value='0';
   const pv=document.getElementById('rm-plano-prog-val'); if(pv) pv.textContent='0%';
   const r=(DB.riscos||[]).find(x=>x.id===riscoId);
@@ -5958,7 +5937,7 @@ function rmEditPlano(id) {
   document.getElementById('rm-f-plano-resp').value=pl.resp||'';
   document.getElementById('rm-f-plano-prazo').value=pl.prazo||'';
   document.getElementById('rm-f-plano-tipo').value=pl.tipo||'Preventiva';
-  document.getElementById('rm-f-plano-status').value=pl.status||'NÃ£o Iniciado';
+  document.getElementById('rm-f-plano-status').value=pl.status||'Não Iniciado';
   document.getElementById('rm-f-plano-prog').value=pl.prog||0;
   const pv=document.getElementById('rm-plano-prog-val'); if(pv) pv.textContent=(pl.prog||0)+'%';
   const r=(DB.riscos||[]).find(x=>x.id===pl.riscoId);
@@ -5975,24 +5954,24 @@ function rmSalvarPlano() {
     status:document.getElementById('rm-f-plano-status').value,
     prog:parseInt(document.getElementById('rm-f-plano-prog').value)||0,
   };
-  if(!data.titulo){alert('Informe o tÃ­tulo.');return;}
+  if(!data.titulo){alert('Informe o título.');return;}
   if(!DB.rmPlanos) DB.rmPlanos=[];
   if(window._rmEditPlanoId) Object.assign(DB.rmPlanos.find(p=>p.id===window._rmEditPlanoId),data);
   else { DB._ids.rmPlano=(DB._ids.rmPlano||17)+1; DB.rmPlanos.push({id:DB._ids.rmPlano,...data}); }
   const _savedPl = window._rmEditPlanoId ? DB.rmPlanos.find(p=>p.id===window._rmEditPlanoId) : DB.rmPlanos[DB.rmPlanos.length-1];
   closeModal('modal-rm-plano');
   _rmTab='planos'; saveLocalCache(); renderMapaRisco();
-  if(_savedPl) sbSaveRmPlano(_savedPl).then(()=>setSaveIndicator('âï¸ Plano salvo na nuvem','var(--accent)'));
+  if(_savedPl) sbSaveRmPlano(_savedPl).then(()=>setSaveIndicator('☁️ Plano salvo na nuvem','var(--accent)'));
 }
 function rmDelPlano(id) {
   if(!confirm('Excluir plano?')) return;
   DB.rmPlanos=(DB.rmPlanos||[]).filter(p=>p.id!==id);
   saveLocalCache(); renderMapaRisco();
   sbDeleteRmPlano(id);
-  setSaveIndicator('âï¸ Plano removido da nuvem','var(--accent)');
+  setSaveIndicator('☁️ Plano removido da nuvem','var(--accent)');
 }
-// ââ Import Word
-// ââ Import Word helpers
+// ── Import Word
+// ── Import Word helpers
 let _rmPendingFile = null;
 
 function rmToggleImport() {
@@ -6031,7 +6010,7 @@ function rmSetFileAndPreview(file) {
   if(!file) return;
   _rmPendingFile = file;
   const nameEl = document.getElementById('rm-file-name');
-  if(nameEl) nameEl.textContent = 'ð ' + file.name;
+  if(nameEl) nameEl.textContent = '📄 ' + file.name;
   const btn = document.getElementById('rm-import-btn');
   if(btn) { btn.disabled = false; btn.style.opacity = '1'; }
   const log = document.getElementById('rm-import-log');
@@ -6046,8 +6025,8 @@ async function rmProcessWord() {
   const clearUnit = document.getElementById('rm-import-clear-unit')?.checked === true;
   const log = document.getElementById('rm-import-log');
   const btn = document.getElementById('rm-import-btn');
-  if(btn) { btn.disabled=true; btn.textContent='â³ Importando...'; }
-  if(log) log.innerHTML='<span style="color:var(--text-muted)">â³ Lendo arquivo...</span>';
+  if(btn) { btn.disabled=true; btn.textContent='⏳ Importando...'; }
+  if(log) log.innerHTML='<span style="color:var(--text-muted)">⏳ Lendo arquivo...</span>';
   try {
     if(typeof JSZip==='undefined') {
       await new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js';s.onload=res;s.onerror=rej;document.head.appendChild(s);});
@@ -6089,12 +6068,12 @@ async function rmProcessWord() {
       DB.riscos = (DB.riscos||[]).filter(r => r.unidade !== unidade);
     }
     const cnt = _rmParseWord(txt, unidade, skipDup);
-    if(log) log.innerHTML=`<span style="color:var(--accent)">â ${cnt} risco(s) importado(s) para <strong>${unidade}</strong></span>`;
+    if(log) log.innerHTML=`<span style="color:var(--accent)">✅ ${cnt} risco(s) importado(s) para <strong>${unidade}</strong></span>`;
     // Reset file state
     _rmPendingFile = null;
     const nameEl = document.getElementById('rm-file-name');
     if(nameEl) nameEl.textContent = 'Arraste o arquivo .docx aqui';
-    if(btn) { btn.disabled=true; btn.textContent='ð¥ Importar para a Unidade'; btn.style.opacity='.5'; }
+    if(btn) { btn.disabled=true; btn.textContent='📥 Importar para a Unidade'; btn.style.opacity='.5'; }
     document.getElementById('rm-import-wrap').style.display='none';
     _rmUnit=unidade; _rmTab='riscos';
     renderMapaRisco(); saveLocalCache();
@@ -6102,12 +6081,12 @@ async function rmProcessWord() {
     if(USE_SUPABASE) {
       const imported = (DB.riscos||[]).filter(r=>r.unidade===unidade&&r.obs==='Importado de Word');
       Promise.all(imported.map(r=>sbSaveRisco(r)))
-        .then(()=>setSaveIndicator('âï¸ '+imported.length+' riscos salvos na nuvem','var(--accent)'))
+        .then(()=>setSaveIndicator('☁️ '+imported.length+' riscos salvos na nuvem','var(--accent)'))
         .catch(e=>console.warn('sync riscos:', e));
     }
   } catch(e) {
-    if(log) log.innerHTML=`<span style="color:var(--danger)">â Erro: ${e.message}</span>`;
-    if(btn) { btn.disabled=false; btn.textContent='ð¥ Importar para a Unidade'; btn.style.opacity='1'; }
+    if(log) log.innerHTML=`<span style="color:var(--danger)">❌ Erro: ${e.message}</span>`;
+    if(btn) { btn.disabled=false; btn.textContent='📥 Importar para a Unidade'; btn.style.opacity='1'; }
   }
 }
 
@@ -6126,18 +6105,18 @@ function _rmParseWord(txt, unidade, skipDup=true) {
     'Suspender','Integrar','Controlar','Conciliar','Recuperar','Ativar','Atender','Negociar',
     'Escalar','Comunicar','Verificar','Garantir','Assegurar','Documentar','Auditar','Contratar',
     'Emitir','Elaborar','Implantar','Tornar','Reportar','Estabelecer','Migrar','Arquitetura',
-    'Defesa','Campanhas','Backups','Patches','Quarentena','InvestigaÃ§Ãµes','Rollback',
-    'Mapear','PriorizaÃ§Ã£o','AvaliaÃ§Ã£o de risco','Due diligence','Plano de','PolÃ­tica de',
-    'SegregaÃ§Ã£o','Checagem','Canal de','Procedimento','IntegraÃ§Ã£o RH','Controle de acesso',
-    'ConciliaÃ§Ã£o','Auditoria de','Criptografia','ClassificaÃ§Ã£o da','Ritos','Modelo padrÃ£o',
-    'CalendÃ¡rio de','RevisÃ£o por','GestÃ£o de ciclo','Infraestrutura redundante','GestÃ£o de identidades'];
+    'Defesa','Campanhas','Backups','Patches','Quarentena','Investigações','Rollback',
+    'Mapear','Priorização','Avaliação de risco','Due diligence','Plano de','Política de',
+    'Segregação','Checagem','Canal de','Procedimento','Integração RH','Controle de acesso',
+    'Conciliação','Auditoria de','Criptografia','Classificação da','Ritos','Modelo padrão',
+    'Calendário de','Revisão por','Gestão de ciclo','Infraestrutura redundante','Gestão de identidades'];
 
   // Track seen IDs to avoid importing duplicate numbered rows (actions also use 1,2,3...)
   // Only accept rows where ID resets to small numbers in the summary section context
   let lastId = 0; let summaryDone = false; const seenDescs = new Set();
 
   for(const line of lines) {
-    // Split by tab â table rows have cells separated by tabs
+    // Split by tab — table rows have cells separated by tabs
     const cells = line.split('\t').map(c => c.trim()).filter(c => c.length > 0);
 
     // Risk row: first cell is a 1-2 digit ID, second cell is the risk description
@@ -6148,24 +6127,24 @@ function _rmParseWord(txt, unidade, skipDup=true) {
     if(!desc || desc.length < 8) continue;
 
     // Skip header rows
-    if(['ID','Id','Risco','AÃ§Ã£o preventiva','AÃ§Ã£o de contingÃªncia','AÃ§Ã£o','ResponsÃ¡vel',
-        'EvidÃªncia','Monitoramento','Acompanhamento'].includes(desc)) continue;
+    if(['ID','Id','Risco','Ação preventiva','Ação de contingência','Ação','Responsável',
+        'Evidência','Monitoramento','Acompanhamento'].includes(desc)) continue;
 
     // Skip action verb rows
     if(skipStarters.some(v => desc.startsWith(v))) continue;
 
     // Skip metadata rows
-    if(/^(Data|VersÃ£o|DescriÃ§Ã£o|ClassificaÃ§Ã£o|Probabilidade|Impacto|NÃ­vel|Prob|P\\\\|P\\\\ I)/i.test(desc)) continue;
+    if(/^(Data|Versão|Descrição|Classificação|Probabilidade|Impacto|Nível|Prob|P\\\\|P\\\\ I)/i.test(desc)) continue;
 
-    // KEY FILTER: A real risk row MUST have P and I values (5, 10 or 15) OR text (Baixo/MÃ©dio/Alto)
+    // KEY FILTER: A real risk row MUST have P and I values (5, 10 or 15) OR text (Baixo/Médio/Alto)
     // AND must have at least 4 cells (ID, desc, category, something, P, I...)
     // Action rows typically have only 2-3 cells: ID, action text, responsible
-    const pMap = {'Baixo':5,'MÃ©dio':10,'Alto':15};
+    const pMap = {'Baixo':5,'Médio':10,'Alto':15};
     const numCells = cells.filter(c => ['5','10','15'].includes(c));
     const textVals = cells.filter(c => pMap[c] !== undefined);
     const hasPxI = numCells.length >= 2 || textVals.length >= 2;
 
-    // If no PÃI found AND row has < 4 cells, it's likely an action row â skip
+    // If no P×I found AND row has < 4 cells, it's likely an action row — skip
     if(!hasPxI && cells.length < 4) continue;
 
     // Also skip if id resets to 1 after we already found risks (action sub-tables restart at 1)
@@ -6219,7 +6198,7 @@ function _rmParseWord(txt, unidade, skipDup=true) {
   return count;
 }
 
-// ââ Gerenciar Unidades
+// ── Gerenciar Unidades
 function rmRenderUnitsList() {
   const el = document.getElementById('rm-units-list');
   if(!el) return;
@@ -6232,13 +6211,13 @@ function rmRenderUnitsList() {
         <div style="font-size:.75rem;color:var(--text-muted)">${cnt} risco${cnt!==1?'s':''}</div>
       </div>
       <div style="width:14px;height:14px;border-radius:50%;background:${u.cor};flex-shrink:0"></div>
-      ${cnt===0 ? `<button onclick="rmDeleteUnit(${i})" class="btn btn-danger btn-sm" title="Excluir unidade">ð</button>` : `<span style="font-size:.72rem;color:var(--text-muted);padding:2px 7px;border:1px solid var(--border);border-radius:4px" title="Tem riscos â esvazie antes de excluir">ð</span>`}
+      ${cnt===0 ? `<button onclick="rmDeleteUnit(${i})" class="btn btn-danger btn-sm" title="Excluir unidade">🗑</button>` : `<span style="font-size:.72rem;color:var(--text-muted);padding:2px 7px;border:1px solid var(--border);border-radius:4px" title="Tem riscos — esvazie antes de excluir">🔒</span>`}
     </div>`;
   }).join('');
 }
 
 
-// ââ Populate unit selects dynamically from RM_UNITS
+// ── Populate unit selects dynamically from RM_UNITS
 function rmUpdateRiscoModalUnits() {
   const sel = document.getElementById('rm-f-unidade');
   if(!sel) return;
@@ -6255,10 +6234,10 @@ function rmUpdatePlanoModalUnits() {
 
 function rmAddUnit() {
   const name = (document.getElementById('rm-new-unit-name')||{}).value?.trim();
-  const icon = (document.getElementById('rm-new-unit-icon')||{}).value?.trim() || 'ð';
+  const icon = (document.getElementById('rm-new-unit-icon')||{}).value?.trim() || '📋';
   const cor  = (document.getElementById('rm-new-unit-cor')||{}).value || '#3b82f6';
   if(!name) { alert('Informe o nome da unidade.'); return; }
-  if(RM_UNITS.some(u=>u.id.toLowerCase()===name.toLowerCase())) { alert('JÃ¡ existe uma unidade com esse nome.'); return; }
+  if(RM_UNITS.some(u=>u.id.toLowerCase()===name.toLowerCase())) { alert('Já existe uma unidade com esse nome.'); return; }
   RM_UNITS.push({id:name, icon, cor});
   document.getElementById('rm-new-unit-name').value='';
   document.getElementById('rm-new-unit-icon').value='';
@@ -6269,7 +6248,7 @@ function rmAddUnit() {
   rmPopulateImportUnitSel();
   rmUpdateRiscoModalUnits();
   rmUpdatePlanoModalUnits();
-  setSaveIndicator && setSaveIndicator('â Unidade criada e salva','var(--accent)');
+  setSaveIndicator && setSaveIndicator('✅ Unidade criada e salva','var(--accent)');
 }
 
 function rmDeleteUnit(idx) {
@@ -6288,19 +6267,19 @@ function rmDeleteUnit(idx) {
   rmUpdateRiscoModalUnits();
   rmUpdatePlanoModalUnits();
 }
-// ââ AI anÃ¡lise de riscos (stub â conecta com Gemini se chave configurada)
+// ── AI análise de riscos (stub — conecta com Gemini se chave configurada)
 async function aiAnalisarRiscos() {
   const btn=document.getElementById('btn-ai-risco');
-  if(btn){btn.disabled=true;btn.textContent='â³ Analisando...';}
+  if(btn){btn.disabled=true;btn.textContent='⏳ Analisando...';}
   const GEMINI_KEY='AIzaSyB6ZjO_Lj9AhpphMZtwUKYeQdzRWLu6Qm8';
   const GEMINI_URL='https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key='+GEMINI_KEY;
   const riscos=(DB.riscos||[]);
   const lista=riscos.map(r=>`[${r.unidade||'?'}] ${r.desc} P:${r.prob} I:${r.impacto} Controle:${r.controle||'Nenhum'}`).join('\n');
-  const prompt=`VocÃª Ã© especialista em gestÃ£o de riscos da Torre e Cia Supermercados.\nAnalise esta matriz de ${riscos.length} riscos e forneÃ§a:\n## Riscos CrÃ­ticos\n## Lacunas nos Controles\n## 3 RecomendaÃ§Ãµes PrioritÃ¡rias\n## Score de Risco Geral: X/10\n\nRISCOS:\n${lista}\n\nResponda em portuguÃªs.`;
+  const prompt=`Você é especialista em gestão de riscos da Torre e Cia Supermercados.\nAnalise esta matriz de ${riscos.length} riscos e forneça:\n## Riscos Críticos\n## Lacunas nos Controles\n## 3 Recomendações Prioritárias\n## Score de Risco Geral: X/10\n\nRISCOS:\n${lista}\n\nResponda em português.`;
   let panel=document.getElementById('ai-risco-panel');
   if(!panel){panel=document.createElement('div');panel.id='ai-risco-panel';panel.style.cssText='position:fixed;bottom:20px;right:20px;width:480px;max-width:95vw;z-index:9999;box-shadow:0 8px 32px rgba(0,0,0,.25);border-radius:12px;overflow:hidden;max-height:80vh;display:flex;flex-direction:column';document.body.appendChild(panel);}
   panel.style.display='flex';
-  panel.innerHTML='<div style="background:linear-gradient(135deg,#4f46e5,#7c3aed);padding:11px 16px;display:flex;align-items:center;justify-content:space-between"><span style="color:#fff;font-weight:700;font-size:.88rem">ð¤ AnÃ¡lise de Risco â Gemini AI</span><button onclick="this.closest(\'#ai-risco-panel\').style.display=\'none\'" style="background:rgba(255,255,255,.18);border:none;color:#fff;border-radius:50%;width:24px;height:24px;cursor:pointer">â</button></div><div id="ai-risco-body" style="padding:16px;background:#fff;overflow-y:auto;font-size:.85rem;line-height:1.7;flex:1">â³ Analisando...</div>';
+  panel.innerHTML='<div style="background:linear-gradient(135deg,#4f46e5,#7c3aed);padding:11px 16px;display:flex;align-items:center;justify-content:space-between"><span style="color:#fff;font-weight:700;font-size:.88rem">🤖 Análise de Risco — Gemini AI</span><button onclick="this.closest(\'#ai-risco-panel\').style.display=\'none\'" style="background:rgba(255,255,255,.18);border:none;color:#fff;border-radius:50%;width:24px;height:24px;cursor:pointer">✕</button></div><div id="ai-risco-body" style="padding:16px;background:#fff;overflow-y:auto;font-size:.85rem;line-height:1.7;flex:1">⏳ Analisando...</div>';
   try {
     const r=await fetch(GEMINI_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({contents:[{parts:[{text:prompt}]}],generationConfig:{temperature:0.3,maxOutputTokens:1200}})});
     if(!r.ok) throw new Error('HTTP '+r.status);
@@ -6310,24 +6289,24 @@ async function aiAnalisarRiscos() {
     if(body) body.innerHTML=txt.replace(/\n/g,'<br>').replace(/## (.*?)(<br>|$)/g,'<strong style="color:var(--primary);display:block;margin:10px 0 4px">$1</strong>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
   } catch(e) {
     const body=document.getElementById('ai-risco-body');
-    if(body) body.innerHTML='<span style="color:var(--danger)">â '+e.message+'</span>';
+    if(body) body.innerHTML='<span style="color:var(--danger)">❌ '+e.message+'</span>';
   }
-  if(btn){btn.disabled=false;btn.innerHTML='ð¤ Avaliar com IA';}
+  if(btn){btn.disabled=false;btn.innerHTML='🤖 Avaliar com IA';}
 }
 
-// Inicializar: carregar usuÃ¡rios extras ANTES de verificar sessÃ£o/login
+// Inicializar: carregar usuários extras ANTES de verificar sessão/login
 (async function appInit() {
   carregarBranding(); // Carregar branding customizado
-  await usersLoad(); // carrega usuÃ¡rios extras do localStorage/Supabase
+  await usersLoad(); // carrega usuários extras do localStorage/Supabase
   checkSession();
   init();
 })();
 
 
 
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-// DUE DILIGENCE 2 â KYC & MÃDIAS NEGATIVAS
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ═══════════════════════════════════════════════════════
+// DUE DILIGENCE 2 — KYC & MÍDIAS NEGATIVAS
+// ═══════════════════════════════════════════════════════
 
 function dd2HTML(){return `
 <style>
@@ -6420,7 +6399,7 @@ function dd2HTML(){return `
 </style>
 <div class="dd2-container">
   <div class="dd2-search">
-    <h2>&#128269; InvestigaÃ§Ã£o PrÃ©via â Due Diligence 2</h2>
+    <h2>&#128269; Investigação Prévia — Due Diligence 2</h2>
     <div class="dd2-form-row">
       <div class="dd2-form-group">
         <label>Tipo</label>
@@ -6434,21 +6413,21 @@ function dd2HTML(){return `
         <input type="text" id="dd2-doc" placeholder="00.000.000/0001-00" maxlength="18" oninput="dd2FormatDoc(this)"/>
       </div>
       <div class="dd2-form-group" style="max-width:180px">
-        <label>NÃ­vel</label>
+        <label>Nível</label>
         <select id="dd2-nivel">
-          <option value="basico">&#129001; BÃ¡sico</option>
-          <option value="intermediario" selected>&#129000; IntermediÃ¡rio</option>
+          <option value="basico">&#129001; Básico</option>
+          <option value="intermediario" selected>&#129000; Intermediário</option>
           <option value="forense">&#128308; Forense</option>
         </select>
       </div>
     </div>
     <div class="dd2-scope-grid">
       <label class="dd2-scope-item"><input type="checkbox" id="dd2-sc-cadastral" checked> &#127963; Dados Cadastrais</label>
-      <label class="dd2-scope-item"><input type="checkbox" id="dd2-sc-fiscal" checked> &#128188; SituaÃ§Ã£o Fiscal</label>
+      <label class="dd2-scope-item"><input type="checkbox" id="dd2-sc-fiscal" checked> &#128188; Situação Fiscal</label>
       <label class="dd2-scope-item"><input type="checkbox" id="dd2-sc-judicial" checked> &#9878; Processos Judiciais</label>
-      <label class="dd2-scope-item"><input type="checkbox" id="dd2-sc-sancoes" checked> &#128171; SanÃ§Ãµes CEIS/CNEP</label>
+      <label class="dd2-scope-item"><input type="checkbox" id="dd2-sc-sancoes" checked> &#128171; Sanções CEIS/CNEP</label>
       <label class="dd2-scope-item"><input type="checkbox" id="dd2-sc-pep" checked> &#127963; PEP</label>
-      <label class="dd2-scope-item"><input type="checkbox" id="dd2-sc-midia"> &#128240; MÃ­dia Negativa</label>
+      <label class="dd2-scope-item"><input type="checkbox" id="dd2-sc-midia"> &#128240; Mídia Negativa</label>
     </div>
     <button class="dd2-btn-search" onclick="dd2Iniciar()">&#128269; Investigar</button>
   </div>
@@ -6460,10 +6439,10 @@ function dd2HTML(){return `
       <span class="dd2-step" id="dd2-step-cadastral">&#127963; Cadastral</span>
       <span class="dd2-step" id="dd2-step-fiscal">&#128188; Fiscal</span>
       <span class="dd2-step" id="dd2-step-judicial">&#9878; Judicial</span>
-      <span class="dd2-step" id="dd2-step-sancoes">&#128171; SanÃ§Ãµes</span>
+      <span class="dd2-step" id="dd2-step-sancoes">&#128171; Sanções</span>
       <span class="dd2-step" id="dd2-step-pep">&#127963; PEP</span>
-      <span class="dd2-step" id="dd2-step-midia">&#128240; MÃ­dia</span>
-      <span class="dd2-step" id="dd2-step-analise">&#128202; AnÃ¡lise</span>
+      <span class="dd2-step" id="dd2-step-midia">&#128240; Mídia</span>
+      <span class="dd2-step" id="dd2-step-analise">&#128202; Análise</span>
     </div>
   </div>
 
@@ -6487,12 +6466,12 @@ function dd2HTML(){return `
       <div id="dd2-cadastral-content"><div class="dd2-loading">&#9203; Consultando Receita Federal...</div></div>
     </div>
     <div class="dd2-card" id="dd2-sec-qsa" style="display:none">
-      <div class="dd2-card-title">&#128101; Quadro SocietÃ¡rio (QSA)</div>
+      <div class="dd2-card-title">&#128101; Quadro Societário (QSA)</div>
       <div id="dd2-qsa-content"></div>
     </div>
     <div class="dd2-card" id="dd2-sec-fiscal">
-      <div class="dd2-card-title">&#128188; SituaÃ§Ã£o Fiscal</div>
-      <div id="dd2-fiscal-content"><div class="dd2-loading">&#9203; Verificando situaÃ§Ã£o fiscal...</div></div>
+      <div class="dd2-card-title">&#128188; Situação Fiscal</div>
+      <div id="dd2-fiscal-content"><div class="dd2-loading">&#9203; Verificando situação fiscal...</div></div>
     </div>
     <div class="dd2-card" id="dd2-sec-judicial">
       <div class="dd2-card-title">&#9878; Processos Judiciais (DataJud CNJ)</div>
@@ -6504,16 +6483,16 @@ function dd2HTML(){return `
       <div id="dd2-judicial-content"><div class="dd2-loading">&#9203; Consultando DataJud CNJ...</div></div>
     </div>
     <div class="dd2-card" id="dd2-sec-sancoes">
-      <div class="dd2-card-title">&#128171; SanÃ§Ãµes CEIS + CNEP</div>
-      <div id="dd2-sancoes-content"><div class="dd2-loading">&#9203; Consultando Portal da TransparÃªncia...</div></div>
+      <div class="dd2-card-title">&#128171; Sanções CEIS + CNEP</div>
+      <div id="dd2-sancoes-content"><div class="dd2-loading">&#9203; Consultando Portal da Transparência...</div></div>
     </div>
     <div class="dd2-card" id="dd2-sec-pep">
       <div class="dd2-card-title">&#127963; Pessoas Expostas Politicamente (PEP)</div>
       <div id="dd2-pep-content"><div class="dd2-loading">&#9203; Consultando base de PEPs...</div></div>
     </div>
     <div class="dd2-card" id="dd2-sec-midia" style="display:none">
-      <div class="dd2-card-title">&#128240; MÃ­dia Negativa</div>
-      <div id="dd2-midia-content"><div class="dd2-loading">&#9203; Buscando notÃ­cias negativas...</div></div>
+      <div class="dd2-card-title">&#128240; Mídia Negativa</div>
+      <div id="dd2-midia-content"><div class="dd2-loading">&#9203; Buscando notícias negativas...</div></div>
     </div>
     <div class="dd2-card" id="dd2-sec-timeline">
       <div class="dd2-card-title">&#128197; Linha do Tempo</div>
@@ -6528,11 +6507,11 @@ function dd2HTML(){return `
 `;}
 
 
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
-// DUE DILIGENCE 2 â JAVASCRIPT
-// âââââââââââââââââââââââââââââââââââââââââââââââââââââââ
+// ═══════════════════════════════════════════════════════
+// DUE DILIGENCE 2 — JAVASCRIPT
+// ═══════════════════════════════════════════════════════
 
-// DD2_API removido â chamadas migradas para APIs pÃºblicas diretas
+// DD2_API removido — chamadas migradas para APIs públicas diretas
 const DD2_DATAJUD_KEY = 'cDZHYzlZa0JadVREZDJCendQbXY6SkJlTzNjLV9TRENyQk1RdnFKZGRQdw==';
 const DD2_TRIBUNAIS = [
   {sigla:'TJSP',nome:'TJSP'},
@@ -6594,10 +6573,10 @@ function dd2SetProgress(pct){
   if(el)el.style.width=pct+'%';
 }
 
-async function dd2FetchCnpj(doc){let d=null;try{const r1=await fetch('https://brasilapi.com.br/api/cnpj/v1/'+doc,{signal:AbortSignal.timeout(10000)});if(r1.ok)d=await r1.json();}catch(e){}if(!d){try{const r2=await fetch('https://corsproxy.io/?url='+encodeURIComponent('https://www.receitaws.com.br/v1/cnpj/'+doc),{signal:AbortSignal.timeout(10000)});if(r2.ok){const w=await r2.json();if(w&&w.nome){d={razao_social:w.nome,nome_fantasia:w.fantasia,cnpj:w.cnpj,descricao_situacao_cadastral:w.situacao,situacao_cadastral:w.situacao,data_inicio_atividade:w.abertura,natureza_juridica:w.natureza_juridica,capital_social:w.capital_social,cnae_fiscal_descricao:(w.atividade_principal||[])[0]?.text||'',logradouro:w.logradouro,numero:w.numero,complemento:w.complemento,bairro:w.bairro,municipio:w.municipio,uf:w.uf,email:w.email,ddd_telefone_1:w.telefone,qsa:(w.qsa||[]).map(s=>({nome_socio:s.nome,qualificacao_socio:{descricao:s.qual||''}})),opcao_pelo_simples:!!(w.simples&&w.simples.optante),opcao_pelo_mei:!!(w.simei&&w.simei.optante)};}}}catch(e){}}if(!d){try{const r3=await fetch('https://publica.cnpj.ws/cnpj/'+doc,{signal:AbortSignal.timeout(10000)});if(r3.ok){const w=await r3.json();const e3=w.estabelecimento||{};if(w.razao_social){d={razao_social:w.razao_social,nome_fantasia:e3.nome_fantasia||'',cnpj:e3.cnpj||doc,descricao_situacao_cadastral:e3.situacao_cadastral||'',situacao_cadastral:e3.situacao_cadastral||'',data_inicio_atividade:e3.data_inicio_atividade||'',natureza_juridica:(w.natureza_juridica||{}).descricao||'',capital_social:w.capital_social,cnae_fiscal_descricao:(e3.atividade_principal||{}).descricao||'',logradouro:e3.logradouro,numero:e3.numero,complemento:e3.complemento,bairro:e3.bairro,municipio:(e3.cidade||{}).nome||'',uf:(e3.estado||{}).sigla||'',email:e3.email,ddd_telefone_1:e3.ddd1?('('+e3.ddd1+') '+e3.telefone1):'',qsa:(w.socios||[]).map(s=>({nome_socio:s.nome,qualificacao_socio:{descricao:(s.qualificacao||{}).descricao||''}})),opcao_pelo_simples:false,opcao_pelo_mei:false};}}}catch(e){}}return d;}async function dd2Iniciar(){
+async function dd2Iniciar(){
   const doc=document.getElementById('dd2-doc').value.replace(/\D/g,'');
   const tipo=document.getElementById('dd2-tipo').value;
-  if(doc.length<11){alert('Informe um documento vÃ¡lido.');return;}
+  if(doc.length<11){alert('Informe um documento válido.');return;}
   const token=dd2GetToken();
   const scCad=document.getElementById('dd2-sc-cadastral').checked;
   const scFis=document.getElementById('dd2-sc-fiscal').checked;
@@ -6615,15 +6594,15 @@ async function dd2FetchCnpj(doc){let d=null;try{const r1=await fetch('https://br
   if(scCad&&tipo==='cnpj'){
     dd2SetStep('cadastral','active');
     tasks.push(
-      dd2FetchCnpj(doc).then(d=>{
+      fetch('https://brasilapi.com.br/api/cnpj/v1/'+doc).then(r=>r.ok?r.json():null).then(d=>{
         dd2CadastralData=d;dd2SetStep('cadastral','done');dd2SetProgress(20);
         dd2RenderCadastral(d);dd2RenderFiscal(d);
       }).catch(()=>{dd2SetStep('cadastral','error');})
     );
   } else {
     dd2SetStep('cadastral','done');dd2SetProgress(20);
-    document.getElementById('dd2-cadastral-content').innerHTML='<p style="color:#64748b;font-size:.85rem">Consulta cadastral disponÃ­vel apenas para CNPJ.</p>';
-    document.getElementById('dd2-fiscal-content').innerHTML='<p style="color:#64748b;font-size:.85rem">Consulta fiscal disponÃ­vel apenas para CNPJ.</p>';
+    document.getElementById('dd2-cadastral-content').innerHTML='<p style="color:#64748b;font-size:.85rem">Consulta cadastral disponível apenas para CNPJ.</p>';
+    document.getElementById('dd2-fiscal-content').innerHTML='<p style="color:#64748b;font-size:.85rem">Consulta fiscal disponível apenas para CNPJ.</p>';
   }
   if(scJud){
     dd2SetStep('judicial','active');
@@ -6634,14 +6613,14 @@ async function dd2FetchCnpj(doc){let d=null;try{const r1=await fetch('https://br
     );
   } else {
     dd2SetStep('judicial','done');
-    document.getElementById('dd2-judicial-content').innerHTML='<p style="color:#64748b;font-size:.85rem">Consulta judicial nÃ£o selecionada.</p>';
+    document.getElementById('dd2-judicial-content').innerHTML='<p style="color:#64748b;font-size:.85rem">Consulta judicial não selecionada.</p>';
   }
   if(scSan){
     dd2SetStep('sancoes','active');
     tasks.push(
 Promise.all([
-          fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api.portaldatransparencia.gov.br/api-de-dados/ceis?cnpjSancionado='+doc+'&pagina=1')).then(r=>r.ok?r.json():[]).catch(()=>[]),
-                  fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api.portaldatransparencia.gov.br/api-de-dados/cnep?cnpjSancionado='+doc+'&pagina=1')).then(r=>r.ok?r.json():[]).catch(()=>[])
+          fetch('https://api.portaldatransparencia.gov.br/api-de-dados/ceis?cnpjSancionado='+doc+'&pagina=1').then(r=>r.ok?r.json():[]).catch(()=>[]),
+                  fetch('https://api.portaldatransparencia.gov.br/api-de-dados/cnep?cnpjSancionado='+doc+'&pagina=1').then(r=>r.ok?r.json():[]).catch(()=>[])
                         ]).then(([ceis,cnep])=>{
                                 dd2SancoesData={ceis:Array.isArray(ceis)?ceis:[],cnep:Array.isArray(cnep)?cnep:[]};
                                         dd2SetStep('sancoes','done');dd2SetProgress(65);
@@ -6650,7 +6629,7 @@ Promise.all([
     );
   } else {
     dd2SetStep('sancoes','done');
-    document.getElementById('dd2-sancoes-content').innerHTML='<p style="color:#64748b;font-size:.85rem">Consulta de sanÃ§Ãµes nÃ£o selecionada.</p>';
+    document.getElementById('dd2-sancoes-content').innerHTML='<p style="color:#64748b;font-size:.85rem">Consulta de sanções não selecionada.</p>';
   }
   if(scPep){
     dd2SetStep('pep','active');
@@ -6663,13 +6642,13 @@ Promise.all([
     );
   } else {
     dd2SetStep('pep','done');
-    document.getElementById('dd2-pep-content').innerHTML='<p style="color:#64748b;font-size:.85rem">Consulta PEP nÃ£o selecionada.</p>';
+    document.getElementById('dd2-pep-content').innerHTML='<p style="color:#64748b;font-size:.85rem">Consulta PEP não selecionada.</p>';
   }
   if(scMid){
     dd2SetStep('midia','active');
     const nome=dd2CadastralData?.razao_social||dd2CadastralData?.nome||doc;
     tasks.push(
-fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api.duckduckgo.com/?q='+encodeURIComponent(nome+' corrupÃ§Ã£o fraude escÃ¢ndalo')+'&format=json&no_html=1&skip_disambig=1')).then(r=>r.ok?r.json():null).then(d=>{
+fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api.duckduckgo.com/?q='+encodeURIComponent(nome+' corrupção fraude escândalo')+'&format=json&no_html=1&skip_disambig=1')).then(r=>r.ok?r.json():null).then(d=>{
           const items=(d?.RelatedTopics||[]).filter(t=>t.FirstURL&&t.Text).map(t=>({link:t.FirstURL,title :t.Text,source:{name:'DuckDuckGo'},pubDate:'',content_text:t.Text}));
                   dd2MidiaData=items;dd2SetStep('midia','done');dd2SetProgress(88);
                           dd2RenderMidia(dd2MidiaData);
@@ -6685,7 +6664,7 @@ fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api.duckduckgo.co
   dd2SetStep('analise','done');
   dd2SetProgress(100);
   const now=new Date();
-  document.getElementById('dd2-export-meta').textContent='RelatÃ³rio gerado em '+now.toLocaleDateString('pt-BR')+' '+now.toLocaleTimeString('pt-BR')+' â '+doc;
+  document.getElementById('dd2-export-meta').textContent='Relatório gerado em '+now.toLocaleDateString('pt-BR')+' '+now.toLocaleTimeString('pt-BR')+' — '+doc;
   document.getElementById('dd2-progress').style.display='none';
   document.getElementById('dd2-report').style.display='block';
 }
@@ -6693,7 +6672,7 @@ fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api.duckduckgo.co
 async function dd2FetchJudicial(doc,headers){
   const results=[];
   const calls=DD2_TRIBUNAIS.map(t=>
-    fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api-publica.datajud.cnj.jus.br/api_publica_'+t.sigla.toLowerCase()+'/_search'),{
+    fetch('https://api-publica.datajud.cnj.jus.br/api_publica_'+t.sigla.toLowerCase()+'/_search',{
       method:'POST',
       headers:{'Content-Type':'application/json','Authorization':'APIKey '+DD2_DATAJUD_KEY},
       body:JSON.stringify({query:{bool:{should:[{match:{numeroProcesso:doc}},{match:{cpfCnpj:doc}}]}},size:50}),
@@ -6712,55 +6691,55 @@ async function dd2FetchJudicial(doc,headers){
 async function dd2FetchPep(nome,doc){
   if(!nome&&!doc)return[];
   const q=nome?encodeURIComponent(nome.split(' ').slice(0,3).join(' ')):doc;
-  const r=await fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api.portaldatransparencia.gov.br/api-de-dados/pep?nome='+q+'&pagina=1'),{signal:AbortSignal.timeout(10000)});
+  const r=await fetch('https://api.portaldatransparencia.gov.br/api-de-dados/pep?nome='+q+'&pagina=1',{signal:AbortSignal.timeout(10000)});
   if(!r.ok)return[];
   return await r.json();
 }
 
 function dd2RenderCadastral(d){
   const el=document.getElementById('dd2-cadastral-content');
-  if(!d){el.innerHTML='<p style="color:#ef4444">NÃ£o foi possÃ­vel obter dados cadastrais.</p>';return;}
+  if(!d){el.innerHTML='<p style="color:#ef4444">Não foi possível obter dados cadastrais.</p>';return;}
   const r=d;
-  const sit=String(r.descricao_situacao_cadastral||r.situacao_cadastral||r.situacao||r.status||'â');
+  const sit=r.situacao_cadastral||r.situacao||r.status||'—';
   const sitOk=(sit.toUpperCase().includes('ATIVA')||sit.toUpperCase().includes('REGULAR'));
   el.innerHTML=`<div class="dd2-grid-3">
-    <div class="dd2-field-item"><label>CNPJ</label><span>${r.cnpj||'â'}</span></div>
-    <div class="dd2-field-item"><label>RazÃ£o Social</label><span>${r.razao_social||r.nome||'â'}</span></div>
-    <div class="dd2-field-item"><label>Nome Fantasia</label><span>${r.nome_fantasia||'â'}</span></div>
-    <div class="dd2-field-item"><label>SituaÃ§Ã£o Cadastral</label><span><span class="dd2-badge ${sitOk?'ok':'danger'}">${sit}</span></span></div>
-    <div class="dd2-field-item"><label>Data de Abertura</label><span>${r.data_abertura||r.data_inicio_atividade||'â'}</span></div>
-    <div class="dd2-field-item"><label>Natureza JurÃ­dica</label><span>${r.natureza_juridica?.descricao||r.natureza_juridica||'â'}</span></div>
-    <div class="dd2-field-item"><label>Porte</label><span>${r.porte?.descricao||r.porte||'â'}</span></div>
+    <div class="dd2-field-item"><label>CNPJ</label><span>${r.cnpj||'—'}</span></div>
+    <div class="dd2-field-item"><label>Razão Social</label><span>${r.razao_social||r.nome||'—'}</span></div>
+    <div class="dd2-field-item"><label>Nome Fantasia</label><span>${r.nome_fantasia||'—'}</span></div>
+    <div class="dd2-field-item"><label>Situação Cadastral</label><span><span class="dd2-badge ${sitOk?'ok':'danger'}">${sit}</span></span></div>
+    <div class="dd2-field-item"><label>Data de Abertura</label><span>${r.data_abertura||r.data_inicio_atividade||'—'}</span></div>
+    <div class="dd2-field-item"><label>Natureza Jurídica</label><span>${r.natureza_juridica?.descricao||r.natureza_juridica||'—'}</span></div>
+    <div class="dd2-field-item"><label>Porte</label><span>${r.porte?.descricao||r.porte||'—'}</span></div>
     <div class="dd2-field-item"><label>Capital Social</label><span>R$ ${Number(r.capital_social||0).toLocaleString('pt-BR',{minimumFractionDigits:2})}</span></div>
-    <div class="dd2-field-item"><label>CNAE Principal</label><span>${r.cnae_fiscal_descricao||r.cnae_fiscal?.descricao||'â'}</span></div>
-    <div class="dd2-field-item" style="grid-column:1/-1"><label>EndereÃ§o</label><span>${[r.logradouro,r.numero,r.complemento,r.bairro,r.municipio?.descricao||r.municipio,r.uf].filter(Boolean).join(', ')||'â'}</span></div>
+    <div class="dd2-field-item"><label>CNAE Principal</label><span>${r.cnae_fiscal_descricao||r.cnae_fiscal?.descricao||'—'}</span></div>
+    <div class="dd2-field-item" style="grid-column:1/-1"><label>Endereço</label><span>${[r.logradouro,r.numero,r.complemento,r.bairro,r.municipio?.descricao||r.municipio,r.uf].filter(Boolean).join(', ')||'—'}</span></div>
   </div>`;
   if(r.qsa?.length){
     document.getElementById('dd2-sec-qsa').style.display='block';
-    document.getElementById('dd2-qsa-content').innerHTML=`<div style="overflow-x:auto"><table class="dd2-table"><thead><tr><th>Nome</th><th>QualificaÃ§Ã£o</th><th>Faixa EtÃ¡ria</th></tr></thead><tbody>${r.qsa.map(s=>`<tr><td>${s.nome_socio||s.nome||'â'}</td><td>${s.qualificacao_socio?.descricao||s.qualificacao||'â'}</td><td>${s.faixa_etaria||'â'}</td></tr>`).join('')}</tbody></table></div>`;
+    document.getElementById('dd2-qsa-content').innerHTML=`<div style="overflow-x:auto"><table class="dd2-table"><thead><tr><th>Nome</th><th>Qualificação</th><th>Faixa Etária</th></tr></thead><tbody>${r.qsa.map(s=>`<tr><td>${s.nome_socio||s.nome||'—'}</td><td>${s.qualificacao_socio?.descricao||s.qualificacao||'—'}</td><td>${s.faixa_etaria||'—'}</td></tr>`).join('')}</tbody></table></div>`;
   }
 }
 
 function dd2RenderFiscal(d){
   const el=document.getElementById('dd2-fiscal-content');
-  if(!d){el.innerHTML='<p style="color:#ef4444">Dados fiscais nÃ£o disponÃ­veis.</p>';return;}
-  const sit=String(d.descricao_situacao_cadastral||d.situacao_cadastral||d.situacao||d.status||'â');
+  if(!d){el.innerHTML='<p style="color:#ef4444">Dados fiscais não disponíveis.</p>';return;}
+  const sit=d.situacao_cadastral||d.situacao||d.status||'—';
   const sitOk=(sit.toUpperCase().includes('ATIVA')||sit.toUpperCase().includes('REGULAR'));
-  el.innerHTML=`<div style="overflow-x:auto"><table class="dd2-table"><thead><tr><th>VerificaÃ§Ã£o</th><th>Resultado</th><th>Status</th></tr></thead><tbody>
-    <tr><td>SituaÃ§Ã£o na Receita Federal</td><td>${sit}</td><td><span class="dd2-badge ${sitOk?'ok':'danger'}">${sitOk?'Regular':'Irregular'}</span></td></tr>
-    <tr><td>Data de Abertura</td><td>${d.data_abertura||d.data_inicio_atividade||'â'}</td><td><span class="dd2-badge info">Info</span></td></tr>
-    <tr><td>Optante Simples Nacional</td><td>${d.opcao_pelo_simples?'Sim':'NÃ£o'}</td><td><span class="dd2-badge info">Info</span></td></tr>
-    <tr><td>Optante MEI</td><td>${d.opcao_pelo_mei?'Sim':'NÃ£o'}</td><td><span class="dd2-badge info">Info</span></td></tr>
+  el.innerHTML=`<div style="overflow-x:auto"><table class="dd2-table"><thead><tr><th>Verificação</th><th>Resultado</th><th>Status</th></tr></thead><tbody>
+    <tr><td>Situação na Receita Federal</td><td>${sit}</td><td><span class="dd2-badge ${sitOk?'ok':'danger'}">${sitOk?'Regular':'Irregular'}</span></td></tr>
+    <tr><td>Data de Abertura</td><td>${d.data_abertura||d.data_inicio_atividade||'—'}</td><td><span class="dd2-badge info">Info</span></td></tr>
+    <tr><td>Optante Simples Nacional</td><td>${d.opcao_pelo_simples?'Sim':'Não'}</td><td><span class="dd2-badge info">Info</span></td></tr>
+    <tr><td>Optante MEI</td><td>${d.opcao_pelo_mei?'Sim':'Não'}</td><td><span class="dd2-badge info">Info</span></td></tr>
   </tbody></table></div>`;
 }
 
 function dd2RenderJudicial(data){
   const el=document.getElementById('dd2-judicial-content');
   const filters=document.getElementById('dd2-judicial-filters');
-  const docBusca=dd2CadastralData?.cnpj?.replace(/\D/g,'')||data._doc||'';const docFmt=docBusca.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/,'$1.$2.$3/$4-$5');const nomeBusca=dd2CadastralData?.razao_social||'';if(!data.length){el.innerHTML=`<div style="padding:12px;background:#fef9c3;border:1px solid #fde047;border-radius:8px;margin-bottom:12px"><p style="font-weight:600;color:#854d0e;margin:0 0 4px">â ï¸ A API pÃºblica do DataJud CNJ nÃ£o indexa dados de partes (CPF/CNPJ).</p><p style="font-size:.82rem;color:#92400e;margin:0">Para verificar processos deste CNPJ, acesse diretamente os sistemas abaixo:</p></div><div style="display:grid;gap:8px">${[{n:'JusBrasil â Consulta Processual',u:'https://www.jusbrasil.com.br/consulta-processual/?q='+encodeURIComponent(docFmt||nomeBusca)},{n:'CNJ â Consulta Processual Unificada',u:'https://cnj.jus.br/pesquisas-judiciarias/justica-em-numeros/'},{n:'TJSP â Consulta por CNPJ',u:'https://esaj.tjsp.jus.br/cpopg/search.do?conversationId=&cbPesquisa=NMDOS&dadosConsulta.valorConsultaNuUnificado=&dadosConsulta.valorConsulta='+encodeURIComponent(nomeBusca)+'&dadosConsulta.tipoNuProcesso=UNIFICADO'},{n:'TJRJ â Consulta de Processos',u:'https://www3.tjrj.jus.br/consultaprocessual/#/consultapublica'},{n:'TST â Consulta de Processos Trabalhistas',u:'https://consultaprocessual.tst.jus.br/consultaProcessual/consultaTstNumUnica.do?conscsjt=&numeroTst=&consulta=Consultar&camposPesquisados=dnsMemorial&nmParteReclamante='+encodeURIComponent(nomeBusca)},{n:'TRF1 â Processos Federais',u:'https://processual.trf1.jus.br/consultaProcessual/processo.php?secao=TRF1&proc=&enviar=Pesquisar'},{n:'Portal e-SAJ (TJSP)',u:'https://esaj.tjsp.jus.br/cpopg/open.do'}].map(l=>`<a href="${l.u}" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;padding:10px 14px;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;text-decoration:none;color:#0f2d4a;font-size:.85rem;font-weight:500"><span>ð</span>${l.n}</a>`).join('')}</div>`;return;}
+  if(!data.length){el.innerHTML='<p style="color:#22c55e;font-weight:600">✅ Nenhum processo encontrado nos tribunais consultados.</p>';return;}
   filters.style.display='flex';
-  const tribunais=[...new Set(data.map(p=>p._tribunal||p.tribunal||'â'))].sort();
-  const graus=[...new Set(data.map(p=>p.grau||'â'))].filter(Boolean).sort();
+  const tribunais=[...new Set(data.map(p=>p._tribunal||p.tribunal||'—'))].sort();
+  const graus=[...new Set(data.map(p=>p.grau||'—'))].filter(Boolean).sort();
   const tSel=document.getElementById('dd2-f-tribunal');
   const gSel=document.getElementById('dd2-f-grau');
   tSel.innerHTML='<option value="">Todos os Tribunais ('+data.length+')</option>'+tribunais.map(t=>`<option>${t}</option>`).join('');
@@ -6778,14 +6757,14 @@ function dd2FiltrarJudicial(){
   const el=document.getElementById('dd2-judicial-content');
   if(!filtered.length){el.innerHTML='<p style="color:#64748b">Nenhum processo encontrado com os filtros selecionados.</p>';return;}
   el.innerHTML=`<p style="font-size:.82rem;color:#64748b;margin-bottom:8px">Exibindo ${filtered.length} processo(s)</p>
-  <div style="overflow-x:auto"><table class="dd2-table"><thead><tr><th>NÃºmero CNJ</th><th>Classe / Assunto</th><th>Tribunal</th><th>Grau</th><th>Ãlt. AtualizaÃ§Ã£o</th></tr></thead>
+  <div style="overflow-x:auto"><table class="dd2-table"><thead><tr><th>Número CNJ</th><th>Classe / Assunto</th><th>Tribunal</th><th>Grau</th><th>Últ. Atualização</th></tr></thead>
   <tbody>${filtered.slice(0,100).map(p=>{
-    const num=p.numeroProcesso||p.numero||'â';
-    const classe=p.classe?.nome||p.classe||'â';
-    const assunto=(p.assuntos||[]).map(a=>a.nome||a).join(', ')||'â';
-    const trib=p._tribunal||p.tribunal||'â';
-    const grauP=p.grau||'â';
-    const upd=p.dataHoraUltimaAtualizacao||p.dataAjuizamento||'â';
+    const num=p.numeroProcesso||p.numero||'—';
+    const classe=p.classe?.nome||p.classe||'—';
+    const assunto=(p.assuntos||[]).map(a=>a.nome||a).join(', ')||'—';
+    const trib=p._tribunal||p.tribunal||'—';
+    const grauP=p.grau||'—';
+    const upd=p.dataHoraUltimaAtualizacao||p.dataAjuizamento||'—';
     return `<tr><td style="font-family:monospace;font-size:.75rem">${num}</td><td>${classe}<br><span style="font-size:.73rem;color:#64748b">${assunto}</span></td><td><span class="dd2-badge info">${trib}</span></td><td>${grauP}</td><td style="font-size:.75rem">${upd.substring(0,10)}</td></tr>`;
   }).join('')}</tbody></table></div>`;
 }
@@ -6795,24 +6774,24 @@ function dd2RenderSancoes(d){
   const ceis=d?.ceis||[];
   const cnep=d?.cnep||[];
   const all=[...ceis.map(s=>({...s,_base:'CEIS'})),...cnep.map(s=>({...s,_base:'CNEP'}))];
-  if(!all.length){el.innerHTML='<p style="color:#22c55e;font-weight:600">â Nenhuma sanÃ§Ã£o encontrada nas bases CEIS/CNEP.</p>';return;}
-  el.innerHTML=`<div style="overflow-x:auto"><table class="dd2-table"><thead><tr><th>Base</th><th>Tipo de SanÃ§Ã£o</th><th>ÃrgÃ£o Sancionador</th><th>VigÃªncia</th><th>Status</th></tr></thead>
-  <tbody>${all.map(s=>`<tr><td><span class="dd2-badge danger">${s._base}</span></td><td>${s.tipoSancao||s.tipo||'â'}</td><td>${s.orgaoSancionador?.nome||s.orgaoSancionador||'â'}</td><td>${s.dataInicioSancao||'â'} â ${s.dataFimSancao||'vigente'}</td><td><span class="dd2-badge ${s.dataFimSancao?'warn':'danger'}">${s.dataFimSancao?'Encerrada':'Vigente'}</span></td></tr>`).join('')}</tbody></table></div>`;
+  if(!all.length){el.innerHTML='<p style="color:#22c55e;font-weight:600">✅ Nenhuma sanção encontrada nas bases CEIS/CNEP.</p>';return;}
+  el.innerHTML=`<div style="overflow-x:auto"><table class="dd2-table"><thead><tr><th>Base</th><th>Tipo de Sanção</th><th>Órgão Sancionador</th><th>Vigência</th><th>Status</th></tr></thead>
+  <tbody>${all.map(s=>`<tr><td><span class="dd2-badge danger">${s._base}</span></td><td>${s.tipoSancao||s.tipo||'—'}</td><td>${s.orgaoSancionador?.nome||s.orgaoSancionador||'—'}</td><td>${s.dataInicioSancao||'—'} – ${s.dataFimSancao||'vigente'}</td><td><span class="dd2-badge ${s.dataFimSancao?'warn':'danger'}">${s.dataFimSancao?'Encerrada':'Vigente'}</span></td></tr>`).join('')}</tbody></table></div>`;
 }
 
 function dd2RenderPep(data){
   const el=document.getElementById('dd2-pep-content');
-  if(!Array.isArray(data)||!data.length){el.innerHTML='<p style="color:#22c55e;font-weight:600">â Nenhum registro PEP encontrado.</p>';return;}
-  el.innerHTML=`<div style="overflow-x:auto"><table class="dd2-table"><thead><tr><th>Nome</th><th>Cargo / FunÃ§Ã£o</th><th>ÃrgÃ£o</th><th>PerÃ­odo</th><th>Status</th></tr></thead>
-  <tbody>${data.slice(0,50).map(p=>`<tr><td>${p.nome||'â'}</td><td>${p.funcao||p.cargo||'â'}</td><td>${p.orgao||'â'}</td><td>${p.dataInicio||'â'} â ${p.dataFim||'atual'}</td><td><span class="dd2-badge pep">&#9888; PEP</span></td></tr>`).join('')}</tbody></table></div>`;
+  if(!Array.isArray(data)||!data.length){el.innerHTML='<p style="color:#22c55e;font-weight:600">✅ Nenhum registro PEP encontrado.</p>';return;}
+  el.innerHTML=`<div style="overflow-x:auto"><table class="dd2-table"><thead><tr><th>Nome</th><th>Cargo / Função</th><th>Órgão</th><th>Período</th><th>Status</th></tr></thead>
+  <tbody>${data.slice(0,50).map(p=>`<tr><td>${p.nome||'—'}</td><td>${p.funcao||p.cargo||'—'}</td><td>${p.orgao||'—'}</td><td>${p.dataInicio||'—'} – ${p.dataFim||'atual'}</td><td><span class="dd2-badge pep">&#9888; PEP</span></td></tr>`).join('')}</tbody></table></div>`;
 }
 
 function dd2RenderMidia(data){
   const el=document.getElementById('dd2-midia-content');
-  if(!data.length){el.innerHTML='<p style="color:#22c55e;font-weight:600">â Nenhuma notÃ­cia negativa encontrada.</p>';return;}
+  if(!data.length){el.innerHTML='<p style="color:#22c55e;font-weight:600">✅ Nenhuma notícia negativa encontrada.</p>';return;}
   el.innerHTML=data.slice(0,20).map(n=>`<div style="border:1px solid #e2e8f0;border-radius:8px;padding:12px;margin-bottom:8px;background:#fff">
-    <div style="font-weight:600;font-size:.88rem;margin-bottom:4px"><a href="${n.link||'#'}" target="_blank" style="color:#0f2d4a;text-decoration:none">${n.title||'Sem tÃ­tulo'}</a></div>
-    <div style="font-size:.78rem;color:#64748b">${n.pubDate||''} â ${n.source?.name||n.author||''}</div>
+    <div style="font-weight:600;font-size:.88rem;margin-bottom:4px"><a href="${n.link||'#'}" target="_blank" style="color:#0f2d4a;text-decoration:none">${n.title||'Sem título'}</a></div>
+    <div style="font-size:.78rem;color:#64748b">${n.pubDate||''} — ${n.source?.name||n.author||''}</div>
     <div style="font-size:.82rem;color:#64748b;margin-top:4px">${(n.content_text||n.description||'').substring(0,200)}...</div>
   </div>`).join('');
 }
@@ -6823,7 +6802,7 @@ function dd2RenderScore(){
   const pillarsEl=document.getElementById('dd2-pillars');
   let score=0;
   const d=dd2CadastralData;
-  const sit=String(d?.descricao_situacao_cadastral||d?.situacao_cadastral||d?.situacao||d?.status||'');
+  const sit=d?.situacao_cadastral||d?.situacao||d?.status||'';
   if(sit&&!sit.toUpperCase().includes('ATIVA')&&!sit.toUpperCase().includes('REGULAR'))score+=30;
   const sanTotal=(dd2SancoesData?.ceis||[]).length+(dd2SancoesData?.cnep||[]).length;
   if(sanTotal>0)score=Math.min(100,score+40);
@@ -6831,19 +6810,19 @@ function dd2RenderScore(){
   score=Math.min(100,score);
   gauge.textContent=score;
   if(score<25){gauge.className='dd2-gauge-circle low';label.textContent='RISCO BAIXO';label.style.color='#22c55e';}
-  else if(score<60){gauge.className='dd2-gauge-circle medium';label.textContent='RISCO MÃDIO';label.style.color='#f59e0b';}
+  else if(score<60){gauge.className='dd2-gauge-circle medium';label.textContent='RISCO MÉDIO';label.style.color='#f59e0b';}
   else{gauge.className='dd2-gauge-circle high';label.textContent='RISCO ALTO';label.style.color='#ef4444';}
   const pillars=[
     {icon:'&#127963;',label:'Cadastral',ok:!sit||sit.toUpperCase().includes('ATIVA')||sit.toUpperCase().includes('REGULAR')},
     {icon:'&#9878;',label:'Judicial',ok:dd2JudicialData.length===0},
-    {icon:'&#128171;',label:'SanÃ§Ãµes',ok:sanTotal===0},
+    {icon:'&#128171;',label:'Sanções',ok:sanTotal===0},
     {icon:'&#127963;',label:'PEP',ok:dd2PepData.length===0},
-    {icon:'&#128240;',label:'MÃ­dia',ok:dd2MidiaData.length===0}
+    {icon:'&#128240;',label:'Mídia',ok:dd2MidiaData.length===0}
   ];
   pillarsEl.innerHTML=pillars.map(p=>`<div class="dd2-pillar">
     <div class="dd2-pillar-icon">${p.icon}</div>
     <div class="dd2-pillar-label">${p.label}</div>
-    <div class="dd2-pillar-status ${p.ok?'ok':'bad'}">${p.ok?'OK':'AtenÃ§Ã£o'}</div>
+    <div class="dd2-pillar-status ${p.ok?'ok':'bad'}">${p.ok?'OK':'Atenção'}</div>
   </div>`).join('');
 }
 
@@ -6859,7 +6838,7 @@ function dd2RenderTimeline(){
     if(dt)events.push({date:dt,text:'Processo: '+(p.classe?.nome||p.classe||'Processo judicial'),sub:p._tribunal||p.tribunal||'DataJud',cls:'warn'});
   });
   (dd2SancoesData?.ceis||[]).slice(0,3).forEach(s=>{
-    if(s.dataInicioSancao)events.push({date:s.dataInicioSancao,text:'SanÃ§Ã£o CEIS',sub:s.orgaoSancionador?.nome||'CEIS',cls:'danger'});
+    if(s.dataInicioSancao)events.push({date:s.dataInicioSancao,text:'Sanção CEIS',sub:s.orgaoSancionador?.nome||'CEIS',cls:'danger'});
   });
   events.sort((a,b)=>b.date.localeCompare(a.date));
   if(!events.length){el.innerHTML='<p style="color:#64748b;font-size:.85rem">Nenhum evento registrado.</p>';return;}
@@ -6873,15 +6852,15 @@ function dd2RenderTimeline(){
 function dd2RenderChecklist(){
   const el=document.getElementById('dd2-checklist-content');
   const d=dd2CadastralData;
-  const sit=String(d?.descricao_situacao_cadastral||d?.situacao_cadastral||d?.situacao||d?.status||'');
+  const sit=d?.situacao_cadastral||d?.situacao||d?.status||'';
   const sanTotal=(dd2SancoesData?.ceis||[]).length+(dd2SancoesData?.cnep||[]).length;
   const items=[
     {ok:!!d,label:'Dados cadastrais obtidos',icon:'&#127963;'},
-    {ok:!sit||sit.toUpperCase().includes('ATIVA')||sit.toUpperCase().includes('REGULAR'),label:'SituaÃ§Ã£o cadastral regular',icon:'&#128188;'},
+    {ok:!sit||sit.toUpperCase().includes('ATIVA')||sit.toUpperCase().includes('REGULAR'),label:'Situação cadastral regular',icon:'&#128188;'},
     {ok:dd2JudicialData.length===0,label:'Sem processos judiciais',icon:'&#9878;'},
-    {ok:sanTotal===0,label:'Sem sanÃ§Ãµes CEIS/CNEP',icon:'&#128171;'},
+    {ok:sanTotal===0,label:'Sem sanções CEIS/CNEP',icon:'&#128171;'},
     {ok:dd2PepData.length===0,label:'Sem registro PEP',icon:'&#127963;'},
-    {ok:dd2MidiaData.length===0,label:'Sem notÃ­cias negativas',icon:'&#128240;'}
+    {ok:dd2MidiaData.length===0,label:'Sem notícias negativas',icon:'&#128240;'}
   ];
   el.innerHTML=items.map(i=>`<div class="dd2-chk-item ${i.ok?'ok':'bad'}">
     <span>${i.ok?'&#9989;':'&#10060;'}</span>
