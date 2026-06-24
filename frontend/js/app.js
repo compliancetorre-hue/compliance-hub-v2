@@ -2425,8 +2425,8 @@ function fbMakeCardEl(card, colId) {
   const total = (card.check||[]).length;
   const checkPct = total > 0 ? Math.round(done/total*100) : 0;
 
-  const prioColors = {CrÃ­tica:'#fde8ff',Alta:'#fee2e2',MÃ©dia:'#fef3c7',Baixa:'#d1fae5'};
-  const prioText = {CrÃ­tica:'#7e22ce',Alta:'#991b1b',MÃ©dia:'#92400e',Baixa:'#065f46'};
+  const prioColors = {'Cr\u00C3\u00ADtica':'#fde8ff',Alta:'#fee2e2','M\u00C3\u00A9dia':'#fef3c7',Baixa:'#d1fae5'};
+  const prioText = {'Cr\u00C3\u00ADtica':'#7e22ce',Alta:'#991b1b','M\u00C3\u00A9dia':'#92400e',Baixa:'#065f46'};
 
   const today = new Date().toISOString().split('T')[0];
   let dateClass = '';
@@ -5760,7 +5760,7 @@ function _rmSetTab(t) {
 }
 
 function _rmNivel(p,i){const s=p*i;return s>=150?'CrÃ­tico':s>=75?'Alto':s>=25?'MÃ©dio':'Baixo';}
-function _rmNivelCor(nv){return{CrÃ­tico:'#ef4444',Alto:'#f59e0b',MÃ©dio:'#3b82f6',Baixo:'#10b981'}[nv]||'#94a3b8';}
+function _rmNivelCor(nv){return{'Cr\u00C3\u00ADtico':'#ef4444',Alto:'#f59e0b','M\u00C3\u00A9dio':'#3b82f6',Baixo:'#10b981'}[nv]||'#94a3b8';}
 
 function _rmRenderBody() {
   const body = document.getElementById('rm-unit-body');
