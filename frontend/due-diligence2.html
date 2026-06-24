@@ -94,11 +94,11 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 <body>
 <div class="header">
   <button class="btn-back" onclick="history.back()">&#8592; Voltar</button>
-  <h1>&#x1F50D; Due Diligence 2 &mdash; InvestigaÃ§Ã£o PrÃ©via</h1>
+  <h1>&#x1F50D; Due Diligence 2 &mdash; Investigação Prévia</h1>
 </div>
 
 <div class="container">
-  <!-- FORMULÃRIO -->
+  <!-- FORMULÁRIO -->
   <div class="search-form">
     <div class="form-row">
       <div class="form-group" style="max-width:140px">
@@ -113,25 +113,24 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
         <input type="text" id="dd-doc" placeholder="00.000.000/0001-00" maxlength="18" oninput="formatarDocDD(this)"/>
       </div>
       <div class="form-group" style="max-width:180px">
-        <label>NÃ­vel de InvestigaÃ§Ã£o</label>
+        <label>Nível de Investigação</label>
         <select id="dd-nivel">
-          <option value="basico">&#x1F7E2; BÃ¡sico</option>
-          <option value="intermediario" selected>&#x1F7E1; IntermediÃ¡rio</option>
+          <option value="basico">&#x1F7E2; Básico</option>
+          <option value="intermediario" selected>&#x1F7E1; Intermediário</option>
           <option value="forense">&#x1F534; Forense</option>
         </select>
       </div>
     </div>
     <div class="scope-grid" style="margin-bottom:16px">
       <label class="scope-item"><input type="checkbox" id="sc-cadastral" checked> &#x1F3DB;&#xFE0F; Dados Cadastrais</label>
-      <label class="scope-item"><input type="checkbox" id="sc-fiscal" checked> &#x1F4BC; SituaÃ§Ã£o Fiscal</label>
+      <label class="scope-item"><input type="checkbox" id="sc-fiscal" checked> &#x1F4BC; Situação Fiscal</label>
       <label class="scope-item"><input type="checkbox" id="sc-judicial" checked> &#x2696;&#xFE0F; Processos Judiciais</label>
-      <label class="scope-item"><input type="checkbox" id="sc-sancoes" checked> &#x1F6AB; SanÃ§Ãµes CEIS/CNEP</label>
+      <label class="scope-item"><input type="checkbox" id="sc-sancoes" checked> &#x1F6AB; Sanções CEIS/CNEP</label>
       <label class="scope-item"><input type="checkbox" id="sc-pep" checked> &#x1F3DB;&#xFE0F; PEP</label>
-      <label class="scope-item"><input type="checkbox" id="sc-midia"> &#x1F4F0; MÃ­dia Negativa</label>
-      <label class="scope-item"><input type="checkbox" id="sc-credito"> &#x1F4B3; CrÃ©dito SERASA</label>
-      <label class="scope-item"><input type="checkbox" id="sc-vinculos"> &#x1F517; VÃ­nculos SocietÃ¡rios</label>
-      <label class="scope-item"><input type="checkbox" id="sc-sanc-int"> &#x1F30D; SanÃ§Ãµes Internacionais</label>
-      <label class="scope-item"><input type="checkbox" id="sc-beneficios" checked> &#x1F4B0; Benefícios Sociais</label>
+      <label class="scope-item"><input type="checkbox" id="sc-midia"> &#x1F4F0; Mídia Negativa</label>
+      <label class="scope-item"><input type="checkbox" id="sc-credito"> &#x1F4B3; Crédito SERASA</label>
+      <label class="scope-item"><input type="checkbox" id="sc-vinculos"> &#x1F517; Vínculos Societários</label>
+      <label class="scope-item"><input type="checkbox" id="sc-sanc-int"> &#x1F30D; Sanções Internacionais</label>
     </div>
     <button class="btn-search" onclick="iniciarDueDiligence()">&#x1F50D; Investigar</button>
   </div>
@@ -144,16 +143,16 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
       <span class="step" id="step-cadastral">&#x1F3DB;&#xFE0F; Cadastral</span>
       <span class="step" id="step-fiscal">&#x1F4BC; Fiscal</span>
       <span class="step" id="step-judicial">&#x2696;&#xFE0F; Judicial</span>
-      <span class="step" id="step-sancoes">&#x1F6AB; SanÃ§Ãµes</span>
+      <span class="step" id="step-sancoes">&#x1F6AB; Sanções</span>
       <span class="step" id="step-pep">&#x1F3DB;&#xFE0F; PEP</span>
-      <span class="step" id="step-midia">&#x1F4F0; MÃ­dia</span>
-      <span class="step" id="step-analise">&#x1F4CA; AnÃ¡lise</span>
+      <span class="step" id="step-midia">&#x1F4F0; Mídia</span>
+      <span class="step" id="step-analise">&#x1F4CA; Análise</span>
     </div>
   </div>
 
-  <!-- RELATÃRIO -->
+  <!-- RELATÓRIO -->
   <div class="report" id="dd-report">
-    <!-- Barra de exportaÃ§Ã£o -->
+    <!-- Barra de exportação -->
     <div class="export-bar">
       <div class="export-info" id="export-info"></div>
       <div class="export-btns">
@@ -183,25 +182,25 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 
     <!-- QSA -->
     <div class="card" id="section-qsa" style="display:none">
-      <div class="card-title">&#x1F465; Quadro SocietÃ¡rio â QSA</div>
+      <div class="card-title">&#x1F465; Quadro Societário — QSA</div>
       <div style="overflow-x:auto"><table class="data-table" id="qsa-table">
-        <thead><tr><th>Nome</th><th>QualificaÃ§Ã£o</th><th>% Capital</th><th>CPF/CNPJ</th><th>Risco</th></tr></thead>
+        <thead><tr><th>Nome</th><th>Qualificação</th><th>% Capital</th><th>CPF/CNPJ</th><th>Risco</th></tr></thead>
         <tbody id="qsa-body"></tbody>
       </table></div>
     </div>
 
-    <!-- SituaÃ§Ã£o Fiscal -->
+    <!-- Situação Fiscal -->
     <div class="card" id="section-fiscal">
-      <div class="card-title">&#x1F4BC; SituaÃ§Ã£o Fiscal</div>
+      <div class="card-title">&#x1F4BC; Situação Fiscal</div>
       <div style="overflow-x:auto"><table class="data-table">
-        <thead><tr><th>VerificaÃ§Ã£o</th><th>Resultado</th><th>Fonte</th><th>Data</th><th>Status</th></tr></thead>
+        <thead><tr><th>Verificação</th><th>Resultado</th><th>Fonte</th><th>Data</th><th>Status</th></tr></thead>
         <tbody id="fiscal-body"></tbody>
       </table></div>
     </div>
 
     <!-- Processos Judiciais -->
     <div class="card" id="section-judicial">
-      <div class="card-title">&#x2696;&#xFE0F; Processos Judiciais â DataJud CNJ</div>
+      <div class="card-title">&#x2696;&#xFE0F; Processos Judiciais — DataJud CNJ</div>
       <div class="filter-bar">
         <select id="f-tribunal" onchange="filtrarJudicial()"><option value="">Todos os tribunais</option></select>
         <select id="f-grau" onchange="filtrarJudicial()"><option value="">Todos os graus</option><option>G1</option><option>G2</option><option>JE</option></select>
@@ -211,21 +210,21 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
       <div id="judicial-content"><div class="loading-spinner">&#x23F3; Consultando DataJud CNJ via backend...</div></div>
     </div>
 
-    <!-- SanÃ§Ãµes CEIS/CNEP -->
+    <!-- Sanções CEIS/CNEP -->
     <div class="card" id="section-sancoes">
-      <div class="card-title">&#x1F6AB; SanÃ§Ãµes CEIS + CNEP</div>
-      <div id="sancoes-content"><div class="loading-spinner">&#x23F3; Consultando Portal da TransparÃªncia...</div></div>
+      <div class="card-title">&#x1F6AB; Sanções CEIS + CNEP</div>
+      <div id="sancoes-content"><div class="loading-spinner">&#x23F3; Consultando Portal da Transparência...</div></div>
     </div>
 
     <!-- PEP -->
     <div class="card" id="section-pep">
-      <div class="card-title">&#x1F3DB;&#xFE0F; PEP â Pessoa Politicamente Exposta</div>
+      <div class="card-title">&#x1F3DB;&#xFE0F; PEP — Pessoa Politicamente Exposta</div>
       <div id="pep-content"><div class="loading-spinner">&#x23F3; Consultando base PEP...</div></div>
     </div>
 
-    <!-- MÃ­dia Negativa -->
+    <!-- Mídia Negativa -->
     <div class="card" id="section-midia" style="display:none">
-      <div class="card-title">&#x1F4F0; MÃ­dia Negativa</div>
+      <div class="card-title">&#x1F4F0; Mídia Negativa</div>
       <div id="midia-content"></div>
     </div>
 
@@ -235,13 +234,7 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
       <div class="timeline" id="timeline-content"></div>
     </div>
 
-    <!-- Benefícios Sociais -->
-      <div class="card" id="section-beneficios">
-        <div class="card-title">&#x1F4B0; Benefícios Sociais — Portal da Transparência</div>
-        <div id="beneficios-content"><div class="loading-spinner">&#x23F3; Consultando Portal da Transparência...</div></div>
-      </div>
-
-      <!-- Checklist -->
+    <!-- Checklist -->
     <div class="card">
       <div class="card-title">&#x2705; Checklist de Qualidade</div>
       <div class="checklist" id="checklist-content"></div>
@@ -383,10 +376,6 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
       const scJudicial = document.getElementById('sc-judicial');
       if (scJudicial && scJudicial.checked) {
             await renderizarProcessosJudiciais(doc, tipo);
-  const scBeneficios = document.getElementById('sc-beneficios');
-  if (scBeneficios && scBeneficios.checked && tipo === 'cpf') {
-    await renderizarBeneficiosSociais(doc);
-  }
       }
 
       // Mostrar relatorio
@@ -397,40 +386,5 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
   // Filtrar processos judiciais
   function filtrarJudicial() { /* filtro local */ }
 </script>
-
-
-// ============================================================
-// BENEFÍCIOS SOCIAIS - Portal da Transparência
-// ============================================================
-async function renderizarBeneficiosSociais(cpf) {
-  const container = document.getElementById('beneficios-content');
-  if (!container) return;
-  container.innerHTML = '<div class="loading-spinner">&#x23F3; Consultando Portal da Transparência...</div>';
-  const cpfLimpo = cpf.replace(/[.\-\/]/g, '').trim();
-  const cpfMask = cpfLimpo.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
-  const apiUrl = 'https://portaldatransparencia.gov.br/beneficios/beneficiario/consulta?paginacaoSimples=true&tamanhoPagina=10&offset=0&direcaoOrdenacao=asc&ano=2026&cpfNisBeneficiario=' + encodeURIComponent(cpfMask) + '&colunasSelecionadas=linkDetalhamento%2CnomeBeneficiario%2ClinguagemCidada%2CnisBeneficio%2CcpfBeneficiario%2Cmunicipio%2Cano%2Cvalor&ordenarPor=nomeBeneficiario&direcao=asc&format=json';
-  const portalLink = 'https://portaldatransparencia.gov.br/beneficios/beneficiario/consulta?paginacaoSimples=true&tamanhoPagina=&offset=&direcaoOrdenacao=asc&ano=2026&cpfNisBeneficiario=' + encodeURIComponent(cpfMask) + '&colunasSelecionadas=linkDetalhamento%2CnomeBeneficiario%2ClinguagemCidada%2CnisBeneficio%2CcpfBeneficiario%2Cmunicipio%2Cano%2Cvalor';
-  let data = null;
-  try {
-    const r = await fetch(apiUrl, {headers: {'Accept': 'application/json'}});
-    if (r.ok) data = await r.json();
-  } catch(e) { console.error('Portal Transparencia erro:', e); }
-  if (!data || !data.data || data.data.length === 0) {
-    container.innerHTML = '<div class="empty-state">Nenhum benefício social encontrado no Portal da Transparência para o ano de 2026.<br><br><a href="' + portalLink + '" target="_blank" class="link-ext">&#x1F517; Consultar diretamente no Portal da Transparência</a></div>';
-    return;
-  }
-  const items = data.data;
-  let html = '<div style="overflow-x:auto"><table class="data-table"><thead><tr><th>Nome Beneficiário</th><th>Programa Social</th><th>Município</th><th>Ano</th><th>Valor Disponibilizado (R$)</th></tr></thead><tbody>';
-  items.forEach(item => {
-    const nome = item.nomeBeneficiario || 'N/A';
-    const programa = item.linguagemCidada || item.nisBeneficio || 'N/A';
-    const municipio = item.municipio ? (item.municipio.nomeIBGE || item.municipio.nome || item.municipio) : 'N/A';
-    const ano = item.ano || '2026';
-    const valor = item.valor ? 'R$ ' + parseFloat(item.valor).toLocaleString('pt-BR', {minimumFractionDigits:2}) : 'N/A';
-    html += '<tr><td><strong>' + nome + '</strong></td><td><span class="badge badge-info">' + programa + '</span></td><td>' + municipio + '</td><td>' + ano + '</td><td>' + valor + '</td></tr>';
-  });
-  html += '</tbody></table></div><div class="links-ext"><a href="' + portalLink + '" target="_blank" class="link-ext">&#x1F517; Ver no Portal da Transparência</a></div>';
-  container.innerHTML = html;
-}
 </script>
 </head>
