@@ -13,7 +13,7 @@
 <!-- ════════════════════════════════
      TELA DE LOGIN
 ════════════════════════════════ -->
-<div id="login-screen">
+<div id="login-screen">h
   <div class="login-bg">
     <div class="login-bg-circle"></div>
     <div class="login-bg-circle"></div>
@@ -122,6 +122,9 @@
     <a onclick="goto('due-diligence',this)" data-page="due-diligence">
       <span class="icon">🔍</span> Due Diligence
     </a>
+        <a onclick="goto('due-diligence2',this)" data-page="due-diligence2">
+                <span class="icon">🔎</span> Due Diligence 2
+        </a>
   </nav>
   <div style="padding:8px 12px 4px;border-top:1px solid rgba(255,255,255,.08);margin-top:4px">
     <!-- Botões compactos em grade 3x2 -->
@@ -249,7 +252,7 @@
           <div class="stat-icon amber">⚠️</div>
           <div>
             <div class="stat-num" id="dash-riscos-altos" style="color:var(--warn)">0</div>
-            <div class="stat-label">Riscos Altos / Críticos</div>
+            <div class="stat-label">Planos de Ação</div>
           </div>
         </div>
         <div class="stat-card kpi-card-clickable" onclick="openDashDrill('acoes')" title="Ver ações e planos vencidos">
@@ -293,7 +296,7 @@
           <div class="bar-chart" id="chart-riscos"></div>
         </div>
         <div class="chart-box">
-          <h3>✅ Status dos Controles</h3>
+          <h3>📋 Status dos Planos de Ação</h3>
           <div class="bar-chart" id="chart-controles"></div>
         </div>
         <div class="chart-box">
@@ -309,17 +312,17 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
         <div class="section" style="margin-bottom:0">
           <div class="section-header">
-            <h2>🚨 Controles com Prazo Vencendo</h2>
+            <h2>⚠️ Riscos Críticos e Altos</h2>
             <button class="btn btn-outline btn-sm" onclick="goto('controles', document.querySelector('[data-page=controles]'))">Ver todos</button>
           </div>
           <div class="section-body" style="padding:0">
             <table>
               <thead><tr>
-                <th>Controle</th><th>Filial / Setor</th><th>Prazo</th><th>Status</th>
+                <th>Risco</th><th>Unidade</th><th>Nível</th><th>Categoria</th>
               </tr></thead>
               <tbody id="dash-controles-urgentes"></tbody>
             </table>
-            <div class="empty hidden" id="dash-empty-ctrl"><div class="ico">✅</div>Nenhum controle urgente.</div>
+            <div class="empty hidden" id="dash-empty-ctrl"><div class="ico">✅</div>Nenhum risco crítico ou alto.</div>
           </div>
         </div>
 
@@ -1121,6 +1124,7 @@
       <div class="field"><label>Status</label><select id="f-plano-status">
         <option>Não Iniciado</option><option>Em Andamento</option><option>Concluído</option><option>Vencido</option>
       </select></div>
+      <div class="field full"><label>✍️ Andamento do Plano</label><textarea id="f-plano-andamento" placeholder="Descreva como está o andamento do plano de ação, obstáculos, avanços recentes..." style="min-height:80px"></textarea></div>
       <div class="field"><label>Progresso (%)</label><input type="number" id="f-plano-prog" min="0" max="100" value="0"/></div>
       <div class="field full"><label>Descrição / Contexto</label><textarea id="f-plano-desc" placeholder="Detalhe as ações a serem executadas..."></textarea></div>
     </div>
@@ -1599,6 +1603,9 @@
           <div class="perfil-opt" data-perfil="Visualizador" onclick="nuSelecionarPerfil('Visualizador','#64748b')">
             <div style="font-size:1.3rem;margin-bottom:4px">👁️</div>Visualizador
           </div>
+                    <div class="perfil-opt" data-perfil="Admin" onclick="nuSelecionarPerfil('Admin','#7c3aed')">
+                                  <div style="font-size:1.3rem;margin-bottom:4px">&#x1F451;</div>Admin
+                    </div>
         </div>
       </div>
       <div class="field full">
