@@ -824,6 +824,7 @@ function openModalPlano() {
   window._editPlanoId = null;
   ['f-plano-titulo','f-plano-setor','f-plano-resp','f-plano-prazo','f-plano-desc','f-plano-andamento'].forEach(id => document.getElementById(id).value = '');
   document.getElementById('f-plano-prog').value = 0;
+  document.getElementById('f-plano-realizado').value = '';
   openModal('modal-plano');
 }
 
@@ -842,6 +843,7 @@ function editPlano(id) {
   document.getElementById('f-plano-prog').value = p.prog||0;
   document.getElementById('f-plano-desc').value = p.desc||'';
   document.getElementById('f-plano-andamento').value = p.andamento||'';
+  document.getElementById('f-plano-realizado').value = p.realizado||'';
   openModal('modal-plano');
 }
 
@@ -858,6 +860,7 @@ function salvarPlano() {
     status: document.getElementById('f-plano-status').value,
     prog: +document.getElementById('f-plano-prog').value,
     andamento: document.getElementById('f-plano-andamento').value,
+    realizado: document.getElementById('f-plano-realizado').value,
     desc: document.getElementById('f-plano-desc').value
   };
   if(window._editPlanoId) {
