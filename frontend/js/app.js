@@ -6634,10 +6634,19 @@ async function dd2Iniciar(){
   if(scCad&&tipo==='cnpj'){
     dd2SetStep('cadastral','active');
     tasks.push(
-      fetch('https://brasilapi.com.br/api/cnpj/v1/'+doc).then(r=>r.ok?r.json():null).then(d=>{
-        dd2CadastralData=d;dd2SetStep('cadastral','done');dd2SetProgress(20);
-        dd2RenderCadastral(d);dd2RenderFiscal(d);
-      }).catch(()=>{dd2SetStep('cadastral','error');})
+      fetch('https://brasilapi.com.br/api/cnpj/v1/'+doc,{signal:AbortSignal.timeout(12000)})
+        .then(r=>r.ok?r.json():null)
+        .then(d=>{
+          dd2CadastralData=d;
+          dd2SetStep('cadastral', d?'done':'error');
+          dd2SetProgress(20);
+          dd2RenderCadastral(d);
+          dd2RenderFiscal(d);
+        }).catch(()=>{
+          dd2SetStep('cadastral','error');
+          dd2RenderCadastral(null);
+          dd2RenderFiscal(null);
+        })
     );
   } else {
     dd2SetStep('cadastral','done');dd2SetProgress(20);
@@ -6649,7 +6658,7 @@ async function dd2Iniciar(){
     tasks.push(
       dd2FetchJudicial(doc,headers).then(()=>{
         dd2SetStep('judicial','done');dd2SetProgress(50);
-      }).catch(()=>{dd2SetStep('judicial','error');})
+      }).catch(()=>{dd2SetStep('judicial','error');dd2RenderJudicial([]);})
     );
   } else {
     dd2SetStep('judicial','done');
@@ -6658,14 +6667,14 @@ async function dd2Iniciar(){
   if(scSan){
     dd2SetStep('sancoes','active');
     tasks.push(
-Promise.all([
-          fetch('https://api.portaldatransparencia.gov.br/api-de-dados/ceis?cnpjSancionado='+doc+'&pagina=1').then(r=>r.ok?r.json():[]).catch(()=>[]),
-                  fetch('https://api.portaldatransparencia.gov.br/api-de-dados/cnep?cnpjSancionado='+doc+'&pagina=1').then(r=>r.ok?r.json():[]).catch(()=>[])
-                        ]).then(([ceis,cnep])=>{
-                                dd2SancoesData={ceis:Array.isArray(ceis)?ceis:[],cnep:Array.isArray(cnep)?cnep:[]};
-                                        dd2SetStep('sancoes','done');dd2SetProgress(65);
-                                                dd2RenderSancoes(dd2SancoesData);
-                                                      }).catch(()=>{dd2SetStep('sancoes','error');dd2RenderSancoes({ceis:[],cnep:[]});})
+      Promise.all([
+        fetch('https://api.portaldatransparencia.gov.br/api-de-dados/ceis?cnpjSancionado='+doc+'&pagina=1',{signal:AbortSignal.timeout(10000)}).then(r=>r.ok?r.json():[]).catch(()=>[]),
+        fetch('https://api.portaldatransparencia.gov.br/api-de-dados/cnep?cnpjSancionado='+doc+'&pagina=1',{signal:AbortSignal.timeout(10000)}).then(r=>r.ok?r.json():[]).catch(()=>[])
+      ]).then(([ceis,cnep])=>{
+        dd2SancoesData={ceis:Array.isArray(ceis)?ceis:[],cnep:Array.isArray(cnep)?cnep:[]};
+        dd2SetStep('sancoes','done');dd2SetProgress(65);
+        dd2RenderSancoes(dd2SancoesData);
+      }).catch(()=>{dd2SetStep('sancoes','error');dd2RenderSancoes({ceis:[],cnep:[]});})
     );
   } else {
     dd2SetStep('sancoes','done');
@@ -6673,9 +6682,11 @@ Promise.all([
   }
   if(scPep){
     dd2SetStep('pep','active');
-    const nome=dd2CadastralData?.razao_social||dd2CadastralData?.nome||'';
     tasks.push(
-      dd2FetchPep(nome,doc).then(d=>{
+      (async()=>{
+        const nome=dd2CadastralData?.razao_social||dd2CadastralData?.nome||'';
+        return dd2FetchPep(nome,doc);
+      })().then(d=>{
         dd2PepData=d;dd2SetStep('pep','done');dd2SetProgress(78);
         dd2RenderPep(d);
       }).catch(()=>{dd2SetStep('pep','error');dd2RenderPep([]);})
@@ -6686,13 +6697,17 @@ Promise.all([
   }
   if(scMid){
     dd2SetStep('midia','active');
-    const nome=dd2CadastralData?.razao_social||dd2CadastralData?.nome||doc;
     tasks.push(
-fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api.duckduckgo.com/?q='+encodeURIComponent(nome+' corrupção fraude escândalo')+'&format=json&no_html=1&skip_disambig=1')).then(r=>r.ok?r.json():null).then(d=>{
-          const items=(d?.RelatedTopics||[]).filter(t=>t.FirstURL&&t.Text).map(t=>({link:t.FirstURL,title :t.Text,source:{name:'DuckDuckGo'},pubDate:'',content_text:t.Text}));
-                  dd2MidiaData=items;dd2SetStep('midia','done');dd2SetProgress(88);
-                          dd2RenderMidia(dd2MidiaData);
-                                }).catch(()=>{dd2SetStep('midia','error');dd2RenderMidia([]);})
+      (async()=>{
+        const nome=dd2CadastralData?.razao_social||dd2CadastralData?.nome||doc;
+        return fetch('https://corsproxy.io/?url='+encodeURIComponent('https://api.duckduckgo.com/?q='+encodeURIComponent(nome+' corrupção fraude escândalo')+'&format=json&no_html=1&skip_disambig=1'),{signal:AbortSignal.timeout(10000)})
+          .then(r=>r.ok?r.json():null)
+          .then(d=>{
+            const items=(d?.RelatedTopics||[]).filter(t=>t.FirstURL&&t.Text).map(t=>({link:t.FirstURL,title:t.Text,source:{name:'DuckDuckGo'},pubDate:'',content_text:t.Text}));
+            dd2MidiaData=items;dd2SetStep('midia','done');dd2SetProgress(88);
+            dd2RenderMidia(dd2MidiaData);
+          });
+      })().catch(()=>{dd2SetStep('midia','error');dd2RenderMidia([]);})
     );
   } else { dd2SetStep('midia','done'); }
   await Promise.allSettled(tasks);
