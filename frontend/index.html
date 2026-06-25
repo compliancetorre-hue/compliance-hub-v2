@@ -1150,6 +1150,11 @@
       </select></div>
       <div class="field"><label>Filial *</label><select id="f-dn-filial"></select></div>
       <div class="field"><label>Setor</label><input type="text" id="f-dn-setor" placeholder="Ex: Frente de loja"/></div>
+      <div class="field full" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px">
+        <div><label style="font-size:.72rem">Nome do Denunciante</label><input type="text" id="f-dn-nome" placeholder="Nome completo" oninput="dnAutoAnon()"/></div>
+        <div><label style="font-size:.72rem">Telefone</label><input type="text" id="f-dn-tel" placeholder="(00) 00000-0000" oninput="dnAutoAnon()"/></div>
+        <div><label style="font-size:.72rem">E-mail</label><input type="text" id="f-dn-email" placeholder="email@exemplo.com" oninput="dnAutoAnon()"/></div>
+      </div>
       <div class="field"><label>Anonimato</label><select id="f-dn-anon">
         <option value="Anônima">Anônima</option><option value="Identificada">Identificada</option>
       </select></div>
