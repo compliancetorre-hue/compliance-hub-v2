@@ -7,131 +7,123 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 :root {
-  --primary: #0f2d4a;
-  --primary-light: #163d62;
-  --accent: #00c49a;
-  --warn: #f59e0b;
-  --danger: #ef4444;
-  --info: #3b82f6;
-  --success: #22c55e;
-  --bg: #f0f4f8;
-  --card: #ffffff;
-  --text: #0f2d4a;
-  --text-muted: #64748b;
-  --border: #e2e8f0;
+  --primary:#0f2d4a; --accent:#00c49a; --warn:#f59e0b; --danger:#ef4444;
+  --info:#3b82f6; --success:#22c55e; --bg:#f0f4f8; --text:#0f2d4a;
+  --text-muted:#64748b; --border:#e2e8f0;
 }
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); }
-.header { background: var(--primary); color: #fff; padding: 12px 24px; display: flex; align-items: center; gap: 16px; }
-.header h1 { font-size: 1.2rem; font-weight: 600; }
-.btn-back { background: rgba(255,255,255,.15); border: none; color: #fff; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-size: .85rem; font-family: inherit; }
-.btn-back:hover { background: rgba(255,255,255,.25); }
-.container { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
-.search-form { background: var(--primary); border-radius: 12px; padding: 24px; margin-bottom: 24px; }
-.form-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
-.form-group { flex: 1; min-width: 160px; }
-.form-group label { display: block; color: rgba(255,255,255,.8); font-size: .8rem; margin-bottom: 6px; font-weight: 500; }
-.form-group select, .form-group input { width: 100%; padding: 10px 12px; border-radius: 8px; border: none; font-family: inherit; font-size: .9rem; background: rgba(255,255,255,.12); color: #fff; outline: none; }
-.form-group select option { background: var(--primary); color: #fff; }
-.form-group input::placeholder { color: rgba(255,255,255,.5); }
-.scope-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 16px; }
-.scope-item { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,.9); font-size: .85rem; cursor: pointer; }
-.scope-item input[type=checkbox] { width: 16px; height: 16px; accent-color: var(--accent); cursor: pointer; }
-.btn-search { background: var(--accent); border: none; color: var(--primary); padding: 12px 32px; border-radius: 8px; font-size: 1rem; font-weight: 700; cursor: pointer; width: 100%; font-family: inherit; }
-.btn-search:hover { opacity: .9; }
-.progress-bar { background: #fff; border-radius: 10px; padding: 16px 24px; margin-bottom: 16px; display: none; }
-.progress-steps { display: flex; justify-content: space-between; margin-top: 12px; }
-.step { font-size: .75rem; color: var(--text-muted); text-align: center; flex: 1; }
-.step.active { color: var(--accent); font-weight: 600; }
-.step.done { color: var(--success); }
-.progress-track { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; margin-bottom: 4px; }
-.progress-fill { height: 100%; background: var(--accent); border-radius: 3px; transition: width .4s ease; }
-.report { display: none; }
-.export-bar { background: #fff; border-radius: 10px; padding: 12px 20px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
-.export-info { font-size: .85rem; color: var(--text-muted); }
-.export-btns { display: flex; gap: 8px; }
-.btn-exp { border: 1px solid var(--border); background: #fff; padding: 6px 14px; border-radius: 6px; font-size: .82rem; cursor: pointer; font-family: inherit; }
-.btn-exp:hover { background: var(--bg); }
-.score-section { background: #fff; border-radius: 10px; padding: 24px; margin-bottom: 16px; display: flex; align-items: center; gap: 32px; flex-wrap: wrap; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
-.gauge-wrap { position: relative; width: 140px; height: 140px; flex-shrink: 0; }
-.gauge-circle { width: 140px; height: 140px; border-radius: 50%; border: 12px solid var(--border); position: relative; display: flex; align-items: center; justify-content: center; }
-.gauge-value { font-size: 2rem; font-weight: 700; }
-.gauge-label { font-size: .75rem; color: var(--text-muted); margin-top: 2px; }
-.pillars { display: flex; flex-direction: column; gap: 8px; flex: 1; }
-.pillar { display: flex; align-items: center; gap: 8px; font-size: .9rem; padding: 8px 12px; border-radius: 8px; background: var(--bg); }
-.card { background: #fff; border-radius: 10px; padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
-.card-title { font-size: 1rem; font-weight: 700; color: var(--primary); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
-.grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
-.field-item label { font-size: .75rem; color: var(--text-muted); display: block; margin-bottom: 2px; }
-.field-item span { font-size: .9rem; font-weight: 500; }
-.data-table { width: 100%; border-collapse: collapse; font-size: .85rem; }
-.data-table th { background: var(--bg); padding: 8px 12px; text-align: left; font-weight: 600; color: var(--text-muted); font-size: .78rem; border-bottom: 1px solid var(--border); }
-.data-table td { padding: 10px 12px; border-bottom: 1px solid var(--border); }
-.data-table tr:hover td { background: #f9fafb; }
-.badge { display: inline-block; padding: 2px 8px; border-radius: 12px; font-size: .75rem; font-weight: 600; }
-.badge-ok { background: #dcfce7; color: #15803d; }
-.badge-warn { background: #fef3c7; color: #b45309; }
-.badge-alert { background: #fee2e2; color: #b91c1c; }
-.badge-info { background: #dbeafe; color: #1d4ed8; }
-.badge-ceis { background: #fee2e2; color: #b91c1c; }
-.badge-cnep { background: #fce7f3; color: #be185d; }
-.badge-ativo { background: #dbeafe; color: #1d4ed8; }
-.badge-passivo { background: #fee2e2; color: #b91c1c; }
-.empty-state { text-align: center; padding: 32px; color: var(--text-muted); font-size: .9rem; }
-.timeline { padding: 0; }
-.tl-item { display: flex; gap: 16px; margin-bottom: 16px; }
-.tl-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; margin-top: 4px; }
-.tl-dot-green { background: var(--success); }
-.tl-dot-red { background: var(--danger); }
-.tl-dot-blue { background: var(--info); }
-.tl-content { flex: 1; }
-.tl-date { font-size: .75rem; color: var(--text-muted); }
-.tl-text { font-size: .9rem; font-weight: 500; }
-.checklist { display: flex; flex-direction: column; gap: 8px; }
-.check-item { display: flex; align-items: center; gap: 12px; padding: 8px 12px; border-radius: 8px; background: var(--bg); font-size: .88rem; }
-.check-icon { font-size: 1.1rem; }
-.check-status { margin-left: auto; font-size: .8rem; font-weight: 600; }
-.filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
-.filter-bar select { padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border); font-size: .82rem; font-family: inherit; background: #fff; cursor: pointer; }
-.links-ext { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-.link-ext { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 8px; background: var(--bg); border: 1px solid var(--border); font-size: .8rem; text-decoration: none; color: var(--text); }
-.link-ext:hover { background: var(--border); }
-.loading-spinner { display: flex; align-items: center; justify-content: center; padding: 32px; color: var(--text-muted); gap: 12px; }
-@media(max-width:768px) {
-  .grid-3 { grid-template-columns: 1fr; }
-  .scope-grid { grid-template-columns: repeat(2,1fr); }
-  .form-row { flex-direction: column; }
-  .score-section { flex-direction: column; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text)}
+.header{background:var(--primary);color:#fff;padding:12px 24px;display:flex;align-items:center;gap:16px}
+.header h1{font-size:1.15rem;font-weight:600}
+.btn-back{background:rgba(255,255,255,.15);border:none;color:#fff;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:.85rem;font-family:inherit}
+.btn-back:hover{background:rgba(255,255,255,.25)}
+.container{max-width:1100px;margin:0 auto;padding:24px 16px}
+/* Search form */
+.search-form{background:var(--primary);border-radius:12px;padding:24px;margin-bottom:20px}
+.form-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.form-group{flex:1;min-width:160px}
+.form-group label{display:block;color:rgba(255,255,255,.8);font-size:.78rem;font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.4px}
+.form-group select,.form-group input{width:100%;padding:10px 12px;border-radius:8px;border:none;font-family:inherit;font-size:.92rem;background:rgba(255,255,255,.13);color:#fff;outline:none}
+.form-group select option{background:var(--primary);color:#fff}
+.form-group input::placeholder{color:rgba(255,255,255,.45)}
+.scope-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.scope-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.88);font-size:.84rem;cursor:pointer}
+.scope-item input[type=checkbox]{width:15px;height:15px;accent-color:var(--accent);cursor:pointer}
+.btn-search{background:var(--accent);border:none;color:var(--primary);padding:12px 32px;border-radius:8px;font-size:1rem;font-weight:700;cursor:pointer;width:100%;font-family:inherit;transition:opacity .15s}
+.btn-search:hover{opacity:.88}
+.btn-search:disabled{opacity:.6;cursor:not-allowed}
+/* Progress */
+.progress-card{background:#fff;border-radius:10px;padding:20px 24px;margin-bottom:16px;box-shadow:0 1px 4px rgba(0,0,0,.07);display:none}
+.progress-label{font-weight:600;font-size:.9rem;margin-bottom:10px;color:var(--primary)}
+.progress-track{height:7px;background:var(--border);border-radius:4px;overflow:hidden;margin-bottom:14px}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--info));border-radius:4px;transition:width .5s ease;width:0%}
+.progress-steps{display:flex;gap:6px;flex-wrap:wrap}
+.step-pill{padding:3px 10px;border-radius:20px;font-size:.74rem;font-weight:600;background:var(--border);color:var(--text-muted);transition:all .3s}
+.step-pill.active{background:#dbeafe;color:#1d4ed8}
+.step-pill.done{background:#dcfce7;color:#15803d}
+.step-pill.error{background:#fee2e2;color:#b91c1c}
+/* Report */
+.report{display:none}
+.export-bar{background:#fff;border-radius:10px;padding:12px 18px;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.export-info{font-size:.82rem;color:var(--text-muted)}
+.export-btns{display:flex;gap:8px}
+.btn-exp{border:1px solid var(--border);background:#fff;padding:6px 12px;border-radius:6px;font-size:.8rem;cursor:pointer;font-family:inherit}
+.btn-exp:hover{background:var(--bg)}
+/* Score */
+.score-section{background:#fff;border-radius:10px;padding:22px;margin-bottom:14px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.gauge-wrap{width:130px;height:130px;flex-shrink:0}
+.gauge-circle{width:130px;height:130px;border-radius:50%;border:11px solid var(--border);display:flex;align-items:center;justify-content:center;position:relative}
+.gauge-value{font-size:1.9rem;font-weight:700}
+.gauge-label{font-size:.7rem;color:var(--text-muted);margin-top:2px;text-align:center}
+.pillars{display:flex;flex-direction:column;gap:7px;flex:1}
+.pillar{display:flex;align-items:center;gap:10px;font-size:.87rem;padding:7px 12px;border-radius:8px;background:var(--bg)}
+.pillar-bar{flex:1;height:5px;background:var(--border);border-radius:3px;overflow:hidden}
+.pillar-fill{height:100%;border-radius:3px;transition:width .6s ease}
+/* Card */
+.card{background:#fff;border-radius:10px;padding:18px 20px;margin-bottom:14px;box-shadow:0 1px 4px rgba(0,0,0,.06)}
+.card-title{font-size:.95rem;font-weight:700;color:var(--primary);margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.field-item{padding:10px 12px;background:var(--bg);border-radius:8px}
+.field-item label{font-size:.7rem;color:var(--text-muted);display:block;margin-bottom:3px;text-transform:uppercase;letter-spacing:.3px;font-weight:600}
+.field-item span{font-size:.88rem;font-weight:500}
+.data-table{width:100%;border-collapse:collapse;font-size:.84rem}
+.data-table th{background:var(--bg);padding:8px 12px;text-align:left;font-weight:600;color:var(--text-muted);font-size:.76rem;border-bottom:1px solid var(--border)}
+.data-table td{padding:9px 12px;border-bottom:1px solid var(--border)}
+.data-table tr:last-child td{border-bottom:none}
+.data-table tr:hover td{background:#f9fafb}
+.badge{display:inline-block;padding:2px 9px;border-radius:12px;font-size:.74rem;font-weight:600}
+.badge-ok{background:#dcfce7;color:#15803d}
+.badge-warn{background:#fef3c7;color:#b45309}
+.badge-alert{background:#fee2e2;color:#b91c1c}
+.badge-info{background:#dbeafe;color:#1d4ed8}
+.badge-muted{background:#f1f5f9;color:#64748b}
+.empty-state{text-align:center;padding:28px;color:var(--text-muted);font-size:.88rem}
+.alert-box{padding:12px 16px;border-radius:8px;font-size:.84rem;margin-bottom:12px}
+.alert-warn{background:#fffbeb;border:1px solid #fcd34d;color:#92400e}
+.alert-info{background:#eff6ff;border:1px solid #bfdbfe;color:#1e40af}
+.links-ext{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.link-ext{display:inline-flex;align-items:center;gap:5px;padding:5px 12px;border-radius:7px;background:var(--bg);border:1px solid var(--border);font-size:.78rem;text-decoration:none;color:var(--text)}
+.link-ext:hover{background:var(--border)}
+.filter-bar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+.filter-bar select,.filter-bar input{padding:5px 10px;border-radius:6px;border:1px solid var(--border);font-size:.8rem;font-family:inherit;background:#fff}
+.checklist{display:flex;flex-direction:column;gap:7px}
+.check-item{display:flex;align-items:center;gap:12px;padding:8px 12px;border-radius:8px;background:var(--bg);font-size:.86rem}
+.check-icon{font-size:1rem;flex-shrink:0}
+.check-status{margin-left:auto;font-size:.78rem;font-weight:600}
+@media(max-width:768px){
+  .grid-3{grid-template-columns:1fr}
+  .scope-grid{grid-template-columns:repeat(2,1fr)}
+  .form-row{flex-direction:column}
+  .score-section{flex-direction:column}
 }
-@media print {
-  .header .btn-back, .search-form, .export-btns, .filter-bar { display: none !important; }
-  .card { break-inside: avoid; box-shadow: none; border: 1px solid #e2e8f0; }
+@media print{
+  .header .btn-back,.search-form,.export-btns,.filter-bar{display:none!important}
+  .card{break-inside:avoid;box-shadow:none;border:1px solid #e2e8f0}
 }
 </style>
 </head>
 <body>
 <div class="header">
   <button class="btn-back" onclick="history.back()">&#8592; Voltar</button>
-  <h1>&#x1F50D; Due Diligence 2 &mdash; Investigação Prévia</h1>
+  <h1>&#x1F50D; Investigação Prévia — Due Diligence 2</h1>
 </div>
 
 <div class="container">
-  <!-- FORMULÁRIO -->
   <div class="search-form">
     <div class="form-row">
-      <div class="form-group" style="max-width:140px">
+      <div class="form-group" style="max-width:130px">
         <label>Tipo</label>
-        <select id="dd-tipo">
+        <select id="dd-tipo" onchange="atualizarMascara()">
           <option value="cnpj">&#x1F3E2; CNPJ</option>
           <option value="cpf">&#x1F464; CPF</option>
         </select>
       </div>
       <div class="form-group" style="flex:2">
         <label>Documento</label>
-        <input type="text" id="dd-doc" placeholder="00.000.000/0001-00" maxlength="18" oninput="formatarDocDD(this)"/>
+        <input type="text" id="dd-doc" placeholder="00.000.000/0001-00" maxlength="18" oninput="formatarDocDD(this)" onkeydown="if(event.key==='Enter')iniciarDueDiligence()"/>
       </div>
       <div class="form-group" style="max-width:180px">
-        <label>Nível de Investigação</label>
+        <label>Nível</label>
         <select id="dd-nivel">
           <option value="basico">&#x1F7E2; Básico</option>
           <option value="intermediario" selected>&#x1F7E1; Intermediário</option>
@@ -139,237 +131,470 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
         </select>
       </div>
     </div>
-    <div class="scope-grid" style="margin-bottom:16px">
+    <div class="scope-grid">
       <label class="scope-item"><input type="checkbox" id="sc-cadastral" checked> &#x1F3DB;&#xFE0F; Dados Cadastrais</label>
       <label class="scope-item"><input type="checkbox" id="sc-fiscal" checked> &#x1F4BC; Situação Fiscal</label>
       <label class="scope-item"><input type="checkbox" id="sc-judicial" checked> &#x2696;&#xFE0F; Processos Judiciais</label>
       <label class="scope-item"><input type="checkbox" id="sc-sancoes" checked> &#x1F6AB; Sanções CEIS/CNEP</label>
-      <label class="scope-item"><input type="checkbox" id="sc-pep" checked> &#x1F3DB;&#xFE0F; PEP</label>
+      <label class="scope-item"><input type="checkbox" id="sc-pep" checked> &#x1F464; PEP</label>
       <label class="scope-item"><input type="checkbox" id="sc-midia"> &#x1F4F0; Mídia Negativa</label>
-      <label class="scope-item"><input type="checkbox" id="sc-credito"> &#x1F4B3; Crédito SERASA</label>
-      <label class="scope-item"><input type="checkbox" id="sc-vinculos"> &#x1F517; Vínculos Societários</label>
-      <label class="scope-item"><input type="checkbox" id="sc-sanc-int"> &#x1F30D; Sanções Internacionais</label>
     </div>
-    <button class="btn-search" onclick="iniciarDueDiligence()">&#x1F50D; Investigar</button>
+    <button class="btn-search" id="btn-investigar" onclick="iniciarDueDiligence()">&#x1F50D; Investigar</button>
   </div>
 
-  <!-- BARRA DE PROGRESSO -->
-  <div class="progress-bar" id="dd-progress">
-    <div style="font-weight:600;margin-bottom:8px">Consultando fontes oficiais...</div>
-    <div class="progress-track"><div class="progress-fill" id="dd-progress-fill" style="width:0%"></div></div>
-    <div class="progress-steps" id="dd-steps">
-      <span class="step" id="step-cadastral">&#x1F3DB;&#xFE0F; Cadastral</span>
-      <span class="step" id="step-fiscal">&#x1F4BC; Fiscal</span>
-      <span class="step" id="step-judicial">&#x2696;&#xFE0F; Judicial</span>
-      <span class="step" id="step-sancoes">&#x1F6AB; Sanções</span>
-      <span class="step" id="step-pep">&#x1F3DB;&#xFE0F; PEP</span>
-      <span class="step" id="step-midia">&#x1F4F0; Mídia</span>
-      <span class="step" id="step-analise">&#x1F4CA; Análise</span>
-    </div>
+  <div class="progress-card" id="dd-progress">
+    <div class="progress-label" id="dd-progress-label">Iniciando consulta...</div>
+    <div class="progress-track"><div class="progress-fill" id="dd-progress-fill"></div></div>
+    <div class="progress-steps" id="dd-steps"></div>
   </div>
 
-  <!-- RELATÓRIO -->
   <div class="report" id="dd-report">
-    <!-- Barra de exportação -->
     <div class="export-bar">
       <div class="export-info" id="export-info"></div>
       <div class="export-btns">
-        <button class="btn-exp" onclick="window.print()">&#x1F5A8;&#xFE0F; Imprimir</button>
-        <button class="btn-exp" onclick="window.print()">&#x1F4E5; Exportar PDF</button>
+        <button class="btn-exp" onclick="window.print()">&#x1F5A8;&#xFE0F; Imprimir / PDF</button>
       </div>
     </div>
 
-    <!-- Score de Risco -->
     <div class="score-section">
       <div class="gauge-wrap">
         <div class="gauge-circle" id="gauge-circle">
           <div style="text-align:center">
-            <div class="gauge-value" id="gauge-value">0</div>
-            <div class="gauge-label" id="gauge-label">CALCULANDO</div>
+            <div class="gauge-value" id="gauge-value">—</div>
+            <div class="gauge-label" id="gauge-label">RISCO</div>
           </div>
         </div>
       </div>
       <div class="pillars" id="risk-pillars"></div>
     </div>
 
-    <!-- Dados Cadastrais -->
-    <div class="card" id="section-cadastral">
+    <div class="card" id="section-cadastral" style="display:none">
       <div class="card-title">&#x1F3DB;&#xFE0F; Dados Cadastrais</div>
       <div class="grid-3" id="cadastral-grid"></div>
-    </div>
-
-    <!-- QSA -->
-    <div class="card" id="section-qsa" style="display:none">
-      <div class="card-title">&#x1F465; Quadro Societário — QSA</div>
-      <div style="overflow-x:auto"><table class="data-table" id="qsa-table">
-        <thead><tr><th>Nome</th><th>Qualificação</th><th>% Capital</th><th>CPF/CNPJ</th><th>Risco</th></tr></thead>
-        <tbody id="qsa-body"></tbody>
-      </table></div>
-    </div>
-
-    <!-- Situação Fiscal -->
-    <div class="card" id="section-fiscal">
-      <div class="card-title">&#x1F4BC; Situação Fiscal</div>
-      <div style="overflow-x:auto"><table class="data-table">
-        <thead><tr><th>Verificação</th><th>Resultado</th><th>Fonte</th><th>Data</th><th>Status</th></tr></thead>
-        <tbody id="fiscal-body"></tbody>
-      </table></div>
-    </div>
-
-    <!-- Processos Judiciais -->
-    <div class="card" id="section-judicial">
-      <div class="card-title">&#x2696;&#xFE0F; Processos Judiciais — DataJud CNJ</div>
-      <div class="filter-bar">
-        <select id="f-tribunal" onchange="filtrarJudicial()"><option value="">Todos os tribunais</option></select>
-        <select id="f-grau" onchange="filtrarJudicial()"><option value="">Todos os graus</option><option>G1</option><option>G2</option><option>JE</option></select>
-        <select id="f-polo" onchange="filtrarJudicial()"><option value="">Todos os polos</option><option>Ativo</option><option>Passivo</option></select>
-        <input type="text" id="f-assunto" placeholder="Filtrar por assunto..." oninput="filtrarJudicial()" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;font-size:.82rem;font-family:inherit"/>
+      <div id="qsa-wrap" style="margin-top:16px;display:none">
+        <div style="font-weight:600;font-size:.85rem;margin-bottom:8px;color:var(--text-muted)">&#x1F465; Quadro Societário (QSA)</div>
+        <div style="overflow-x:auto"><table class="data-table"><thead><tr><th>Nome</th><th>Qualificação</th><th>Desde</th></tr></thead><tbody id="qsa-body"></tbody></table></div>
       </div>
-      <div id="judicial-content"><div class="loading-spinner">&#x23F3; Consultando DataJud CNJ via backend...</div></div>
     </div>
 
-    <!-- Sanções CEIS/CNEP -->
-    <div class="card" id="section-sancoes">
-      <div class="card-title">&#x1F6AB; Sanções CEIS + CNEP</div>
-      <div id="sancoes-content"><div class="loading-spinner">&#x23F3; Consultando Portal da Transparência...</div></div>
+    <div class="card" id="section-fiscal" style="display:none">
+      <div class="card-title">&#x1F4BC; Situação Fiscal</div>
+      <div id="fiscal-content"></div>
     </div>
 
-    <!-- PEP -->
-    <div class="card" id="section-pep">
-      <div class="card-title">&#x1F3DB;&#xFE0F; PEP — Pessoa Politicamente Exposta</div>
-      <div id="pep-content"><div class="loading-spinner">&#x23F3; Consultando base PEP...</div></div>
+    <div class="card" id="section-judicial" style="display:none">
+      <div class="card-title">&#x2696;&#xFE0F; Processos Judiciais</div>
+      <div id="judicial-content"></div>
     </div>
 
-    <!-- Mídia Negativa -->
-    <div class="card" id="section-midia" style="display:none">
-      <div class="card-title">&#x1F4F0; Mídia Negativa</div>
-      <div id="midia-content"></div>
+    <div class="card" id="section-sancoes" style="display:none">
+      <div class="card-title">&#x1F6AB; Sanções CEIS / CNEP</div>
+      <div id="sancoes-content"></div>
     </div>
 
-    <!-- Linha do Tempo -->
-    <div class="card" id="section-timeline">
-      <div class="card-title">&#x1F4C5; Linha do Tempo</div>
-      <div class="timeline" id="timeline-content"></div>
+    <div class="card" id="section-pep" style="display:none">
+      <div class="card-title">&#x1F464; PEP — Pessoa Politicamente Exposta</div>
+      <div id="pep-content"></div>
     </div>
 
-    <!-- Checklist -->
     <div class="card">
-      <div class="card-title">&#x2705; Checklist de Qualidade</div>
+      <div class="card-title">&#x2705; Checklist de Verificação</div>
       <div class="checklist" id="checklist-content"></div>
     </div>
   </div>
 </div>
 
 <script>
-  const JUSBRASIL_API_KEY = '%%JUSBRASIL_API_KEY%%';
-  const JUSBRASIL_API_BASE = 'https://api.jusbrasil.com.br';
+const JUSBRASIL_API_KEY = '%%JUSBRASIL_API_KEY%%';
+const hasJusBrasil = JUSBRASIL_API_KEY && !JUSBRASIL_API_KEY.includes('%%');
 
-  function formatarDocumento(doc) {
-    return doc.replace(/[.\-\/]/g, '').trim();
+let _steps = [];
+let _stepIndex = 0;
+let _docData = null;
+
+function atualizarMascara() {
+  const t = document.getElementById('dd-tipo').value;
+  document.getElementById('dd-doc').placeholder = t === 'cnpj' ? '00.000.000/0001-00' : '000.000.000-00';
+  document.getElementById('dd-doc').value = '';
+}
+
+function formatarDocDD(input) {
+  let v = input.value.replace(/\D/g, '');
+  const tipo = document.getElementById('dd-tipo').value;
+  if (tipo === 'cnpj') {
+    v = v.substring(0, 14);
+    if (v.length > 12) v = v.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
+    else if (v.length > 8) v = v.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})/, '$1.$2.$3/$4');
+    else if (v.length > 5) v = v.replace(/^(\d{2})(\d{3})(\d{3})/, '$1.$2.$3');
+    else if (v.length > 2) v = v.replace(/^(\d{2})(\d{3})/, '$1.$2');
+  } else {
+    v = v.substring(0, 11);
+    if (v.length > 9) v = v.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
+    else if (v.length > 6) v = v.replace(/^(\d{3})(\d{3})(\d{3})/, '$1.$2.$3');
+    else if (v.length > 3) v = v.replace(/^(\d{3})(\d{3})/, '$1.$2');
+  }
+  input.value = v;
+}
+
+function docLimpo() {
+  return (document.getElementById('dd-doc').value || '').replace(/\D/g, '');
+}
+
+function setProgress(pct, label) {
+  document.getElementById('dd-progress-fill').style.width = pct + '%';
+  if (label) document.getElementById('dd-progress-label').textContent = label;
+}
+
+function initSteps(names) {
+  _steps = names;
+  _stepIndex = 0;
+  const c = document.getElementById('dd-steps');
+  c.innerHTML = names.map((n, i) => `<span class="step-pill" id="step-${i}">${n}</span>`).join('');
+}
+
+function stepActive(i) {
+  if (i >= 0) document.getElementById('step-' + i)?.classList.add('active');
+}
+
+function stepDone(i, ok = true) {
+  const el = document.getElementById('step-' + i);
+  if (!el) return;
+  el.classList.remove('active');
+  el.classList.add(ok ? 'done' : 'error');
+}
+
+async function fetchWithTimeout(url, opts = {}, ms = 8000) {
+  const ctrl = new AbortController();
+  const tid = setTimeout(() => ctrl.abort(), ms);
+  try {
+    const r = await fetch(url, { ...opts, signal: ctrl.signal });
+    clearTimeout(tid);
+    return r;
+  } catch (e) {
+    clearTimeout(tid);
+    throw e;
+  }
+}
+
+async function buscarCNPJ(cnpj) {
+  try {
+    const r = await fetchWithTimeout(`https://brasilapi.com.br/api/cnpj/v1/${cnpj}`);
+    if (!r.ok) return null;
+    return await r.json();
+  } catch { return null; }
+}
+
+async function buscarJusBrasil(doc, tipo) {
+  if (!hasJusBrasil) return null;
+  const ep = tipo === 'cpf'
+    ? `https://api.jusbrasil.com.br/lawsuit/search/parties/cpf/${doc}`
+    : `https://api.jusbrasil.com.br/lawsuit/search/parties/cnpj/${doc}`;
+  try {
+    const r = await fetchWithTimeout(ep, { headers: { 'Authorization': 'Token ' + JUSBRASIL_API_KEY, 'Accept': 'application/json' } }, 12000);
+    if (!r.ok) return null;
+    return await r.json();
+  } catch { return null; }
+}
+
+function fmtDate(s) {
+  if (!s) return '—';
+  if (/^\d{4}-\d{2}-\d{2}/.test(s)) {
+    const [y, m, d] = s.split('-');
+    return `${d}/${m}/${y}`;
+  }
+  return s;
+}
+
+function fmtCNPJ(s) {
+  const v = (s || '').replace(/\D/g, '');
+  return v.length === 14 ? v.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5') : s;
+}
+
+function fmtMoeda(v) {
+  if (!v && v !== 0) return '—';
+  return 'R$ ' + Number(v).toLocaleString('pt-BR', { minimumFractionDigits: 2 });
+}
+
+function fieldItem(label, value) {
+  return `<div class="field-item"><label>${label}</label><span>${value || '—'}</span></div>`;
+}
+
+function renderCadastral(d) {
+  const sit = (d.descricao_situacao_cadastral || '').toUpperCase();
+  const sitBadge = sit === 'ATIVA' ? '<span class="badge badge-ok">ATIVA</span>'
+    : sit ? `<span class="badge badge-alert">${sit}</span>` : '—';
+
+  document.getElementById('cadastral-grid').innerHTML = [
+    fieldItem('Razão Social', d.razao_social),
+    fieldItem('Nome Fantasia', d.nome_fantasia || d.razao_social),
+    fieldItem('CNPJ', fmtCNPJ(d.cnpj)),
+    fieldItem('Situação', sitBadge),
+    fieldItem('Abertura', fmtDate(d.data_inicio_atividade)),
+    fieldItem('Natureza Jurídica', d.natureza_juridica),
+    fieldItem('Porte', d.porte),
+    fieldItem('Capital Social', fmtMoeda(d.capital_social)),
+    fieldItem('CNAE Principal', d.cnae_fiscal_descricao),
+    fieldItem('UF / Município', `${d.municipio || ''}${d.uf ? ' / ' + d.uf : ''}`),
+    fieldItem('Endereço', [d.logradouro, d.numero, d.bairro].filter(Boolean).join(', ')),
+    fieldItem('CEP', d.cep),
+  ].join('');
+
+  const qsa = d.qsa || [];
+  if (qsa.length > 0) {
+    document.getElementById('qsa-wrap').style.display = '';
+    document.getElementById('qsa-body').innerHTML = qsa.map(s =>
+      `<tr><td>${s.nome_socio || '—'}</td><td>${s.qualificacao_socio || '—'}</td><td>${fmtDate(s.data_entrada_sociedade)}</td></tr>`
+    ).join('');
+  }
+  document.getElementById('section-cadastral').style.display = '';
+}
+
+function renderFiscal(d) {
+  const sit = (d.descricao_situacao_cadastral || '').toUpperCase();
+  const ativa = sit === 'ATIVA';
+  const rows = [
+    { check: 'Situação Cadastral Receita Federal', res: d.descricao_situacao_cadastral || '—', ok: ativa, fonte: 'BrasilAPI / Receita Federal' },
+    { check: 'Optante pelo Simples Nacional', res: d.opcao_pelo_simples ? 'Sim' : 'Não', ok: true, fonte: 'Receita Federal' },
+    { check: 'Optante pelo MEI', res: d.opcao_pelo_mei ? 'Sim' : 'Não', ok: true, fonte: 'Receita Federal' },
+    { check: 'Data da Situação', res: fmtDate(d.data_situacao_cadastral), ok: true, fonte: 'Receita Federal' },
+    { check: 'Motivo Situação', res: d.motivo_situacao_cadastral || 'N/A', ok: ativa, fonte: 'Receita Federal' },
+  ];
+
+  document.getElementById('fiscal-content').innerHTML = `
+    <div style="overflow-x:auto">
+    <table class="data-table">
+      <thead><tr><th>Verificação</th><th>Resultado</th><th>Fonte</th><th>Status</th></tr></thead>
+      <tbody>${rows.map(r => `
+        <tr>
+          <td>${r.check}</td>
+          <td>${r.res}</td>
+          <td style="font-size:.78rem;color:var(--text-muted)">${r.fonte}</td>
+          <td><span class="badge ${r.ok ? 'badge-ok' : 'badge-alert'}">${r.ok ? '✓ OK' : '⚠ Atenção'}</span></td>
+        </tr>`).join('')}
+      </tbody>
+    </table></div>
+    <div class="links-ext">
+      <a href="https://servicos.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp" target="_blank" class="link-ext">🔗 Receita Federal</a>
+      <a href="https://www8.receita.fazenda.gov.br/SimplesNacional/aplicacoes.aspx?id=21" target="_blank" class="link-ext">🔗 Simples Nacional</a>
+    </div>`;
+  document.getElementById('section-fiscal').style.display = '';
+}
+
+function renderJudicial(data, doc, tipo) {
+  const el = document.getElementById('judicial-content');
+  if (!hasJusBrasil) {
+    el.innerHTML = `<div class="alert-info">&#x2139;&#xFE0F; Consulta judicial via JusBrasil requer API Key configurada. <br><br>
+      <strong>Consulte manualmente:</strong></div>
+      <div class="links-ext">
+        <a href="https://www.jusbrasil.com.br/consulta-processual/" target="_blank" class="link-ext">🔗 JusBrasil</a>
+        <a href="https://cnj.jus.br/sistemas/datajud/" target="_blank" class="link-ext">🔗 DataJud CNJ</a>
+        <a href="https://esaj.tjsp.jus.br/cpopg/open.do" target="_blank" class="link-ext">🔗 TJSP</a>
+        <a href="https://www.trf1.jus.br/Processos/ProcessosTRF/ctrf1proc.php" target="_blank" class="link-ext">🔗 TRF1</a>
+      </div>`;
+    document.getElementById('section-judicial').style.display = '';
+    return;
+  }
+  if (!data || !data.hits?.hits?.length) {
+    el.innerHTML = `<div class="empty-state">✅ Nenhum processo encontrado no JusBrasil para este documento.</div>
+      <div class="links-ext"><a href="https://www.jusbrasil.com.br/consulta-processual/" target="_blank" class="link-ext">🔗 Verificar no JusBrasil</a></div>`;
+    document.getElementById('section-judicial').style.display = '';
+    return;
+  }
+  const processos = data.hits.hits;
+  let html = `<div style="margin-bottom:8px;font-size:.84rem;color:var(--text-muted)">${processos.length} processo(s) encontrado(s)</div>
+    <div style="overflow-x:auto"><table class="data-table">
+    <thead><tr><th>Número</th><th>Tribunal</th><th>Assunto</th><th>Data</th><th>Polo</th><th>Status</th></tr></thead><tbody>`;
+  processos.forEach(p => {
+    const s = p._source || {};
+    const polo = s.parties?.some(pt => pt.polarity === 'PASSIVE')
+      ? '<span class="badge badge-alert">Passivo</span>'
+      : '<span class="badge badge-info">Ativo</span>';
+    html += `<tr>
+      <td style="font-family:monospace;font-size:.78rem">${s.number || s.cnj_number || '—'}</td>
+      <td>${s.court || '—'}</td>
+      <td>${s.subjects?.[0]?.name || s.subject || '—'}</td>
+      <td>${s.filing_date ? new Date(s.filing_date).toLocaleDateString('pt-BR') : '—'}</td>
+      <td>${polo}</td>
+      <td>${s.status || s.phase || 'Em andamento'}</td>
+    </tr>`;
+  });
+  html += `</tbody></table></div>
+    <div class="links-ext"><a href="https://www.jusbrasil.com.br/consulta-processual/" target="_blank" class="link-ext">🔗 Ver no JusBrasil</a></div>`;
+  el.innerHTML = html;
+  document.getElementById('section-judicial').style.display = '';
+}
+
+function renderSancoes(doc) {
+  document.getElementById('sancoes-content').innerHTML = `
+    <div class="alert-info" style="margin-bottom:10px">&#x2139;&#xFE0F; A consulta automática ao Portal da Transparência requer chave de API registrada em <strong>portaldatransparencia.gov.br</strong>. Verifique manualmente nos links abaixo.</div>
+    <div class="links-ext">
+      <a href="https://portaldatransparencia.gov.br/sancoes/ceis?cpfCnpj=${doc}" target="_blank" class="link-ext">🔗 CEIS — Empresas Inidôneas</a>
+      <a href="https://portaldatransparencia.gov.br/sancoes/cnep?cpfCnpj=${doc}" target="_blank" class="link-ext">🔗 CNEP — Entidades Punidas</a>
+      <a href="https://portaldatransparencia.gov.br/sancoes/cepim?cpfCnpj=${doc}" target="_blank" class="link-ext">🔗 CEPIM — Entidades Privadas</a>
+    </div>`;
+  document.getElementById('section-sancoes').style.display = '';
+}
+
+function renderPEP(doc) {
+  document.getElementById('pep-content').innerHTML = `
+    <div class="alert-info" style="margin-bottom:10px">&#x2139;&#xFE0F; A consulta de PEP (Pessoa Politicamente Exposta) requer chave de API do Portal da Transparência. Verifique manualmente nos links abaixo.</div>
+    <div class="links-ext">
+      <a href="https://portaldatransparencia.gov.br/servidores?cpf=${doc}" target="_blank" class="link-ext">🔗 Servidores Públicos</a>
+      <a href="https://portaldatransparencia.gov.br/politicos" target="_blank" class="link-ext">🔗 Políticos e Mandatos</a>
+    </div>`;
+  document.getElementById('section-pep').style.display = '';
+}
+
+function calcScore(d, judicial) {
+  let score = 100;
+  const flags = [];
+
+  if (d) {
+    const sit = (d.descricao_situacao_cadastral || '').toUpperCase();
+    if (sit !== 'ATIVA') { score -= 40; flags.push({ label: 'Situação cadastral irregular', peso: 40, color: '#ef4444' }); }
+    else flags.push({ label: 'Situação cadastral ativa', peso: 0, color: '#22c55e' });
+
+    const anos = d.data_inicio_atividade ? (new Date() - new Date(d.data_inicio_atividade)) / (1000 * 60 * 60 * 24 * 365) : 0;
+    if (anos < 1) { score -= 15; flags.push({ label: 'Empresa com menos de 1 ano', peso: 15, color: '#f59e0b' }); }
+    else if (anos < 3) { score -= 5; flags.push({ label: 'Empresa com menos de 3 anos', peso: 5, color: '#f59e0b' }); }
+    else flags.push({ label: `Empresa com ${Math.floor(anos)} anos de atividade`, peso: 0, color: '#22c55e' });
   }
 
-  async function buscarProcessosJusBrasil(documento, tipo) {
-    const docLimpo = formatarDocumento(documento);
-    const endpoint = tipo === 'cpf'
-      ? JUSBRASIL_API_BASE + '/lawsuit/search/parties/cpf/' + docLimpo
-      : JUSBRASIL_API_BASE + '/lawsuit/search/parties/cnpj/' + docLimpo;
-    try {
-      const response = await fetch(endpoint, {
-        headers: {
-          'Authorization': 'Token ' + JUSBRASIL_API_KEY,
-          'Accept': 'application/json'
-        }
-      });
-      if (!response.ok) throw new Error('Erro ' + response.status + ' ao consultar JusBrasil');
-      return await response.json();
-    } catch (err) {
-      console.error('JusBrasil API erro:', err);
-      return null;
+  const nProc = judicial?.hits?.hits?.length || 0;
+  if (nProc > 10) { score -= 25; flags.push({ label: `${nProc} processos judiciais`, peso: 25, color: '#ef4444' }); }
+  else if (nProc > 0) { score -= 10; flags.push({ label: `${nProc} processo(s) judicial(is)`, peso: 10, color: '#f59e0b' }); }
+  else if (hasJusBrasil) flags.push({ label: 'Sem processos judiciais', peso: 0, color: '#22c55e' });
+
+  score = Math.max(0, Math.min(100, score));
+  const risco = score >= 75 ? 'BAIXO' : score >= 50 ? 'MÉDIO' : score >= 25 ? 'ALTO' : 'CRÍTICO';
+  const cor = score >= 75 ? '#22c55e' : score >= 50 ? '#f59e0b' : '#ef4444';
+
+  document.getElementById('gauge-value').textContent = score;
+  document.getElementById('gauge-value').style.color = cor;
+  document.getElementById('gauge-label').textContent = 'RISCO ' + risco;
+  document.getElementById('gauge-circle').style.borderColor = cor;
+
+  document.getElementById('risk-pillars').innerHTML = flags.map(f => `
+    <div class="pillar">
+      <span style="font-size:.9rem">${f.peso > 0 ? '⚠️' : '✅'}</span>
+      <span style="flex:1">${f.label}</span>
+      ${f.peso > 0 ? `<span class="badge badge-${f.peso >= 25 ? 'alert' : 'warn'}" style="flex-shrink:0">-${f.peso}pts</span>` : '<span class="badge badge-ok" style="flex-shrink:0">OK</span>'}
+    </div>`).join('');
+
+  return { score, risco, cor };
+}
+
+function renderChecklist(d, judicial) {
+  const sit = (d?.descricao_situacao_cadastral || '').toUpperCase();
+  const items = [
+    { icon: sit === 'ATIVA' ? '✅' : '❌', label: 'Situação cadastral Receita Federal', status: sit || 'Não verificado', ok: sit === 'ATIVA' },
+    { icon: '🔍', label: 'CEIS — Cadastro de Empresas Inidôneas', status: 'Verificar manualmente', ok: null },
+    { icon: '🔍', label: 'CNEP — Cadastro de Entidades Punidas', status: 'Verificar manualmente', ok: null },
+    { icon: '🔍', label: 'PEP — Pessoa Politicamente Exposta', status: 'Verificar manualmente', ok: null },
+    { icon: hasJusBrasil ? (judicial?.hits?.hits?.length ? '⚠️' : '✅') : '🔍', label: 'Processos Judiciais', status: hasJusBrasil ? (judicial?.hits?.hits?.length ? `${judicial.hits.hits.length} processo(s)` : 'Nenhum encontrado') : 'Verificar manualmente', ok: hasJusBrasil ? !judicial?.hits?.hits?.length : null },
+    { icon: '🔍', label: 'Sanções Internacionais (OFAC, ONU)', status: 'Verificar manualmente', ok: null },
+    { icon: d?.qsa?.length ? '✅' : '🔍', label: 'Quadro Societário (QSA)', status: d?.qsa?.length ? `${d.qsa.length} sócio(s) identificado(s)` : 'Não disponível', ok: !!d?.qsa?.length },
+  ];
+  document.getElementById('checklist-content').innerHTML = items.map(it => `
+    <div class="check-item">
+      <span class="check-icon">${it.icon}</span>
+      <span>${it.label}</span>
+      <span class="check-status" style="color:${it.ok === true ? '#15803d' : it.ok === false ? '#b91c1c' : '#64748b'}">${it.status}</span>
+    </div>`).join('');
+}
+
+async function iniciarDueDiligence() {
+  const tipo = document.getElementById('dd-tipo').value;
+  const doc = docLimpo();
+  const minLen = tipo === 'cnpj' ? 14 : 11;
+  if (doc.length < minLen) { alert(`Informe um ${tipo.toUpperCase()} válido.`); return; }
+
+  const btn = document.getElementById('btn-investigar');
+  btn.disabled = true;
+  btn.textContent = '⏳ Investigando...';
+
+  document.getElementById('dd-report').style.display = 'none';
+  const progress = document.getElementById('dd-progress');
+  progress.style.display = 'block';
+
+  const scCad = document.getElementById('sc-cadastral').checked;
+  const scFis = document.getElementById('sc-fiscal').checked;
+  const scJud = document.getElementById('sc-judicial').checked;
+  const scSan = document.getElementById('sc-sancoes').checked;
+  const scPep = document.getElementById('sc-pep').checked;
+
+  const stepNames = [];
+  if (scCad) stepNames.push('📋 Cadastral');
+  if (scFis) stepNames.push('📂 Fiscal');
+  if (scJud) stepNames.push('⚖️ Judicial');
+  if (scSan) stepNames.push('🚫 Sanções');
+  if (scPep) stepNames.push('👤 PEP');
+  stepNames.push('📊 Análise');
+  initSteps(stepNames);
+
+  const total = stepNames.length;
+  let si = 0;
+  let cnpjData = null;
+  let judicialData = null;
+
+  function avançar(ok = true) {
+    stepDone(si, ok);
+    si++;
+    if (si < total) stepActive(si);
+    setProgress(Math.round((si / total) * 100), stepNames[si] ? `Consultando: ${stepNames[si]}...` : 'Finalizando...');
+  }
+
+  setProgress(5, 'Iniciando...');
+  stepActive(0);
+
+  if (scCad || scFis) {
+    setProgress(10, '📋 Consultando Receita Federal (BrasilAPI)...');
+    cnpjData = await buscarCNPJ(doc);
+    if (scCad) {
+      if (cnpjData) { renderCadastral(cnpjData); avançar(true); }
+      else { document.getElementById('section-cadastral').style.display = 'none'; avançar(false); }
+    }
+    if (scFis) {
+      if (cnpjData) { renderFiscal(cnpjData); avançar(true); }
+      else { document.getElementById('section-fiscal').style.display = 'none'; avançar(false); }
     }
   }
 
-  async function renderizarProcessosJudiciais(documento, tipo) {
-    const container = document.getElementById('judicial-content');
-    if (!container) return;
-    container.innerHTML = '<div class="loading-spinner">&#x23F3; Consultando JusBrasil API...</div>';
-
-    const data = await buscarProcessosJusBrasil(documento, tipo);
-
-    if (!data || !data.hits || !data.hits.hits || data.hits.hits.length === 0) {
-      container.innerHTML = '<div class="empty-state">Nenhum processo judicial encontrado no JusBrasil.</div>';
-      return;
-    }
-
-    const processos = data.hits.hits;
-    const cardTitle = document.querySelector('#section-judicial .card-title');
-    if (cardTitle) cardTitle.textContent = '⚖️ Processos Judiciais — JusBrasil (' + processos.length + ' encontrados)';
-
-    const tribunais = [...new Set(processos.map(p => p._source && p._source.court ? p._source.court : 'N/A'))];
-    const selectTribunal = document.getElementById('f-tribunal');
-    if (selectTribunal) {
-      tribunais.forEach(t => {
-        const opt = document.createElement('option');
-        opt.value = t; opt.textContent = t;
-        selectTribunal.appendChild(opt);
-      });
-    }
-
-    let html = '<div style="overflow-x:auto"><table class="data-table"><thead><tr><th>Numero</th><th>Tribunal</th><th>Assunto</th><th>Data</th><th>Polo</th><th>Status</th></tr></thead><tbody>';
-    processos.forEach(p => {
-      const src = p._source || {};
-      const numero = src.number || src.cnj_number || 'N/A';
-      const tribunal = src.court || 'N/A';
-      const assunto = (src.subjects && src.subjects[0] && src.subjects[0].name) ? src.subjects[0].name : (src.subject || 'N/A');
-      const data = src.filing_date ? new Date(src.filing_date).toLocaleDateString('pt-BR') : 'N/A';
-      const polo = src.parties ? (src.parties.some(pt => pt.polarity === 'PASSIVE') ? '<span class="badge badge-passivo">Passivo</span>' : '<span class="badge badge-ativo">Ativo</span>') : 'N/A';
-      const status = src.status || src.phase || 'Em andamento';
-      html += '<tr><td>' + numero + '</td><td>' + tribunal + '</td><td>' + assunto + '</td><td>' + data + '</td><td>' + polo + '</td><td>' + status + '</td></tr>';
-    });
-    html += '</tbody></table></div>';
-    html += '<div class="links-ext"><a href="https://www.jusbrasil.com.br/consulta-processual/" target="_blank" class="link-ext">&#x1F517; Ver mais no JusBrasil</a></div>';
-    container.innerHTML = html;
+  if (scJud) {
+    setProgress(55, '⚖️ Consultando processos judiciais...');
+    judicialData = await buscarJusBrasil(doc, tipo);
+    renderJudicial(judicialData, doc, tipo);
+    avançar(true);
   }
 
-  function formatarDocDD(input) {
-    let v = input.value.replace(/\D/g, '');
-    const tipo = document.getElementById('dd-tipo') ? document.getElementById('dd-tipo').value : 'cnpj';
-    if (tipo === 'cnpj') {
-      v = v.substring(0, 14);
-      if (v.length > 12) v = v.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
-      else if (v.length > 8) v = v.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})/, '$1.$2.$3/$4');
-      else if (v.length > 5) v = v.replace(/^(\d{2})(\d{3})(\d{3})/, '$1.$2.$3');
-      else if (v.length > 2) v = v.replace(/^(\d{2})(\d{3})/, '$1.$2');
-    } else {
-      v = v.substring(0, 11);
-      if (v.length > 9) v = v.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
-      else if (v.length > 6) v = v.replace(/^(\d{3})(\d{3})(\d{3})/, '$1.$2.$3');
-      else if (v.length > 3) v = v.replace(/^(\d{3})(\d{3})/, '$1.$2');
-    }
-    input.value = v;
+  if (scSan) {
+    renderSancoes(doc);
+    avançar(true);
   }
 
-  async function iniciarDueDiligence() {
-    const tipo = document.getElementById('dd-tipo') ? document.getElementById('dd-tipo').value : 'cnpj';
-    const doc = document.getElementById('dd-doc') ? document.getElementById('dd-doc').value : '';
-    if (!doc || doc.replace(/\D/g, '').length < 11) {
-      alert('Informe um CPF ou CNPJ valido.');
-      return;
-    }
-    const progress = document.getElementById('dd-progress');
-    const report = document.getElementById('dd-report');
-    if (progress) progress.style.display = 'block';
-    if (report) report.style.display = 'none';
-
-    const scJudicial = document.getElementById('sc-judicial');
-    if (scJudicial && scJudicial.checked) {
-      await renderizarProcessosJudiciais(doc, tipo);
-    }
-
-    if (progress) progress.style.display = 'none';
-    if (report) report.style.display = 'block';
+  if (scPep) {
+    renderPEP(doc);
+    avançar(true);
   }
 
-  function filtrarJudicial() { /* filtro local */ }
+  // Score e checklist
+  setProgress(95, '📊 Calculando score de risco...');
+  stepActive(si);
+  const { score, risco } = calcScore(cnpjData, judicialData);
+  renderChecklist(cnpjData, judicialData);
+  stepDone(si, true);
+  setProgress(100, 'Concluído.');
+
+  const nome = cnpjData?.razao_social || doc;
+  document.getElementById('export-info').textContent = `Relatório: ${nome} · ${new Date().toLocaleString('pt-BR')} · Risco ${risco} (${score}/100)`;
+
+  await new Promise(r => setTimeout(r, 400));
+  progress.style.display = 'none';
+  document.getElementById('dd-report').style.display = '';
+
+  btn.disabled = false;
+  btn.textContent = '🔍 Investigar';
+}
 </script>
 </body>
 </html>
