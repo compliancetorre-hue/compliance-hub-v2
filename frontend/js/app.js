@@ -2340,6 +2340,21 @@ function openDnDetail(id) {
     `${d.filial}${d.setor?' · '+d.setor:''} · ${formatDate(d.data)} · ${d.anon}`;
   document.getElementById('dn-detail-cat').textContent = d.cat;
   document.getElementById('dn-detail-sla').innerHTML = slaBar(d.data, d.status);
+
+  const idWrap = document.getElementById('dn-detail-identificado-wrap');
+  const hasId = d.anon === 'Identificada' && (d.nome || d.tel || d.email);
+  idWrap.style.display = hasId ? '' : 'none';
+  if(hasId) {
+    const setField = (elId, val) => {
+      const el = document.getElementById(elId);
+      el.style.display = val ? '' : 'none';
+      if(val) el.querySelector('strong').textContent = val;
+    };
+    setField('dn-detail-id-nome',  d.nome);
+    setField('dn-detail-id-tel',   d.tel);
+    setField('dn-detail-id-email', d.email);
+  }
+
   document.getElementById('dn-detail-relato').textContent = d.relato || '—';
   
   const acaoW = document.getElementById('dn-detail-acao-wrap');
