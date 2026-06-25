@@ -5926,6 +5926,7 @@ function rmNovoPlano(riscoId) {
   document.getElementById('rm-f-plano-status').value='Não Iniciado';
   document.getElementById('rm-f-plano-prog').value='0';
   const pv=document.getElementById('rm-plano-prog-val'); if(pv) pv.textContent='0%';
+  const pa=document.getElementById('rm-f-plano-andamento'); if(pa) pa.value='';
   const r=(DB.riscos||[]).find(x=>x.id===riscoId);
   document.getElementById('rm-modal-plano-risco').textContent=r?r.desc:'';
   openModal('modal-rm-plano');
@@ -5940,6 +5941,7 @@ function rmEditPlano(id) {
   document.getElementById('rm-f-plano-status').value=pl.status||'Não Iniciado';
   document.getElementById('rm-f-plano-prog').value=pl.prog||0;
   const pv=document.getElementById('rm-plano-prog-val'); if(pv) pv.textContent=(pl.prog||0)+'%';
+  const pa=document.getElementById('rm-f-plano-andamento'); if(pa) pa.value=pl.andamento||'';
   const r=(DB.riscos||[]).find(x=>x.id===pl.riscoId);
   document.getElementById('rm-modal-plano-risco').textContent=r?r.desc:'';
   openModal('modal-rm-plano');
@@ -5953,6 +5955,7 @@ function rmSalvarPlano() {
     tipo:document.getElementById('rm-f-plano-tipo').value,
     status:document.getElementById('rm-f-plano-status').value,
     prog:parseInt(document.getElementById('rm-f-plano-prog').value)||0,
+    andamento:(document.getElementById('rm-f-plano-andamento').value||'').trim(),
   };
   if(!data.titulo){alert('Informe o título.');return;}
   if(!DB.rmPlanos) DB.rmPlanos=[];
