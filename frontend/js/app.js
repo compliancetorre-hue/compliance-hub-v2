@@ -2074,10 +2074,9 @@ function dnAutoAnon() {
 }
 
 function inferAnon(row) {
-  const email = (findCol(row, ['email','e-mail']) || '').toLowerCase();
-  const nome = findCol(row, ['nome (opcional)','nome opcional','nome do denunciante','nome']);
-  const tel = findCol(row, ['telefone','celular','tel','phone','whatsapp']);
-  if(email.includes('anon') || email.includes('anôn')) return 'Anônima';
+  const nome  = findCol(row, ['nome (opcional)','nome opcional','nome do denunciante']);
+  const tel   = findCol(row, ['numero de telefone (opcional)','número de telefone (opcional)','telefone (opcional)','telefone','celular','whatsapp']);
+  const email = (() => { for(const k of Object.keys(row)) { const nk=normalizeColName(k); if(nk.includes('endereco') && nk.includes('email')) return String(row[k]||'').trim(); } return ''; })();
   if((nome && nome.trim()) || (tel && tel.trim()) || (email && email.trim())) return 'Identificada';
   return 'Anônima';
 }
@@ -2168,9 +2167,9 @@ function buildImportPreview(rawRows) {
 
     const isDuplicate = existingProtos.has(proto);
 
-    const dnNome = (findCol(row, ['nome (opcional)','nome opcional','nome do denunciante','nome']) || '').trim();
-    const dnTel  = (findCol(row, ['telefone','celular','tel','phone','whatsapp']) || '').trim();
-    const dnEmail= (findCol(row, ['email','e-mail']) || '').trim();
+    const dnNome = (findCol(row, ['nome (opcional)','nome opcional','nome do denunciante']) || '').trim();
+    const dnTel  = (findCol(row, ['numero de telefone (opcional)','número de telefone (opcional)','telefone (opcional)','telefone','celular','whatsapp']) || '').trim();
+    const dnEmail= (() => { for(const k of Object.keys(row)) { const nk=normalizeColName(k); if(nk.includes('endereco') && nk.includes('email')) return String(row[k]||'').trim(); } return ''; })();
 
     parsed.push({
       id, proto, isDuplicate,
