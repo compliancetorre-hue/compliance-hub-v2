@@ -3060,7 +3060,7 @@ async function loadFromSupabase() {
     })();
     const { filiais, riscos, controles, planos, denRows, fbRows } = allData;
     // Restore extra data from load-all
-    if(allData.rmPlanos?.length > 0) DB.rmPlanos = allData.rmPlanos.map(p=>({id:p.id,riscoId:p.risco_id,titulo:p.titulo,resp:p.resp||'',prazo:p.prazo||'',tipo:p.tipo||'Preventiva',status:p.status||'Não Iniciado',prog:p.prog||0}));
+    if(allData.rmPlanos?.length > 0) DB.rmPlanos = allData.rmPlanos.map(p=>({id:p.id,riscoId:p.risco_id,titulo:p.titulo,resp:p.resp||'',prazo:p.prazo||'',tipo:p.tipo||'Preventiva',status:p.status||'Não Iniciado',prog:p.prog||0,andamento:p.andamento||''}));
     if(allData.agenda?.length > 0) DB.agenda = allData.agenda.map(e=>({id:e.id,titulo:e.titulo,tipo:e.tipo||'Outro',data:e.data,hora:e.hora||'',horaFim:e.hora_fim||'',local:e.local||'',resp:e.resp||'',desc:e.descricao||'',lembrete:e.lembrete||'',recorrencia:e.recorrencia||'nenhuma'}));
     if(allData.settings?.length > 0) { const units = allData.settings.find(s=>s.key==='rm_units'); if(units?.value) { try { const su=JSON.parse(units.value); if(Array.isArray(su)) su.forEach(u=>{ if(u.id&&!RM_UNITS.some(x=>x.id===u.id)) RM_UNITS.push(u); }); } catch(e){} } }
 
@@ -3207,8 +3207,8 @@ async function sbDeleteRisco(id) {
 }
 async function sbSaveRmPlano(p) {
   if(!USE_SUPABASE) return;
-  // rmPlanos table: id, risco_id, titulo, resp, prazo, tipo, status, prog
-  const row = { id:p.id, risco_id:p.riscoId, titulo:p.titulo, resp:p.resp||'', prazo:p.prazo||null, tipo:p.tipo||'Preventiva', status:p.status||'Não Iniciado', prog:p.prog||0 };
+  // rmPlanos table: id, risco_id, titulo, resp, prazo, tipo, status, prog, andamento
+  const row = { id:p.id, risco_id:p.riscoId, titulo:p.titulo, resp:p.resp||'', prazo:p.prazo||null, tipo:p.tipo||'Preventiva', status:p.status||'Não Iniciado', prog:p.prog||0, andamento:p.andamento||'' };
   try { await sbUpsert('rm_planos', row); auditLog('update','rm_planos',`Plano RM "${p.titulo}" salvo`,{titulo:p.titulo,status:p.status}); }
   catch(e) { console.warn('sbSaveRmPlano:', e.message); }
 }
