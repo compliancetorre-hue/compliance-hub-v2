@@ -503,97 +503,127 @@ function renderChecklist(d, judicial) {
     </div>`).join('');
 }
 
-async function iniciarDueDiligence() {
-  const tipo = document.getElementById('dd-tipo').value;
-  const doc = docLimpo();
-  const minLen = tipo === 'cnpj' ? 14 : 11;
-  if (doc.length < minLen) { alert(`Informe um ${tipo.toUpperCase()} válido.`); return; }
+function finalizarInvestigacao(progress, btn, cnpjData, judicialData, doc, si, score, risco) {
+  try {
+    renderChecklist(cnpjData, judicialData);
+    stepDone(si, true);
+    setProgress(100, 'Concluido.');
+    var nome = (cnpjData && cnpjData.razao_social) ? cnpjData.razao_social : doc;
+    document.getElementById('export-info').textContent = 'Relatorio: ' + nome + ' - ' + new Date().toLocaleString('pt-BR') + ' - Risco ' + risco + ' (' + score + '/100)';
+  } catch(e) { console.error('finalizarInvestigacao:', e); }
+  setTimeout(function() {
+    progress.style.display = 'none';
+    document.getElementById('dd-report').style.display = '';
+    btn.disabled = false;
+    btn.textContent = 'Investigar';
+  }, 400);
+}
 
-  const btn = document.getElementById('btn-investigar');
+async function iniciarDueDiligence() {
+  var tipo = document.getElementById('dd-tipo').value;
+  var doc = docLimpo();
+  var minLen = tipo === 'cnpj' ? 14 : 11;
+  if (doc.length < minLen) { alert('Informe um ' + tipo.toUpperCase() + ' valido.'); return; }
+
+  var btn = document.getElementById('btn-investigar');
   btn.disabled = true;
-  btn.textContent = '⏳ Investigando...';
+  btn.textContent = 'Investigando...';
 
   document.getElementById('dd-report').style.display = 'none';
-  const progress = document.getElementById('dd-progress');
+  var progress = document.getElementById('dd-progress');
   progress.style.display = 'block';
 
-  const scCad = document.getElementById('sc-cadastral').checked;
-  const scFis = document.getElementById('sc-fiscal').checked;
-  const scJud = document.getElementById('sc-judicial').checked;
-  const scSan = document.getElementById('sc-sancoes').checked;
-  const scPep = document.getElementById('sc-pep').checked;
+  // Failsafe: se algo travar, exibe o relatorio apos 25s
+  var failsafe = setTimeout(function() {
+    console.warn('DD2: failsafe acionado');
+    progress.style.display = 'none';
+    document.getElementById('dd-report').style.display = '';
+    btn.disabled = false;
+    btn.textContent = 'Investigar';
+  }, 25000);
 
-  const stepNames = [];
-  if (scCad) stepNames.push('📋 Cadastral');
-  if (scFis) stepNames.push('📂 Fiscal');
-  if (scJud) stepNames.push('⚖️ Judicial');
-  if (scSan) stepNames.push('🚫 Sanções');
-  if (scPep) stepNames.push('👤 PEP');
-  stepNames.push('📊 Análise');
+  var scCad = document.getElementById('sc-cadastral').checked;
+  var scFis = document.getElementById('sc-fiscal').checked;
+  var scJud = document.getElementById('sc-judicial').checked;
+  var scSan = document.getElementById('sc-sancoes').checked;
+  var scPep = document.getElementById('sc-pep').checked;
+
+  var stepNames = [];
+  if (scCad) stepNames.push('Cadastral');
+  if (scFis) stepNames.push('Fiscal');
+  if (scJud) stepNames.push('Judicial');
+  if (scSan) stepNames.push('Sancoes');
+  if (scPep) stepNames.push('PEP');
+  stepNames.push('Analise');
   initSteps(stepNames);
 
-  const total = stepNames.length;
-  let si = 0;
-  let cnpjData = null;
-  let judicialData = null;
+  var total = stepNames.length;
+  var si = 0;
+  var cnpjData = null;
+  var judicialData = null;
 
-  function avançar(ok = true) {
-    stepDone(si, ok);
-    si++;
-    if (si < total) stepActive(si);
-    setProgress(Math.round((si / total) * 100), stepNames[si] ? `Consultando: ${stepNames[si]}...` : 'Finalizando...');
+  function avancar(ok) {
+    try {
+      stepDone(si, ok !== false);
+      si++;
+      if (si < total) stepActive(si);
+      setProgress(Math.round((si / total) * 100), 'Consultando ' + (stepNames[si] || '') + '...');
+    } catch(e) { console.error('avancar:', e); }
   }
 
-  setProgress(5, 'Iniciando...');
-  stepActive(0);
+  try {
+    setProgress(5, 'Iniciando...');
+    stepActive(0);
 
-  if (scCad || scFis) {
-    setProgress(10, '📋 Consultando Receita Federal (BrasilAPI)...');
-    cnpjData = await buscarCNPJ(doc);
-    if (scCad) {
-      if (cnpjData) { renderCadastral(cnpjData); avançar(true); }
-      else { document.getElementById('section-cadastral').style.display = 'none'; avançar(false); }
+    if (scCad || scFis) {
+      setProgress(10, 'Consultando Receita Federal...');
+      try { cnpjData = await buscarCNPJ(doc); } catch(e) { cnpjData = null; }
+      if (scCad) {
+        try { if (cnpjData) renderCadastral(cnpjData); } catch(e) { console.error('renderCadastral:', e); }
+        avancar(!!cnpjData);
+      }
+      if (scFis) {
+        try { if (cnpjData) renderFiscal(cnpjData); } catch(e) { console.error('renderFiscal:', e); }
+        avancar(!!cnpjData);
+      }
     }
-    if (scFis) {
-      if (cnpjData) { renderFiscal(cnpjData); avançar(true); }
-      else { document.getElementById('section-fiscal').style.display = 'none'; avançar(false); }
+
+    if (scJud) {
+      setProgress(55, 'Consultando processos judiciais...');
+      try { judicialData = await buscarJusBrasil(doc, tipo); } catch(e) { judicialData = null; }
+      try { renderJudicial(judicialData, doc, tipo); } catch(e) { console.error('renderJudicial:', e); }
+      avancar(true);
     }
+
+    if (scSan) {
+      try { renderSancoes(doc); } catch(e) { console.error('renderSancoes:', e); }
+      avancar(true);
+    }
+
+    if (scPep) {
+      try { renderPEP(doc); } catch(e) { console.error('renderPEP:', e); }
+      avancar(true);
+    }
+
+    setProgress(95, 'Calculando score...');
+    stepActive(si);
+    var scoreResult = { score: 0, risco: 'N/A' };
+    try { scoreResult = calcScore(cnpjData, judicialData); } catch(e) { console.error('calcScore:', e); }
+
+    clearTimeout(failsafe);
+    finalizarInvestigacao(progress, btn, cnpjData, judicialData, doc, si, scoreResult.score, scoreResult.risco);
+
+  } catch(e) {
+    console.error('iniciarDueDiligence erro:', e);
+    clearTimeout(failsafe);
+    setProgress(100, 'Concluido com erros.');
+    setTimeout(function() {
+      progress.style.display = 'none';
+      document.getElementById('dd-report').style.display = '';
+      btn.disabled = false;
+      btn.textContent = 'Investigar';
+    }, 500);
   }
-
-  if (scJud) {
-    setProgress(55, '⚖️ Consultando processos judiciais...');
-    judicialData = await buscarJusBrasil(doc, tipo);
-    renderJudicial(judicialData, doc, tipo);
-    avançar(true);
-  }
-
-  if (scSan) {
-    renderSancoes(doc);
-    avançar(true);
-  }
-
-  if (scPep) {
-    renderPEP(doc);
-    avançar(true);
-  }
-
-  // Score e checklist
-  setProgress(95, '📊 Calculando score de risco...');
-  stepActive(si);
-  const { score, risco } = calcScore(cnpjData, judicialData);
-  renderChecklist(cnpjData, judicialData);
-  stepDone(si, true);
-  setProgress(100, 'Concluído.');
-
-  const nome = cnpjData?.razao_social || doc;
-  document.getElementById('export-info').textContent = `Relatório: ${nome} · ${new Date().toLocaleString('pt-BR')} · Risco ${risco} (${score}/100)`;
-
-  await new Promise(r => setTimeout(r, 400));
-  progress.style.display = 'none';
-  document.getElementById('dd-report').style.display = '';
-
-  btn.disabled = false;
-  btn.textContent = '🔍 Investigar';
 }
 </script>
 </body>
