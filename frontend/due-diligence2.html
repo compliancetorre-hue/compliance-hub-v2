@@ -91,6 +91,24 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
 .check-item { display: flex; align-items: center; gap: 12px; padding: 8px 12px; border-radius: 8px; background: var(--bg); font-size: .88rem; }
 .check-icon { font-size: 1.1rem; }
 .check-status { margin-left: auto; font-size: .8rem; font-weight: 600; }
+.filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+.filter-bar select { padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border); font-size: .82rem; font-family: inherit; background: #fff; cursor: pointer; }
+.links-ext { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.link-ext { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 8px; background: var(--bg); border: 1px solid var(--border); font-size: .8rem; text-decoration: none; color: var(--text); }
+.link-ext:hover { background: var(--border); }
+.loading-spinner { display: flex; align-items: center; justify-content: center; padding: 32px; color: var(--text-muted); gap: 12px; }
+@media(max-width:768px) {
+  .grid-3 { grid-template-columns: 1fr; }
+  .scope-grid { grid-template-columns: repeat(2,1fr); }
+  .form-row { flex-direction: column; }
+  .score-section { flex-direction: column; }
+}
+@media print {
+  .header .btn-back, .search-form, .export-btns, .filter-bar { display: none !important; }
+  .card { break-inside: avoid; box-shadow: none; border: 1px solid #e2e8f0; }
+}
+</style>
+</head>
 <body>
 <div class="header">
   <button class="btn-back" onclick="history.back()">&#8592; Voltar</button>
@@ -241,150 +259,117 @@ body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--t
     </div>
   </div>
 </div>
-.filter-bar { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
-.filter-bar select { padding: 6px 10px; border-radius: 6px; border: 1px solid var(--border); font-size: .82rem; font-family: inherit; background: #fff; cursor: pointer; }
-.links-ext { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-.link-ext { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 8px; background: var(--bg); border: 1px solid var(--border); font-size: .8rem; text-decoration: none; color: var(--text); }
-.link-ext:hover { background: var(--border); }
-.loading-spinner { display: flex; align-items: center; justify-content: center; padding: 32px; color: var(--text-muted); gap: 12px; }
-@media(max-width:768px) {
-  .grid-3 { grid-template-columns: 1fr; }
-  .scope-grid { grid-template-columns: repeat(2,1fr); }
-  .form-row { flex-direction: column; }
-  .score-section { flex-direction: column; }
-}
-@media print {
-  .header .btn-back, .search-form, .export-btns, .filter-bar { display: none !important; }
-  .card { break-inside: avoid; box-shadow: none; border: 1px solid #e2e8f0; }
-}
-</style>
+
 <script>
-  // ============================================================
-  // INTEGRACAO JUSBRASIL API - BUSCA POR PROCESSO
-  // API Key injetada via GitHub Actions (secrets)
-  // ============================================================
   const JUSBRASIL_API_KEY = '%%JUSBRASIL_API_KEY%%';
   const JUSBRASIL_API_BASE = 'https://api.jusbrasil.com.br';
 
-  // Formatar documento (CPF/CNPJ) removendo mascara
   function formatarDocumento(doc) {
-      return doc.replace(/[.\-\/]/g, '').trim();
+    return doc.replace(/[.\-\/]/g, '').trim();
   }
 
-  // Buscar processos via JusBrasil API por CPF/CNPJ
   async function buscarProcessosJusBrasil(documento, tipo) {
-      const docLimpo = formatarDocumento(documento);
-      const endpoint = tipo === 'cpf'
-        ? JUSBRASIL_API_BASE + '/lawsuit/search/parties/cpf/' + docLimpo
-            : JUSBRASIL_API_BASE + '/lawsuit/search/parties/cnpj/' + docLimpo;
-      try {
-            const response = await fetch(endpoint, {
-                    headers: {
-                              'Authorization': 'Token ' + JUSBRASIL_API_KEY,
-                              'Accept': 'application/json'
-                    }
-            });
-            if (!response.ok) throw new Error('Erro ' + response.status + ' ao consultar JusBrasil');
-            return await response.json();
-      } catch (err) {
-            console.error('JusBrasil API erro:', err);
-            return null;
-      }
+    const docLimpo = formatarDocumento(documento);
+    const endpoint = tipo === 'cpf'
+      ? JUSBRASIL_API_BASE + '/lawsuit/search/parties/cpf/' + docLimpo
+      : JUSBRASIL_API_BASE + '/lawsuit/search/parties/cnpj/' + docLimpo;
+    try {
+      const response = await fetch(endpoint, {
+        headers: {
+          'Authorization': 'Token ' + JUSBRASIL_API_KEY,
+          'Accept': 'application/json'
+        }
+      });
+      if (!response.ok) throw new Error('Erro ' + response.status + ' ao consultar JusBrasil');
+      return await response.json();
+    } catch (err) {
+      console.error('JusBrasil API erro:', err);
+      return null;
+    }
   }
 
-  // Renderizar processos judiciais na secao judicial
   async function renderizarProcessosJudiciais(documento, tipo) {
-      const container = document.getElementById('judicial-content');
-      if (!container) return;
-      container.innerHTML = '<div class="loading-spinner">&#x23F3; Consultando JusBrasil API...</div>';
+    const container = document.getElementById('judicial-content');
+    if (!container) return;
+    container.innerHTML = '<div class="loading-spinner">&#x23F3; Consultando JusBrasil API...</div>';
 
-      const data = await buscarProcessosJusBrasil(documento, tipo);
+    const data = await buscarProcessosJusBrasil(documento, tipo);
 
-      if (!data || !data.hits || !data.hits.hits || data.hits.hits.length === 0) {
-            container.innerHTML = '<div class="empty-state">Nenhum processo judicial encontrado no JusBrasil.</div>';
-            return;
-      }
-
-      const processos = data.hits.hits;
-      const cardTitle = document.querySelector('#section-judicial .card-title');
-      if (cardTitle) cardTitle.textContent = '\u2696\uFE0F Processos Judiciais \u2014 JusBrasil (' + processos.length + ' encontrados)';
-
-      // Popular filtro de tribunais
-      const tribunais = [...new Set(processos.map(p => p._source && p._source.court ? p._source.court : 'N/A'))];
-      const selectTribunal = document.getElementById('f-tribunal');
-    if (selectTribunal) {
-          tribunais.forEach(t => {
-                  const opt = document.createElement('option');
-                  opt.value = t; opt.textContent = t;
-                  selectTribunal.appendChild(opt);
-          });
+    if (!data || !data.hits || !data.hits.hits || data.hits.hits.length === 0) {
+      container.innerHTML = '<div class="empty-state">Nenhum processo judicial encontrado no JusBrasil.</div>';
+      return;
     }
 
-      // Renderizar tabela de processos
-      let html = '<div style="overflow-x:auto"><table class="data-table"><thead><tr><th>Numero</th><th>Tribunal</th><th>Assunto</th><th>Data</th><th>Polo</th><th>Status</th></tr></thead><tbody>';
-      processos.forEach(p => {
-            const src = p._source || {};
-            const numero = src.number || src.cnj_number || 'N/A';
-            const tribunal = src.court || 'N/A';
-            const assunto = (src.subjects && src.subjects[0] && src.subjects[0].name) ? src.subjects[0].name : (src.subject || 'N/A');
-            const data = src.filing_date ? new Date(src.filing_date).toLocaleDateString('pt-BR') : 'N/A';
-            const polo = src.parties ? (src.parties.some(pt => pt.polarity === 'PASSIVE') ? '<span class="badge badge-passivo">Passivo</span>' : '<span class="badge badge-ativo">Ativo</span>') : 'N/A';
-            const status = src.status || src.phase || 'Em andamento';
-            html += '<tr><td>' + numero + '</td><td>' + tribunal + '</td><td>' + assunto + '</td><td>' + data + '</td><td>' + polo + '</td><td>' + status + '</td></tr>';
+    const processos = data.hits.hits;
+    const cardTitle = document.querySelector('#section-judicial .card-title');
+    if (cardTitle) cardTitle.textContent = '⚖️ Processos Judiciais — JusBrasil (' + processos.length + ' encontrados)';
+
+    const tribunais = [...new Set(processos.map(p => p._source && p._source.court ? p._source.court : 'N/A'))];
+    const selectTribunal = document.getElementById('f-tribunal');
+    if (selectTribunal) {
+      tribunais.forEach(t => {
+        const opt = document.createElement('option');
+        opt.value = t; opt.textContent = t;
+        selectTribunal.appendChild(opt);
       });
-      html += '</tbody></table></div>';
+    }
 
-      // Links externos JusBrasil
-      html += '<div class="links-ext"><a href="https://www.jusbrasil.com.br/consulta-processual/" target="_blank" class="link-ext">&#x1F517; Ver mais no JusBrasil</a></div>';
-      container.innerHTML = html;
+    let html = '<div style="overflow-x:auto"><table class="data-table"><thead><tr><th>Numero</th><th>Tribunal</th><th>Assunto</th><th>Data</th><th>Polo</th><th>Status</th></tr></thead><tbody>';
+    processos.forEach(p => {
+      const src = p._source || {};
+      const numero = src.number || src.cnj_number || 'N/A';
+      const tribunal = src.court || 'N/A';
+      const assunto = (src.subjects && src.subjects[0] && src.subjects[0].name) ? src.subjects[0].name : (src.subject || 'N/A');
+      const data = src.filing_date ? new Date(src.filing_date).toLocaleDateString('pt-BR') : 'N/A';
+      const polo = src.parties ? (src.parties.some(pt => pt.polarity === 'PASSIVE') ? '<span class="badge badge-passivo">Passivo</span>' : '<span class="badge badge-ativo">Ativo</span>') : 'N/A';
+      const status = src.status || src.phase || 'Em andamento';
+      html += '<tr><td>' + numero + '</td><td>' + tribunal + '</td><td>' + assunto + '</td><td>' + data + '</td><td>' + polo + '</td><td>' + status + '</td></tr>';
+    });
+    html += '</tbody></table></div>';
+    html += '<div class="links-ext"><a href="https://www.jusbrasil.com.br/consulta-processual/" target="_blank" class="link-ext">&#x1F517; Ver mais no JusBrasil</a></div>';
+    container.innerHTML = html;
   }
 
-  // Formatar documento para mascara visual
   function formatarDocDD(input) {
-      let v = input.value.replace(/\D/g, '');
-      const tipo = document.getElementById('dd-tipo') ? document.getElementById('dd-tipo').value : 'cnpj';
-      if (tipo === 'cnpj') {
-            v = v.substring(0, 14);
-            if (v.length > 12) v = v.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
-            else if (v.length > 8) v = v.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})/, '$1.$2.$3/$4');
-            else if (v.length > 5) v = v.replace(/^(\d{2})(\d{3})(\d{3})/, '$1.$2.$3');
-            else if (v.length > 2) v = v.replace(/^(\d{2})(\d{3})/, '$1.$2');
-      } else {
-            v = v.substring(0, 11);
-            if (v.length > 9) v = v.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
-            else if (v.length > 6) v = v.replace(/^(\d{3})(\d{3})(\d{3})/, '$1.$2.$3');
-            else if (v.length > 3) v = v.replace(/^(\d{3})(\d{3})/, '$1.$2');
-      }
-      input.value = v;
+    let v = input.value.replace(/\D/g, '');
+    const tipo = document.getElementById('dd-tipo') ? document.getElementById('dd-tipo').value : 'cnpj';
+    if (tipo === 'cnpj') {
+      v = v.substring(0, 14);
+      if (v.length > 12) v = v.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, '$1.$2.$3/$4-$5');
+      else if (v.length > 8) v = v.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})/, '$1.$2.$3/$4');
+      else if (v.length > 5) v = v.replace(/^(\d{2})(\d{3})(\d{3})/, '$1.$2.$3');
+      else if (v.length > 2) v = v.replace(/^(\d{2})(\d{3})/, '$1.$2');
+    } else {
+      v = v.substring(0, 11);
+      if (v.length > 9) v = v.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
+      else if (v.length > 6) v = v.replace(/^(\d{3})(\d{3})(\d{3})/, '$1.$2.$3');
+      else if (v.length > 3) v = v.replace(/^(\d{3})(\d{3})/, '$1.$2');
+    }
+    input.value = v;
   }
 
-  // Funcao principal de investigacao
   async function iniciarDueDiligence() {
-      const tipo = document.getElementById('dd-tipo') ? document.getElementById('dd-tipo').value : 'cnpj';
-      const doc = document.getElementById('dd-doc') ? document.getElementById('dd-doc').value : '';
-        if (!doc || doc.replace(/\D/g, '').length < 11) {
-              alert('Informe um CPF ou CNPJ valido.');
-              return;
-        }
-      // Mostrar barra de progresso
-      const progress = document.getElementById('dd-progress');
+    const tipo = document.getElementById('dd-tipo') ? document.getElementById('dd-tipo').value : 'cnpj';
+    const doc = document.getElementById('dd-doc') ? document.getElementById('dd-doc').value : '';
+    if (!doc || doc.replace(/\D/g, '').length < 11) {
+      alert('Informe um CPF ou CNPJ valido.');
+      return;
+    }
+    const progress = document.getElementById('dd-progress');
     const report = document.getElementById('dd-report');
-      if (progress) { progress.style.display = 'block'; }
-      if (report) { report.style.display = 'none'; }
+    if (progress) progress.style.display = 'block';
+    if (report) report.style.display = 'none';
 
-      // Verificar se sc-judicial esta marcado
-      const scJudicial = document.getElementById('sc-judicial');
-      if (scJudicial && scJudicial.checked) {
-            await renderizarProcessosJudiciais(doc, tipo);
-      }
+    const scJudicial = document.getElementById('sc-judicial');
+    if (scJudicial && scJudicial.checked) {
+      await renderizarProcessosJudiciais(doc, tipo);
+    }
 
-      // Mostrar relatorio
-      if (progress) progress.style.display = 'none';
-      if (report) report.style.display = 'block';
+    if (progress) progress.style.display = 'none';
+    if (report) report.style.display = 'block';
   }
 
-  // Filtrar processos judiciais
   function filtrarJudicial() { /* filtro local */ }
 </script>
-</script>
-</head>
+</body>
+</html>
