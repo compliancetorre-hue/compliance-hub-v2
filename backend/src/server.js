@@ -11,6 +11,7 @@ const denunciaRoutes = require('./routes/denuncias');
 const empresaRoutes = require('./routes/empresas');
 const tarefaRoutes = require('./routes/tarefas');
 const logRoutes = require('./routes/logs');
+const proxyRoutes = require('./routes/proxy');
 const { authenticateToken } = require('./middleware/auth');
 const { errorHandler } = require('./middleware/errorHandler');
 
@@ -70,6 +71,7 @@ app.use('/api/denuncias', authenticateToken, denunciaRoutes);
 app.use('/api/empresas', authenticateToken, empresaRoutes);
 app.use('/api/tarefas', authenticateToken, tarefaRoutes);
 app.use('/api/logs', authenticateToken, logRoutes);
+app.use('/api/proxy', authenticateToken, proxyRoutes);
 
 // ============================================================
 // TRATAMENTO DE ERROS
