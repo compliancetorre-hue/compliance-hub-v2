@@ -1351,7 +1351,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function openModalDenuncia() {
   window._editDnId = null;
-  ['f-dn-relato','f-dn-obs','f-dn-resp','f-dn-setor','f-dn-proto'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
+  ['f-dn-relato','f-dn-obs','f-dn-resp','f-dn-setor','f-dn-proto','f-dn-nome','f-dn-tel','f-dn-email'].forEach(id => { const el = document.getElementById(id); if(el) el.value = ''; });
   const dataEl = document.getElementById('f-dn-data');
   if(dataEl) dataEl.value = new Date().toISOString().split('T')[0];
   setSelectedPerigo('Leve');
@@ -1365,6 +1365,9 @@ function editDenuncia(id) {
   document.getElementById('f-dn-cat').value = d.cat;
   document.getElementById('f-dn-filial').value = d.filial;
   if(document.getElementById('f-dn-setor')) document.getElementById('f-dn-setor').value = d.setor||'';
+  if(document.getElementById('f-dn-nome')) document.getElementById('f-dn-nome').value = d.nome||'';
+  if(document.getElementById('f-dn-tel')) document.getElementById('f-dn-tel').value = d.tel||'';
+  if(document.getElementById('f-dn-email')) document.getElementById('f-dn-email').value = d.email||'';
   document.getElementById('f-dn-anon').value = d.anon;
   document.getElementById('f-dn-resp').value = d.resp||'';
   document.getElementById('f-dn-status').value = d.status;
@@ -1386,6 +1389,9 @@ function salvarDenuncia() {
     cat: document.getElementById('f-dn-cat').value,
     filial: document.getElementById('f-dn-filial').value,
     setor: (document.getElementById('f-dn-setor')||{value:''}).value,
+    nome: (document.getElementById('f-dn-nome')||{value:''}).value.trim(),
+    tel: (document.getElementById('f-dn-tel')||{value:''}).value.trim(),
+    email: (document.getElementById('f-dn-email')||{value:''}).value.trim(),
     perigo,
     anon: document.getElementById('f-dn-anon').value,
     resp: document.getElementById('f-dn-resp').value,
@@ -2059,11 +2065,20 @@ function inferPerigo(row) {
   return 'Leve';
 }
 
+function dnAutoAnon() {
+  const nome = (document.getElementById('f-dn-nome')||{value:''}).value.trim();
+  const tel = (document.getElementById('f-dn-tel')||{value:''}).value.trim();
+  const email = (document.getElementById('f-dn-email')||{value:''}).value.trim();
+  const sel = document.getElementById('f-dn-anon');
+  if(sel) sel.value = (nome || tel || email) ? 'Identificada' : 'Anônima';
+}
+
 function inferAnon(row) {
-  const email = (findCol(row, ['email']) || '').toLowerCase();
-  const nome = findCol(row, ['nome (opcional)', 'nome opcional']);
+  const email = (findCol(row, ['email','e-mail']) || '').toLowerCase();
+  const nome = findCol(row, ['nome (opcional)','nome opcional','nome do denunciante','nome']);
+  const tel = findCol(row, ['telefone','celular','tel','phone','whatsapp']);
   if(email.includes('anon') || email.includes('anôn')) return 'Anônima';
-  if(nome && nome.trim()) return 'Identificada';
+  if((nome && nome.trim()) || (tel && tel.trim()) || (email && email.trim())) return 'Identificada';
   return 'Anônima';
 }
 
@@ -2153,12 +2168,19 @@ function buildImportPreview(rawRows) {
 
     const isDuplicate = existingProtos.has(proto);
 
+    const dnNome = (findCol(row, ['nome (opcional)','nome opcional','nome do denunciante','nome']) || '').trim();
+    const dnTel  = (findCol(row, ['telefone','celular','tel','phone','whatsapp']) || '').trim();
+    const dnEmail= (findCol(row, ['email','e-mail']) || '').trim();
+
     parsed.push({
       id, proto, isDuplicate,
       cat: tipo,
       filial: (findCol(row, ['filial']) || '').trim(),
       setor: (findCol(row, ['setor']) || '').trim(),
       data: dataStr,
+      nome: dnNome,
+      tel: dnTel,
+      email: dnEmail,
       anon: inferAnon(row),
       perigo: inferPerigo(row),
       status: inferStatus(row),
@@ -3008,18 +3030,19 @@ function dnToRow(d) {
     id: d.id, proto: d.proto, cat: d.cat, filial: d.filial, setor: d.setor||'',
     data: d.data||null, anon: d.anon, perigo: d.perigo, status: d.status,
     resp: d.resp||'', relato: d.relato||'', acao_inicial: d.acaoInicial||'', obs: d.obs||'',
-    conclusao: d.conclusao||''
+    conclusao: d.conclusao||'',
+    denunciante_nome: d.nome||'', denunciante_tel: d.tel||'', denunciante_email: d.email||''
   };
 }
 function rowToDn(r) {
-  // Normalize data: Supabase may return "YYYY-MM-DD" or timestamp "YYYY-MM-DDTHH:..."
   let dataStr = r.data||'';
-  if(dataStr && dataStr.includes('T')) dataStr = dataStr.split('T')[0]; // strip time
+  if(dataStr && dataStr.includes('T')) dataStr = dataStr.split('T')[0];
   return {
     id: r.id, proto: r.proto, cat: r.cat, filial: r.filial, setor: r.setor||'',
     data: dataStr, anon: r.anon, perigo: r.perigo, status: r.status,
     resp: r.resp||'', relato: r.relato||'', acaoInicial: r.acao_inicial||'', obs: r.obs||'',
-    conclusao: r.conclusao||''
+    conclusao: r.conclusao||'',
+    nome: r.denunciante_nome||'', tel: r.denunciante_tel||'', email: r.denunciante_email||''
   };
 }
 
