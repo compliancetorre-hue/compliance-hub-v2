@@ -5,15 +5,8 @@ let USUARIOS = [];
 // Email do admin — apenas para exibicao/UX. NAO e credencial: a autoridade
 // real e o campo "perfil" retornado pelo servidor no login.
 const ADMIN_EMAIL = 'admin@torre.com.br';
-
-// DEPRECIADO: hashing de senha no cliente. Mantido TEMPORARIAMENTE apenas
-// porque admin.js (criar usuario / alterar senha) ainda chama esta funcao.
-// Deve ser REMOVIDO quando esses fluxos migrarem para o servidor (bcrypt).
-async function _hashSenha(email, senha) {
-  const msg = email.toLowerCase().trim() + ':' + senha + ':ch2025';
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(msg));
-  return Array.from(new Uint8Array(buf)).map(b=>b.toString(16).padStart(2,'0')).join('');
-}
+// Toda verificacao/derivacao de senha vive no servidor (Edge Function + bcrypt).
+// Nao existe mais hashing de senha no cliente.
 
 let currentUser = null;
 const SESSION_KEY = 'ch_session_v2';
