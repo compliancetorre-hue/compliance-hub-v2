@@ -203,10 +203,6 @@ function doLogout() {
   _clearSession();
   sessionStorage.removeItem('compliance_user');
   sessionStorage.removeItem('ch_app_token');
-  // SEGURANÇA: ao sair, apaga denúncias da memória e limpa o cache local, para
-  // que um próximo usuário na mesma máquina não alcance dados da sessão anterior.
-  try { DB.denuncias = []; } catch(e) {}
-  try { clearLocalCache(); } catch(e) {}
 
   // Reset form
   document.getElementById('login-email').value = '';
@@ -243,11 +239,29 @@ shakeStyle.textContent = '@keyframes shake { 0%,100%{transform:translateX(0)} 20
 document.head.appendChild(shakeStyle);
 
 // Check session on load (auto-login if session exists)
-// Obs.: a antiga "detecção de DevTools" que apagava o relato do DOM foi
-// removida — era falsa proteção (não impedia leitura via localStorage, via
-// DB no console ou via resposta de rede) e dava impressão de segurança que
-// não existia. A proteção real do relato é não carregá-lo sem sessão válida
-// (ver app-init.js) e não persisti-lo no navegador (ver supabase.js).
+// ── DevTools detection — warn user in sensitive sessions
+(function() {
+  let _dtOpen = false;
+  const _dtThreshold = 160;
+  setInterval(() => {
+    const widthDiff = window.outerWidth - window.innerWidth > _dtThreshold;
+    const heightDiff = window.outerHeight - window.innerHeight > _dtThreshold;
+    if((widthDiff || heightDiff) && !_dtOpen) {
+      _dtOpen = true;
+      // Clear sensitive data from DOM when DevTools detected
+      document.querySelectorAll('.relato-text, #dn-detail-relato, #dn-detail-acao').forEach(el => {
+        if(el._originalContent === undefined) el._originalContent = el.textContent;
+        el.textContent = '[Conteúdo protegido]';
+      });
+    } else if(!widthDiff && !heightDiff && _dtOpen) {
+      _dtOpen = false;
+      document.querySelectorAll('.relato-text, #dn-detail-relato, #dn-detail-acao').forEach(el => {
+        if(el._originalContent !== undefined) el.textContent = el._originalContent;
+      });
+    }
+  }, 1000);
+})();
+
 function checkSession() {
   try {
     // Se usamos Supabase, a sessão só é válida com um token de servidor presente

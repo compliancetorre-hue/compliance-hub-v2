@@ -6,11 +6,12 @@ const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
 
 const authRoutes = require('./routes/auth');
-const userRoutes = require('./routes/users');
+const userRoutes = require('./routes/usuarios');
 const denunciaRoutes = require('./routes/denuncias');
-const empresaRoutes = require('./routes/empresas');
-const tarefaRoutes = require('./routes/tarefas');
-const logRoutes = require('./routes/logs');
+// TODO: rotas ainda nao implementadas (arquivos inexistentes) - reabilitar quando criadas
+// const empresaRoutes = require('./routes/empresas');
+// const tarefaRoutes = require('./routes/tarefas');
+// const logRoutes = require('./routes/logs');
 const proxyRoutes = require('./routes/proxy');
 const { authenticateToken } = require('./middleware/auth');
 const { errorHandler } = require('./middleware/errorHandler');
@@ -68,9 +69,10 @@ app.get('/health', (req, res) => res.json({ status: 'ok', timestamp: new Date().
 // ============================================================
 app.use('/api/users', authenticateToken, userRoutes);
 app.use('/api/denuncias', authenticateToken, denunciaRoutes);
-app.use('/api/empresas', authenticateToken, empresaRoutes);
-app.use('/api/tarefas', authenticateToken, tarefaRoutes);
-app.use('/api/logs', authenticateToken, logRoutes);
+// TODO: reabilitar quando os modulos de rota forem implementados
+// app.use('/api/empresas', authenticateToken, empresaRoutes);
+// app.use('/api/tarefas', authenticateToken, tarefaRoutes);
+// app.use('/api/logs', authenticateToken, logRoutes);
 app.use('/api/proxy', authenticateToken, proxyRoutes);
 
 // ============================================================

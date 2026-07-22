@@ -105,7 +105,9 @@ router.get('/:id', requireFilial, async (req, res, next) => {
 
     const result = await query(`
       SELECT
-        d.*,
+        d.id, d.protocolo, d.categoria, d.filial_id, d.setor, d.descricao,
+        d.anonima, d.perigo, d.status, d.responsavel_id, d.data_limite,
+        d.resolucao, d.criado_em, d.atualizado_em,
         CASE WHEN NOT $1 THEN NULL ELSE d.denunciante_nome END as denunciante_nome,
         CASE WHEN NOT $1 THEN NULL ELSE d.denunciante_email END as denunciante_email,
         u.nome as responsavel_nome

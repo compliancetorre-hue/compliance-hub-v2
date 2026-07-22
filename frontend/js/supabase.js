@@ -381,14 +381,10 @@ async function sbBulkImportDenuncias(rows) {
 const DB_KEY = 'compliance_hub_db_v5';
 function saveLocalCache() {
   try {
-    // SEGURANÇA: denúncias NÃO são gravadas no localStorage. Elas contêm PII
-    // do denunciante (nome/telefone/e-mail) e o relato — dado sensível que não
-    // pode ficar em texto claro no disco do navegador. Ficam só em memória
-    // durante a sessão e são sempre recarregadas do Supabase após o login.
     localStorage.setItem(DB_KEY, JSON.stringify({
       filiais:DB.filiais, riscos:DB.riscos, rmPlanos:DB.rmPlanos||[],
       rmUnits:RM_UNITS,
-      controles:DB.controles, planos:DB.planos,
+      controles:DB.controles, planos:DB.planos, denuncias:DB.denuncias,
       fbBoards:DB.fbBoards, agenda:DB.agenda||[], _ids:DB._ids, _savedAt:new Date().toISOString()
     }));
   } catch(e) { console.warn('saveLocalCache:', e); }
@@ -408,10 +404,7 @@ function loadLocalCache() {
     if(s.rmPlanos && s.rmPlanos.length > 0) DB.rmPlanos = s.rmPlanos;
     if(s.controles && s.controles.length > 0) DB.controles = s.controles;
     if(s.planos && s.planos.length > 0) DB.planos = s.planos;
-    // SEGURANÇA: denúncias não são mais lidas do cache local (ver
-    // saveLocalCache). Se um cache antigo ainda tiver denúncias gravadas em
-    // texto claro, purga agora regravando o cache sem elas.
-    if(s.denuncias) { try { delete s.denuncias; localStorage.setItem(DB_KEY, JSON.stringify(s)); } catch(e){} }
+    if(s.denuncias && s.denuncias.length > 0) DB.denuncias = s.denuncias;
     if(s.fbBoards) DB.fbBoards = s.fbBoards;
     if(s.agenda && s.agenda.length > 0) DB.agenda = s.agenda;
     if(s._ids) Object.keys(s._ids).forEach(k => { if((s._ids[k]||0) > (DB._ids[k]||0)) DB._ids[k] = s._ids[k]; });
@@ -437,17 +430,3 @@ function forceResetCache() {
   location.reload();
 }
 function clearLocalCache() { localStorage.removeItem(DB_KEY); }
-
-// SEGURANÇA: em TODO carregamento da página (mesmo deslogado), remove do cache
-// em disco qualquer denúncia que tenha sido gravada em texto claro por versões
-// anteriores do app. Roda antes do login porque loadLocalCache() agora só é
-// chamado com sessão válida — sem isto, o cache legado ficaria acessível a quem
-// abrisse o localStorage direto, sem autenticar.
-(function purgeLegacyDenunciasCache() {
-  try {
-    const raw = localStorage.getItem(DB_KEY);
-    if(!raw) return;
-    const s = JSON.parse(raw);
-    if(s && s.denuncias) { delete s.denuncias; localStorage.setItem(DB_KEY, JSON.stringify(s)); }
-  } catch(e) {}
-})();

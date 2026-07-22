@@ -103,7 +103,7 @@ router.post('/logout', async (req, res) => {
   const token = authHeader && authHeader.split(' ')[1];
   if (token) {
     try {
-      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      const decoded = jwt.verify(token, process.env.JWT_SECRET, { algorithms: ['HS256'] });
       await registrarLog({ tipo: 'logout', usuario_id: decoded.userId, descricao: 'Logout realizado', ip: req.ip });
     } catch {}
   }
@@ -117,7 +117,7 @@ router.post('/logout', async (req, res) => {
 router.post('/alterar-senha', [
   body('senha_atual').notEmpty(),
   body('nova_senha').isLength({ min: 8 }).withMessage('Minimo 8 caracteres')
-    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*d)/).withMessage('Deve conter maiuscula, minuscula e numero')
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/).withMessage('Deve conter maiuscula, minuscula e numero')
 ], async (req, res) => {
   const errors = validationResult(req);
   if (!errors.isEmpty()) return res.status(400).json({ errors: errors.array() });
@@ -127,7 +127,7 @@ router.post('/alterar-senha', [
   if (!token) return res.status(401).json({ error: 'Nao autenticado' });
 
   try {
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET, { algorithms: ['HS256'] });
     const result = await query('SELECT id, senha_hash FROM usuarios WHERE id = $1', [decoded.userId]);
     if (result.rows.length === 0) return res.status(404).json({ error: 'Usuario nao encontrado' });
 

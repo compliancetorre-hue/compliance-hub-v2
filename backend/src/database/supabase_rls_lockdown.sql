@@ -17,15 +17,6 @@
 -- Function usa a service_role key para acessar o banco, ela IGNORA RLS
 -- automaticamente — então isso não quebra a função, só bloqueia acesso
 -- direto via anon/authenticated key.
---
--- CONFIRMADO AO VIVO (leitura, sem nenhuma credencial além da anon key
--- pública do frontend): "denuncias", "settings" (incluindo a chave
--- "usuarios_extras", que guarda e-mail + hash de senha de cada usuário
--- extra) e "filiais" respondiam com dados reais. "audit_logs" (que hoje
--- guarda CPF completo de cada pesquisa do Due Diligence) foi adicionada
--- a este script porque também não estava protegida e não constava na
--- versão anterior. "usuarios" já retornou vazio nesse teste — mantenha
--- a checagem do passo 2 mesmo assim pra confirmar depois de rodar tudo.
 -- ============================================================
 
 ALTER TABLE filiais     ENABLE ROW LEVEL SECURITY;
@@ -37,7 +28,6 @@ ALTER TABLE fbboards    ENABLE ROW LEVEL SECURITY;
 ALTER TABLE rm_planos   ENABLE ROW LEVEL SECURITY;
 ALTER TABLE agenda      ENABLE ROW LEVEL SECURITY;
 ALTER TABLE settings    ENABLE ROW LEVEL SECURITY;
-ALTER TABLE audit_logs  ENABLE ROW LEVEL SECURITY;
 
 -- Nenhuma policy é criada para anon/authenticated de propósito:
 -- com RLS ligado e ZERO policies, toda query dessas roles é negada
@@ -46,16 +36,15 @@ ALTER TABLE audit_logs  ENABLE ROW LEVEL SECURITY;
 
 -- Revogação explícita de privilégios de tabela (defesa em profundidade,
 -- redundante com RLS mas não custa nada):
-REVOKE ALL ON filiais    FROM anon, authenticated;
-REVOKE ALL ON riscos     FROM anon, authenticated;
-REVOKE ALL ON controles  FROM anon, authenticated;
-REVOKE ALL ON planos     FROM anon, authenticated;
-REVOKE ALL ON denuncias  FROM anon, authenticated;
-REVOKE ALL ON fbboards   FROM anon, authenticated;
-REVOKE ALL ON rm_planos  FROM anon, authenticated;
-REVOKE ALL ON agenda     FROM anon, authenticated;
-REVOKE ALL ON settings   FROM anon, authenticated;
-REVOKE ALL ON audit_logs FROM anon, authenticated;
+REVOKE ALL ON filiais   FROM anon, authenticated;
+REVOKE ALL ON riscos    FROM anon, authenticated;
+REVOKE ALL ON controles FROM anon, authenticated;
+REVOKE ALL ON planos    FROM anon, authenticated;
+REVOKE ALL ON denuncias FROM anon, authenticated;
+REVOKE ALL ON fbboards  FROM anon, authenticated;
+REVOKE ALL ON rm_planos FROM anon, authenticated;
+REVOKE ALL ON agenda    FROM anon, authenticated;
+REVOKE ALL ON settings  FROM anon, authenticated;
 
 -- ============================================================
 -- Checklist depois de rodar:

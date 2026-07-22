@@ -5,16 +5,13 @@ function init() {
 
   // ── Load data: try Supabase first, fall back to local cache
   if(USE_SUPABASE) {
-    // SEGURANÇA: nada de dados (cache local ou render do dashboard) antes de
-    // o servidor validar a sessão. Sem token de servidor, só o login aparece —
-    // denúncias e demais dados sensíveis não entram na memória nem no DOM.
-    // (Antes, loadLocalCache()+renderDashboard() rodavam aqui sem checar
-    // login, deixando o cache exposto atrás do overlay de login.)
+    // Show cache immediately while Supabase loads
+    loadLocalCache();
+    populateFilialSelects();
+    populateRelSelectsForce();
+    renderDashboard();
+    // Only load from Supabase if we have a valid token
     if(getAppToken()) {
-      loadLocalCache();
-      populateFilialSelects();
-      populateRelSelectsForce();
-      renderDashboard();
       loadFromSupabase().then(ok => {
         if(ok) {
           populateFilialSelects();

@@ -1,0 +1,22 @@
+# Dependencias
+node_modules/
+
+# Variaveis de ambiente e segredos
+.env
+.env.*
+!.env.example
+
+# Configuracoes locais do Claude Code (contem chaves de API / tokens)
+.claude/settings.local.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Editores
+.vscode/
+.idea/
