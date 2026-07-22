@@ -145,6 +145,9 @@ function enterApp(user) {
     permLoad();                // carrega permissões do localStorage
     await permLoadFromSupabase(); // atualiza com versão do Supabase
     permAtualizarNav();        // atualiza nav com permissões corretas
+    // Agora que as permissões estão prontas, cai na primeira página
+    // permitida (evita abrir o dashboard sem acesso).
+    irParaPrimeiraPaginaPermitida();
   })();
 
   // Log de login
@@ -168,9 +171,13 @@ function enterApp(user) {
       if(ok) {
         populateFilialSelects();
         populateRelSelectsForce();
-        renderDashboard();
+        if(typeof canAccess !== 'function' || canAccess('dashboard')) renderDashboard();
         if(typeof renderMapaRisco === 'function') renderMapaRisco();
         if(typeof rmUpdateRiscoModalUnits === 'function') rmUpdateRiscoModalUnits();
+        // Com os dados já carregados, reposiciona na primeira página
+        // permitida para que ela renderize com o conteúdo (e não fique
+        // vazia se o login caiu nela antes dos dados chegarem).
+        if(typeof irParaPrimeiraPaginaPermitida === 'function') irParaPrimeiraPaginaPermitida();
       }
     }).catch(e => {
       showLoadingBar(false);

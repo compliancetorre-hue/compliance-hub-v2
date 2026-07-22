@@ -769,6 +769,28 @@ function isAdmin() {
   return currentUser && (currentUser.email === ADMIN_EMAIL || currentUser.perfil === 'Admin');
 }
 
+// Navega para a primeira pagina que o usuario tem permissao de ver.
+// Evita cair no dashboard (ou em qualquer modulo restrito) quando o
+// usuario nao tem acesso a ele.
+function irParaPrimeiraPaginaPermitida() {
+  // Quem pode ver o dashboard comeca por ele (comportamento padrao)
+  if(canAccess('dashboard') && document.getElementById('page-dashboard')) {
+    _gotoImpl('dashboard');
+    return;
+  }
+  // Senao, primeiro modulo permitido que tenha pagina correspondente
+  for(const m of MODULOS) {
+    if(canAccess(m.id) && document.getElementById('page-'+m.id)) {
+      _gotoImpl(m.id);
+      return;
+    }
+  }
+  // Nenhum modulo acessivel: esconde todas as paginas e avisa
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const t = document.getElementById('topbar-title');
+  if(t) t.textContent = 'Sem módulos disponíveis';
+}
+
 // ── Atualizar nav com base nas permissões
 function permAtualizarNav() {
   MODULOS.forEach(m => {
