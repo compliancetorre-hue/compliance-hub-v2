@@ -44,6 +44,39 @@
 </head>
 <body>
 
+<!--
+=================================================================================
+  DUE DILIGENCE — VERSÃO QUE FUNCIONA (via SUPABASE EDGE FUNCTION)  ·  LEIA ISTO
+=================================================================================
+
+  >>> NOTA PARA O PRÓXIMO DESENVOLVEDOR / CLAUDE <<<
+
+  Esta é a versão COMPLETA e FUNCIONAL do Due Diligence 2, para abrir sozinha
+  (arquivo único, fora do app principal). TODAS as buscas funcionam porque as
+  chamadas passam pela Supabase Edge Function ("/functions/v1/api"), que faz a
+  requisição SERVIDOR-A-SERVIDOR — assim (1) as chaves ficam protegidas no
+  servidor e (2) não há bloqueio de CORS (o problema que trava a versão estática
+  "due-diligence-estatico.html", ver a nota daquele arquivo).
+
+  COMO FUNCIONA
+  -------------
+  - Ao abrir, cai direto na busca; só pede LOGIN na primeira vez (as buscas do
+    Portal/diários exigem um token de sessão; sem ele a Edge devolve 401).
+  - O login (POST ${EDGE_URL}/login com {email, senha}) devolve um token JWT que
+    é guardado em localStorage (chave 'dd_standalone_token') e mandado nas
+    buscas via header 'x-app-token'. Enquanto o token vale (~8h), abre direto.
+  - dd2PortalUrl -> ${EDGE_URL}/portal/<rota> ; dd2ProxyUrl -> ${EDGE_URL}/proxy?url=...
+    (é o roteamento ORIGINAL do dd2, sem overrides — por isso não há CORS.)
+
+  RELAÇÃO COM OS OUTROS ARQUIVOS
+  ------------------------------
+  - due-diligence-estatico.html : sem servidor/sem login, chama as APIs direto —
+    mas Portal/diários/TCU ficam bloqueados por CORS (só judicial/sócios funcionam).
+  - Este arquivo : usa a Edge como proxy -> tudo funciona, com login único.
+  - A Edge Function fica em: Supabase projeto qhtkuarlsjlnfkzfmxwa, função "api".
+=================================================================================
+-->
+
   <!-- ===== LOGIN GATE (aparece só se não houver sessão válida) ===== -->
   <div id="dd-gate">
     <div class="gate-card">
@@ -2504,7 +2537,7 @@ function dd2RenderChecklist(){
 
       window.ddMostrarApp = function(){
         gate.style.display = 'none';
-        app.style.display = '';
+        app.style.display = 'block';   // 'block' explícito: '' voltaria à regra CSS #dd-app{display:none}
         const lbl = document.getElementById('dd-user-label');
         if(lbl) lbl.textContent = nomeDoToken();
       };
